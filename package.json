@@ -5,16 +5,27 @@
     "main": "dist/tactileglass.css",
     "style": "dist/tactileglass.css",
     "sass": "src/scss/tactileglass.scss",
+    "homepage": "https://slurrps-mcgee.github.io/Tactile-Glass/",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/slurrps-mcgee/Tactile-Glass.git"
+    },
+    "bugs": {
+        "url": "https://github.com/slurrps-mcgee/Tactile-Glass/issues"
+    },
+    "directories": {
+        "doc": "docs"
+    },
     "files": [
       "dist",
       "src/scss"
     ],
     "scripts": {
-        "sass:build": "sass src/scss/tactileglass.scss dist/tactileglass.css --no-source-map",
-        "sass:watch": "sass src/scss/tactileglass.scss dist/tactileglass.css --watch --no-source-map",
+        "sass:build": "sass src/scss/tactileglass.scss dist/tactileglass.css --no-source-map && cp dist/tactileglass.css docs/tactileglass.css",
+        "sass:watch": "sass src/scss/tactileglass.scss:dist/tactileglass.css src/scss/tactileglass.scss:docs/tactileglass.css --watch --no-source-map",
         "css:minify": "lightningcss --minify --bundle --targets \"> 0.25%\" dist/tactileglass.css -o dist/tactileglass.min.css",
         "build": "npm run sass:build && npm run css:minify",
-        "serve": "live-server src/docs --mount=/dist:./dist --open=/index.html",
+        "serve": "live-server docs --open=/index.html",
         "dev": "npm run sass:build && concurrently -k \"npm run sass:watch\" \"npm run serve\""
     },
     "keywords": [

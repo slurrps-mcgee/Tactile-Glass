@@ -1,8 +1,9 @@
 /node_modules
 /dist
+/docs/tactileglass.css
+/docs/tactileglass.min.css
 /build
 /coverage
-/docs
 /examples
 /tests
 /tmp
