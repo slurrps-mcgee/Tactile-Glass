@@ -1,0 +1,74 @@
+@use '../base/mixins' as *;
+
+.tg-table {
+  width: 100%;
+  font-size: var(--fs-sm);
+
+  th,
+  td {
+    padding: var(--sz-3) var(--sz-4);
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  thead th {
+    font-size: var(--fs-xs);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--letter-spacing-wide);
+    text-transform: uppercase;
+    color: var(--clr-slate);
+    border-bottom: 1px solid rgba(76, 75, 99, 0.12);
+  }
+
+  tbody td {
+    border-bottom: 1px solid rgba(76, 75, 99, 0.08);
+    color: var(--clr-dark);
+  }
+
+  tbody tr:last-child td {
+    border-bottom: 0;
+  }
+}
+
+.neu-table,
+.glass-table,
+.hybrid-table {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+
+  .tg-table {
+    margin: 0;
+  }
+}
+
+.neu-table {
+  @include neu-surface;
+}
+
+.glass-table {
+  @include glass-surface;
+}
+
+.hybrid-table {
+  @include hybrid-surface;
+}
+
+.table-striped tbody tr:nth-child(even) {
+  background: rgba(76, 75, 99, 0.04);
+}
+
+.table-hover tbody tr {
+  @include interactive-transition;
+
+  @media (hover: hover) {
+    &:hover {
+      background: rgba(255, 255, 255, 0.22);
+    }
+  }
+}
+
+.table-sm th,
+.table-sm td {
+  padding: var(--sz-2) var(--sz-3);
+}

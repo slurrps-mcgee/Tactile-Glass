@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    try { if (localStorage.getItem('tg-theme') === 'dark') document.documentElement.classList.add('theme-dark'); } catch (e) {}
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TactileGlass CSS — Overrides</title>
+  <link rel="stylesheet" href="/dist/tactileglass.css">
+  <link rel="stylesheet" href="docs.css">
+  <style>
+    .demo-aurora {
+      --clr-primary: #c084fc;
+      --clr-primary-rgb: 192, 132, 252;
+      --focus-ring: 2px solid #c084fc;
+    }
+
+    .demo-tight {
+      --radius-sm: 4px;
+      --radius-md: 6px;
+      --radius-lg: 10px;
+      --radius-squircle: 0.75rem;
+    }
+
+    .demo-clay {
+      --clr-bg: #d7c4b0;
+      --clr-bg-rgb: 215, 196, 176;
+      --neu-shadow-drop: 8px 8px 16px #b59d86, -8px -8px 16px #f3e6d6;
+      --neu-shadow-inset: inset 4px 4px 8px #b59d86, inset -4px -4px 8px #f3e6d6;
+    }
+  </style>
+</head>
+<body class="p-6">
+  <div class="container">
+
+    <header class="tg-nav hybrid-navbar nav-sticky">
+      <a href="index.html" class="nav-brand text-primary">TactileGlass.css</a>
+      <div class="nav-end">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
+          <svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.3A8.4 8.4 0 1 1 9.7 3 7 7 0 0 0 21 14.3z"/></svg>
+          <svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <nav class="nav-links">
+          <a href="index.html" class="font-medium">Dashboard</a>
+          <a href="components.html" class="font-medium">Components</a>
+          <a href="docs.html" class="font-medium">Docs</a>
+          <a href="overrides.html" class="is-active font-medium">Overrides</a>
+          <a href="https://www.npmjs.com/package/tactileglass-css" class="font-medium">npm</a>
+          <a href="https://github.com/slurrps-mcgee/Tactile-Glass" class="font-medium">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hybrid-card mb-8">
+      <span class="hybrid-badge badge-primary badge-pill self-start mb-3">Theming</span>
+      <h1 class="text-2xl font-bold font-display lh-tight track-tight">Overrides</h1>
+      <p class="text-base lh-relaxed mt-2">
+        TactileGlass is token-driven. You do not fork the Sass to recolor an app —
+        reassign CSS variables on <code>:root</code> or on a wrapper. Tokens inherit,
+        so a scoped class restyles every descendant control.
+      </p>
+    </section>
+
+    <section class="neu-card mb-8">
+      <h2 class="text-xl font-display mb-3">1. Global <code>:root</code></h2>
+      <p class="text-sm mb-3">
+        Load TactileGlass first, then your stylesheet. Anything you set on
+        <code>:root</code> replaces the default palette for the whole page.
+      </p>
+      <pre class="morph-neu-inset rounded-md p-4 text-sm">&lt;link rel="stylesheet" href="tactileglass.css"&gt;
+&lt;style&gt;
+  :root {
+    --clr-primary: #c084fc;
+    --clr-primary-rgb: 192, 132, 252;
+    --clr-bg: #c8c2d4;
+    --radius-md: 12px;
+  }
+&lt;/style&gt;</pre>
+      <p class="text-sm mt-3 mb-0">
+        Keep the matching <code>*-rgb</code> channel in sync when you change a color.
+        Semantic fills use <code>rgba(var(--clr-primary-rgb), 0.15)</code> for tints.
+      </p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-xl font-display mb-2">2. Scoped brand</h2>
+      <p class="text-sm mb-4">
+        A wrapper class is enough for a marketing island or a dashboard module.
+        This block sets <code>--clr-primary</code> to violet; buttons, badges, and
+        text-primary inside it follow.
+      </p>
+      <div class="demo-aurora hybrid-card">
+        <h3 class="text-lg mb-3">.demo-aurora</h3>
+        <div class="d-flex f-wrap gap-3 mb-4">
+          <button class="hybrid-btn btn-primary">Primary</button>
+          <button class="hybrid-btn">Default</button>
+          <span class="hybrid-badge badge-primary">badge-primary</span>
+          <a href="#brand" class="text-primary font-medium">text-primary link</a>
+        </div>
+        <pre class="morph-neu-inset rounded-md p-4 text-sm mb-0">.demo-aurora {
+  --clr-primary: #c084fc;
+  --clr-primary-rgb: 192, 132, 252;
+}</pre>
+      </div>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-xl font-display mb-2">3. Radius and clay</h2>
+      <p class="text-sm mb-4">
+        Rounding and neu shadows are tokens too. Sharpen corners with
+        <code>--radius-*</code>, or retint the clay with <code>--clr-bg</code> plus a matching shadow pair.
+      </p>
+      <div class="grid grid-2 gap-6">
+        <article class="demo-tight neu-card">
+          <h3 class="text-lg mb-3">Tight radii</h3>
+          <div class="d-flex f-col gap-3">
+            <button class="neu-btn btn-primary">neu-btn btn-primary</button>
+            <input class="neu-input" type="text" value="input follows --radius-md">
+          </div>
+          <pre class="morph-neu-inset rounded-md p-3 text-xs mt-4 mb-0">--radius-md: 6px;
+--radius-lg: 10px;</pre>
+        </article>
+        <article class="demo-clay neu-card">
+          <h3 class="text-lg mb-3">Warm clay</h3>
+          <div class="d-flex f-col gap-3">
+            <button class="neu-btn">neu-btn</button>
+            <div class="morph-neu-inset rounded-md p-4 text-sm">morph-neu-inset</div>
+          </div>
+          <pre class="morph-neu-inset rounded-md p-3 text-xs mt-4 mb-0">--clr-bg: #d7c4b0;
+--neu-shadow-drop: 8px 8px 16px #b59d86,
+  -8px -8px 16px #f3e6d6;</pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-xl font-display mb-2">4. Nested themes</h2>
+      <p class="text-sm mb-4">
+        <code>theme-dark</code> and <code>theme-light</code> are utilities, not page-only flags.
+        Drop them on any wrapper. The navbar toggle still sets
+        <code>theme-dark</code> on <code>&lt;html&gt;</code>.
+      </p>
+      <div class="grid grid-2 gap-6">
+        <article class="theme-dark p-6 rounded-lg">
+          <h3 class="text-lg mb-2">theme-dark island</h3>
+          <p class="text-sm mb-4">Canvas, ink, and shadows flip even if the page is light.</p>
+          <div class="d-flex f-wrap gap-3">
+            <button class="neu-btn btn-primary">Primary</button>
+            <button class="glass-btn">Glass</button>
+            <span class="neu-badge badge-success">ok</span>
+          </div>
+        </article>
+        <article class="theme-light p-6 rounded-lg">
+          <h3 class="text-lg mb-2">theme-light island</h3>
+          <p class="text-sm mb-4">Force the default palette inside a dark page.</p>
+          <div class="d-flex f-wrap gap-3">
+            <button class="neu-btn btn-primary">Primary</button>
+            <button class="glass-btn">Glass</button>
+            <span class="neu-badge badge-success">ok</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="glass-card mb-8">
+      <h2 class="text-xl font-display mb-3">5. What to override</h2>
+      <div class="overflow-x-auto">
+        <table class="token-table">
+          <thead>
+            <tr>
+              <th>If you want to change…</th>
+              <th>Set</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="swatch" style="background: var(--clr-primary)"></span>Brand / focus</td>
+              <td><code>--clr-primary</code> and <code>--clr-primary-rgb</code></td>
+            </tr>
+            <tr>
+              <td>Page ink</td>
+              <td><code>--clr-dark</code>, <code>--clr-slate</code></td>
+            </tr>
+            <tr>
+              <td>Neu clay</td>
+              <td><code>--clr-bg</code> plus <code>--neu-shadow-drop</code> / <code>--neu-shadow-inset</code></td>
+            </tr>
+            <tr>
+              <td>Glass frost</td>
+              <td><code>--glass-bg</code>, <code>--glass-blur</code>, <code>--glass-border</code>, <code>--hybrid-bg</code></td>
+            </tr>
+            <tr>
+              <td>Rounding</td>
+              <td><code>--radius-sm</code>, <code>--radius-md</code>, <code>--radius-lg</code>, <code>--radius-squircle</code></td>
+            </tr>
+            <tr>
+              <td>Type</td>
+              <td><code>--font-sans</code>, <code>--font-display</code>, <code>--fs-base</code></td>
+            </tr>
+            <tr>
+              <td>Dark palette</td>
+              <td>Prefer <code>theme-dark</code>; or override the same tokens under <code>.theme-dark</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-sm mt-4 mb-0">
+        Full names are listed in
+        <a class="text-primary font-medium" href="docs.html#tokens">the docs token table</a>
+        and in <code>src/scss/base/_tokens.scss</code>.
+      </p>
+    </section>
+
+  </div>
+  <script src="docs.js"></script>
+</body>
+</html>

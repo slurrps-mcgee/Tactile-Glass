@@ -1,0 +1,114 @@
+/* src/scss/base/_tokens.scss */
+
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;
+$bp-xxl: 1400px;
+
+:root {
+  /* ==========================================================================
+     Core Design Palette
+     ========================================================================== */
+  --clr-primary: #5386E4;
+  --clr-dark: #4C4B63;
+  --clr-slate: #949396;
+  --clr-light-gray: #ABA8B2;
+  --clr-bg: #C3C3C3;
+  --clr-white: #ffffff;
+
+  --clr-primary-rgb: 83, 134, 228;
+  --clr-dark-rgb: 76, 75, 99;
+  --clr-slate-rgb: 148, 147, 150;
+  --clr-bg-rgb: 195, 195, 195;
+  --clr-success-rgb: 46, 196, 182;
+  --clr-warning-rgb: 255, 159, 28;
+  --clr-danger-rgb: 231, 29, 54;
+
+  /* ==========================================================================
+     System Alert & Feedback Palette
+     ========================================================================== */
+  --clr-success: #2ec4b6;
+  --clr-warning: #ff9f1c;
+  --clr-danger: #e71d36;
+
+  color-scheme: light;
+
+  /* ==========================================================================
+     Glassmorphism Engine Parameters
+     ========================================================================== */
+  --glass-bg: rgba(255, 255, 255, 0.25);
+  --glass-blur: blur(16px);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.4);
+  --glass-shadow: 0 8px 32px 0 rgba(76, 75, 99, 0.08);
+  --hybrid-bg: rgba(255, 255, 255, 0.18);
+  --code-bg: rgba(76, 75, 99, 0.08);
+  --border-subtle: rgba(76, 75, 99, 0.18);
+  --hr-color: rgba(76, 75, 99, 0.12);
+
+  /* ==========================================================================
+     Neumorphic Tactile Shadow Engine
+     ========================================================================== */
+  --neu-shadow-drop: 8px 8px 16px #a6a6a6, -8px -8px 16px #e0e0e0;
+  --neu-shadow-inset: inset 4px 4px 8px #a6a6a6, inset -4px -4px 8px #e0e0e0;
+  --neu-shadow-lift: 12px 12px 24px #a6a6a6, -12px -12px 24px #e0e0e0;
+
+  /* ==========================================================================
+     Typography Definitions
+     ========================================================================== */
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
+  --font-display: 'Futura', 'Trebuchet MS', Arial, system-ui, sans-serif;
+  --font-serif: 'Georgia', 'Times New Roman', Times, serif;
+  --font-mono: 'SF Mono', 'Cascadia Code', 'Fira Code', Menlo, Monaco, Consolas, monospace;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.2;
+  --line-height-relaxed: 1.5;
+  --line-height-loose: 1.8;
+
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-relaxed: -0.01em;
+  --letter-spacing-loose: 0.01em;
+  --letter-spacing-wide: 0.08em;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.5rem;
+  --fs-2xl: 2rem;
+
+  /* ==========================================================================
+     Layout Spacing Grid Scale
+     ========================================================================== */
+  --sz-1: 0.25rem;
+  --sz-2: 0.5rem;
+  --sz-3: 0.75rem;
+  --sz-4: 1rem;
+  --sz-6: 1.5rem;
+  --sz-8: 2rem;
+  --sz-12: 3rem;
+
+  /* ==========================================================================
+     Structural Component Border Radii
+     ========================================================================== */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-squircle: 1.75rem;
+  --radius-pill: 9999px;
+
+  /* ==========================================================================
+     Motion, Focus, Stacking
+     ========================================================================== */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 0.2s;
+  --focus-ring: 2px solid var(--clr-primary);
+  --focus-offset: 4px;
+  --z-base: 1;
+  --z-sticky: 1000;
+  --z-overlay: 1100;
+}

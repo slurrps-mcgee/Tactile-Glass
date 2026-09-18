@@ -1,0 +1,119 @@
+/* src/scss/utilities/_spacing.scss */
+
+/* ==========================================================================
+   Padding Utilities Scale
+   ========================================================================== */
+   .p-0 { padding: 0 !important; }
+   .p-1 { padding: var(--sz-1) !important; }
+   .p-2 { padding: var(--sz-2) !important; }
+   .p-3 { padding: var(--sz-3) !important; }
+   .p-4 { padding: var(--sz-4) !important; }
+   .p-6 { padding: var(--sz-6) !important; }
+   .p-8 { padding: var(--sz-8) !important; }
+   .p-12 { padding: var(--sz-12) !important; }
+   
+   // Directional Padding
+   .pt-1 { padding-top: var(--sz-1) !important; }
+   .pt-2 { padding-top: var(--sz-2) !important; }
+   .pt-3 { padding-top: var(--sz-3) !important; }
+   .pt-4 { padding-top: var(--sz-4) !important; }
+   .pt-6 { padding-top: var(--sz-6) !important; }
+   .pt-8 { padding-top: var(--sz-8) !important; }
+   
+   .pb-1 { padding-bottom: var(--sz-1) !important; }
+   .pb-2 { padding-bottom: var(--sz-2) !important; }
+   .pb-3 { padding-bottom: var(--sz-3) !important; }
+   .pb-4 { padding-bottom: var(--sz-4) !important; }
+   .pb-6 { padding-bottom: var(--sz-6) !important; }
+   .pb-8 { padding-bottom: var(--sz-8) !important; }
+   
+   .pl-1 { padding-left: var(--sz-1) !important; }
+   .pl-2 { padding-left: var(--sz-2) !important; }
+   .pl-3 { padding-left: var(--sz-3) !important; }
+   .pl-4 { padding-left: var(--sz-4) !important; }
+   .pl-6 { padding-left: var(--sz-6) !important; }
+   .pl-8 { padding-left: var(--sz-8) !important; }
+   
+   .pr-1 { padding-right: var(--sz-1) !important; }
+   .pr-2 { padding-right: var(--sz-2) !important; }
+   .pr-3 { padding-right: var(--sz-3) !important; }
+   .pr-4 { padding-right: var(--sz-4) !important; }
+   .pr-6 { padding-right: var(--sz-6) !important; }
+   .pr-8 { padding-right: var(--sz-8) !important; }
+   
+   // Axis Padding
+   .px-1 { padding-left: var(--sz-1) !important; padding-right: var(--sz-1) !important; }
+   .px-2 { padding-left: var(--sz-2) !important; padding-right: var(--sz-2) !important; }
+   .px-3 { padding-left: var(--sz-3) !important; padding-right: var(--sz-3) !important; }
+   .px-4 { padding-left: var(--sz-4) !important; padding-right: var(--sz-4) !important; }
+   .px-6 { padding-left: var(--sz-6) !important; padding-right: var(--sz-6) !important; }
+   .px-8 { padding-left: var(--sz-8) !important; padding-right: var(--sz-8) !important; }
+   
+   .py-1 { padding-top: var(--sz-1) !important; padding-bottom: var(--sz-1) !important; }
+   .py-2 { padding-top: var(--sz-2) !important; padding-bottom: var(--sz-2) !important; }
+   .py-3 { padding-top: var(--sz-3) !important; padding-bottom: var(--sz-3) !important; }
+   .py-4 { padding-top: var(--sz-4) !important; padding-bottom: var(--sz-4) !important; }
+   .py-6 { padding-top: var(--sz-6) !important; padding-bottom: var(--sz-6) !important; }
+   .py-8 { padding-top: var(--sz-8) !important; padding-bottom: var(--sz-8) !important; }
+   
+   /* ==========================================================================
+      Margin Utilities Scale
+      ========================================================================== */
+   .m-0 { margin: 0 !important; }
+   .m-1 { margin: var(--sz-1) !important; }
+   .m-2 { margin: var(--sz-2) !important; }
+   .m-3 { margin: var(--sz-3) !important; }
+   .m-4 { margin: var(--sz-4) !important; }
+   .m-6 { margin: var(--sz-6) !important; }
+   .m-8 { margin: var(--sz-8) !important; }
+   .m-auto { margin: auto !important; }
+   
+   // Directional Margin
+   .mt-1 { margin-top: var(--sz-1) !important; }
+   .mt-2 { margin-top: var(--sz-2) !important; }
+   .mt-3 { margin-top: var(--sz-3) !important; }
+   .mt-4 { margin-top: var(--sz-4) !important; }
+   .mt-6 { margin-top: var(--sz-6) !important; }
+   .mt-8 { margin-top: var(--sz-8) !important; }
+   .mt-auto { margin-top: auto !important; }
+   
+   .mb-1 { margin-bottom: var(--sz-1) !important; }
+   .mb-2 { margin-bottom: var(--sz-2) !important; }
+   .mb-3 { margin-bottom: var(--sz-3) !important; }
+   .mb-4 { margin-bottom: var(--sz-4) !important; }
+   .mb-6 { margin-bottom: var(--sz-6) !important; }
+   .mb-8 { margin-bottom: var(--sz-8) !important; }
+   .mb-auto { margin-bottom: auto !important; }
+   
+   .ml-1 { margin-left: var(--sz-1) !important; }
+   .ml-2 { margin-left: var(--sz-2) !important; }
+   .ml-3 { margin-left: var(--sz-3) !important; }
+   .ml-4 { margin-left: var(--sz-4) !important; }
+   .ml-6 { margin-left: var(--sz-6) !important; }
+   .ml-8 { margin-left: var(--sz-8) !important; }
+   .ml-auto { margin-left: auto !important; }
+   
+   .mr-1 { margin-right: var(--sz-1) !important; }
+   .mr-2 { margin-right: var(--sz-2) !important; }
+   .mr-3 { margin-right: var(--sz-3) !important; }
+   .mr-4 { margin-right: var(--sz-4) !important; }
+   .mr-6 { margin-right: var(--sz-6) !important; }
+   .mr-8 { margin-right: var(--sz-8) !important; }
+   .mr-auto { margin-right: auto !important; }
+   
+   // Axis Margin
+   .mx-1 { margin-left: var(--sz-1) !important; margin-right: var(--sz-1) !important; }
+   .mx-2 { margin-left: var(--sz-2) !important; margin-right: var(--sz-2) !important; }
+   .mx-3 { margin-left: var(--sz-3) !important; margin-right: var(--sz-3) !important; }
+   .mx-4 { margin-left: var(--sz-4) !important; margin-right: var(--sz-4) !important; }
+   .mx-6 { margin-left: var(--sz-6) !important; margin-right: var(--sz-6) !important; }
+   .mx-8 { margin-left: var(--sz-8) !important; margin-right: var(--sz-8) !important; }
+   .mx-auto { margin-left: auto !important; margin-right: auto !important; }
+   
+   .my-1 { margin-top: var(--sz-1) !important; margin-bottom: var(--sz-1) !important; }
+   .my-2 { margin-top: var(--sz-2) !important; margin-bottom: var(--sz-2) !important; }
+   .my-3 { margin-top: var(--sz-3) !important; margin-bottom: var(--sz-3) !important; }
+   .my-4 { margin-top: var(--sz-4) !important; margin-bottom: var(--sz-4) !important; }
+   .my-6 { margin-top: var(--sz-6) !important; margin-bottom: var(--sz-6) !important; }
+   .my-8 { margin-top: var(--sz-8) !important; margin-bottom: var(--sz-8) !important; }
+   

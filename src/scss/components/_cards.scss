@@ -1,0 +1,128 @@
+@use '../base/mixins' as *;
+@use 'sass:map';
+
+/* ==========================================================================
+   Shared Card Skeleton
+   ========================================================================== */
+.neu-card,
+.glass-card,
+.hybrid-card,
+.card-hybrid {
+  display: flex;
+  flex-direction: column;
+  padding: var(--sz-6);
+  border-radius: var(--radius-lg);
+  @include interactive-transition;
+}
+
+/* ==========================================================================
+   1. PURE NEUMORPHIC SYSTEM (Tactile Card Base)
+   ========================================================================== */
+.neu-card {
+  @include neu-surface;
+
+  &.neu-card-inset {
+    box-shadow: var(--neu-shadow-inset);
+  }
+}
+
+/* ==========================================================================
+   2. PURE GLASSMORPHIC SYSTEM (Acrylic Card Base)
+   ========================================================================== */
+.glass-card {
+  @include glass-surface;
+}
+
+/* ==========================================================================
+   3. THE COMBINED SIGNATURE SYSTEM (Hybrid Card Base)
+   ========================================================================== */
+.hybrid-card,
+.card-hybrid {
+  @include hybrid-surface;
+}
+
+/* ==========================================================================
+   Shared Pieces
+   ========================================================================== */
+.card-header {
+  margin-bottom: var(--sz-4);
+  padding-bottom: var(--sz-3);
+  border-bottom: 1px solid rgba(76, 75, 99, 0.08);
+}
+
+.card-body {
+  flex: 1 1 auto;
+  color: var(--clr-dark);
+}
+
+.card-footer {
+  margin-top: var(--sz-4);
+  padding-top: var(--sz-3);
+  border-top: 1px solid rgba(76, 75, 99, 0.08);
+  display: flex;
+  align-items: center;
+  gap: var(--sz-3);
+}
+
+/* ==========================================================================
+   Bootstrap-style Card Modifiers
+   ========================================================================== */
+.card-sm {
+  padding: var(--sz-4);
+  border-radius: var(--radius-md);
+}
+
+.card-lg {
+  padding: var(--sz-8);
+}
+
+.card-flush {
+  padding: 0;
+
+  .card-header,
+  .card-footer {
+    margin: 0;
+    padding: var(--sz-4);
+  }
+
+  .card-body {
+    padding: var(--sz-4);
+  }
+}
+
+.card-inset {
+  box-shadow: var(--neu-shadow-inset) !important;
+}
+
+.card-pill {
+  border-radius: var(--radius-pill);
+}
+
+.card-interactive {
+  cursor: pointer;
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--neu-shadow-lift);
+    }
+
+    &.glass-card:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    &.hybrid-card:hover,
+    &.card-hybrid:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+  }
+}
+
+@each $name, $meta in $tg-colors {
+  $color: map.get($meta, color);
+  $rgb: map.get($meta, rgb);
+
+  .card-#{$name} {
+    @include semantic-lens($color, $rgb);
+  }
+}

@@ -1,0 +1,21 @@
+@use '../base/mixins' as *;
+@use 'sass:map';
+
+.bg-canvas { background-color: var(--clr-bg) !important; }
+.bg-white { background-color: var(--clr-white) !important; }
+.bg-transparent { background-color: transparent !important; }
+
+@each $name, $meta in $tg-colors {
+  $color: map.get($meta, color);
+  $rgb: map.get($meta, rgb);
+
+  .bg-#{$name} {
+    background-color: $color !important;
+    color: var(--clr-white) !important;
+  }
+
+  .tint-#{$name} {
+    background: tg-rgba($rgb, 0.15) !important;
+    color: $color !important;
+  }
+}

@@ -1,0 +1,54 @@
+@use '../base/mixins' as *;
+
+.neu-list,
+.glass-list,
+.hybrid-list {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.neu-list {
+  @include neu-surface;
+}
+
+.glass-list {
+  @include glass-surface;
+}
+
+.hybrid-list {
+  @include hybrid-surface;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sz-4);
+  padding: var(--sz-4);
+  border-bottom: 1px solid rgba(76, 75, 99, 0.08);
+  color: var(--clr-dark);
+  @include interactive-transition;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.list-item-action {
+  cursor: pointer;
+
+  @media (hover: hover) {
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+.list-flush {
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  border: 0;
+}

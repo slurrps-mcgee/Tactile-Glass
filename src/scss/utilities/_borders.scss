@@ -1,0 +1,54 @@
+@use '../base/mixins' as *;
+@use 'sass:map';
+
+.border { border: 1px solid var(--border-subtle) !important; }
+.border-0 { border: 0 !important; }
+.border-2 { border-width: 2px !important; border-style: solid !important; }
+.border-top { border-top: 1px solid var(--border-subtle) !important; }
+.border-bottom { border-bottom: 1px solid var(--border-subtle) !important; }
+.border-start { border-left: 1px solid var(--border-subtle) !important; }
+.border-end { border-right: 1px solid var(--border-subtle) !important; }
+
+@each $name, $meta in $tg-colors {
+  $color: map.get($meta, color);
+
+  .border-#{$name} { border-color: $color !important; }
+}
+
+.border-white { border-color: var(--clr-white) !important; }
+.border-canvas { border-color: var(--clr-bg) !important; }
+
+.rounded { border-radius: var(--radius-md) !important; }
+.rounded-0,
+.rounded-none { border-radius: 0 !important; }
+.rounded-sm { border-radius: var(--radius-sm) !important; }
+.rounded-md { border-radius: var(--radius-md) !important; }
+.rounded-lg { border-radius: var(--radius-lg) !important; }
+.rounded-pill { border-radius: var(--radius-pill) !important; }
+.rounded-circle { border-radius: 50% !important; }
+.rounded-full { border-radius: var(--radius-pill) !important; }
+
+.rounded-squircle {
+  border-radius: var(--radius-squircle) !important;
+  corner-shape: squircle;
+}
+
+.rounded-top {
+  border-top-left-radius: var(--radius-md) !important;
+  border-top-right-radius: var(--radius-md) !important;
+}
+
+.rounded-bottom {
+  border-bottom-left-radius: var(--radius-md) !important;
+  border-bottom-right-radius: var(--radius-md) !important;
+}
+
+.rounded-start {
+  border-top-left-radius: var(--radius-md) !important;
+  border-bottom-left-radius: var(--radius-md) !important;
+}
+
+.rounded-end {
+  border-top-right-radius: var(--radius-md) !important;
+  border-bottom-right-radius: var(--radius-md) !important;
+}

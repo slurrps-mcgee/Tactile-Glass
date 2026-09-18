@@ -1,0 +1,52 @@
+@use '../base/mixins' as *;
+
+/* ==========================================================================
+   Morph utilities — paint a surface onto ANY element
+   Components keep neu-btn / glass-card. These classes restyle a raw div.
+   ========================================================================== */
+
+.morph-neu {
+  @include neu-surface;
+  background-color: var(--clr-bg) !important;
+  box-shadow: var(--neu-shadow-drop) !important;
+  border-color: transparent !important;
+}
+
+.morph-neu-inset {
+  @include neu-inset;
+  background-color: var(--clr-bg) !important;
+  box-shadow: var(--neu-shadow-inset) !important;
+  border-color: transparent !important;
+}
+
+.morph-glass {
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+}
+
+.morph-hybrid {
+  background: var(--hybrid-bg) !important;
+  backdrop-filter: var(--glass-blur) !important;
+  -webkit-backdrop-filter: var(--glass-blur) !important;
+  border: var(--glass-border) !important;
+  box-shadow: var(--neu-shadow-drop) !important;
+}
+
+.morph-flat {
+  background-color: var(--clr-bg) !important;
+  box-shadow: none !important;
+  border: 1px solid var(--clr-light-gray) !important;
+}
+
+.morph-lift {
+  box-shadow: var(--neu-shadow-lift) !important;
+}
+
+.morph-none {
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}

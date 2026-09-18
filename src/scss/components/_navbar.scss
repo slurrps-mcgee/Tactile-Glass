@@ -1,0 +1,121 @@
+@use '../base/mixins' as *;
+
+/* ==========================================================================
+   Core Navigation Layout Wrapper
+   ========================================================================== */
+.tg-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sz-4);
+  padding: var(--sz-4) var(--sz-6);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--sz-8);
+  width: 100%;
+  @include interactive-transition;
+
+  .nav-brand {
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--fs-lg);
+    letter-spacing: var(--letter-spacing-tight);
+    text-decoration: none;
+    color: var(--clr-dark);
+    white-space: nowrap;
+  }
+
+  .nav-end {
+    display: flex;
+    align-items: center;
+    gap: var(--sz-4);
+    margin-left: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--sz-6);
+
+    a {
+      text-decoration: none;
+      font-family: var(--font-sans);
+      font-weight: var(--font-weight-medium);
+      font-size: var(--fs-base);
+      color: var(--clr-dark);
+      @include interactive-transition;
+
+      &:hover {
+        color: var(--clr-primary);
+      }
+
+      &.is-active {
+        color: var(--clr-dark);
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   Material Families
+   ========================================================================== */
+.neu-navbar {
+  @include neu-surface;
+}
+
+.glass-navbar {
+  @include glass-surface;
+}
+
+.hybrid-navbar,
+.navbar-hybrid {
+  @include hybrid-surface;
+
+  .nav-links a.is-active {
+    background-color: var(--clr-bg);
+    padding: var(--sz-2) var(--sz-4);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--neu-shadow-inset);
+  }
+}
+
+/* ==========================================================================
+   Bootstrap-style Nav Modifiers
+   ========================================================================== */
+.nav-sm {
+  padding: var(--sz-2) var(--sz-4);
+
+  .nav-brand { font-size: var(--fs-base); }
+  .nav-links { gap: var(--sz-4); }
+  .nav-links a { font-size: var(--fs-sm); }
+}
+
+.nav-lg {
+  padding: var(--sz-6) var(--sz-8);
+
+  .nav-brand { font-size: var(--fs-xl); }
+}
+
+.nav-pill {
+  border-radius: var(--radius-pill);
+}
+
+.nav-flush {
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.nav-sticky {
+  position: sticky;
+  top: var(--sz-4);
+  z-index: var(--z-sticky);
+}
+
+.nav-fixed {
+  position: fixed;
+  top: var(--sz-4);
+  left: var(--sz-4);
+  right: var(--sz-4);
+  width: auto;
+  z-index: var(--z-sticky);
+}

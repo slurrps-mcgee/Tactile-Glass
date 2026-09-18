@@ -1,0 +1,114 @@
+:root {
+  --page-bg: radial-gradient(circle at 28% 18%, #f3c6dc 0%, #94bbe9 100%);
+}
+
+html.theme-dark {
+  --page-bg: radial-gradient(circle at 28% 18%, #3a2a48 0%, #1c2438 100%);
+}
+
+body {
+  background: var(--page-bg);
+  background-attachment: fixed;
+}
+
+.class-chip {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  padding: 0.1rem 0.4rem;
+  border-radius: var(--radius-sm);
+  background: var(--code-bg);
+  color: var(--clr-dark);
+}
+
+.catalog-nav,
+.docs-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sz-2);
+}
+
+.docs-prose h2 {
+  margin-top: var(--sz-8);
+  margin-bottom: var(--sz-3);
+}
+
+.docs-prose h3 {
+  margin-top: var(--sz-6);
+  margin-bottom: var(--sz-2);
+}
+
+.docs-prose p + p {
+  margin-top: var(--sz-3);
+}
+
+.docs-prose ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sz-2);
+  margin: var(--sz-3) 0;
+}
+
+.docs-prose li {
+  padding-left: var(--sz-4);
+  position: relative;
+}
+
+.docs-prose li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--clr-primary);
+}
+
+.token-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+
+.token-table th,
+.token-table td {
+  text-align: left;
+  padding: var(--sz-3) var(--sz-4);
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: top;
+}
+
+.token-table th {
+  font-size: var(--fs-xs);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--clr-slate);
+}
+
+.swatch {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-right: var(--sz-2);
+  box-shadow: var(--neu-shadow-inset);
+}
+
+.container-demo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sz-3);
+  padding-block: var(--sz-4);
+}
+
+.container-demo .demo-band {
+  text-align: center;
+  padding: var(--sz-4);
+}
+
+#containers {
+  margin-left: calc(-1 * var(--sz-6));
+  margin-right: calc(-1 * var(--sz-6));
+}

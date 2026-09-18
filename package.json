@@ -1,0 +1,36 @@
+{
+    "name": "tactileglass-css",
+    "version": "0.1.0",
+    "description": "A premium hybrid CSS framework uniting glassmorphism and tactile neumorphism.",
+    "main": "dist/tactileglass.css",
+    "style": "dist/tactileglass.css",
+    "sass": "src/scss/tactileglass.scss",
+    "files": [
+      "dist",
+      "src/scss"
+    ],
+    "scripts": {
+        "sass:build": "sass src/scss/tactileglass.scss dist/tactileglass.css --no-source-map",
+        "sass:watch": "sass src/scss/tactileglass.scss dist/tactileglass.css --watch --no-source-map",
+        "css:minify": "lightningcss --minify --bundle --targets \"> 0.25%\" dist/tactileglass.css -o dist/tactileglass.min.css",
+        "build": "npm run sass:build && npm run css:minify",
+        "serve": "live-server src/docs --mount=/dist:./dist --open=/index.html",
+        "dev": "npm run sass:build && concurrently -k \"npm run sass:watch\" \"npm run serve\""
+    },
+    "keywords": [
+      "css",
+      "framework",
+      "glassmorphism",
+      "neumorphism",
+      "hybrid",
+      "tactileglass"
+    ],
+    "author": "Your Name",
+    "license": "MIT",
+    "devDependencies": {
+      "concurrently": "^9.1.2",
+      "lightningcss-cli": "^1.29.0",
+      "live-server": "^1.2.0",
+      "sass": "^1.85.0"
+    }
+  }  

@@ -1,0 +1,62 @@
+@use '../base/tokens' as *;
+
+/* ==========================================================================
+   Core Layout Grids (Component Layer)
+   ========================================================================== */
+.grid { display: grid; gap: var(--sz-4); }
+
+.grid-auto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--sz-4);
+  }
+  
+  // Fixed column scaffolding fallbacks
+  .grid-1 { display: grid; grid-template-columns: repeat(1, 1fr); gap: var(--sz-4); }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--sz-4); }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sz-4); }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sz-4); }
+  
+  /* ==========================================================================
+     Atomic Grid Modifiers (Utility Layer)
+     ========================================================================== */
+  // Display Toggle
+  .d-grid { display: grid !important; }
+  
+  // Dynamic Multi-Column Template Overrides
+  .cols-1 { grid-template-columns: repeat(1, 1fr) !important; }
+  .cols-2 { grid-template-columns: repeat(2, 1fr) !important; }
+  .cols-3 { grid-template-columns: repeat(3, 1fr) !important; }
+  .cols-4 { grid-template-columns: repeat(4, 1fr) !important; }
+  
+  // Explicit Column Span Rules (Up to 4 columns)
+  .col-span-1 { grid-column: span 1 / span 1 !important; }
+  .col-span-2 { grid-column: span 2 / span 2 !important; }
+  .col-span-3 { grid-column: span 3 / span 3 !important; }
+  .col-span-4 { grid-column: span 4 / span 4 !important; }
+  .col-span-full { grid-column: 1 / -1 !important; }
+  
+  // Explicit Row Span Rules
+  .row-span-1 { grid-row: span 1 / span 1 !important; }
+  .row-span-2 { grid-row: span 2 / span 2 !important; }
+  .row-span-full { grid-row: 1 / -1 !important; }
+  
+  // Alignment Helpers Within Grids
+  .items-start   { align-items: start !important; }
+  .items-center  { align-items: center !important; }
+  .items-end     { align-items: end !important; }
+  .items-stretch { align-items: stretch !important; }
+  
+  .content-start   { justify-content: start !important; }
+  .content-center  { justify-content: center !important; }
+  .content-end     { justify-content: end !important; }
+  .content-stretch { justify-content: stretch !important; }
+
+@media (max-width: #{$bp-md - 1px}) {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+  

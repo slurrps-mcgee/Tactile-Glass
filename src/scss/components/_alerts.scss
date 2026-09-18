@@ -1,0 +1,45 @@
+@use '../base/mixins' as *;
+@use 'sass:map';
+
+.neu-alert,
+.glass-alert,
+.hybrid-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sz-3);
+  padding: var(--sz-4);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-sm);
+  line-height: var(--line-height-relaxed);
+}
+
+.neu-alert {
+  @include neu-surface;
+}
+
+.glass-alert {
+  @include glass-surface;
+}
+
+.hybrid-alert {
+  @include hybrid-surface;
+}
+
+.alert-sm {
+  padding: var(--sz-2) var(--sz-3);
+  font-size: var(--fs-xs);
+}
+
+.alert-lg {
+  padding: var(--sz-6);
+  font-size: var(--fs-base);
+}
+
+@each $name, $meta in $tg-colors {
+  $color: map.get($meta, color);
+  $rgb: map.get($meta, rgb);
+
+  .alert-#{$name} {
+    @include semantic-lens($color, $rgb);
+  }
+}

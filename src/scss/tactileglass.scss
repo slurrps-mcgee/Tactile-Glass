@@ -1,0 +1,31 @@
+/* src/scss/tactileglass.scss */
+
+// 1. Base Layer
+@use 'base/tokens' as *;
+@use 'base/reset' as *;
+@use 'base/typography' as *;
+
+// 2. Layouts
+@use 'layouts/flexbox' as *;
+@use 'layouts/grid' as *;
+
+// 3. Components
+@use 'components/container' as *;
+@use 'components/cards' as *;
+@use 'components/buttons' as *;
+@use 'components/inputs' as *;
+@use 'components/navbar' as *;
+@use 'components/alerts' as *;
+@use 'components/badges' as *;
+@use 'components/lists' as *;
+@use 'components/tables' as *;
+@use 'components/progress' as *;
+
+// 4. Utilities
+@use 'utilities/flex' as *;
+@use 'utilities/spacing' as *;
+@use 'utilities/helpers' as *;
+@use 'utilities/colors' as *;
+@use 'utilities/borders' as *;
+@use 'utilities/morph' as *;
+@use 'utilities/theme' as *;

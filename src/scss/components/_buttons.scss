@@ -1,0 +1,151 @@
+@use '../base/mixins' as *;
+@use 'sass:map';
+
+/* ==========================================================================
+   Shared Control Skeleton
+   ========================================================================== */
+.neu-btn,
+.glass-btn,
+.hybrid-btn,
+.btn-hybrid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sz-2);
+  padding: var(--sz-3) var(--sz-6);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--fs-base);
+  color: var(--clr-dark);
+  text-decoration: none;
+  user-select: none;
+  cursor: pointer;
+  @include interactive-transition;
+  @include control-disabled;
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+/* ==========================================================================
+   1. PURE NEUMORPHIC SYSTEM (Tactile)
+   ========================================================================== */
+.neu-btn {
+  @include neu-surface;
+
+  &:active,
+  &.is-active {
+    box-shadow: var(--neu-shadow-inset);
+    transform: scale(0.98);
+  }
+
+  &:disabled,
+  &.is-disabled {
+    box-shadow: none;
+    border: 1px dashed var(--clr-light-gray);
+  }
+}
+
+/* ==========================================================================
+   2. PURE GLASSMORPHIC SYSTEM (Acrylic)
+   ========================================================================== */
+.glass-btn {
+  @include glass-surface;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px 0 rgba(76, 75, 99, 0.05);
+
+  @media (hover: hover) {
+    &:hover {
+      background: rgba(255, 255, 255, 0.35);
+      box-shadow: 0 6px 20px 0 rgba(76, 75, 99, 0.1);
+      transform: translateY(-1px);
+    }
+  }
+
+  &:active,
+  &.is-active {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(0.98) translateY(0);
+    box-shadow: 0 2px 6px 0 rgba(76, 75, 99, 0.05);
+  }
+}
+
+/* ==========================================================================
+   3. THE COMBINED SIGNATURE SYSTEM (Hybrid)
+   ========================================================================== */
+.hybrid-btn,
+.btn-hybrid {
+  @include hybrid-surface;
+  background: rgba(255, 255, 255, 0.15);
+
+  @media (hover: hover) {
+    &:hover {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.6);
+      transform: translateY(-2px);
+      box-shadow: 10px 10px 20px #a6a6a6, -10px -10px 20px #e0e0e0;
+    }
+  }
+
+  &:active,
+  &.is-active {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(0) scale(0.97);
+    box-shadow: var(--neu-shadow-inset);
+  }
+}
+
+/* ==========================================================================
+   Sizing Utilities (Bootstrap style: btn-sm, btn-lg)
+   ========================================================================== */
+.btn-sm {
+  padding: var(--sz-1) var(--sz-3);
+  font-size: var(--fs-sm);
+  border-radius: var(--radius-sm);
+}
+
+.btn-lg {
+  padding: var(--sz-4) var(--sz-8);
+  font-size: var(--fs-lg);
+  border-radius: var(--radius-lg);
+}
+
+.btn-pill {
+  border-radius: var(--radius-pill);
+}
+
+.btn-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: var(--sz-2);
+}
+
+.btn-block {
+  display: flex;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Semantic Color Utilities (Bootstrap style: btn-primary)
+   ========================================================================== */
+@each $name, $meta in $tg-colors {
+  $color: map.get($meta, color);
+  $rgb: map.get($meta, rgb);
+
+  .btn-#{$name} {
+    @include semantic-solid($color, $rgb);
+
+    &.glass-btn,
+    &.hybrid-btn,
+    &.btn-hybrid {
+      @include semantic-lens($color, $rgb);
+    }
+  }
+}
+
+.btn-primary-tint {
+  @include semantic-lens(var(--clr-primary), --clr-primary-rgb);
+}

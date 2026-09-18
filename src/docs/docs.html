@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    try { if (localStorage.getItem('tg-theme') === 'dark') document.documentElement.classList.add('theme-dark'); } catch (e) {}
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TactileGlass CSS — Documentation</title>
+  <link rel="stylesheet" href="/dist/tactileglass.css">
+  <link rel="stylesheet" href="docs.css">
+</head>
+<body class="p-6">
+  <div class="container">
+
+    <header class="tg-nav hybrid-navbar nav-sticky">
+      <a href="index.html" class="nav-brand text-primary">TactileGlass.css</a>
+      <div class="nav-end">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
+          <svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.3A8.4 8.4 0 1 1 9.7 3 7 7 0 0 0 21 14.3z"/></svg>
+          <svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <nav class="nav-links">
+          <a href="index.html" class="font-medium">Dashboard</a>
+          <a href="components.html" class="font-medium">Components</a>
+          <a href="docs.html" class="is-active font-medium">Docs</a>
+          <a href="overrides.html" class="font-medium">Overrides</a>
+          <a href="https://www.npmjs.com/package/tactileglass-css" class="font-medium">npm</a>
+          <a href="https://github.com/slurrps-mcgee/Tactile-Glass" class="font-medium">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hybrid-card mb-8">
+      <span class="hybrid-badge badge-primary badge-pill self-start mb-3">Open source</span>
+      <h1 class="text-2xl font-bold font-display lh-tight track-tight">Documentation</h1>
+      <p class="text-base lh-relaxed mt-2">
+        TactileGlass is a CSS framework that combines tactile neumorphism, frosted glass,
+        and a hybrid of both. It is MIT licensed and published as
+        <code>tactileglass-css</code>. Use this page as the source-of-truth for class names,
+        tokens, and how the pieces compose.
+      </p>
+    </section>
+
+    <nav class="docs-toc mb-8" aria-label="Documentation sections">
+      <a class="glass-badge" href="#install">Install</a>
+      <a class="glass-badge" href="#language">Class language</a>
+      <a class="glass-badge" href="#materials">Materials</a>
+      <a class="glass-badge" href="#layout">Layout</a>
+      <a class="glass-badge" href="#theme">Dark mode</a>
+      <a class="glass-badge" href="#tokens">Tokens</a>
+      <a class="glass-badge" href="#reference">Reference</a>
+      <a class="glass-badge" href="#contribute">Contribute</a>
+    </nav>
+
+    <article class="docs-prose">
+
+      <section id="install" class="neu-card mb-8">
+        <h2 class="text-xl font-display">Install</h2>
+        <p>Package name <code>tactileglass-css</code> on npm.</p>
+        <pre class="morph-neu-inset rounded-md p-4 text-sm mt-3">npm install tactileglass-css</pre>
+        <p class="mt-3">Load the compiled stylesheet from your bundler:</p>
+        <pre class="morph-neu-inset rounded-md p-4 text-sm mt-3">import 'tactileglass-css/dist/tactileglass.min.css';</pre>
+        <p class="mt-3">Or link it from HTML:</p>
+        <pre class="morph-neu-inset rounded-md p-4 text-sm mt-3">&lt;link rel="stylesheet" href="node_modules/tactileglass-css/dist/tactileglass.css"&gt;</pre>
+        <p class="mt-3 mb-0">Sass entry if you compile it yourself: <code>tactileglass-css/src/scss/tactileglass.scss</code></p>
+      </section>
+
+      <section id="language" class="glass-card mb-8">
+        <h2 class="text-xl font-display">Class language</h2>
+        <p>Three layers, always in this order of meaning:</p>
+        <ul>
+          <li>
+            <strong>Component + material.</strong>
+            <code>neu-btn</code>, <code>glass-card</code>, <code>hybrid-input</code>.
+            The material prefix is the surface. The second word is the control.
+          </li>
+          <li>
+            <strong>Modifiers.</strong>
+            Bootstrap-style extras that work on every material:
+            <code>btn-sm</code>, <code>btn-primary</code>, <code>card-interactive</code>,
+            <code>nav-sticky</code>, <code>input-pill</code>.
+          </li>
+          <li>
+            <strong>Utilities.</strong>
+            Tailwind-style helpers for layout, space, shape, and surface:
+            <code>d-flex</code>, <code>p-4</code>, <code>rounded-squircle</code>,
+            <code>morph-glass</code>, <code>theme-dark</code>.
+          </li>
+        </ul>
+        <pre class="morph-glass rounded-md p-4 text-sm mt-3">&lt;button class="neu-btn btn-primary btn-lg"&gt;Save&lt;/button&gt;
+
+&lt;section class="glass-card card-sm p-4"&gt;...&lt;/section&gt;
+
+&lt;div class="morph-hybrid rounded-squircle p-6"&gt;Custom panel&lt;/div&gt;</pre>
+      </section>
+
+      <section id="materials" class="hybrid-card mb-8">
+        <h2 class="text-xl font-display">Three materials</h2>
+        <p>Pick one material per node. Do not stack <code>neu-btn</code> with <code>glass-btn</code>.</p>
+        <div class="grid grid-3 gap-4 mt-4">
+          <div>
+            <h3 class="text-lg">neu</h3>
+            <p class="text-sm">Raised or sunken clay. Shadows come from <code>--neu-shadow-drop</code> and <code>--neu-shadow-inset</code>.</p>
+          </div>
+          <div>
+            <h3 class="text-lg">glass</h3>
+            <p class="text-sm">Frosted acrylic. Color modifiers become translucent lenses, not solid fills.</p>
+          </div>
+          <div>
+            <h3 class="text-lg">hybrid</h3>
+            <p class="text-sm">Glass fill sitting inside a tactile shadow. The signature TactileGlass look.</p>
+          </div>
+        </div>
+        <p class="mt-4 mb-0">
+          <code>morph-neu</code>, <code>morph-glass</code>, and <code>morph-hybrid</code> paint those
+          surfaces onto any element without turning it into a component.
+        </p>
+      </section>
+
+      <section id="layout" class="neu-card mb-8">
+        <h2 class="text-xl font-display">Layout and containers</h2>
+        <p>
+          <code>container</code> is a centered, breakpoint-growing shell
+          (540 / 720 / 960 / 1140 / 1320). Start a shell at a later breakpoint with
+          <code>container-sm</code> through <code>container-xxl</code>. Use
+          <code>container-fluid</code> for full width with the same gutters.
+        </p>
+        <p>
+          Flex and grid live as utilities: <code>d-flex</code>, <code>f-col</code>,
+          <code>gap-3</code>, <code>grid-3</code>, <code>col-span-2</code>.
+        </p>
+        <p class="mb-0">See the <a class="text-primary font-medium" href="components.html#containers">container showcase</a> for live widths.</p>
+      </section>
+
+      <section id="theme" class="glass-card mb-8">
+        <h2 class="text-xl font-display">Dark mode</h2>
+        <p>
+          Add <code>theme-dark</code> to <code>&lt;html&gt;</code> (or any subtree) to invert
+          the token palette: canvas, ink, glass, and neu shadows. Use
+          <code>theme-light</code> to force a light island inside a dark page.
+          <code>data-theme="dark"</code> / <code>data-theme="light"</code> work the same way.
+        </p>
+        <pre class="morph-glass rounded-md p-4 text-sm mt-3">&lt;html class="theme-dark"&gt;
+  ...
+&lt;/html&gt;
+
+&lt;section class="theme-dark p-6 rounded-lg"&gt;
+  Dark island
+&lt;/section&gt;</pre>
+        <p class="mt-3 mb-0">
+          The moon button in the navbar is a <code>theme-toggle</code> control. Persist the
+          choice on <code>document.documentElement</code> — the docs site stores it as
+          <code>localStorage.tg-theme</code>.
+        </p>
+      </section>
+
+      <section id="tokens" class="hybrid-card mb-8">
+        <h2 class="text-xl font-display">Tokens</h2>
+        <p>
+          Everything themable is a CSS custom property on <code>:root</code>. Override them
+          in your own stylesheet after TactileGlass loads. The
+          <a class="text-primary font-medium" href="overrides.html">overrides</a> page walks through live examples.
+        </p>
+        <div class="overflow-x-auto mt-4">
+          <table class="token-table">
+            <thead>
+              <tr>
+                <th>Token</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>--clr-primary</code></td><td>Brand color and focus ring</td></tr>
+              <tr><td><code>--clr-dark</code></td><td>Body and heading ink</td></tr>
+              <tr><td><code>--clr-bg</code></td><td>Canvas and neu surface fill</td></tr>
+              <tr><td><code>--clr-success</code> / <code>--clr-warning</code> / <code>--clr-danger</code></td><td>Semantic accents</td></tr>
+              <tr><td><code>--glass-bg</code> / <code>--glass-blur</code> / <code>--glass-border</code></td><td>Glass engine</td></tr>
+              <tr><td><code>--hybrid-bg</code></td><td>Hybrid fill sitting on neu shadows</td></tr>
+              <tr><td><code>--neu-shadow-drop</code> / <code>--neu-shadow-inset</code></td><td>Tactile depth</td></tr>
+              <tr><td><code>--radius-sm</code> / <code>--radius-md</code> / <code>--radius-lg</code> / <code>--radius-squircle</code></td><td>Rounding</td></tr>
+              <tr><td><code>--sz-1</code> … <code>--sz-12</code></td><td>Spacing scale</td></tr>
+              <tr><td><code>--font-sans</code> / <code>--font-display</code> / <code>--font-mono</code></td><td>Type families</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="reference" class="neu-card mb-8">
+        <h2 class="text-xl font-display">Component reference</h2>
+        <p>Every control ships in three materials unless noted. Full gallery:</p>
+        <div class="grid grid-2 gap-3 mt-4">
+          <p class="mb-0"><a class="text-primary font-medium" href="components.html#buttons">Buttons</a> — <code>neu-btn</code> <code>btn-sm</code> <code>btn-primary</code></p>
+          <p class="mb-0"><a class="text-primary font-medium" href="components.html#cards">Cards</a> — <code>glass-card</code> <code>card-interactive</code></p>
+          <p class="mb-0"><a class="text-primary font-medium" href="components.html#inputs">Inputs</a> — <code>hybrid-input</code> <code>neu-select</code> <code>neu-switch</code></p>
+          <p class="mb-0"><a class="text-primary font-medium" href="components.html#navbars">Navbars</a> — <code>tg-nav</code> <code>nav-sticky</code> <code>theme-toggle</code></p>
+          <p class="mb-0"><a class="text-primary font-medium" href="components.html#alerts">Alerts, badges, lists, tables, progress</a></p>
+          <p class="mb-0"><a class="text-primary font-medium" href="components.html#containers">Containers</a> — <code>container</code> <code>container-lg</code> <code>container-fluid</code></p>
+          <p class="mb-0"><a class="text-primary font-medium" href="components.html#morph">Morph + shape</a> — <code>morph-neu</code> <code>rounded-squircle</code></p>
+          <p class="mb-0"><a class="text-primary font-medium" href="overrides.html">Overrides</a> — recolor without forking the Sass</p>
+        </div>
+      </section>
+
+      <section id="contribute" class="hybrid-card mb-8">
+        <h2 class="text-xl font-display">Contribute</h2>
+        <p>
+          TactileGlass is open source under the MIT License.
+          Issues and pull requests are welcome on
+          <a class="text-primary font-medium" href="https://github.com/slurrps-mcgee/Tactile-Glass">GitHub</a>.
+        </p>
+        <pre class="morph-neu-inset rounded-md p-4 text-sm mt-3">git clone https://github.com/slurrps-mcgee/Tactile-Glass.git
+cd Tactile-Glass
+npm install
+npm run dev</pre>
+        <p class="mt-3">Useful scripts:</p>
+        <ul>
+          <li><code>npm run sass:build</code> — compile <code>dist/tactileglass.css</code></li>
+          <li><code>npm run sass:watch</code> — rebuild on Sass changes</li>
+          <li><code>npm run serve</code> — docs at <code>src/docs</code> with <code>/dist</code> mounted</li>
+          <li><code>npm run build</code> — compile + minify</li>
+        </ul>
+        <p>
+          Source lives in <code>src/scss</code>: <code>base/</code> tokens and mixins,
+          <code>components/</code> controls, <code>layouts/</code> flex and grid,
+          <code>utilities/</code> morph, theme, spacing, and helpers.
+        </p>
+        <p class="mb-0">Keep class names unambiguous: material first, then the control, then modifiers, then utilities.</p>
+      </section>
+
+    </article>
+  </div>
+  <script src="docs.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+@use '../base/mixins' as *;
+@use 'sass:map';
+
+.neu-badge,
+.glass-badge,
+.hybrid-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sz-1);
+  padding: var(--sz-1) var(--sz-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.neu-badge {
+  @include neu-surface;
+}
+
+.glass-badge {
+  @include glass-surface;
+}
+
+.hybrid-badge {
+  @include hybrid-surface;
+}
+
+.badge-pill {
+  border-radius: var(--radius-pill);
+}
+
+.badge-sm {
+  padding: 0.1rem var(--sz-2);
+  font-size: 0.65rem;
+}
+
+.badge-lg {
+  padding: var(--sz-2) var(--sz-4);
+  font-size: var(--fs-sm);
+}
+
+@each $name, $meta in $tg-colors {
+  $color: map.get($meta, color);
+  $rgb: map.get($meta, rgb);
+
+  .badge-#{$name} {
+    @include semantic-solid($color, $rgb);
+
+    &.glass-badge,
+    &.hybrid-badge {
+      @include semantic-lens($color, $rgb);
+    }
+  }
+}

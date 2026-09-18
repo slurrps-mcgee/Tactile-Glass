@@ -1,0 +1,115 @@
+/* src/scss/base/_typography.scss */
+
+// Global document defaults applied across TactileGlass
+body {
+    font-family: var(--font-sans);
+    font-size: var(--fs-base);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-relaxed);
+    letter-spacing: var(--letter-spacing-relaxed);
+    color: var(--clr-dark);
+  }
+  
+  // Geometric display headings using your custom display parameters
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    letter-spacing: var(--letter-spacing-tight);
+    color: var(--clr-dark);
+  }
+  
+  h1 { font-size: var(--fs-2xl); }
+  h2 { font-size: var(--fs-xl); }
+  h3 { font-size: var(--fs-lg); }
+  h4 { font-size: var(--fs-base); }
+  
+  // Small content adjustments
+  p {
+    font-family: var(--font-sans);
+    font-size: var(--fs-base);
+    line-height: var(--line-height-relaxed);
+    letter-spacing: var(--letter-spacing-loose);
+  }
+  
+  small {
+    font-size: var(--fs-sm);
+    color: var(--clr-slate);
+  }
+  
+code, kbd {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  background: var(--code-bg);
+  padding: var(--sz-1) var(--sz-2);
+  border-radius: var(--radius-sm);
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  overflow-x: auto;
+  white-space: pre;
+}
+  
+  /* ==========================================================================
+     Typography Utility Modifier Classes
+     ========================================================================== */
+  
+  // Font Family Modifiers
+  .font-sans    { font-family: var(--font-sans) !important; }
+  .font-display { font-family: var(--font-display) !important; }
+  .font-serif   { font-family: var(--font-serif) !important; }
+  .font-mono    { font-family: var(--font-mono) !important; }
+  
+  // Font Sizing Utilities
+  .text-xs   { font-size: var(--fs-xs) !important; }
+  .text-sm   { font-size: var(--fs-sm) !important; }
+  .text-base { font-size: var(--fs-base) !important; }
+  .text-lg   { font-size: var(--fs-lg) !important; }
+  .text-xl   { font-size: var(--fs-xl) !important; }
+  .text-2xl  { font-size: var(--fs-2xl) !important; }
+  
+  // Font Weight Modifiers
+  .font-normal { font-weight: var(--font-weight-normal) !important; }
+  .font-medium { font-weight: var(--font-weight-medium) !important; }
+  .font-bold   { font-weight: var(--font-weight-bold) !important; }
+  
+  // Line Height Utilities
+  .lh-tight   { line-height: var(--line-height-tight) !important; }
+  .lh-relaxed { line-height: var(--line-height-relaxed) !important; }
+  .lh-loose   { line-height: var(--line-height-loose) !important; }
+  
+  // Letter Spacing Utilities
+  .track-tight   { letter-spacing: var(--letter-spacing-tight) !important; }
+  .track-relaxed { letter-spacing: var(--letter-spacing-relaxed) !important; }
+  .track-loose   { letter-spacing: var(--letter-spacing-loose) !important; }
+  .track-wide    { letter-spacing: var(--letter-spacing-wide) !important; }
+  
+  // Text Alignment
+  .text-left   { text-align: left !important; }
+  .text-center { text-align: center !important; }
+  .text-right  { text-align: right !important; }
+  
+  // Semantic Color Modifiers
+  .text-dark    { color: var(--clr-dark) !important; }
+  .text-main    { color: var(--clr-dark) !important; }
+  .text-muted   { color: var(--clr-slate) !important; }
+  .text-light   { color: var(--clr-light-gray) !important; }
+  .text-white   { color: var(--clr-white) !important; }
+  .text-primary { color: var(--clr-primary) !important; }
+  
+  .text-success { color: var(--clr-success) !important; }
+  .text-warning { color: var(--clr-warning) !important; }
+  .text-danger  { color: var(--clr-danger) !important; }
+  
+  .uppercase { text-transform: uppercase !important; }
+  .lowercase { text-transform: lowercase !important; }
+  .capitalize { text-transform: capitalize !important; }
+  .truncate {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+  .whitespace-nowrap { white-space: nowrap !important; }
+  

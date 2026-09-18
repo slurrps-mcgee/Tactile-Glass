@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    try { if (localStorage.getItem('tg-theme') === 'dark') document.documentElement.classList.add('theme-dark'); } catch (e) {}
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TactileGlass CSS — Component Catalog</title>
+  <link rel="stylesheet" href="/dist/tactileglass.css">
+  <link rel="stylesheet" href="docs.css">
+</head>
+<body class="p-6">
+  <div class="container">
+
+    <header class="tg-nav hybrid-navbar nav-sticky">
+      <a href="index.html" class="nav-brand text-primary">TactileGlass.css</a>
+      <div class="nav-end">
+        <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
+          <svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.3A8.4 8.4 0 1 1 9.7 3 7 7 0 0 0 21 14.3z"/></svg>
+          <svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <nav class="nav-links">
+          <a href="index.html" class="font-medium">Dashboard</a>
+          <a href="components.html" class="is-active font-medium">Components</a>
+          <a href="docs.html" class="font-medium">Docs</a>
+          <a href="overrides.html" class="font-medium">Overrides</a>
+          <a href="https://www.npmjs.com/package/tactileglass-css" class="font-medium">npm</a>
+          <a href="https://github.com/slurrps-mcgee/Tactile-Glass" class="font-medium">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="pb-6 pt-2">
+      <h1 class="text-2xl font-bold font-display lh-tight track-tight">Component Catalog</h1>
+      <p class="text-base lh-relaxed mt-2">
+        Compose a <span class="class-chip">material</span> base
+        (<span class="class-chip">neu-*</span>,
+        <span class="class-chip">glass-*</span>,
+        <span class="class-chip">hybrid-*</span>)
+        with Bootstrap modifiers
+        (<span class="class-chip">btn-sm</span>,
+        <span class="class-chip">btn-primary</span>)
+        and Tailwind-style utilities
+        (<span class="class-chip">d-flex</span>,
+        <span class="class-chip">p-4</span>,
+        <span class="class-chip">text-muted</span>).
+      </p>
+    </div>
+
+    <nav class="catalog-nav mb-8" aria-label="Catalog sections">
+      <a class="glass-badge" href="#buttons">Buttons</a>
+      <a class="glass-badge" href="#cards">Cards</a>
+      <a class="glass-badge" href="#inputs">Inputs</a>
+      <a class="glass-badge" href="#navbars">Navbars</a>
+      <a class="glass-badge" href="#alerts">Alerts</a>
+      <a class="glass-badge" href="#badges">Badges</a>
+      <a class="glass-badge" href="#lists">Lists</a>
+      <a class="glass-badge" href="#tables">Tables</a>
+      <a class="glass-badge" href="#progress">Progress</a>
+      <a class="glass-badge" href="#containers">Containers</a>
+      <a class="glass-badge" href="#morph">Morph</a>
+      <a class="glass-badge" href="#shape">Shape</a>
+      <a class="glass-badge" href="#layout">Layout</a>
+    </nav>
+
+    <!-- BUTTONS -->
+    <section id="buttons" class="mb-8">
+      <h2 class="text-xl font-display mb-4">Buttons</h2>
+      <p class="text-sm mb-4">
+        Base: <span class="class-chip">neu-btn</span>
+        <span class="class-chip">glass-btn</span>
+        <span class="class-chip">hybrid-btn</span>
+        · Size: <span class="class-chip">btn-sm</span>
+        <span class="class-chip">btn-lg</span>
+        <span class="class-chip">btn-pill</span>
+        <span class="class-chip">btn-block</span>
+        · Color: <span class="class-chip">btn-primary</span>
+        <span class="class-chip">btn-success</span>
+        <span class="class-chip">btn-warning</span>
+        <span class="class-chip">btn-danger</span>
+        <span class="class-chip">btn-dark</span>
+      </p>
+      <div class="grid grid-3 gap-6">
+        <article class="neu-card">
+          <div class="card-header"><h3 class="text-lg">Neumorphic</h3></div>
+          <div class="card-body d-flex f-col gap-3">
+            <div class="d-flex f-wrap gap-2">
+              <button class="neu-btn btn-sm">Small</button>
+              <button class="neu-btn">Default</button>
+              <button class="neu-btn btn-lg">Large</button>
+            </div>
+            <div class="d-flex f-wrap gap-2">
+              <button class="neu-btn btn-primary">Primary</button>
+              <button class="neu-btn btn-success">Success</button>
+              <button class="neu-btn btn-warning">Warning</button>
+              <button class="neu-btn btn-danger">Danger</button>
+            </div>
+            <button class="neu-btn btn-pill">Pill</button>
+            <button class="neu-btn is-active">Sunken / Active</button>
+            <button class="neu-btn" disabled>Disabled</button>
+            <button class="neu-btn btn-block btn-dark">Block dark</button>
+          </div>
+        </article>
+
+        <article class="glass-card">
+          <div class="card-header"><h3 class="text-lg">Glass</h3></div>
+          <div class="card-body d-flex f-col gap-3">
+            <div class="d-flex f-wrap gap-2">
+              <button class="glass-btn btn-sm">Small</button>
+              <button class="glass-btn">Default</button>
+              <button class="glass-btn btn-lg">Large</button>
+            </div>
+            <div class="d-flex f-wrap gap-2">
+              <button class="glass-btn btn-primary">Primary</button>
+              <button class="glass-btn btn-success">Success</button>
+              <button class="glass-btn btn-warning">Warning</button>
+              <button class="glass-btn btn-danger">Danger</button>
+            </div>
+            <button class="glass-btn btn-pill">Pill</button>
+            <button class="glass-btn is-active">Active</button>
+            <button class="glass-btn" disabled>Disabled</button>
+            <button class="glass-btn btn-block btn-dark">Block dark</button>
+          </div>
+        </article>
+
+        <article class="hybrid-card">
+          <div class="card-header"><h3 class="text-lg">Hybrid</h3></div>
+          <div class="card-body d-flex f-col gap-3">
+            <div class="d-flex f-wrap gap-2">
+              <button class="hybrid-btn btn-sm">Small</button>
+              <button class="hybrid-btn">Default</button>
+              <button class="hybrid-btn btn-lg">Large</button>
+            </div>
+            <div class="d-flex f-wrap gap-2">
+              <button class="hybrid-btn btn-primary">Primary</button>
+              <button class="hybrid-btn btn-success">Success</button>
+              <button class="hybrid-btn btn-warning">Warning</button>
+              <button class="hybrid-btn btn-danger">Danger</button>
+            </div>
+            <button class="hybrid-btn btn-pill">Pill</button>
+            <button class="hybrid-btn is-active">Active</button>
+            <button class="hybrid-btn" disabled>Disabled</button>
+            <button class="hybrid-btn btn-block btn-dark">Block dark</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CARDS -->
+    <section id="cards" class="mb-8">
+      <h2 class="text-xl font-display mb-4">Cards</h2>
+      <p class="text-sm mb-4">
+        Base: <span class="class-chip">neu-card</span>
+        <span class="class-chip">glass-card</span>
+        <span class="class-chip">hybrid-card</span>
+        · Modifiers: <span class="class-chip">card-sm</span>
+        <span class="class-chip">card-lg</span>
+        <span class="class-chip">card-flush</span>
+        <span class="class-chip">card-inset</span>
+        <span class="class-chip">card-interactive</span>
+        <span class="class-chip">card-primary</span>
+      </p>
+      <div class="grid grid-3 gap-6">
+        <article class="neu-card card-sm">
+          <div class="card-header"><h3 class="text-lg">Neu small</h3></div>
+          <div class="card-body"><p class="text-sm">Compact tactile panel with <span class="class-chip">card-sm</span>.</p></div>
+          <div class="card-footer"><span class="neu-badge badge-sm">inset ready</span></div>
+        </article>
+        <article class="glass-card card-interactive">
+          <div class="card-header"><h3 class="text-lg">Glass interactive</h3></div>
+          <div class="card-body"><p class="text-sm">Hover to lift. Pair with <span class="class-chip">card-interactive</span>.</p></div>
+          <div class="card-footer"><span class="glass-badge badge-primary">hover me</span></div>
+        </article>
+        <article class="hybrid-card card-primary">
+          <div class="card-header"><h3 class="text-lg">Hybrid tinted</h3></div>
+          <div class="card-body"><p class="text-sm">Semantic lens via <span class="class-chip">card-primary</span>.</p></div>
+          <div class="card-footer"><span class="hybrid-badge badge-primary">primary</span></div>
+        </article>
+      </div>
+      <div class="neu-card neu-card-inset card-sm mt-6 text-center">
+        <div class="text-2xl font-bold font-display text-primary">94.2 GB/s</div>
+        <small class="text-xs uppercase font-medium track-wide">Inset metric basin</small>
+      </div>
+    </section>
+
+    <!-- INPUTS -->
+    <section id="inputs" class="mb-8">
+      <h2 class="text-xl font-display mb-4">Inputs &amp; Forms</h2>
+      <p class="text-sm mb-4">
+        Base: <span class="class-chip">neu-input</span>
+        <span class="class-chip">glass-input</span>
+        <span class="class-chip">hybrid-input</span>
+        · Size: <span class="class-chip">input-sm</span>
+        <span class="class-chip">input-lg</span>
+        <span class="class-chip">input-pill</span>
+        · State: <span class="class-chip">input-error</span>
+        <span class="class-chip">input-valid</span>
+        <span class="class-chip">input-warning</span>
+        · Dropdown: <span class="class-chip">neu-select</span>
+        <span class="class-chip">glass-select</span>
+        <span class="class-chip">hybrid-select</span>
+      </p>
+      <div class="grid grid-3 gap-6">
+        <article class="neu-card d-flex f-col gap-3">
+          <h3 class="text-lg">Neumorphic</h3>
+          <label class="form-label">Small field
+            <input class="neu-input input-sm" type="text" placeholder="Compact search">
+          </label>
+          <label class="form-label">Default
+            <input class="neu-input" type="text" placeholder="Search variables...">
+          </label>
+          <label class="form-label">Large pill
+            <input class="neu-input input-lg input-pill" type="text" placeholder="Broadcast channel">
+          </label>
+          <div class="form-group">
+            <span class="form-label">Select</span>
+            <details class="neu-select">
+              <summary>us-east-1</summary>
+              <div class="select-menu">
+                <div class="select-group-label">Americas</div>
+                <button type="button" class="select-option" aria-current="true">us-east-1</button>
+                <button type="button" class="select-option">us-west-2</button>
+                <div class="select-group-label">Europe</div>
+                <button type="button" class="select-option">eu-west-1</button>
+                <button type="button" class="select-option">eu-central-1</button>
+              </div>
+            </details>
+          </div>
+          <label class="form-label">Notes
+            <textarea class="neu-input" placeholder="Operator notes"></textarea>
+          </label>
+          <div class="d-flex align-center gap-3">
+            <label class="neu-switch">
+              <input type="checkbox" checked>
+              <span class="sr-only">Enable tactile switch</span>
+            </label>
+            <span class="text-sm">Tactile switch</span>
+          </div>
+        </article>
+
+        <article class="glass-card d-flex f-col gap-3">
+          <h3 class="text-lg">Glass</h3>
+          <label class="form-label">Valid
+            <input class="glass-input input-valid" type="email" value="ops@tactile.glass">
+          </label>
+          <label class="form-label">Warning
+            <input class="glass-input input-warning" type="text" value="Latency spike">
+          </label>
+          <label class="form-label">Error
+            <input class="glass-input input-error" type="text" value="Malformed token">
+          </label>
+          <label class="form-label">Disabled
+            <input class="glass-input" type="text" value="Read only" disabled>
+          </label>
+          <div class="form-group">
+            <span class="form-label">Select</span>
+            <details class="glass-select">
+              <summary>Canary</summary>
+              <div class="select-menu">
+                <button type="button" class="select-option" aria-current="true">Canary</button>
+                <button type="button" class="select-option">Stable</button>
+                <button type="button" class="select-option">Nightly</button>
+              </div>
+            </details>
+          </div>
+          <div class="d-flex align-center gap-3">
+            <label class="glass-switch">
+              <input type="checkbox">
+              <span class="sr-only">Enable glass switch</span>
+            </label>
+            <span class="text-sm">Glass switch</span>
+          </div>
+        </article>
+
+        <article class="hybrid-card d-flex f-col gap-3">
+          <h3 class="text-lg">Hybrid</h3>
+          <label class="form-label">Password
+            <input class="hybrid-input" type="password" placeholder="••••••••">
+          </label>
+          <div class="form-group">
+            <span class="form-label">Region</span>
+            <details class="hybrid-select">
+              <summary>Production</summary>
+              <div class="select-menu">
+                <button type="button" class="select-option" aria-current="true">Production</button>
+                <button type="button" class="select-option">Staging</button>
+                <button type="button" class="select-option">Sandbox</button>
+              </div>
+            </details>
+          </div>
+          <p class="form-text">Helper copy with <span class="class-chip">form-label</span> + <span class="class-chip">form-text</span>.</p>
+          <div class="d-flex align-center gap-3">
+            <label class="hybrid-switch">
+              <input type="checkbox" checked>
+              <span class="sr-only">Enable hybrid switch</span>
+            </label>
+            <span class="text-sm">Hybrid switch</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- NAVBARS -->
+    <section id="navbars" class="mb-8">
+      <h2 class="text-xl font-display mb-4">Navbars</h2>
+      <p class="text-sm mb-4">
+        Wrapper <span class="class-chip">tg-nav</span> plus
+        <span class="class-chip">neu-navbar</span>
+        <span class="class-chip">glass-navbar</span>
+        <span class="class-chip">hybrid-navbar</span>
+        and <span class="class-chip">nav-sm</span>
+        <span class="class-chip">nav-lg</span>
+        <span class="class-chip">nav-pill</span>
+        <span class="class-chip">nav-sticky</span>.
+      </p>
+      <header class="tg-nav neu-navbar nav-sm mb-4">
+        <div class="nav-brand">Neu sm</div>
+        <nav class="nav-links">
+          <a href="#navbars" class="is-active">Active</a>
+          <a href="#navbars">Cluster</a>
+        </nav>
+      </header>
+      <header class="tg-nav glass-navbar mb-4">
+        <div class="nav-brand text-primary">Glass default</div>
+        <nav class="nav-links">
+          <a href="#navbars" class="is-active">Active</a>
+          <a href="#navbars">Metrics</a>
+        </nav>
+      </header>
+      <header class="tg-nav hybrid-navbar nav-pill">
+        <div class="nav-brand text-primary">Hybrid pill</div>
+        <nav class="nav-links">
+          <a href="#navbars" class="is-active">Active</a>
+          <a href="#navbars">Settings</a>
+        </nav>
+      </header>
+    </section>
+
+    <!-- ALERTS -->
+    <section id="alerts" class="mb-8">
+      <h2 class="text-xl font-display mb-4">Alerts</h2>
+      <div class="grid grid-3 gap-6">
+        <div class="d-flex f-col gap-3">
+          <div class="neu-alert">Neutral tactile notice.</div>
+          <div class="neu-alert alert-success">Deploy succeeded.</div>
+          <div class="neu-alert alert-danger">Shard unreachable.</div>
+        </div>
+        <div class="d-flex f-col gap-3">
+          <div class="glass-alert alert-primary">Acrylic brand notice.</div>
+          <div class="glass-alert alert-warning">Queue depth rising.</div>
+          <div class="glass-alert alert-dark">Maintenance window.</div>
+        </div>
+        <div class="d-flex f-col gap-3">
+          <div class="hybrid-alert alert-primary">Hybrid lens + extrusion.</div>
+          <div class="hybrid-alert alert-success">Sync active.</div>
+          <div class="hybrid-alert alert-danger alert-sm">Compact danger.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BADGES -->
+    <section id="badges" class="mb-8">
+      <h2 class="text-xl font-display mb-4">Badges</h2>
+      <div class="grid grid-3 gap-6">
+        <article class="neu-card card-sm d-flex f-wrap gap-2">
+          <span class="neu-badge">Default</span>
+          <span class="neu-badge badge-primary">Primary</span>
+          <span class="neu-badge badge-success badge-pill">Pill</span>
+          <span class="neu-badge badge-danger">Danger</span>
+        </article>
+        <article class="glass-card card-sm d-flex f-wrap gap-2">
+          <span class="glass-badge">Default</span>
+          <span class="glass-badge badge-primary">Primary</span>
+          <span class="glass-badge badge-warning badge-pill">Warning</span>
+          <span class="glass-badge badge-lg badge-dark">Large</span>
+        </article>
+        <article class="hybrid-card card-sm d-flex f-wrap gap-2">
+          <span class="hybrid-badge">Default</span>
+          <span class="hybrid-badge badge-primary">Primary</span>
+          <span class="hybrid-badge badge-success">Success</span>
+          <span class="hybrid-badge badge-sm badge-danger">sm</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- LISTS -->
+    <section id="lists" class="mb-8">
+      <h2 class="text-xl font-display mb-4">Lists</h2>
+      <div class="grid grid-3 gap-6">
+        <ul class="neu-list">
+          <li class="list-item">North cluster <span class="neu-badge badge-success">up</span></li>
+          <li class="list-item list-item-action">East cluster <span class="text-sm">hover row</span></li>
+          <li class="list-item">West cluster <span class="neu-badge badge-warning">degraded</span></li>
+        </ul>
+        <ul class="glass-list">
+          <li class="list-item">Read replicas <span class="glass-badge badge-primary">3</span></li>
+          <li class="list-item">Write primary <span class="text-success text-sm">healthy</span></li>
+          <li class="list-item">Cache layer <span class="glass-badge">warm</span></li>
+        </ul>
+        <ul class="hybrid-list">
+          <li class="list-item">Commit 8f2a <span class="hybrid-badge badge-primary">main</span></li>
+          <li class="list-item">Commit 41bc <span class="text-sm">canary</span></li>
+          <li class="list-item">Commit 09de <span class="hybrid-badge badge-danger">blocked</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TABLES -->
+    <section id="tables" class="mb-8">
+      <h2 class="text-xl font-display mb-4">Tables</h2>
+      <div class="grid grid-3 gap-6">
+        <div class="neu-table overflow-x-auto">
+          <table class="tg-table table-striped">
+            <thead>
+              <tr><th>Host</th><th>Load</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>edge-01</td><td>0.21</td></tr>
+              <tr><td>edge-02</td><td>0.44</td></tr>
+              <tr><td>edge-03</td><td>0.18</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="glass-table overflow-x-auto">
+          <table class="tg-table table-hover table-sm">
+            <thead>
+              <tr><th>Route</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>/health</td><td class="text-success">200</td></tr>
+              <tr><td>/deploy</td><td class="text-warning">202</td></tr>
+              <tr><td>/admin</td><td class="text-danger">401</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="hybrid-table overflow-x-auto">
+          <table class="tg-table">
+            <thead>
+              <tr><th>Lens</th><th>Mode</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Primary</td><td>hybrid</td></tr>
+              <tr><td>Success</td><td>glass</td></tr>
+              <tr><td>Danger</td><td>neu</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRESS -->
+    <section id="progress" class="mb-8">
+      <h2 class="text-xl font-display mb-4">Progress</h2>
+      <div class="grid grid-3 gap-6">
+        <article class="neu-card card-sm d-flex f-col gap-3">
+          <div class="neu-progress"><span class="progress-bar" style="width: 35%"></span></div>
+          <div class="neu-progress progress-lg"><span class="progress-bar progress-success" style="width: 72%"></span></div>
+        </article>
+        <article class="glass-card card-sm d-flex f-col gap-3">
+          <div class="glass-progress progress-sm"><span class="progress-bar progress-warning" style="width: 48%"></span></div>
+          <div class="glass-progress"><span class="progress-bar progress-danger" style="width: 18%"></span></div>
+        </article>
+        <article class="hybrid-card card-sm d-flex f-col gap-3">
+          <div class="hybrid-progress"><span class="progress-bar progress-primary" style="width: 64%"></span></div>
+          <div class="hybrid-progress"><span class="progress-bar progress-dark" style="width: 90%"></span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- MORPH -->
+    <section id="morph" class="mb-8">
+      <h2 class="text-xl font-display mb-4">Morph utilities</h2>
+      <p class="text-sm mb-4">
+        Apply a surface to any element. These do not add padding or typography —
+        pair them with <span class="class-chip">p-6</span> and <span class="class-chip">rounded-lg</span>.
+      </p>
+      <div class="grid grid-3 gap-4">
+        <div class="p-6 rounded-lg morph-neu">morph-neu</div>
+        <div class="p-6 rounded-lg morph-neu-inset">morph-neu-inset</div>
+        <div class="p-6 rounded-lg morph-glass">morph-glass</div>
+        <div class="p-6 rounded-lg morph-hybrid">morph-hybrid</div>
+        <div class="p-6 rounded-lg morph-flat">morph-flat</div>
+        <div class="p-6 rounded-lg morph-glass morph-lift">morph-glass morph-lift</div>
+      </div>
+    </section>
+
+    <!-- SHAPE / COLOR -->
+    <section id="shape" class="mb-8">
+      <h2 class="text-xl font-display mb-4">Shape &amp; color utilities</h2>
+      <p class="text-sm mb-4">
+        Rounding and fills are separate from morph:
+        <span class="class-chip">rounded-sm</span>
+        <span class="class-chip">rounded-squircle</span>
+        <span class="class-chip">rounded-pill</span>
+        <span class="class-chip">bg-primary</span>
+        <span class="class-chip">tint-success</span>
+        <span class="class-chip">border</span>
+        <span class="class-chip">border-danger</span>.
+      </p>
+      <div class="grid grid-3 gap-4">
+        <div class="morph-neu rounded-sm p-6">rounded-sm</div>
+        <div class="morph-neu rounded-squircle p-6">rounded-squircle</div>
+        <div class="morph-neu rounded-pill px-6 py-4">rounded-pill</div>
+        <div class="bg-primary rounded-lg p-6">bg-primary</div>
+        <div class="tint-primary rounded-lg p-6">tint-primary</div>
+        <div class="morph-flat border border-2 border-danger rounded-lg p-6">border-danger</div>
+      </div>
+    </section>
+
+    <!-- LAYOUT -->
+    <section id="layout" class="mb-8">
+      <h2 class="text-xl font-display mb-4">Layout utilities</h2>
+      <div class="grid grid-2 gap-6">
+        <article class="neu-card">
+          <h3 class="text-lg mb-3">Flex</h3>
+          <div class="d-flex justify-between align-center gap-3">
+            <span class="neu-badge">start</span>
+            <span class="neu-badge">between</span>
+            <span class="neu-badge">end</span>
+          </div>
+          <div class="d-flex f-col gap-2 mt-4">
+            <div class="morph-neu-inset p-3 rounded-md">f-col item</div>
+            <div class="morph-neu-inset p-3 rounded-md">f-col item</div>
+          </div>
+        </article>
+        <article class="glass-card">
+          <h3 class="text-lg mb-3">Grid + spacing</h3>
+          <div class="grid cols-2 gap-3">
+            <div class="morph-glass p-4 rounded-md text-center">p-4</div>
+            <div class="morph-glass p-4 rounded-md text-center">gap-3</div>
+            <div class="morph-glass p-4 rounded-md text-center col-span-2">col-span-2</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </div>
+
+  <section id="containers" class="mb-8">
+    <div class="container mb-4">
+      <h2 class="text-xl font-display mb-4">Containers</h2>
+      <p class="text-sm mb-0">
+        Base <span class="class-chip">container</span> grows with the viewport
+        (540 / 720 / 960 / 1140 / 1320). Start later with
+        <span class="class-chip">container-sm</span>
+        <span class="class-chip">container-md</span>
+        <span class="class-chip">container-lg</span>
+        <span class="class-chip">container-xl</span>
+        <span class="class-chip">container-xxl</span>.
+        <span class="class-chip">container-fluid</span> stays full width with the same gutters.
+        These bands sit outside the page shell so you can see the real max-widths.
+      </p>
+    </div>
+    <div class="container-demo">
+      <div class="container-fluid">
+        <div class="demo-band morph-hybrid rounded-md">container-fluid — 100%</div>
+      </div>
+      <div class="container-xxl">
+        <div class="demo-band morph-neu rounded-md">container-xxl — 1320px at 1400+</div>
+      </div>
+      <div class="container-xl">
+        <div class="demo-band morph-glass rounded-md">container-xl — 1140px at 1200+</div>
+      </div>
+      <div class="container-lg">
+        <div class="demo-band morph-hybrid rounded-md">container-lg — 960px at 992+</div>
+      </div>
+      <div class="container-md">
+        <div class="demo-band morph-neu rounded-md">container-md — 720px at 768+</div>
+      </div>
+      <div class="container-sm">
+        <div class="demo-band morph-glass rounded-md">container-sm — 540px at 576+</div>
+      </div>
+      <div class="container">
+        <div class="demo-band morph-neu-inset rounded-md">container — responsive from sm through xxl</div>
+      </div>
+    </div>
+  </section>
+
+  <script src="docs.js"></script>
+</body>
+</html>
