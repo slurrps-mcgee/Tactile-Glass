@@ -1,0 +1,44 @@
+@use '../base/mixins' as *;
+
+$tg-displays: none, block, inline, inline-block, flex, inline-flex, grid, contents;
+
+@include tg-infix using ($bp) {
+  @each $value in $tg-displays {
+    .#{tg-infix-class('d', $bp, $value)} {
+      display: $value !important;
+    }
+  }
+
+  .#{tg-infix-class('float', $bp, 'start')} { float: left !important; }
+  .#{tg-infix-class('float', $bp, 'end')} { float: right !important; }
+  .#{tg-infix-class('float', $bp, 'none')} { float: none !important; }
+
+  .#{tg-infix-class('f', $bp, 'row')} { flex-direction: row !important; }
+  .#{tg-infix-class('f', $bp, 'col')} { flex-direction: column !important; }
+  .#{tg-infix-class('f', $bp, 'wrap')} { flex-wrap: wrap !important; }
+  .#{tg-infix-class('f', $bp, 'nowrap')} { flex-wrap: nowrap !important; }
+}
+
+.vstack {
+  display: flex !important;
+  flex-direction: column !important;
+  align-self: stretch !important;
+}
+
+.hstack {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+}
+
+.vr {
+  display: inline-block;
+  align-self: stretch;
+  width: 1px;
+  min-height: 1em;
+  background: var(--border-subtle);
+}
+
+.focus-ring:focus-visible {
+  @include focus-ring;
+}

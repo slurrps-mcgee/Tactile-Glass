@@ -2,7 +2,7 @@
 
 A utility-first and component-based CSS framework that unites **neumorphism**, **glassmorphism**, and a **hybrid** of both.
 
-Every control ships in three materials. Bootstrap-style modifiers (`btn-sm`, `btn-primary`) and Tailwind-style utilities (`d-flex`, `p-4`, `theme-dark`) stack on top.
+Components are generic (`tg-btn`, `tg-card`, `tg-nav`). Materials are separate classes (`tg-neu`, `tg-glass`, `tg-hybrid`) driven by CSS tokens. Bootstrap-style modifiers (`btn-sm`, `btn-primary`) and Tailwind-style utilities (`d-flex`, `p-4`, `bg-white`, `theme-dark`) stack on top.
 
 - npm: [`tactileglass-css`](https://www.npmjs.com/package/tactileglass-css)
 - Source: [github.com/slurrps-mcgee/Tactile-Glass](https://github.com/slurrps-mcgee/Tactile-Glass)
@@ -34,31 +34,33 @@ Sass entry if you compile it yourself:
 
 ## Class language
 
-Three layers, in this order of meaning:
+Two core layers, then modifiers:
 
 | Layer | Examples | Role |
 | --- | --- | --- |
-| Component + material | `neu-btn`, `glass-card`, `hybrid-input` | Material first, then the control |
-| Modifiers | `btn-sm`, `btn-primary`, `card-interactive`, `nav-sticky` | Same names on every material |
-| Utilities | `morph-glass`, `rounded-squircle`, `p-4`, `theme-dark` | Layout, shape, surface, theme |
+| Component | `tg-btn`, `tg-card`, `tg-select`, `tg-nav` | Skeleton — layout, type, radius, behavior |
+| Style | `tg-neu`, `tg-glass`, `tg-glass-frosted`, `tg-hybrid`, `tg-neu-reverse` | Token-driven surface paint |
+| Modifiers + utilities | `btn-sm`, `btn-primary`, `p-4`, `bg-white`, `border-none` | Same names on every style |
 
 ```html
-<button class="neu-btn btn-primary btn-lg">Save</button>
+<button class="tg-btn tg-hybrid btn-primary">Save</button>
 
-<section class="glass-card card-sm">…</section>
+<section class="tg-card tg-glass-frosted card-sm">…</section>
 
-<div class="morph-hybrid rounded-squircle p-6">Custom panel</div>
+<details class="tg-select tg-glass-frosted">…</details>
+
+<header class="tg-nav tg-neu tg-neu-reverse nav-sm">…</header>
 ```
 
-Pick one material per node. Do not mix `neu-btn` with `glass-btn` on the same element.
+Pick one style per node. Do not mix `tg-neu` with `tg-glass` on the same element. Compound parts such as `.nav-links` inherit depth from the parent — do not put inset classes on the links.
 
-### Materials
+### Styles
 
-- **neu** — raised or sunken clay. Use for high-frequency controls that should feel physical.
-- **glass** — frosted acrylic. Color modifiers become translucent lenses, not solid fills.
-- **hybrid** — glass fill sitting inside a tactile shadow. The signature TactileGlass look.
+- **neu** — raised or sunken clay (`tg-neu`, `tg-neu-reverse`, `tg-neu-surface`, `tg-neu-inset`). Tokens: `--tg-neu-shadow-drop`, `--tg-neu-shadow-inset`.
+- **glass** — acrylic pane (`tg-glass`). Showcase frost: `tg-glass-frosted` (blur + inset glow + edge sheen). Tokens: `--tg-glass-bg`, `--tg-glass-blur`, `--tg-glass-shadow`, `--tg-glass-menu-blur`.
+- **hybrid** — glass fill inside a tactile shadow. Token: `--tg-hybrid-bg` plus neu shadows.
 
-`morph-neu`, `morph-glass`, and `morph-hybrid` paint those surfaces onto any element without turning it into a component.
+Prefer style classes on any element. `morph-*` mirrors the same matrix with `!important` for overrides. `--clr-*` / `--glass-*` stay aliases of `--tg-*`.
 
 ## Dark mode
 
@@ -74,37 +76,44 @@ Add `theme-dark` to `<html>` (or any subtree) to invert canvas, ink, glass, and 
 
 The docs site toggle is a `theme-toggle` button. Persist the choice on `document.documentElement`.
 
-## Overrides
+## Customize
 
-TactileGlass is token-driven. Recolor an app by reassigning CSS variables after the stylesheet loads — no Sass fork required.
+Public API is `--tg-{name}` from the light map in `src/scss/base/_themes.scss`, plus structural tokens in `_tokens.scss`. Dark only patches ink, canvas, shadows, and glass/hybrid fills — pastels inherit. Recolor after the stylesheet loads — no Sass fork required.
 
 ```css
 :root {
-  --clr-primary: #c084fc;
-  --clr-primary-rgb: 192, 132, 252;
-  --clr-bg: #c8c2d4;
+  --tg-primary: #c084fc;
+  --tg-primary-rgb: 192, 132, 252;
+  --tg-body-bg: #c8c2d4;
+  --tg-glass-blur: blur(24px);
+  --spacing: 0.25rem;
   --radius-md: 12px;
+  --font-sans: "Inter", system-ui, sans-serif;
 }
 ```
 
-Keep the matching `*-rgb` channel in sync when you change a color. Semantic tints use `rgba(var(--clr-primary-rgb), 0.15)`.
+Keep the matching `*-rgb` channel in sync. `--tg-body-color` is page ink. `--tg-dark` is the always-dark fill for `btn-dark`. `--spacing` (default `0.25rem`) drives `p-*`, `m-*`, `gap-*`, and `g-*`.
 
-A wrapper class scopes the same tokens to a module:
+Override groups:
 
-```css
-.demo-aurora {
-  --clr-primary: #c084fc;
-  --clr-primary-rgb: 192, 132, 252;
-}
-```
+| Group | Examples |
+| --- | --- |
+| Brand / semantic | `--tg-primary`, `--tg-success`, `--tg-warning`, `--tg-danger`, `--tg-dark` |
+| Body / ink | `--tg-body-color`, `--tg-body-bg`, `--tg-link-color`, `--tg-secondary-color` |
+| Emphasis / subtle | `--tg-primary-text-emphasis`, `--tg-primary-bg-subtle`, `--tg-primary-border-subtle` |
+| Glass / hybrid / neu | `--tg-glass-bg`, `--tg-glass-blur`, `--tg-glass-menu-blur`, `--tg-glass-shadow`, `--tg-hybrid-bg`, `--tg-neu-shadow-drop` |
+| Border / radius / shadow / focus | `--tg-border-color`, `--radius-md`, `--tg-box-shadow`, `--tg-focus-ring-color` |
+| Type / spacing / breakpoints | `--font-sans`, `--spacing`, `--tg-breakpoint-md` |
 
-Useful tokens: `--clr-primary`, `--clr-dark`, `--clr-bg`, `--glass-bg`, `--hybrid-bg`, `--neu-shadow-drop`, `--neu-shadow-inset`, `--radius-md`, `--font-sans`. Full list: `src/scss/base/_tokens.scss`.
+Full catalog: docs `customize.html`. Color utilities are fill-only and ink-only: `bg-primary`, `text-body`. Compose a solid chip as `bg-primary text-white`. Beat a material border with `border-none` or `shadow-none`.
 
 ## Layout
 
 `container` is a centered shell that grows with the viewport (540 / 720 / 960 / 1140 / 1320). Start later with `container-sm` through `container-xxl`. `container-fluid` stays full width with the same gutters.
 
-Flex and grid are utilities: `d-flex`, `f-col`, `gap-3`, `grid-3`, `col-span-2`.
+Grid is CSS Grid, mobile-first, with Bootstrap infixes: `grid-2` from 0px, `grid-md-2` from 768px. Twelve columns: `grid grid-12` plus `col-12 col-md-6`. Gutters: `g-3`, `gx-4`, `gy-2`. Display: `d-none d-md-flex`. Do not use Tailwind colon prefixes (`md:p-4`) or JIT arbitrary values (`p-[5px]`).
+
+Navbars collapse with a CSS-only `<details class="nav-collapse nav-expand-md">` that holds only the hamburger. Put `.nav-links` as a sibling under `.tg-nav`. Keep `theme-toggle` in `.nav-end` on the top row. From 768px up the links stay in a row and the hamburger hides. Depth (`tg-neu-reverse`, `tg-neu-surface`, `tg-neu-inset`) lives on the `tg-nav` parent — not on `.nav-links`.
 
 ## Docs site
 
@@ -113,9 +122,11 @@ The GitHub Pages site lives in `docs/` at the repo root. GitHub Actions compiles
 | Page | What it is |
 | --- | --- |
 | `index.html` | Dashboard — install, class language, materials |
-| `components.html` | Component catalog, including containers |
+| `components.html` | Component catalog |
+| `layout.html` | Breakpoints, containers, 12-col grid, gutters |
+| `utilities.html` | Spacing scale, display, type, helpers |
 | `docs.html` | Open-source documentation |
-| `overrides.html` | Live token and theme override examples |
+| `customize.html` | Live token and theme examples |
 
 ```bash
 npm install
@@ -144,14 +155,16 @@ https://slurrps-mcgee.github.io/Tactile-Glass/
 
 ```text
 src/scss/
-├── tactileglass.scss      # entry
-├── base/                  # tokens, reset, mixins, typography
-├── layouts/               # flexbox, grid
-├── components/            # buttons, cards, inputs, navbar, …
-└── utilities/             # morph, theme, spacing, colors, borders
+├── tactileglass.scss
+├── base/            # tokens, reset, mixins, typography
+├── styles/          # neu, glass, hybrid mixins + public classes
+├── layouts/         # container, flexbox, grid
+├── animations/      # keyframes + motion utilities
+├── components/      # tg-btn, tg-card, tg-nav, …
+└── utilities/       # morph, theme, spacing, colors, borders
 ```
 
-Keep class names unambiguous: material first, then the control, then modifiers, then utilities.
+Keep class names unambiguous: component, then material, then modifiers, then utilities.
 
 ## License
 

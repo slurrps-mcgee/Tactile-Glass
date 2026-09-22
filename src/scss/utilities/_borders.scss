@@ -2,7 +2,8 @@
 @use 'sass:map';
 
 .border { border: 1px solid var(--border-subtle) !important; }
-.border-0 { border: 0 !important; }
+.border-0,
+.border-none { border: 0 !important; }
 .border-2 { border-width: 2px !important; border-style: solid !important; }
 .border-top { border-top: 1px solid var(--border-subtle) !important; }
 .border-bottom { border-bottom: 1px solid var(--border-subtle) !important; }
@@ -51,4 +52,16 @@
 .rounded-end {
   border-top-right-radius: var(--radius-md) !important;
   border-bottom-right-radius: var(--radius-md) !important;
+}
+
+.divide-y > * + * {
+  border-top: 1px solid var(--border-subtle) !important;
+}
+
+.divide-x > * + * {
+  border-left: 1px solid var(--border-subtle) !important;
+}
+
+.divide-primary > * + * {
+  border-color: var(--clr-primary) !important;
 }

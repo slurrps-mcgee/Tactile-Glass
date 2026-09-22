@@ -1,115 +1,236 @@
+@use 'mixins' as *;
+
 /* src/scss/base/_typography.scss */
 
-// Global document defaults applied across TactileGlass
+// Body Typography
 body {
-    font-family: var(--font-sans);
-    font-size: var(--fs-base);
-    font-weight: var(--font-weight-normal);
-    line-height: var(--line-height-relaxed);
-    letter-spacing: var(--letter-spacing-relaxed);
-    color: var(--clr-dark);
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-relaxed);
+  letter-spacing: var(--letter-spacing-relaxed);
+  color: var(--clr-body);
+}
+
+// Heading Typography
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--clr-body);
+}
+
+// Heading Sizes
+h1, .h1 { font-size: var(--fs-2xl); }
+h2, .h2 { font-size: var(--fs-xl); }
+h3, .h3 { font-size: var(--fs-lg); }
+h4, .h4 { font-size: var(--fs-base); }
+h5, .h5 { font-size: var(--fs-sm); }
+h6, .h6 { font-size: var(--fs-xs); }
+
+// Display Sizes
+.display-1 { font-size: var(--fs-6xl); }
+.display-2 { font-size: var(--fs-5xl); }
+.display-3 { font-size: var(--fs-4xl); }
+.display-4 { font-size: var(--fs-3xl); }
+.display-5 { font-size: var(--fs-2xl); }
+.display-6 { font-size: var(--fs-xl); }
+
+// Display Styles
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+// Paragraph Typography
+p {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: var(--line-height-relaxed);
+  letter-spacing: var(--letter-spacing-loose);
+}
+
+// Lead Typography
+.lead {
+  font-size: var(--fs-lg);
+  font-weight: var(--font-weight-normal);
+}
+
+// Small Typography
+.small, small {
+  font-size: var(--fs-sm);
+  color: var(--clr-slate);
+}
+
+// Mark Typography
+.mark, mark {
+  background: tg-rgba(--clr-warning-rgb, 0.35);
+  color: var(--clr-body);
+  padding: 0.1em 0.3em;
+  border-radius: var(--radius-sm);
+}
+
+// Blockquote Typography
+.blockquote {
+  font-size: var(--fs-lg);
+  margin-bottom: var(--sz-4);
+}
+
+// Blockquote Footer Typography
+.blockquote-footer {
+  font-size: var(--fs-sm);
+  color: var(--clr-slate);
+
+  &::before {
+    content: '— ';
   }
-  
-  // Geometric display headings using your custom display parameters
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
-    font-weight: var(--font-weight-bold);
-    line-height: var(--line-height-tight);
-    letter-spacing: var(--letter-spacing-tight);
-    color: var(--clr-dark);
-  }
-  
-  h1 { font-size: var(--fs-2xl); }
-  h2 { font-size: var(--fs-xl); }
-  h3 { font-size: var(--fs-lg); }
-  h4 { font-size: var(--fs-base); }
-  
-  // Small content adjustments
-  p {
-    font-family: var(--font-sans);
-    font-size: var(--fs-base);
-    line-height: var(--line-height-relaxed);
-    letter-spacing: var(--letter-spacing-loose);
-  }
-  
-  small {
-    font-size: var(--fs-sm);
-    color: var(--clr-slate);
-  }
-  
+}
+
+// List Unstyled Typography
+.list-unstyled {
+  list-style: none;
+  padding-left: 0;
+}
+
+// List Inline Typography
+.list-inline {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sz-3);
+}
+
+// List Inline Item Typography
+.list-inline-item {
+  display: inline-block;
+}
+
+// Image Fluid Typography
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+// Image Thumbnail Typography
+.img-thumbnail {
+  max-width: 100%;
+  height: auto;
+  padding: var(--sz-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--clr-bg);
+}
+
+// Figure Typography
+.figure {
+  display: inline-block;
+}
+
+// Figure Image Typography
+.figure-img {
+  margin-bottom: var(--sz-2);
+  line-height: 1;
+}
+
+// Figure Caption Typography
+.figure-caption {
+  font-size: var(--fs-sm);
+  color: var(--clr-slate);
+}
+
+// Code Typography
 code, kbd {
   font-family: var(--font-mono);
   font-size: var(--fs-sm);
   background: var(--code-bg);
   padding: var(--sz-1) var(--sz-2);
   border-radius: var(--radius-sm);
+  overflow-wrap: anywhere;
 }
 
+// Pre Typography
 pre {
   font-family: var(--font-mono);
   font-size: var(--fs-sm);
   overflow-x: auto;
-  white-space: pre;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-width: 100%;
 }
-  
-  /* ==========================================================================
-     Typography Utility Modifier Classes
-     ========================================================================== */
-  
-  // Font Family Modifiers
-  .font-sans    { font-family: var(--font-sans) !important; }
-  .font-display { font-family: var(--font-display) !important; }
-  .font-serif   { font-family: var(--font-serif) !important; }
-  .font-mono    { font-family: var(--font-mono) !important; }
-  
-  // Font Sizing Utilities
-  .text-xs   { font-size: var(--fs-xs) !important; }
-  .text-sm   { font-size: var(--fs-sm) !important; }
-  .text-base { font-size: var(--fs-base) !important; }
-  .text-lg   { font-size: var(--fs-lg) !important; }
-  .text-xl   { font-size: var(--fs-xl) !important; }
-  .text-2xl  { font-size: var(--fs-2xl) !important; }
-  
-  // Font Weight Modifiers
-  .font-normal { font-weight: var(--font-weight-normal) !important; }
-  .font-medium { font-weight: var(--font-weight-medium) !important; }
-  .font-bold   { font-weight: var(--font-weight-bold) !important; }
-  
-  // Line Height Utilities
-  .lh-tight   { line-height: var(--line-height-tight) !important; }
-  .lh-relaxed { line-height: var(--line-height-relaxed) !important; }
-  .lh-loose   { line-height: var(--line-height-loose) !important; }
-  
-  // Letter Spacing Utilities
-  .track-tight   { letter-spacing: var(--letter-spacing-tight) !important; }
-  .track-relaxed { letter-spacing: var(--letter-spacing-relaxed) !important; }
-  .track-loose   { letter-spacing: var(--letter-spacing-loose) !important; }
-  .track-wide    { letter-spacing: var(--letter-spacing-wide) !important; }
-  
-  // Text Alignment
-  .text-left   { text-align: left !important; }
-  .text-center { text-align: center !important; }
-  .text-right  { text-align: right !important; }
-  
-  // Semantic Color Modifiers
-  .text-dark    { color: var(--clr-dark) !important; }
-  .text-main    { color: var(--clr-dark) !important; }
-  .text-muted   { color: var(--clr-slate) !important; }
-  .text-light   { color: var(--clr-light-gray) !important; }
-  .text-white   { color: var(--clr-white) !important; }
-  .text-primary { color: var(--clr-primary) !important; }
-  
-  .text-success { color: var(--clr-success) !important; }
-  .text-warning { color: var(--clr-warning) !important; }
-  .text-danger  { color: var(--clr-danger) !important; }
-  
-  .uppercase { text-transform: uppercase !important; }
-  .lowercase { text-transform: lowercase !important; }
-  .capitalize { text-transform: capitalize !important; }
-  .truncate {
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    white-space: nowrap !important;
-  }
-  .whitespace-nowrap { white-space: nowrap !important; }
-  
+
+// Font Sans Typography
+.font-sans    { font-family: var(--font-sans) !important; }
+.font-display { font-family: var(--font-display) !important; }
+.font-serif   { font-family: var(--font-serif) !important; }
+.font-mono    { font-family: var(--font-mono) !important; }
+
+// Text size Typography
+.text-xs   { font-size: var(--fs-xs) !important; }
+.text-sm   { font-size: var(--fs-sm) !important; }
+.text-base { font-size: var(--fs-base) !important; }
+.text-lg   { font-size: var(--fs-lg) !important; }
+.text-xl   { font-size: var(--fs-xl) !important; }
+.text-2xl  { font-size: var(--fs-2xl) !important; }
+
+// Font Weight Typography
+.font-normal { font-weight: var(--font-weight-normal) !important; }
+.font-medium { font-weight: var(--font-weight-medium) !important; }
+.font-bold   { font-weight: var(--font-weight-bold) !important; }
+
+// Line Height Typography
+.lh-tight   { line-height: var(--line-height-tight) !important; }
+.lh-relaxed { line-height: var(--line-height-relaxed) !important; }
+.lh-loose   { line-height: var(--line-height-loose) !important; }
+
+// Letter Spacing Typography
+.track-tight   { letter-spacing: var(--letter-spacing-tight) !important; }
+.track-relaxed { letter-spacing: var(--letter-spacing-relaxed) !important; }
+.track-loose   { letter-spacing: var(--letter-spacing-loose) !important; }
+.track-wide    { letter-spacing: var(--letter-spacing-wide) !important; }
+
+// Text Typography
+.text-left   { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right  { text-align: right !important; }
+.uppercase { text-transform: uppercase !important; }
+.lowercase { text-transform: lowercase !important; }
+.capitalize { text-transform: capitalize !important; }
+.normal-case { text-transform: none !important; }
+.italic { font-style: italic !important; }
+.not-italic { font-style: normal !important; }
+.underline { text-decoration: underline !important; }
+.line-through { text-decoration: line-through !important; }
+.no-underline { text-decoration: none !important; }
+
+// Text Truncate Typography
+.truncate {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+// Line Clamp 1 Typography
+.line-clamp-1,
+.line-clamp-2,
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Line Clamp Typography
+.line-clamp-1 { -webkit-line-clamp: 1; }
+.line-clamp-2 { -webkit-line-clamp: 2; }
+.line-clamp-3 { -webkit-line-clamp: 3; }
+
+// White Space Typography
+.whitespace-nowrap { white-space: nowrap !important; }
+.whitespace-pre { white-space: pre !important; }
+.whitespace-pre-line { white-space: pre-line !important; }
+.whitespace-pre-wrap { white-space: pre-wrap !important; }
+.whitespace-normal { white-space: normal !important; }

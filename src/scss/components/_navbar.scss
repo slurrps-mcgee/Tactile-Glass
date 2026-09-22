@@ -1,13 +1,14 @@
 @use '../base/mixins' as *;
+@use '../styles/neu' as *;
+@use '../styles/glass' as *;
+@use '../styles/hybrid' as *;
 
-/* ==========================================================================
-   Core Navigation Layout Wrapper
-   ========================================================================== */
 .tg-nav {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--sz-4);
+  column-gap: var(--sz-4);
+  row-gap: var(--sz-4);
   padding: var(--sz-4) var(--sz-6);
   border-radius: var(--radius-md);
   margin-bottom: var(--sz-8);
@@ -15,6 +16,9 @@
   @include interactive-transition;
 
   .nav-brand {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
     font-family: var(--font-display);
     font-weight: var(--font-weight-bold);
     font-size: var(--fs-lg);
@@ -22,71 +26,324 @@
     text-decoration: none;
     color: var(--clr-dark);
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .nav-end {
+    grid-column: 2;
+    grid-row: 1;
     display: flex;
     align-items: center;
-    gap: var(--sz-4);
-    margin-left: auto;
+    justify-content: flex-end;
+    gap: var(--sz-3);
   }
 
-  .nav-links {
+  > .nav-links,
+  .nav-end > .nav-links {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: var(--sz-6);
+    gap: var(--sz-1);
+    padding: var(--sz-1);
+    border-radius: var(--radius-pill);
+  }
 
-    a {
-      text-decoration: none;
-      font-family: var(--font-sans);
-      font-weight: var(--font-weight-medium);
-      font-size: var(--fs-base);
+  &:not(:has(.nav-end)) > .nav-links {
+    grid-column: 2;
+    justify-self: end;
+    width: max-content;
+    max-width: 100%;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--fs-base);
+    color: var(--clr-dark);
+    padding: var(--sz-2) var(--sz-4);
+    border-radius: var(--radius-pill);
+    @include interactive-transition;
+
+    &:hover {
+      color: var(--clr-primary);
+    }
+
+    &.is-active {
       color: var(--clr-dark);
-      @include interactive-transition;
+    }
+  }
 
-      &:hover {
-        color: var(--clr-primary);
-      }
+  &:has(.nav-collapse) > .nav-links {
+    display: none;
+  }
 
-      &.is-active {
-        color: var(--clr-dark);
-      }
+  &:has(.nav-collapse[open]) > .nav-links {
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    border-radius: var(--radius-md);
+  }
+
+  &.tg-neu {
+    .nav-links {
+      @include neu-inset;
+    }
+
+    .nav-links a.is-active {
+      @include neu;
+    }
+
+    .nav-toggle,
+    .theme-toggle {
+      @include neu;
+    }
+  }
+
+  &.tg-neu-reverse {
+    .nav-links {
+      @include neu;
+    }
+
+    .nav-links a.is-active {
+      @include neu-inset;
+    }
+  }
+
+  &.tg-neu-surface {
+    .nav-links {
+      @include neu;
+    }
+
+    .nav-links a.is-active {
+      @include neu;
+    }
+  }
+
+  &.tg-neu-inset {
+    .nav-links {
+      @include neu-inset;
+    }
+
+    .nav-links a.is-active {
+      @include neu-inset;
+    }
+  }
+
+  &.tg-glass {
+    .nav-links a.is-active {
+      @include glass-raised;
+    }
+
+    .nav-toggle,
+    .theme-toggle {
+      @include glass;
+    }
+  }
+
+  &.tg-glass-reverse {
+    .nav-links {
+      @include glass-pressed;
+    }
+
+    .nav-links a.is-active {
+      @include glass-raised;
+    }
+  }
+
+  &.tg-glass-surface {
+    .nav-links {
+      @include glass-raised;
+    }
+
+    .nav-links a.is-active {
+      @include glass-raised;
+    }
+  }
+
+  &.tg-glass-inset {
+    .nav-links {
+      @include glass-pressed;
+    }
+
+    .nav-links a.is-active {
+      @include glass-pressed;
+    }
+  }
+
+  &.tg-hybrid {
+    .nav-links {
+      @include hybrid-pressed;
+    }
+
+    .nav-links a.is-active {
+      @include hybrid;
+    }
+
+    .nav-toggle,
+    .theme-toggle {
+      @include hybrid;
+    }
+  }
+
+  &.tg-hybrid-reverse {
+    .nav-links {
+      @include hybrid;
+    }
+
+    .nav-links a.is-active {
+      @include hybrid-pressed;
+    }
+  }
+
+  &.tg-hybrid-surface {
+    .nav-links {
+      @include hybrid;
+    }
+
+    .nav-links a.is-active {
+      @include hybrid;
+    }
+  }
+
+  &.tg-hybrid-inset {
+    .nav-links {
+      @include hybrid-pressed;
+    }
+
+    .nav-links a.is-active {
+      @include hybrid-pressed;
     }
   }
 }
 
-/* ==========================================================================
-   Material Families
-   ========================================================================== */
-.neu-navbar {
-  @include neu-surface;
-}
+.nav-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 44px;
+  min-height: 44px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  color: var(--clr-dark);
+  cursor: pointer;
+  list-style: none;
+  @include interactive-transition;
 
-.glass-navbar {
-  @include glass-surface;
-}
+  &::-webkit-details-marker,
+  &::marker {
+    display: none;
+    content: '';
+  }
 
-.hybrid-navbar,
-.navbar-hybrid {
-  @include hybrid-surface;
-
-  .nav-links a.is-active {
-    background-color: var(--clr-bg);
-    padding: var(--sz-2) var(--sz-4);
-    border-radius: var(--radius-sm);
-    box-shadow: var(--neu-shadow-inset);
+  &:focus-visible {
+    @include focus-ring;
   }
 }
 
-/* ==========================================================================
-   Bootstrap-style Nav Modifiers
-   ========================================================================== */
+.nav-toggle-bars {
+  position: relative;
+  display: block;
+  width: 1.15rem;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+    @include interactive-transition;
+  }
+
+  &::before {
+    top: -6px;
+  }
+
+  &::after {
+    top: 6px;
+  }
+}
+
+.nav-collapse {
+  display: flex;
+  align-items: center;
+
+  &[open] > .nav-toggle .nav-toggle-bars {
+    background: transparent;
+  }
+
+  &[open] > .nav-toggle .nav-toggle-bars::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  &[open] > .nav-toggle .nav-toggle-bars::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+}
+
+@mixin nav-expand-desktop {
+  grid-template-columns: auto auto minmax(0, 1fr);
+
+  .nav-collapse {
+    display: none;
+  }
+
+  .nav-brand {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .nav-end {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  > .nav-links,
+  &:has(.nav-collapse) > .nav-links,
+  &:has(.nav-collapse[open]) > .nav-links {
+    display: flex;
+    grid-column: 3;
+    grid-row: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    justify-self: end;
+    width: max-content;
+    max-width: 100%;
+    border-radius: var(--radius-pill);
+  }
+}
+
+.tg-nav:has(.nav-expand-md) {
+  @include media-up(md) {
+    @include nav-expand-desktop;
+  }
+}
+
+.tg-nav:has(.nav-expand-lg) {
+  @include media-up(lg) {
+    @include nav-expand-desktop;
+  }
+}
+
 .nav-sm {
   padding: var(--sz-2) var(--sz-4);
 
   .nav-brand { font-size: var(--fs-base); }
-  .nav-links { gap: var(--sz-4); }
+  .nav-links { gap: var(--sz-1); }
   .nav-links a { font-size: var(--fs-sm); }
 }
 

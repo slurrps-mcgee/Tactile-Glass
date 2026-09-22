@@ -31,7 +31,19 @@
 
   syncToggles();
 
-  document.querySelectorAll('.neu-select, .glass-select, .hybrid-select').forEach(function (select) {
+  function closeSelects(except) {
+    document.querySelectorAll('details.tg-select[open]').forEach(function (select) {
+      if (select !== except) select.open = false;
+    });
+  }
+
+  document.querySelectorAll('.tg-select').forEach(function (select) {
+    select.setAttribute('name', 'tg-select');
+
+    select.addEventListener('toggle', function () {
+      if (select.open) closeSelects(select);
+    });
+
     select.addEventListener('click', function (event) {
       var option = event.target.closest('.select-option');
       if (!option || !select.contains(option)) return;
@@ -51,6 +63,32 @@
       }
       select.open = false;
       event.preventDefault();
+    });
+  });
+
+  document.addEventListener('pointerdown', function (event) {
+    if (event.target.closest('.tg-select')) return;
+    closeSelects();
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') closeSelects();
+  });
+
+  document.addEventListener('pointerdown', function (event) {
+    var btn = event.target.closest('.tg-btn.tg-glass, .tg-btn.tg-hybrid');
+    if (!btn || btn.disabled || btn.classList.contains('is-disabled')) return;
+    var rect = btn.getBoundingClientRect();
+    var size = Math.max(rect.width, rect.height) * 1.15;
+    var ripple = document.createElement('span');
+    ripple.className = 'tg-ripple';
+    ripple.style.width = size + 'px';
+    ripple.style.height = size + 'px';
+    ripple.style.left = (event.clientX - rect.left - size / 2) + 'px';
+    ripple.style.top = (event.clientY - rect.top - size / 2) + 'px';
+    btn.appendChild(ripple);
+    ripple.addEventListener('animationend', function () {
+      ripple.remove();
     });
   });
 })();

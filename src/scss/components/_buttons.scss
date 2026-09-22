@@ -1,13 +1,10 @@
 @use '../base/mixins' as *;
+@use '../styles/neu' as *;
+@use '../styles/glass' as *;
+@use '../styles/hybrid' as *;
 @use 'sass:map';
 
-/* ==========================================================================
-   Shared Control Skeleton
-   ========================================================================== */
-.neu-btn,
-.glass-btn,
-.hybrid-btn,
-.btn-hybrid {
+.tg-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -27,80 +24,109 @@
   &:focus-visible {
     @include focus-ring;
   }
-}
-
-/* ==========================================================================
-   1. PURE NEUMORPHIC SYSTEM (Tactile)
-   ========================================================================== */
-.neu-btn {
-  @include neu-surface;
-
-  &:active,
-  &.is-active {
-    box-shadow: var(--neu-shadow-inset);
-    transform: scale(0.98);
-  }
 
   &:disabled,
   &.is-disabled {
     box-shadow: none;
     border: 1px dashed var(--clr-light-gray);
   }
-}
 
-/* ==========================================================================
-   2. PURE GLASSMORPHIC SYSTEM (Acrylic)
-   ========================================================================== */
-.glass-btn {
-  @include glass-surface;
-  background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 12px 0 rgba(76, 75, 99, 0.05);
-
-  @media (hover: hover) {
-    &:hover {
-      background: rgba(255, 255, 255, 0.35);
-      box-shadow: 0 6px 20px 0 rgba(76, 75, 99, 0.1);
-      transform: translateY(-1px);
+  &.tg-neu {
+    &:active,
+    &.is-active {
+      @include neu-inset;
+      transform: scale(0.98);
     }
   }
 
-  &:active,
-  &.is-active {
-    background: rgba(255, 255, 255, 0.15);
-    transform: scale(0.98) translateY(0);
-    box-shadow: 0 2px 6px 0 rgba(76, 75, 99, 0.05);
-  }
-}
-
-/* ==========================================================================
-   3. THE COMBINED SIGNATURE SYSTEM (Hybrid)
-   ========================================================================== */
-.hybrid-btn,
-.btn-hybrid {
-  @include hybrid-surface;
-  background: rgba(255, 255, 255, 0.15);
-
-  @media (hover: hover) {
-    &:hover {
-      background: rgba(255, 255, 255, 0.3);
-      border-color: rgba(255, 255, 255, 0.6);
-      transform: translateY(-2px);
-      box-shadow: 10px 10px 20px #a6a6a6, -10px -10px 20px #e0e0e0;
+  &.tg-neu-reverse {
+    &:active,
+    &.is-active {
+      @include neu;
+      transform: scale(0.98);
     }
   }
 
-  &:active,
-  &.is-active {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.2);
-    transform: translateY(0) scale(0.97);
-    box-shadow: var(--neu-shadow-inset);
+  &.tg-neu-surface {
+    &:active,
+    &.is-active {
+      @include neu;
+      transform: scale(0.98);
+    }
+  }
+
+  &.tg-neu-inset {
+    &:active,
+    &.is-active {
+      @include neu-inset;
+      transform: scale(0.98);
+    }
+  }
+
+  &.tg-glass {
+    &:active,
+    &.is-active {
+      @include glass-pressed;
+    }
+  }
+
+  &.tg-glass-frosted {
+    &:active,
+    &.is-active {
+      @include glass-pressed;
+    }
+  }
+
+  &.tg-glass-reverse {
+    &:active,
+    &.is-active {
+      @include glass-raised;
+    }
+  }
+
+  &.tg-glass-surface {
+    &:active,
+    &.is-active {
+      @include glass-raised;
+    }
+  }
+
+  &.tg-glass-inset {
+    &:active,
+    &.is-active {
+      @include glass-pressed;
+    }
+  }
+
+  &.tg-hybrid {
+    &:active,
+    &.is-active {
+      @include hybrid-pressed;
+    }
+  }
+
+  &.tg-hybrid-reverse {
+    &:active,
+    &.is-active {
+      @include hybrid;
+    }
+  }
+
+  &.tg-hybrid-surface {
+    &:active,
+    &.is-active {
+      @include hybrid;
+    }
+  }
+
+  &.tg-hybrid-inset {
+    &:active,
+    &.is-active {
+      @include hybrid-pressed;
+    }
   }
 }
 
-/* ==========================================================================
-   Sizing Utilities (Bootstrap style: btn-sm, btn-lg)
-   ========================================================================== */
 .btn-sm {
   padding: var(--sz-1) var(--sz-3);
   font-size: var(--fs-sm);
@@ -128,24 +154,47 @@
   width: 100%;
 }
 
-/* ==========================================================================
-   Semantic Color Utilities (Bootstrap style: btn-primary)
-   ========================================================================== */
 @each $name, $meta in $tg-colors {
   $color: map.get($meta, color);
   $rgb: map.get($meta, rgb);
 
-  .btn-#{$name} {
+  .tg-btn.btn-#{$name}.tg-neu,
+  .tg-btn.btn-#{$name}.tg-neu-surface,
+  .tg-btn.btn-#{$name}.tg-neu-inset,
+  .tg-btn.btn-#{$name}.tg-neu-reverse {
     @include semantic-solid($color, $rgb);
+  }
 
-    &.glass-btn,
-    &.hybrid-btn,
-    &.btn-hybrid {
-      @include semantic-lens($color, $rgb);
-    }
+  .tg-btn.btn-#{$name}.tg-glass,
+  .tg-btn.btn-#{$name}.tg-glass-frosted,
+  .tg-btn.btn-#{$name}.tg-glass-surface,
+  .tg-btn.btn-#{$name}.tg-glass-inset,
+  .tg-btn.btn-#{$name}.tg-glass-reverse,
+  .tg-btn.btn-#{$name}.tg-hybrid,
+  .tg-btn.btn-#{$name}.tg-hybrid-surface,
+  .tg-btn.btn-#{$name}.tg-hybrid-inset,
+  .tg-btn.btn-#{$name}.tg-hybrid-reverse {
+    @include semantic-lens($color, $rgb);
   }
 }
 
-.btn-primary-tint {
-  @include semantic-lens(var(--clr-primary), --clr-primary-rgb);
+.tg-btn.btn-dark {
+  @include semantic-solid(var(--tg-dark), --tg-dark-rgb);
+}
+
+.tg-btn.tg-glass,
+.tg-btn.tg-glass-frosted,
+.tg-btn.tg-hybrid {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.tg-ripple {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: var(--tg-glass-ripple);
+  transform: scale(0);
+  animation: tg-ripple 0.65s var(--ease) forwards;
 }

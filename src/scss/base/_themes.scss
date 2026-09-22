@@ -1,0 +1,334 @@
+/* ==========================================================================
+   Color modes — single source of truth
+   Light ($tg-theme-light) is the full palette on :root.
+   Dark ($tg-theme-dark) is a patch: only tokens that change.
+   Names follow Bootstrap CSS variables with a tg- prefix.
+   Materials (neu / glass / hybrid) are sectioned in the light map.
+   ========================================================================== */
+
+$tg-theme-light: (
+  // Color Styles
+  blue: #7aa4ef,
+  indigo: #eceaf4,
+  purple: #a8a6b2,
+  pink: #e0a8c8,
+  red: #f07178,
+  orange: #ffb347,
+  yellow: #ffd166,
+  green: #5ed4c8,
+  teal: #5ed4c8,
+  cyan: #7ec8e0,
+  gray: #a8a6b2,
+  gray-dark: #eceaf4,
+  gray-100: #3e3c4c,
+  gray-200: #2c2b36,
+  gray-300: #3e3c4c,
+  gray-400: #7c7a88,
+  gray-500: #a8a6b2,
+  gray-600: #c5c4ce,
+  gray-700: #eceaf4,
+  gray-800: #f7f6fa,
+  gray-900: #ffffff,
+  primary: #7aa4ef,
+  secondary: #a8a6b2,
+  success: #5ed4c8,
+  info: #7ec8e0,
+  warning: #ffb347,
+  danger: #f07178,
+  dark: #1a1922,
+  primary-rgb: "122, 164, 239",
+  secondary-rgb: "168, 166, 178",
+  success-rgb: "94, 212, 200",
+  info-rgb: "126, 200, 224",
+  warning-rgb: "255, 179, 71",
+  danger-rgb: "240, 113, 120",
+  dark-rgb: "26, 25, 34",
+
+  // Text Styles
+  primary-text-emphasis: #adc6f2,
+  secondary-text-emphasis: #c5c4ce,
+  success-text-emphasis: #9ee4dc,
+  info-text-emphasis: #a6d7ea,
+  warning-text-emphasis: #ffd08a,
+  danger-text-emphasis: #f3a0aa,
+  light-text-emphasis: #f7f6fa,
+  dark-text-emphasis: #eceaf4,
+
+  // Background Styles
+  primary-bg-subtle: #1e2a44,
+  secondary-bg-subtle: #2a2933,
+  success-bg-subtle: #163632,
+  info-bg-subtle: #16343c,
+  warning-bg-subtle: #3a2a12,
+  danger-bg-subtle: #3a151a,
+  light-bg-subtle: #3e3c4c,
+  dark-bg-subtle: #14131a,
+
+  // Border Styles
+  primary-border-subtle: #3a5288,
+  secondary-border-subtle: #4a4858,
+  success-border-subtle: #2a6a64,
+  info-border-subtle: #2a5a68,
+  warning-border-subtle: #8a5a18,
+  danger-border-subtle: #8a2830,
+  light-border-subtle: #4a4858,
+  dark-border-subtle: #3e3c4c,
+
+  // Font Styles
+  body-font-family: var(--font-sans),
+  body-font-size: var(--fs-base),
+  body-font-weight: var(--font-weight-normal),
+  body-line-height: var(--line-height-relaxed),
+  font-sans-serif: var(--font-sans),
+  font-monospace: var(--font-mono),
+  gradient: "linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0))",
+  focus-ring-blur: 0,
+
+  // Body Styles
+  body-color: #4C4B63,
+  body-color-rgb: "76, 75, 99",
+  body-bg: #C3C3C3,
+  body-bg-rgb: "195, 195, 195",
+
+  // Emphasis Styles
+  emphasis-color: #1a1922,
+  emphasis-color-rgb: "26, 25, 34",
+
+  // Secondary Styles
+  secondary-color: rgba(76, 75, 99, 0.75),
+  secondary-color-rgb: "76, 75, 99",
+  secondary-bg: #ABA8B2,
+  secondary-bg-rgb: "171, 168, 178",
+
+  // Tertiary Styles
+  tertiary-color: rgba(76, 75, 99, 0.5),
+  tertiary-color-rgb: "76, 75, 99",
+  tertiary-bg: #d8d6e0,
+  tertiary-bg-rgb: "216, 214, 224",
+
+  // Heading Styles
+  heading-color: #4C4B63,
+
+  // Link Styles
+  link-color: #5386E4,
+  link-color-rgb: "83, 134, 228",
+  link-decoration: underline,
+  link-hover-color: #2f5cb8,
+  link-hover-color-rgb: "47, 92, 184",
+
+  // Code Styles
+  code-color: #4C4B63,
+
+  // Highlight Styles
+  highlight-color: #4C4B63,
+  highlight-bg: #ffe8c6,
+
+  // Border Styles
+  border-width: 1px,
+  border-style: solid,
+  border-color: rgba(76, 75, 99, 0.18),
+  border-color-translucent: rgba(76, 75, 99, 0.18),
+  border-radius: var(--radius-md),
+  border-radius-sm: var(--radius-sm),
+  border-radius-lg: var(--radius-lg),
+  border-radius-xl: 20px,
+  border-radius-xxl: var(--radius-lg),
+  border-radius-2xl: var(--radius-lg),
+  border-radius-pill: var(--radius-pill),
+  border-subtle: rgba(76, 75, 99, 0.18),
+
+  // Box Shadow Styles
+  box-shadow: "5px 5px 13px #a6a6a6, -5px -5px 13px #e0e0e0",
+  box-shadow-sm: "3px 3px 8px #a6a6a6, -3px -3px 8px #e0e0e0",
+  box-shadow-lg: "8px 8px 18px #a6a6a6, -8px -8px 18px #e0e0e0",
+  box-shadow-inset: "inset 5px 5px 13px #a6a6a6, inset -5px -5px 13px #e0e0e0",
+
+  // Focus Ring Styles
+  focus-ring-width: 2px,
+  focus-ring-opacity: 1,
+  focus-ring-color: #5386E4,
+
+  // Form Styles
+  form-valid-color: #5ed4c8,
+  form-valid-border-color: #5ed4c8,
+  form-invalid-color: #f07178,
+  form-invalid-border-color: #f07178,
+
+  // Glass Styles
+  glass-bg: rgba(255, 255, 255, 0.15),
+  glass-bg-raised: rgba(255, 255, 255, 0.28),
+  glass-bg-pressed: rgba(255, 255, 255, 0.08),
+  glass-blur: blur(20px),
+  glass-menu-blur: blur(28px),
+  glass-menu-bg: rgba(255, 255, 255, 0.22),
+  glass-border: 1px solid rgba(255, 255, 255, 0.3),
+  glass-shadow: "0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(255, 255, 255, 0.1), inset 0 0 20px 10px rgba(255, 255, 255, 0.35)",
+  glass-ripple: rgba(255, 255, 255, 0.55),
+
+  // Hybrid Styles
+  hybrid-bg: rgba(255, 255, 255, 0.15),
+  hybrid-bg-pressed: rgba(255, 255, 255, 0.08),
+
+  // Neu Styles
+  neu-shadow-drop: "5px 5px 13px #a6a6a6, -5px -5px 13px #e0e0e0",
+  neu-shadow-inset: "inset 5px 5px 13px #a6a6a6, inset -5px -5px 13px #e0e0e0",
+  neu-shadow-lift: "8px 8px 18px #a6a6a6, -8px -8px 18px #e0e0e0",
+
+  // Code Styles
+  code-bg: rgba(76, 75, 99, 0.08),
+
+  // HR Styles
+  hr-color: rgba(76, 75, 99, 0.12)
+);
+
+$tg-theme-dark: (
+  // Body Styles
+  body-color: #eceaf4,
+  body-color-rgb: "236, 234, 244",
+  body-bg: #2c2b36,
+  body-bg-rgb: "44, 43, 54",
+
+  // Emphasis Styles
+  emphasis-color: #ffffff,
+  emphasis-color-rgb: "255, 255, 255",
+  secondary-color: rgba(236, 234, 244, 0.75),
+  secondary-color-rgb: "236, 234, 244",
+
+  // Secondary Styles
+  secondary-bg: #3e3c4c,
+  secondary-bg-rgb: "62, 60, 76",
+
+  // Tertiary Styles
+  tertiary-color: rgba(236, 234, 244, 0.5),
+  tertiary-color-rgb: "236, 234, 244",
+  tertiary-bg: #241f2c,
+  tertiary-bg-rgb: "36, 31, 44",
+
+  // Heading Styles
+  heading-color: #eceaf4,
+
+  // Link Styles
+  link-color: #7aa4ef,
+  link-color-rgb: "122, 164, 239",
+  link-hover-color: #adc6f2,
+  link-hover-color-rgb: "173, 198, 242",
+
+  // Highlight Styles
+  highlight-color: #eceaf4,
+  highlight-bg: #664d03,
+  
+
+  // Box Shadow Styles
+  box-shadow: "5px 5px 13px #1a1922, -5px -5px 13px #3e3c4c",
+  box-shadow-sm: "3px 3px 8px #1a1922, -3px -3px 8px #3e3c4c",
+  box-shadow-lg: "8px 8px 18px #1a1922, -8px -8px 18px #3e3c4c",
+  box-shadow-inset: "inset 5px 5px 13px #1a1922, inset -5px -5px 13px #3e3c4c",
+
+  // Glass Styles
+  glass-bg: rgba(255, 255, 255, 0.1),
+  glass-bg-raised: rgba(255, 255, 255, 0.18),
+  glass-bg-pressed: rgba(255, 255, 255, 0.04),
+  glass-menu-bg: rgba(255, 255, 255, 0.22),
+  glass-border: 1px solid rgba(255, 255, 255, 0.2),
+  glass-shadow: "0 8px 32px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -1px 0 rgba(255, 255, 255, 0.08), inset 0 0 20px 10px rgba(255, 255, 255, 0.08)",
+  glass-ripple: rgba(255, 255, 255, 0.35),
+
+  // Hybrid Styles
+  hybrid-bg: rgba(255, 255, 255, 0.1),
+  hybrid-bg-pressed: rgba(255, 255, 255, 0.04),
+
+  // Neu Styles
+  neu-shadow-drop: "5px 5px 13px #1a1922, -5px -5px 13px #3e3c4c",
+  neu-shadow-inset: "inset 5px 5px 13px #1a1922, inset -5px -5px 13px #3e3c4c",
+  neu-shadow-lift: "8px 8px 18px #1a1922, -8px -8px 18px #3e3c4c",
+
+  // Code Styles
+  code-bg: rgba(255, 255, 255, 0.08),
+  code-color: #eceaf4,
+
+  // Border Styles
+  border-subtle: rgba(255, 255, 255, 0.12),
+  border-color: rgba(255, 255, 255, 0.12),
+  border-color-translucent: rgba(255, 255, 255, 0.15),
+
+  // HR Styles
+  hr-color: rgba(255, 255, 255, 0.12)
+);
+
+// Emit Variables Mixin
+@mixin tg-emit-vars($theme) {
+  @each $name, $value in $theme {
+    --tg-#{"" + $name}: #{$value};
+  }
+}
+
+// Emit Aliases Mixin
+@mixin tg-emit-aliases {
+  --clr-primary: var(--tg-primary);
+  --clr-info: var(--tg-info);
+  --clr-info-rgb: var(--tg-info-rgb);
+  --clr-light: var(--tg-light);
+  --clr-secondary: var(--tg-secondary);
+  --clr-success: var(--tg-success);
+  --clr-warning: var(--tg-warning);
+  --clr-danger: var(--tg-danger);
+  --clr-body: var(--tg-body-color);
+  --clr-dark: var(--tg-body-color);
+  --clr-inverse: var(--tg-dark);
+  --clr-slate: var(--tg-secondary);
+  --clr-light-gray: var(--tg-gray-400);
+  --clr-bg: var(--tg-body-bg);
+  --clr-white: var(--tg-white);
+  --clr-primary-rgb: var(--tg-primary-rgb);
+  --clr-secondary-rgb: var(--tg-secondary-rgb);
+  --clr-success-rgb: var(--tg-success-rgb);
+  --clr-warning-rgb: var(--tg-warning-rgb);
+  --clr-danger-rgb: var(--tg-danger-rgb);
+  --clr-body-rgb: var(--tg-body-color-rgb);
+  --clr-dark-rgb: var(--tg-body-color-rgb);
+  --clr-inverse-rgb: var(--tg-dark-rgb);
+  --clr-slate-rgb: var(--tg-secondary-rgb);
+  --clr-bg-rgb: var(--tg-body-bg-rgb);
+  --glass-bg: var(--tg-glass-bg);
+  --glass-bg-raised: var(--tg-glass-bg-raised);
+  --glass-bg-pressed: var(--tg-glass-bg-pressed);
+  --glass-blur: var(--tg-glass-blur);
+  --glass-menu-blur: var(--tg-glass-menu-blur);
+  --glass-menu-bg: var(--tg-glass-menu-bg);
+  --glass-border: var(--tg-glass-border);
+  --glass-shadow: var(--tg-glass-shadow);
+  --hybrid-bg: var(--tg-hybrid-bg);
+  --hybrid-bg-pressed: var(--tg-hybrid-bg-pressed);
+  --neu-shadow-drop: var(--tg-neu-shadow-drop);
+  --neu-shadow-inset: var(--tg-neu-shadow-inset);
+  --neu-shadow-lift: var(--tg-neu-shadow-lift);
+  --code-bg: var(--tg-code-bg);
+  --border-subtle: var(--tg-border-subtle);
+  --hr-color: var(--tg-hr-color);
+  --focus-ring: var(--tg-focus-ring-width) solid var(--tg-focus-ring-color);
+}
+
+// Theme Light
+:root,
+.theme-light,
+[data-theme="light"] {
+  color-scheme: light;
+  @include tg-emit-vars($tg-theme-light);
+  @include tg-emit-aliases;
+}
+
+// Theme Dark
+.theme-dark,
+[data-theme="dark"] {
+  color-scheme: dark;
+  @include tg-emit-vars($tg-theme-dark);
+  background-color: var(--tg-body-bg);
+  color: var(--tg-body-color);
+}
+
+// Theme Light
+.theme-light,
+[data-theme="light"] {
+  background-color: var(--tg-body-bg);
+  color: var(--tg-body-color);
+}

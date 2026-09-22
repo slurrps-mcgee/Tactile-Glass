@@ -1,18 +1,20 @@
 @use '../base/mixins' as *;
+@use '../styles/neu' as *;
+@use '../styles/glass' as *;
+@use '../styles/hybrid' as *;
 
-/* ==========================================================================
-   Morph utilities — paint a surface onto ANY element
-   Components keep neu-btn / glass-card. These classes restyle a raw div.
-   ========================================================================== */
+/* !important mirrors of style classes — prefer tg-glass / tg-neu-* on any node */
 
-.morph-neu {
-  @include neu-surface;
+.morph-neu,
+.morph-neu-surface {
+  @include neu;
   background-color: var(--clr-bg) !important;
   box-shadow: var(--neu-shadow-drop) !important;
   border-color: transparent !important;
 }
 
-.morph-neu-inset {
+.morph-neu-inset,
+.morph-neu-reverse {
   @include neu-inset;
   background-color: var(--clr-bg) !important;
   box-shadow: var(--neu-shadow-inset) !important;
@@ -20,19 +22,59 @@
 }
 
 .morph-glass {
+  @include glass;
   background: var(--glass-bg) !important;
-  backdrop-filter: var(--glass-blur) !important;
-  -webkit-backdrop-filter: var(--glass-blur) !important;
+  backdrop-filter: var(--glass-blur) saturate(160%) !important;
+  -webkit-backdrop-filter: var(--glass-blur) saturate(160%) !important;
   border: var(--glass-border) !important;
   box-shadow: var(--glass-shadow) !important;
 }
 
-.morph-hybrid {
+.morph-glass-frosted {
+  @include glass-frosted;
+  background: var(--glass-bg) !important;
+  backdrop-filter: var(--glass-blur) saturate(160%) !important;
+  -webkit-backdrop-filter: var(--glass-blur) saturate(160%) !important;
+  border: var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+}
+
+.morph-glass-surface {
+  @include glass-raised;
+  background: var(--glass-bg-raised) !important;
+  backdrop-filter: var(--glass-blur) saturate(160%) !important;
+  -webkit-backdrop-filter: var(--glass-blur) saturate(160%) !important;
+  border: var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+}
+
+.morph-glass-inset,
+.morph-glass-reverse {
+  @include glass-pressed;
+  background: var(--glass-bg-pressed) !important;
+  backdrop-filter: var(--glass-blur) saturate(160%) !important;
+  -webkit-backdrop-filter: var(--glass-blur) saturate(160%) !important;
+  border: var(--glass-border) !important;
+}
+
+.morph-hybrid,
+.morph-hybrid-surface {
+  @include hybrid;
   background: var(--hybrid-bg) !important;
-  backdrop-filter: var(--glass-blur) !important;
-  -webkit-backdrop-filter: var(--glass-blur) !important;
+  backdrop-filter: var(--glass-blur) saturate(160%) !important;
+  -webkit-backdrop-filter: var(--glass-blur) saturate(160%) !important;
   border: var(--glass-border) !important;
   box-shadow: var(--neu-shadow-drop) !important;
+}
+
+.morph-hybrid-inset,
+.morph-hybrid-reverse {
+  @include hybrid-pressed;
+  background: var(--hybrid-bg-pressed) !important;
+  backdrop-filter: var(--glass-blur) saturate(160%) !important;
+  -webkit-backdrop-filter: var(--glass-blur) saturate(160%) !important;
+  border: var(--glass-border) !important;
+  box-shadow: var(--neu-shadow-inset) !important;
 }
 
 .morph-flat {
@@ -45,8 +87,23 @@
   box-shadow: var(--neu-shadow-lift) !important;
 }
 
-.morph-none {
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
+.tg-interactive {
+  cursor: pointer;
+  @include interactive-transition;
+
+  @media (hover: hover) {
+    &:hover:not(:active):not(.is-active) {
+      transform: translateY(-4px);
+      box-shadow: var(--neu-shadow-lift);
+    }
+
+    &.tg-glass:hover:not(:active):not(.is-active),
+    &.tg-glass-frosted:hover:not(:active):not(.is-active) {
+      background: var(--glass-bg-raised);
+    }
+
+    &.tg-hybrid:hover:not(:active):not(.is-active) {
+      background: var(--glass-bg);
+    }
+  }
 }

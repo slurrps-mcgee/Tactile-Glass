@@ -1,0 +1,46 @@
+@mixin glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur) saturate(160%);
+  -webkit-backdrop-filter: var(--glass-blur) saturate(160%);
+  border: var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+@mixin glass-raised {
+  @include glass;
+  background: var(--glass-bg-raised);
+}
+
+@mixin glass-pressed {
+  @include glass;
+  background: var(--glass-bg-pressed);
+  filter: brightness(0.92);
+}
+
+@mixin glass-frosted {
+  @include glass;
+}
+
+@mixin glass-menu-frost {
+  @include glass;
+  background: var(--glass-menu-bg, var(--glass-bg));
+  backdrop-filter: var(--glass-menu-blur, var(--glass-blur)) saturate(160%);
+  -webkit-backdrop-filter: var(--glass-menu-blur, var(--glass-blur)) saturate(160%);
+}
+
+.tg-glass {
+  @include glass;
+}
+
+.tg-glass-frosted {
+  @include glass-frosted;
+}
+
+.tg-glass-surface {
+  @include glass-raised;
+}
+
+.tg-glass-inset,
+.tg-glass-reverse {
+  @include glass-pressed;
+}

@@ -17,11 +17,11 @@
     letter-spacing: var(--letter-spacing-wide);
     text-transform: uppercase;
     color: var(--clr-slate);
-    border-bottom: 1px solid rgba(76, 75, 99, 0.12);
+    border-bottom: 1px solid var(--border-subtle);
   }
 
   tbody td {
-    border-bottom: 1px solid rgba(76, 75, 99, 0.08);
+    border-bottom: 1px solid var(--hr-color);
     color: var(--clr-dark);
   }
 
@@ -30,9 +30,7 @@
   }
 }
 
-.neu-table,
-.glass-table,
-.hybrid-table {
+.tg-table-wrap {
   width: 100%;
   overflow: hidden;
   border-radius: var(--radius-md);
@@ -42,20 +40,8 @@
   }
 }
 
-.neu-table {
-  @include neu-surface;
-}
-
-.glass-table {
-  @include glass-surface;
-}
-
-.hybrid-table {
-  @include hybrid-surface;
-}
-
 .table-striped tbody tr:nth-child(even) {
-  background: rgba(76, 75, 99, 0.04);
+  background: var(--code-bg);
 }
 
 .table-hover tbody tr {
@@ -63,12 +49,27 @@
 
   @media (hover: hover) {
     &:hover {
-      background: rgba(255, 255, 255, 0.22);
+      background: var(--glass-bg);
     }
   }
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid var(--border-subtle);
+}
+
+.table-borderless th,
+.table-borderless td {
+  border: 0;
 }
 
 .table-sm th,
 .table-sm td {
   padding: var(--sz-2) var(--sz-3);
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
 }

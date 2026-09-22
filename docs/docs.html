@@ -10,29 +10,36 @@
   <link rel="stylesheet" href="tactileglass.css">
   <link rel="stylesheet" href="docs.css">
 </head>
-<body class="p-6">
+<body class="px-3 py-4 px-md-6">
   <div class="container">
 
-    <header class="tg-nav hybrid-navbar nav-sticky">
+    <header class="tg-nav tg-hybrid nav-sticky">
       <a href="index.html" class="nav-brand text-primary">TactileGlass.css</a>
       <div class="nav-end">
         <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
           <svg class="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.3A8.4 8.4 0 1 1 9.7 3 7 7 0 0 0 21 14.3z"/></svg>
           <svg class="theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         </button>
-        <nav class="nav-links">
-          <a href="index.html" class="font-medium">Dashboard</a>
-          <a href="components.html" class="font-medium">Components</a>
-          <a href="docs.html" class="is-active font-medium">Docs</a>
-          <a href="overrides.html" class="font-medium">Overrides</a>
-          <a href="https://www.npmjs.com/package/tactileglass-css" class="font-medium">npm</a>
-          <a href="https://github.com/slurrps-mcgee/Tactile-Glass" class="font-medium">GitHub</a>
-        </nav>
+        <details class="nav-collapse nav-expand-md">
+          <summary class="nav-toggle" aria-label="Menu">
+            <span class="nav-toggle-bars" aria-hidden="true"></span>
+          </summary>
+        </details>
       </div>
+      <nav class="nav-links">
+        <a href="index.html" class="font-medium">Dashboard</a>
+        <a href="components.html" class="font-medium">Components</a>
+        <a href="layout.html" class="font-medium">Layout</a>
+        <a href="utilities.html" class="font-medium">Utilities</a>
+        <a href="docs.html" class="is-active font-medium">Docs</a>
+        <a href="customize.html" class="font-medium">Customize</a>
+        <a href="https://www.npmjs.com/package/tactileglass-css" class="font-medium">npm</a>
+        <a href="https://github.com/slurrps-mcgee/Tactile-Glass" class="font-medium">GitHub</a>
+      </nav>
     </header>
 
-    <section class="hybrid-card mb-8">
-      <span class="hybrid-badge badge-primary badge-pill self-start mb-3">Open source</span>
+    <section class="tg-card tg-hybrid mb-8">
+      <span class="tg-badge tg-hybrid badge-primary badge-pill self-start mb-3">Open source</span>
       <h1 class="text-2xl font-bold font-display lh-tight track-tight">Documentation</h1>
       <p class="text-base lh-relaxed mt-2">
         TactileGlass is a CSS framework that combines tactile neumorphism, frosted glass,
@@ -43,19 +50,20 @@
     </section>
 
     <nav class="docs-toc mb-8" aria-label="Documentation sections">
-      <a class="glass-badge" href="#install">Install</a>
-      <a class="glass-badge" href="#language">Class language</a>
-      <a class="glass-badge" href="#materials">Materials</a>
-      <a class="glass-badge" href="#layout">Layout</a>
-      <a class="glass-badge" href="#theme">Dark mode</a>
-      <a class="glass-badge" href="#tokens">Tokens</a>
-      <a class="glass-badge" href="#reference">Reference</a>
-      <a class="glass-badge" href="#contribute">Contribute</a>
+      <a class="tg-badge tg-glass" href="#install">Install</a>
+      <a class="tg-badge tg-glass" href="#language">Class language</a>
+      <a class="tg-badge tg-glass" href="#materials">Materials</a>
+      <a class="tg-badge tg-glass" href="#layout">Layout</a>
+      <a class="tg-badge tg-glass" href="#nav">Nav collapse</a>
+      <a class="tg-badge tg-glass" href="#theme">Dark mode</a>
+      <a class="tg-badge tg-glass" href="#tokens">Tokens</a>
+      <a class="tg-badge tg-glass" href="#reference">Reference</a>
+      <a class="tg-badge tg-glass" href="#contribute">Contribute</a>
     </nav>
 
     <article class="docs-prose">
 
-      <section id="install" class="neu-card mb-8">
+      <section id="install" class="tg-card tg-neu mb-8">
         <h2 class="text-xl font-display">Install</h2>
         <p>Package name <code>tactileglass-css</code> on npm.</p>
         <pre class="morph-neu-inset rounded-md p-4 text-sm mt-3">npm install tactileglass-css</pre>
@@ -66,46 +74,50 @@
         <p class="mt-3 mb-0">Sass entry if you compile it yourself: <code>tactileglass-css/src/scss/tactileglass.scss</code></p>
       </section>
 
-      <section id="language" class="glass-card mb-8">
+      <section id="language" class="tg-card tg-glass mb-8">
         <h2 class="text-xl font-display">Class language</h2>
-        <p>Three layers, always in this order of meaning:</p>
+        <p>Compose <strong>component + style</strong>, then modifiers:</p>
         <ul>
           <li>
-            <strong>Component + material.</strong>
-            <code>neu-btn</code>, <code>glass-card</code>, <code>hybrid-input</code>.
-            The material prefix is the surface. The second word is the control.
+            <strong>Component + style.</strong>
+            <code>tg-btn tg-neu</code>, <code>tg-card tg-glass-frosted</code>,
+            <code>tg-select tg-hybrid</code>. The control is generic. The style class paints it.
           </li>
           <li>
             <strong>Modifiers.</strong>
-            Bootstrap-style extras that work on every material:
-            <code>btn-sm</code>, <code>btn-primary</code>, <code>card-interactive</code>,
-            <code>nav-sticky</code>, <code>input-pill</code>.
+            Bootstrap-style extras that work on every style:
+            <code>btn-sm</code>, <code>btn-primary</code>, <code>tg-interactive</code>,
+            <code>nav-sticky</code>, <code>tg-neu-reverse</code>, <code>input-pill</code>.
           </li>
           <li>
             <strong>Utilities.</strong>
-            Tailwind-style helpers for layout, space, shape, and surface:
+            Tailwind-style helpers for layout, space, and shape:
             <code>d-flex</code>, <code>p-4</code>, <code>rounded-squircle</code>,
-            <code>morph-glass</code>, <code>theme-dark</code>.
+            <code>bg-white</code>, <code>text-white</code>, <code>border-none</code>,
+            <code>theme-dark</code>. Prefer style classes over <code>morph-*</code>; morph is the
+            <code>!important</code> escape hatch.
           </li>
         </ul>
-        <pre class="morph-glass rounded-md p-4 text-sm mt-3">&lt;button class="neu-btn btn-primary btn-lg"&gt;Save&lt;/button&gt;
+        <pre class="morph-glass rounded-md p-4 text-sm mt-3">&lt;button class="tg-btn tg-neu btn-primary btn-lg"&gt;Save&lt;/button&gt;
 
-&lt;section class="glass-card card-sm p-4"&gt;...&lt;/section&gt;
+&lt;section class="tg-card tg-glass-frosted card-sm p-4"&gt;...&lt;/section&gt;
 
-&lt;div class="morph-hybrid rounded-squircle p-6"&gt;Custom panel&lt;/div&gt;</pre>
+&lt;details class="tg-select tg-glass-frosted"&gt;...&lt;/details&gt;
+
+&lt;div class="tg-hybrid rounded-squircle p-6"&gt;Custom panel&lt;/div&gt;</pre>
       </section>
 
-      <section id="materials" class="hybrid-card mb-8">
-        <h2 class="text-xl font-display">Three materials</h2>
-        <p>Pick one material per node. Do not stack <code>neu-btn</code> with <code>glass-btn</code>.</p>
-        <div class="grid grid-3 gap-4 mt-4">
+      <section id="materials" class="tg-card tg-hybrid mb-8">
+        <h2 class="text-xl font-display">Three styles</h2>
+        <p>Pick one style per node. Do not stack <code>tg-btn tg-neu</code> with <code>tg-btn tg-glass</code>.</p>
+        <div class="grid grid-md-3 gap-4 mt-4">
           <div>
             <h3 class="text-lg">neu</h3>
-            <p class="text-sm">Raised or sunken clay. Shadows come from <code>--neu-shadow-drop</code> and <code>--neu-shadow-inset</code>.</p>
+            <p class="text-sm">Raised or sunken clay. Shadows come from <code>--tg-neu-shadow-drop</code> and <code>--tg-neu-shadow-inset</code>. Pair with <code>tg-neu-reverse</code>, <code>tg-neu-surface</code>, or <code>tg-neu-inset</code>.</p>
           </div>
           <div>
             <h3 class="text-lg">glass</h3>
-            <p class="text-sm">Frosted acrylic. Color modifiers become translucent lenses, not solid fills.</p>
+            <p class="text-sm"><code>tg-glass</code> for the pane; <code>tg-glass-frosted</code> for blur, inset glow, and edge sheen. Color modifiers become translucent lenses.</p>
           </div>
           <div>
             <h3 class="text-lg">hybrid</h3>
@@ -113,12 +125,12 @@
           </div>
         </div>
         <p class="mt-4 mb-0">
-          <code>morph-neu</code>, <code>morph-glass</code>, and <code>morph-hybrid</code> paint those
-          surfaces onto any element without turning it into a component.
+          Style classes paint any element. <code>morph-neu</code>, <code>morph-glass-frosted</code>,
+          <code>morph-hybrid-reverse</code>, and the rest mirror that matrix with <code>!important</code>.
         </p>
       </section>
 
-      <section id="layout" class="neu-card mb-8">
+      <section id="layout" class="tg-card tg-neu mb-8">
         <h2 class="text-xl font-display">Layout and containers</h2>
         <p>
           <code>container</code> is a centered, breakpoint-growing shell
@@ -128,12 +140,52 @@
         </p>
         <p>
           Flex and grid live as utilities: <code>d-flex</code>, <code>f-col</code>,
-          <code>gap-3</code>, <code>grid-3</code>, <code>col-span-2</code>.
+          <code>gap-3</code>, <code>grid-md-3</code>, <code>col-md-6</code>.
+          Infixes follow Bootstrap: <code>p-md-8</code>, not <code>md:p-8</code>.
+          See <a class="text-primary font-medium" href="layout.html">Layout</a> and
+          <a class="text-primary font-medium" href="utilities.html">Utilities</a>.
         </p>
         <p class="mb-0">See the <a class="text-primary font-medium" href="components.html#containers">container showcase</a> for live widths.</p>
       </section>
 
-      <section id="theme" class="glass-card mb-8">
+      <section id="nav" class="tg-card tg-neu mb-8">
+        <h2 class="text-xl font-display">Collapsible nav</h2>
+        <p>
+          Collapse is CSS-only. <code>details.nav-collapse</code> holds only the
+          hamburger <code>summary</code>. Put <code>.nav-links</code> as a sibling
+          under <code>.tg-nav</code>. Keep <code>theme-toggle</code> in
+          <code>.nav-end</code> on the top row.
+        </p>
+        <p>
+          Below the expand breakpoint the panel is hidden until the details is open.
+          From <code>md</code> (768px) up, <code>nav-expand-md</code> shows the links
+          in a row and hides the toggle. Use <code>nav-expand-lg</code> to wait until
+          992px, or omit the expand class to keep the hamburger at every width.
+        </p>
+        <pre class="morph-neu-inset rounded-md p-4 text-sm mt-3">&lt;header class="tg-nav tg-hybrid nav-sticky"&gt;
+  &lt;a class="nav-brand" href="/"&gt;TactileGlass.css&lt;/a&gt;
+  &lt;div class="nav-end"&gt;
+    &lt;button type="button" class="theme-toggle" data-theme-toggle&gt;&lt;/button&gt;
+    &lt;details class="nav-collapse nav-expand-md"&gt;
+      &lt;summary class="nav-toggle" aria-label="Menu"&gt;
+        &lt;span class="nav-toggle-bars" aria-hidden="true"&gt;&lt;/span&gt;
+      &lt;/summary&gt;
+    &lt;/details&gt;
+  &lt;/div&gt;
+  &lt;nav class="nav-links"&gt;
+    &lt;a href="/" class="is-active"&gt;Home&lt;/a&gt;
+    &lt;a href="/docs"&gt;Docs&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;</pre>
+        <p class="mt-3 mb-0">
+          Depth modifiers stay on the parent:
+          <code>tg-neu-reverse</code>, <code>tg-neu-surface</code>,
+          <code>tg-neu-inset</code> (same suffixes on glass and hybrid). Do not put
+          inset or surface classes on <code>.nav-links</code>.
+        </p>
+      </section>
+
+      <section id="theme" class="tg-card tg-glass mb-8">
         <h2 class="text-xl font-display">Dark mode</h2>
         <p>
           Add <code>theme-dark</code> to <code>&lt;html&gt;</code> (or any subtree) to invert
@@ -155,53 +207,126 @@
         </p>
       </section>
 
-      <section id="tokens" class="hybrid-card mb-8">
+      <section id="tokens" class="tg-card tg-hybrid mb-8">
         <h2 class="text-xl font-display">Tokens</h2>
         <p>
-          Everything themable is a CSS custom property on <code>:root</code>. Override them
-          in your own stylesheet after TactileGlass loads. The
-          <a class="text-primary font-medium" href="overrides.html">overrides</a> page walks through live examples.
+          Public API is <code>--tg-{name}</code> from the light map, plus structural
+          tokens in <code>src/scss/base/_tokens.scss</code>.
+          <code>--clr-*</code> / <code>--glass-*</code> stay aliases. Dark only patches
+          ink, canvas, shadows, and glass/hybrid fills — pastels inherit.
+          Live examples live on
+          <a class="text-primary font-medium" href="customize.html">Customize</a>.
         </p>
-        <div class="overflow-x-auto mt-4">
+
+        <h3 class="text-lg font-display mt-6 mb-2">Brand and semantic</h3>
+        <div class="overflow-x-auto">
           <table class="token-table">
-            <thead>
-              <tr>
-                <th>Token</th>
-                <th>Role</th>
-              </tr>
-            </thead>
+            <thead><tr><th>Token</th><th>Role</th></tr></thead>
             <tbody>
-              <tr><td><code>--clr-primary</code></td><td>Brand color and focus ring</td></tr>
-              <tr><td><code>--clr-dark</code></td><td>Body and heading ink</td></tr>
-              <tr><td><code>--clr-bg</code></td><td>Canvas and neu surface fill</td></tr>
-              <tr><td><code>--clr-success</code> / <code>--clr-warning</code> / <code>--clr-danger</code></td><td>Semantic accents</td></tr>
-              <tr><td><code>--glass-bg</code> / <code>--glass-blur</code> / <code>--glass-border</code></td><td>Glass engine</td></tr>
-              <tr><td><code>--hybrid-bg</code></td><td>Hybrid fill sitting on neu shadows</td></tr>
-              <tr><td><code>--neu-shadow-drop</code> / <code>--neu-shadow-inset</code></td><td>Tactile depth</td></tr>
-              <tr><td><code>--radius-sm</code> / <code>--radius-md</code> / <code>--radius-lg</code> / <code>--radius-squircle</code></td><td>Rounding</td></tr>
-              <tr><td><code>--sz-1</code> … <code>--sz-12</code></td><td>Spacing scale</td></tr>
-              <tr><td><code>--font-sans</code> / <code>--font-display</code> / <code>--font-mono</code></td><td>Type families</td></tr>
+              <tr><td><span class="swatch" style="background: var(--tg-primary)"></span><code>--tg-primary</code> <code>--tg-primary-rgb</code></td><td>Brand / focus / <code>btn-primary</code></td></tr>
+              <tr><td><span class="swatch" style="background: var(--tg-secondary)"></span><code>--tg-secondary</code></td><td>Muted accent</td></tr>
+              <tr><td><span class="swatch" style="background: var(--tg-success)"></span><code>--tg-success</code> <code>--tg-info</code> <code>--tg-warning</code> <code>--tg-danger</code></td><td>Semantic accents (+ matching <code>*-rgb</code>)</td></tr>
+              <tr><td><span class="swatch" style="background: var(--tg-dark)"></span><code>--tg-dark</code></td><td>Always-dark fill for <code>btn-dark</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-lg font-display mt-6 mb-2">Named palette</h3>
+        <div class="overflow-x-auto">
+          <table class="token-table">
+            <thead><tr><th>Token</th><th>Role</th></tr></thead>
+            <tbody>
+              <tr><td><code>--tg-blue</code> <code>--tg-indigo</code> <code>--tg-purple</code> <code>--tg-pink</code> <code>--tg-red</code> <code>--tg-orange</code> <code>--tg-yellow</code> <code>--tg-green</code> <code>--tg-teal</code> <code>--tg-cyan</code></td><td>Named hues</td></tr>
+              <tr><td><code>--tg-gray</code> <code>--tg-gray-dark</code> <code>--tg-gray-100</code> … <code>--tg-gray-900</code></td><td>Gray ramp</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-lg font-display mt-6 mb-2">Body, ink, and links</h3>
+        <div class="overflow-x-auto">
+          <table class="token-table">
+            <thead><tr><th>Token</th><th>Role</th></tr></thead>
+            <tbody>
+              <tr><td><span class="swatch" style="background: var(--tg-body-color)"></span><code>--tg-body-color</code></td><td>Page ink</td></tr>
+              <tr><td><span class="swatch" style="background: var(--tg-body-bg)"></span><code>--tg-body-bg</code></td><td>Canvas</td></tr>
+              <tr><td><code>--tg-heading-color</code> <code>--tg-code-color</code> <code>--tg-emphasis-color</code></td><td>Headings, code, strong ink</td></tr>
+              <tr><td><span class="swatch" style="background: var(--tg-link-color)"></span><code>--tg-link-color</code> <code>--tg-link-hover-color</code> <code>--tg-link-decoration</code></td><td>Links</td></tr>
+              <tr><td><code>--tg-secondary-color</code> <code>--tg-secondary-bg</code> <code>--tg-tertiary-color</code> <code>--tg-tertiary-bg</code></td><td>Muted copy and surfaces</td></tr>
+              <tr><td><code>--tg-highlight-color</code> <code>--tg-highlight-bg</code></td><td>Mark / highlight</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-lg font-display mt-6 mb-2">Emphasis, subtle fills, and subtle borders</h3>
+        <div class="overflow-x-auto">
+          <table class="token-table">
+            <thead><tr><th>Token</th><th>Role</th></tr></thead>
+            <tbody>
+              <tr><td><code>--tg-primary-text-emphasis</code> … <code>--tg-dark-text-emphasis</code></td><td>Stronger semantic ink</td></tr>
+              <tr><td><code>--tg-primary-bg-subtle</code> … <code>--tg-dark-bg-subtle</code></td><td>Tinted surfaces</td></tr>
+              <tr><td><code>--tg-primary-border-subtle</code> … <code>--tg-dark-border-subtle</code></td><td>Tinted edges</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-lg font-display mt-6 mb-2">Glass, hybrid, and neu</h3>
+        <div class="overflow-x-auto">
+          <table class="token-table">
+            <thead><tr><th>Token</th><th>Role</th></tr></thead>
+            <tbody>
+              <tr><td><code>--tg-glass-bg</code> <code>--tg-glass-bg-raised</code> <code>--tg-glass-bg-pressed</code></td><td>Glass fills</td></tr>
+              <tr><td><code>--tg-glass-blur</code> <code>--tg-glass-menu-blur</code> <code>--tg-glass-menu-bg</code> <code>--tg-glass-border</code> <code>--tg-glass-shadow</code> <code>--tg-glass-ripple</code></td><td>Frost, menu fill/blur, edge, drop, ripple</td></tr>
+              <tr><td><code>--tg-hybrid-bg</code> <code>--tg-hybrid-bg-pressed</code></td><td>Hybrid fills</td></tr>
+              <tr><td><code>--tg-neu-shadow-drop</code> <code>--tg-neu-shadow-inset</code> <code>--tg-neu-shadow-lift</code></td><td>Clay depth</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-lg font-display mt-6 mb-2">Border, radius, shadow, and focus</h3>
+        <div class="overflow-x-auto">
+          <table class="token-table">
+            <thead><tr><th>Token</th><th>Role</th></tr></thead>
+            <tbody>
+              <tr><td><code>--tg-border-width</code> <code>--tg-border-style</code> <code>--tg-border-color</code> <code>--tg-border-subtle</code> <code>--tg-hr-color</code></td><td>Edges and rules</td></tr>
+              <tr><td><code>--tg-border-radius*</code> and <code>--radius-sm</code> / <code>--radius-md</code> / <code>--radius-lg</code> / <code>--radius-squircle</code> / <code>--radius-pill</code></td><td>Rounding</td></tr>
+              <tr><td><code>--tg-box-shadow</code> <code>--tg-box-shadow-sm</code> <code>--tg-box-shadow-lg</code> <code>--tg-box-shadow-inset</code></td><td>Generic shadows</td></tr>
+              <tr><td><code>--tg-focus-ring-width</code> <code>--tg-focus-ring-color</code> <code>--tg-form-valid-color</code> <code>--tg-form-invalid-color</code></td><td>Focus and form state</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-lg font-display mt-6 mb-2">Type, spacing, and breakpoints</h3>
+        <div class="overflow-x-auto">
+          <table class="token-table">
+            <thead><tr><th>Token</th><th>Role</th></tr></thead>
+            <tbody>
+              <tr><td><code>--font-sans</code> <code>--font-display</code> <code>--font-mono</code> <code>--fs-xs</code> … <code>--fs-6xl</code></td><td>Type</td></tr>
+              <tr><td><code>--spacing</code> <code>--sz-1</code> … <code>--sz-12</code> <code>--max-w-prose</code></td><td>Spacing and measure</td></tr>
+              <tr><td><code>--z-base</code> <code>--z-sticky</code> <code>--z-overlay</code></td><td>Stacking</td></tr>
+              <tr><td><code>--tg-breakpoint-sm</code> … <code>--tg-breakpoint-xxl</code></td><td>576 / 768 / 992 / 1200 / 1400</td></tr>
             </tbody>
           </table>
         </div>
       </section>
 
-      <section id="reference" class="neu-card mb-8">
+      <section id="reference" class="tg-card tg-neu mb-8">
         <h2 class="text-xl font-display">Component reference</h2>
         <p>Every control ships in three materials unless noted. Full gallery:</p>
-        <div class="grid grid-2 gap-3 mt-4">
-          <p class="mb-0"><a class="text-primary font-medium" href="components.html#buttons">Buttons</a> — <code>neu-btn</code> <code>btn-sm</code> <code>btn-primary</code></p>
-          <p class="mb-0"><a class="text-primary font-medium" href="components.html#cards">Cards</a> — <code>glass-card</code> <code>card-interactive</code></p>
-          <p class="mb-0"><a class="text-primary font-medium" href="components.html#inputs">Inputs</a> — <code>hybrid-input</code> <code>neu-select</code> <code>neu-switch</code></p>
-          <p class="mb-0"><a class="text-primary font-medium" href="components.html#navbars">Navbars</a> — <code>tg-nav</code> <code>nav-sticky</code> <code>theme-toggle</code></p>
+        <div class="grid grid-md-2 gap-3 mt-4">
+          <p class="mb-0"><a class="text-primary font-medium" href="components.html#buttons">Buttons</a> — <code>tg-btn tg-neu</code> <code>btn-sm</code> <code>btn-primary</code></p>
+          <p class="mb-0"><a class="text-primary font-medium" href="components.html#cards">Cards</a> — <code>tg-card tg-glass</code> <code>tg-interactive</code></p>
+          <p class="mb-0"><a class="text-primary font-medium" href="components.html#inputs">Inputs</a> — <code>tg-input tg-hybrid</code> <code>tg-select tg-neu</code> <code>tg-switch tg-neu</code></p>
+          <p class="mb-0"><a class="text-primary font-medium" href="components.html#navbars">Navbars</a> — <code>tg-nav</code> <code>tg-neu</code> <code>tg-neu-reverse</code> <code>nav-sticky</code></p>
           <p class="mb-0"><a class="text-primary font-medium" href="components.html#alerts">Alerts, badges, lists, tables, progress</a></p>
           <p class="mb-0"><a class="text-primary font-medium" href="components.html#containers">Containers</a> — <code>container</code> <code>container-lg</code> <code>container-fluid</code></p>
           <p class="mb-0"><a class="text-primary font-medium" href="components.html#morph">Morph + shape</a> — <code>morph-neu</code> <code>rounded-squircle</code></p>
-          <p class="mb-0"><a class="text-primary font-medium" href="overrides.html">Overrides</a> — recolor without forking the Sass</p>
+          <p class="mb-0"><a class="text-primary font-medium" href="layout.html">Layout</a> — breakpoints, 12-col grid, gutters</p>
+          <p class="mb-0"><a class="text-primary font-medium" href="utilities.html">Utilities</a> — spacing, display, type helpers</p>
+          <p class="mb-0"><a class="text-primary font-medium" href="customize.html">Customize</a> — recolor without forking the Sass</p>
         </div>
       </section>
 
-      <section id="contribute" class="hybrid-card mb-8">
+      <section id="contribute" class="tg-card tg-hybrid mb-8">
         <h2 class="text-xl font-display">Contribute</h2>
         <p>
           TactileGlass is open source under the MIT License.
@@ -221,10 +346,11 @@ npm run dev</pre>
         </ul>
         <p>
           Source lives in <code>src/scss</code>: <code>base/</code> tokens and mixins,
-          <code>components/</code> controls, <code>layouts/</code> flex and grid,
-          <code>utilities/</code> morph, theme, spacing, and helpers.
+          <code>styles/</code> neu/glass/hybrid, <code>components/</code> controls,
+          <code>layouts/</code> container, flex, and grid,
+          <code>animations/</code> motion, <code>utilities/</code> morph, theme, spacing, and color.
         </p>
-        <p class="mb-0">Keep class names unambiguous: material first, then the control, then modifiers, then utilities.</p>
+        <p class="mb-0">Keep class names unambiguous: component, then material, then modifiers, then utilities.</p>
       </section>
 
     </article>

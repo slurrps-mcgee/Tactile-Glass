@@ -1,9 +1,23 @@
 @use '../base/mixins' as *;
 @use 'sass:map';
 
-.bg-canvas { background-color: var(--clr-bg) !important; }
-.bg-white { background-color: var(--clr-white) !important; }
+.bg-canvas { background-color: var(--tg-body-bg) !important; }
+.bg-white { background-color: var(--tg-white) !important; }
+.bg-slate { background-color: var(--tg-secondary) !important; }
 .bg-transparent { background-color: transparent !important; }
+.bg-body { background-color: var(--tg-body-bg) !important; }
+
+.text-canvas { color: var(--tg-body-bg) !important; }
+.text-white { color: var(--tg-white) !important; }
+.text-slate,
+.text-muted { color: var(--tg-secondary-color) !important; }
+.text-light { color: var(--tg-light) !important; }
+.text-transparent { color: transparent !important; }
+.text-primary { color: var(--tg-primary) !important; }
+.text-success { color: var(--tg-success) !important; }
+.text-warning { color: var(--tg-warning) !important; }
+.text-danger  { color: var(--tg-danger) !important; }
+.text-body { color: var(--tg-body-color) !important; }
 
 @each $name, $meta in $tg-colors {
   $color: map.get($meta, color);
@@ -11,11 +25,29 @@
 
   .bg-#{$name} {
     background-color: $color !important;
-    color: var(--clr-white) !important;
+  }
+
+  @if $name != dark {
+    .text-#{$name} {
+      color: $color !important;
+    }
   }
 
   .tint-#{$name} {
     background: tg-rgba($rgb, 0.15) !important;
     color: $color !important;
+  }
+}
+
+.text-dark,
+.text-main,
+.text-body { color: var(--tg-body-color) !important; }
+
+.link-primary {
+  color: var(--tg-link-color) !important;
+  text-decoration: var(--tg-link-decoration);
+
+  &:hover {
+    color: var(--tg-link-hover-color) !important;
   }
 }

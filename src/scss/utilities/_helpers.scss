@@ -24,6 +24,46 @@
 .overflow-scroll { overflow: scroll !important; }
 .overflow-x-auto { overflow-x: auto !important; }
 .overflow-y-auto { overflow-y: auto !important; }
+.overflow-x-hidden { overflow-x: hidden !important; }
+.overflow-y-hidden { overflow-y: hidden !important; }
+
+.min-h-0 { min-height: 0 !important; }
+.w-screen { width: 100vw !important; }
+.h-screen { height: 100vh !important; }
+
+.max-w-xs { max-width: var(--max-w-xs) !important; }
+.max-w-sm { max-width: var(--max-w-sm) !important; }
+.max-w-md { max-width: var(--max-w-md) !important; }
+.max-w-lg { max-width: var(--max-w-lg) !important; }
+.max-w-xl { max-width: var(--max-w-xl) !important; }
+.max-w-2xl { max-width: var(--max-w-2xl) !important; }
+.max-w-prose { max-width: var(--max-w-prose) !important; }
+
+.inset-x-0 { left: 0 !important; right: 0 !important; }
+.inset-y-0 { top: 0 !important; bottom: 0 !important; }
+
+.object-fill { object-fit: fill !important; }
+.object-none { object-fit: none !important; }
+.object-scale-down { object-fit: scale-down !important; }
+
+.stretched-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
 
 .relative { position: relative !important; }
 .absolute { position: absolute !important; }
@@ -101,15 +141,3 @@
 .ratio-1x1 { --tg-aspect: 100%; }
 .ratio-4x3 { --tg-aspect: 75%; }
 .ratio-16x9 { --tg-aspect: 56.25%; }
-
-.sr-only {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
-}

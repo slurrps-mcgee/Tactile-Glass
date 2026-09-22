@@ -19,10 +19,12 @@ $tg-container-bp: (
 
 @mixin container-base {
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   margin-right: auto;
   margin-left: auto;
-  padding-right: var(--sz-4);
-  padding-left: var(--sz-4);
+  padding-right: var(--sz-3);
+  padding-left: var(--sz-3);
 }
 
 .container,
@@ -34,6 +36,20 @@ $tg-container-bp: (
 .container-fluid,
 .container-full {
   @include container-base;
+}
+
+@media (min-width: $bp-sm) {
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl,
+  .container-xxl,
+  .container-fluid,
+  .container-full {
+    padding-right: var(--sz-4);
+    padding-left: var(--sz-4);
+  }
 }
 
 @each $name, $min in $tg-container-bp {

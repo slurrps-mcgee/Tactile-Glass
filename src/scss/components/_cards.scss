@@ -1,53 +1,25 @@
 @use '../base/mixins' as *;
 @use 'sass:map';
 
-/* ==========================================================================
-   Shared Card Skeleton
-   ========================================================================== */
-.neu-card,
-.glass-card,
-.hybrid-card,
-.card-hybrid {
+.tg-card {
   display: flex;
   flex-direction: column;
-  padding: var(--sz-6);
+  min-width: 0;
+  max-width: 100%;
+  padding: var(--sz-4);
   border-radius: var(--radius-lg);
+  overflow: visible;
   @include interactive-transition;
-}
 
-/* ==========================================================================
-   1. PURE NEUMORPHIC SYSTEM (Tactile Card Base)
-   ========================================================================== */
-.neu-card {
-  @include neu-surface;
-
-  &.neu-card-inset {
-    box-shadow: var(--neu-shadow-inset);
+  @include media-up(sm) {
+    padding: var(--sz-6);
   }
 }
 
-/* ==========================================================================
-   2. PURE GLASSMORPHIC SYSTEM (Acrylic Card Base)
-   ========================================================================== */
-.glass-card {
-  @include glass-surface;
-}
-
-/* ==========================================================================
-   3. THE COMBINED SIGNATURE SYSTEM (Hybrid Card Base)
-   ========================================================================== */
-.hybrid-card,
-.card-hybrid {
-  @include hybrid-surface;
-}
-
-/* ==========================================================================
-   Shared Pieces
-   ========================================================================== */
 .card-header {
   margin-bottom: var(--sz-4);
   padding-bottom: var(--sz-3);
-  border-bottom: 1px solid rgba(76, 75, 99, 0.08);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .card-body {
@@ -58,15 +30,12 @@
 .card-footer {
   margin-top: var(--sz-4);
   padding-top: var(--sz-3);
-  border-top: 1px solid rgba(76, 75, 99, 0.08);
+  border-top: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   gap: var(--sz-3);
 }
 
-/* ==========================================================================
-   Bootstrap-style Card Modifiers
-   ========================================================================== */
 .card-sm {
   padding: var(--sz-4);
   border-radius: var(--radius-md);
@@ -90,32 +59,13 @@
   }
 }
 
-.card-inset {
-  box-shadow: var(--neu-shadow-inset) !important;
-}
-
 .card-pill {
   border-radius: var(--radius-pill);
 }
 
-.card-interactive {
-  cursor: pointer;
-
-  @media (hover: hover) {
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--neu-shadow-lift);
-    }
-
-    &.glass-card:hover {
-      background: rgba(255, 255, 255, 0.35);
-    }
-
-    &.hybrid-card:hover,
-    &.card-hybrid:hover {
-      background: rgba(255, 255, 255, 0.25);
-    }
-  }
+.tg-card:has(.tg-select[open]) {
+  position: relative;
+  z-index: var(--z-overlay);
 }
 
 @each $name, $meta in $tg-colors {

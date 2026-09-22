@@ -1,0 +1,45 @@
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    border-radius: 50%;
+    color: var(--tg-body-color);
+    background: var(--tg-hybrid-bg);
+    backdrop-filter: var(--tg-glass-blur);
+    -webkit-backdrop-filter: var(--tg-glass-blur);
+    border: var(--tg-glass-border);
+    box-shadow: var(--tg-neu-shadow-inset);
+    cursor: pointer;
+  
+    svg {
+      width: 1.15rem;
+      height: 1.15rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  
+    .theme-icon-moon {
+      fill: currentColor;
+      stroke: none;
+    }
+  
+    .theme-icon-sun {
+      display: none;
+    }
+  }
+  
+  .theme-dark .theme-toggle .theme-icon-moon,
+  [data-theme="dark"] .theme-toggle .theme-icon-moon {
+    display: none;
+  }
+  
+  .theme-dark .theme-toggle .theme-icon-sun,
+  [data-theme="dark"] .theme-toggle .theme-icon-sun {
+    display: block;
+  }

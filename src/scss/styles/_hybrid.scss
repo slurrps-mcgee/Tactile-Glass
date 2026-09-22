@@ -1,0 +1,25 @@
+@mixin hybrid {
+  background: var(--hybrid-bg);
+  backdrop-filter: var(--glass-blur) saturate(160%);
+  -webkit-backdrop-filter: var(--glass-blur) saturate(160%);
+  border: var(--glass-border);
+  box-shadow: var(--neu-shadow-drop);
+}
+
+@mixin hybrid-pressed {
+  background: var(--hybrid-bg-pressed);
+  backdrop-filter: var(--glass-blur) saturate(160%);
+  -webkit-backdrop-filter: var(--glass-blur) saturate(160%);
+  border: var(--glass-border);
+  box-shadow: var(--neu-shadow-inset);
+}
+
+.tg-hybrid,
+.tg-hybrid-surface {
+  @include hybrid;
+}
+
+.tg-hybrid-inset,
+.tg-hybrid-reverse {
+  @include hybrid-pressed;
+}

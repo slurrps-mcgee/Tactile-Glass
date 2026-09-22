@@ -1,9 +1,7 @@
 @use '../base/mixins' as *;
 @use 'sass:map';
 
-.neu-alert,
-.glass-alert,
-.hybrid-alert {
+.tg-alert {
   display: flex;
   align-items: flex-start;
   gap: var(--sz-3);
@@ -11,18 +9,6 @@
   border-radius: var(--radius-md);
   font-size: var(--fs-sm);
   line-height: var(--line-height-relaxed);
-}
-
-.neu-alert {
-  @include neu-surface;
-}
-
-.glass-alert {
-  @include glass-surface;
-}
-
-.hybrid-alert {
-  @include hybrid-surface;
 }
 
 .alert-sm {

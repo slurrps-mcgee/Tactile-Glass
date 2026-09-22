@@ -1,0 +1,27 @@
+.animate-fade-in {
+  animation: tg-fade-in var(--duration) var(--ease) both;
+}
+
+.animate-slide-up {
+  animation: tg-slide-up var(--duration) var(--ease) both;
+}
+
+.animate-pop {
+  animation: tg-pop var(--duration) var(--ease) both;
+}
+
+.animate-shimmer {
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--glass-bg-raised) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: tg-shimmer 1.4s var(--ease) infinite;
+}
+
+.duration-100 { animation-duration: 0.1s; }
+.duration-200 { animation-duration: 0.2s; }
+.duration-300 { animation-duration: 0.3s; }
+.duration-500 { animation-duration: 0.5s; }

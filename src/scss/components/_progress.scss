@@ -1,27 +1,26 @@
 @use '../base/mixins' as *;
+@use '../styles/neu' as *;
+@use '../styles/hybrid' as *;
 @use 'sass:map';
 
-.neu-progress,
-.glass-progress,
-.hybrid-progress {
+.tg-progress {
   display: block;
   width: 100%;
   height: 0.75rem;
   overflow: hidden;
   border-radius: var(--radius-pill);
-}
 
-.neu-progress {
-  @include neu-inset;
-}
+  &.tg-neu,
+  &.tg-neu-inset,
+  &.tg-neu-reverse {
+    @include neu-inset;
+  }
 
-.glass-progress {
-  @include glass-surface;
-}
-
-.hybrid-progress {
-  @include hybrid-surface;
-  box-shadow: var(--neu-shadow-inset);
+  &.tg-hybrid,
+  &.tg-hybrid-inset,
+  &.tg-hybrid-reverse {
+    @include hybrid-pressed;
+  }
 }
 
 .progress-bar {
@@ -44,6 +43,6 @@
   $color: map.get($meta, color);
 
   .progress-#{$name} {
-    background: $color !important;
+    background: $color;
   }
 }

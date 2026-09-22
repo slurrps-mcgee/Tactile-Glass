@@ -1,42 +1,49 @@
 @use 'sass:string';
+@use 'sass:map';
+@use 'tokens' as *;
 
-@mixin neu-surface {
-  background-color: var(--clr-bg);
-  box-shadow: var(--neu-shadow-drop);
-  border: 1px solid transparent;
+// Media Up Mixin 
+@mixin media-up($bp) {
+  $mins: (
+    sm: $bp-sm,
+    md: $bp-md,
+    lg: $bp-lg,
+    xl: $bp-xl,
+    xxl: $bp-xxl
+  );
+
+  @media (min-width: map.get($mins, $bp)) {
+    @content;
+  }
 }
 
-@mixin neu-inset {
-  background-color: var(--clr-bg);
-  box-shadow: var(--neu-shadow-inset);
-  border: 1px solid transparent;
+// Media Down Mixin
+@mixin media-down($bp) {
+  $maxes: (
+    sm: $bp-sm - 1px,
+    md: $bp-md - 1px,
+    lg: $bp-lg - 1px,
+    xl: $bp-xl - 1px,
+    xxl: $bp-xxl - 1px
+  );
+
+  @media (max-width: map.get($maxes, $bp)) {
+    @content;
+  }
 }
 
-@mixin glass-surface {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: var(--glass-border);
-  box-shadow: var(--glass-shadow);
-}
-
-@mixin hybrid-surface {
-  background: var(--hybrid-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: var(--glass-border);
-  box-shadow: var(--neu-shadow-drop);
-}
-
+// Focus Ring Mixin
 @mixin focus-ring {
   outline: var(--focus-ring);
   outline-offset: var(--focus-offset);
 }
 
+// Interactive Transition Mixin
 @mixin interactive-transition {
   transition: all var(--duration) var(--ease);
 }
 
+// Control Disabled Mixin
 @mixin control-disabled {
   &:disabled,
   &[aria-disabled="true"],
@@ -47,33 +54,72 @@
   }
 }
 
+// RGBA Function
 @function tg-rgba($token, $alpha) {
   @return string.unquote('rgba(var(#{$token}), #{$alpha})');
 }
 
-$tg-colors: (
-  primary: (color: var(--clr-primary), rgb: --clr-primary-rgb),
-  success: (color: var(--clr-success), rgb: --clr-success-rgb),
-  warning: (color: var(--clr-warning), rgb: --clr-warning-rgb),
-  danger: (color: var(--clr-danger), rgb: --clr-danger-rgb),
-  dark: (color: var(--clr-dark), rgb: --clr-dark-rgb)
+// Breakpoints Map
+$tg-breakpoints: (
+  sm: $bp-sm,
+  md: $bp-md,
+  lg: $bp-lg,
+  xl: $bp-xl,
+  xxl: $bp-xxl
 );
 
-@mixin semantic-solid($color, $rgb-token) {
-  background-color: $color !important;
-  color: var(--clr-white) !important;
-  border-color: transparent !important;
-  box-shadow: 4px 4px 12px tg-rgba($rgb-token, 0.3) !important;
+// Spacing Steps Map
+$tg-spacing-steps: 0, 1, 2, 3, 4, 5, 6, 8, 10, 12;
 
-  &:active,
-  &.is-active {
-    box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.2) !important;
+// Spacing Function
+@function tg-space($n) {
+  @if $n == 0 {
+    @return 0;
+  }
+
+  @return calc(var(--spacing) * #{$n});
+}
+
+// Infix Mixin
+@mixin tg-infix {
+  @content (null);
+
+  @each $name, $min in $tg-breakpoints {
+    @include media-up($name) {
+      @content ($name);
+    }
   }
 }
 
+// Infix Class Function
+@function tg-infix-class($prefix, $bp, $suffix) {
+  @if $bp {
+    @return #{$prefix}-#{$bp}-#{$suffix};
+  }
+
+  @return #{$prefix}-#{$suffix};
+}
+
+// Colors Map
+$tg-colors: (
+  primary: (color: var(--tg-primary), rgb: --tg-primary-rgb),
+  secondary: (color: var(--tg-secondary), rgb: --tg-secondary-rgb),
+  success: (color: var(--tg-success), rgb: --tg-success-rgb),
+  warning: (color: var(--tg-warning), rgb: --tg-warning-rgb),
+  danger: (color: var(--tg-danger), rgb: --tg-danger-rgb),
+  dark: (color: var(--tg-dark), rgb: --tg-dark-rgb)
+);
+
+// Semantic Solid Mixin
+@mixin semantic-solid($color, $rgb-token) {
+  background-color: $color;
+  color: var(--tg-white);
+  border-color: transparent;
+}
+
+// Semantic Lens Mixin
 @mixin semantic-lens($color, $rgb-token) {
-  background: tg-rgba($rgb-token, 0.15) !important;
-  border: 1px solid tg-rgba($rgb-token, 0.4) !important;
-  color: $color !important;
-  box-shadow: none !important;
+  background: tg-rgba($rgb-token, 0.15);
+  border-color: tg-rgba($rgb-token, 0.4);
+  color: $color;
 }

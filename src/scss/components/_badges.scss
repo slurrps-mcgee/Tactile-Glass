@@ -1,9 +1,7 @@
 @use '../base/mixins' as *;
 @use 'sass:map';
 
-.neu-badge,
-.glass-badge,
-.hybrid-badge {
+.tg-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -16,18 +14,6 @@
   text-transform: uppercase;
   line-height: 1.4;
   white-space: nowrap;
-}
-
-.neu-badge {
-  @include neu-surface;
-}
-
-.glass-badge {
-  @include glass-surface;
-}
-
-.hybrid-badge {
-  @include hybrid-surface;
 }
 
 .badge-pill {
@@ -48,12 +34,22 @@
   $color: map.get($meta, color);
   $rgb: map.get($meta, rgb);
 
-  .badge-#{$name} {
+  .tg-badge.badge-#{$name}.tg-neu,
+  .tg-badge.badge-#{$name}.tg-neu-surface,
+  .tg-badge.badge-#{$name}.tg-neu-inset,
+  .tg-badge.badge-#{$name}.tg-neu-reverse {
     @include semantic-solid($color, $rgb);
+  }
 
-    &.glass-badge,
-    &.hybrid-badge {
-      @include semantic-lens($color, $rgb);
-    }
+  .tg-badge.badge-#{$name}.tg-glass,
+  .tg-badge.badge-#{$name}.tg-glass-frosted,
+  .tg-badge.badge-#{$name}.tg-glass-surface,
+  .tg-badge.badge-#{$name}.tg-glass-inset,
+  .tg-badge.badge-#{$name}.tg-glass-reverse,
+  .tg-badge.badge-#{$name}.tg-hybrid,
+  .tg-badge.badge-#{$name}.tg-hybrid-surface,
+  .tg-badge.badge-#{$name}.tg-hybrid-inset,
+  .tg-badge.badge-#{$name}.tg-hybrid-reverse {
+    @include semantic-lens($color, $rgb);
   }
 }

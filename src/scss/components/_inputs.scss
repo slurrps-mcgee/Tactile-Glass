@@ -1,12 +1,9 @@
 @use '../base/mixins' as *;
+@use '../styles/neu' as *;
+@use '../styles/glass' as *;
+@use '../styles/hybrid' as *;
 
-/* ==========================================================================
-   Shared Form Controls
-   ========================================================================== */
-.neu-input,
-.glass-input,
-.hybrid-input,
-.input-hybrid {
+.tg-input {
   display: block;
   width: 100%;
   padding: var(--sz-3) var(--sz-4);
@@ -34,72 +31,57 @@
     @include focus-ring;
     outline-offset: 0;
   }
+
+  &.tg-neu,
+  &.tg-neu-inset,
+  &.tg-neu-reverse {
+    @include neu-inset;
+
+    &:focus,
+    &:focus-visible {
+      outline: none;
+      border-color: tg-rgba(--clr-primary-rgb, 0.4);
+      box-shadow: var(--neu-shadow-inset), 0 0 8px tg-rgba(--clr-primary-rgb, 0.2);
+    }
+  }
+
+  &.tg-neu-surface {
+    &:focus,
+    &:focus-visible {
+      outline: none;
+      border-color: tg-rgba(--clr-primary-rgb, 0.4);
+    }
+  }
+
+  &.tg-glass {
+    &:focus,
+    &:focus-visible {
+      outline: none;
+      background: var(--glass-bg-raised);
+      border-color: var(--clr-primary);
+    }
+  }
+
+  &.tg-hybrid,
+  &.tg-hybrid-inset,
+  &.tg-hybrid-reverse {
+    @include hybrid-pressed;
+
+    &:focus,
+    &:focus-visible {
+      outline: none;
+      background: var(--hybrid-bg);
+      border-color: tg-rgba(--clr-primary-rgb, 0.5);
+      box-shadow: var(--neu-shadow-inset), 0 0 10px tg-rgba(--clr-primary-rgb, 0.15);
+    }
+  }
 }
 
-textarea.neu-input,
-textarea.glass-input,
-textarea.hybrid-input,
-textarea.input-hybrid {
+textarea.tg-input {
   min-height: 7rem;
   line-height: var(--line-height-relaxed);
 }
 
-/* ==========================================================================
-   1. PURE NEUMORPHIC SYSTEM (Sunken Tactile Basin)
-   ========================================================================== */
-.neu-input {
-  @include neu-inset;
-
-  &:focus,
-  &:focus-visible {
-    outline: none;
-    border-color: rgba(83, 134, 228, 0.4);
-    box-shadow: var(--neu-shadow-inset), 0 0 8px rgba(83, 134, 228, 0.2);
-  }
-}
-
-/* ==========================================================================
-   2. PURE GLASSMORPHIC SYSTEM (Acrylic Typing Slab)
-   ========================================================================== */
-.glass-input {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: var(--glass-border);
-  box-shadow: 0 2px 8px 0 rgba(76, 75, 99, 0.02);
-
-  &:focus,
-  &:focus-visible {
-    outline: none;
-    background: rgba(255, 255, 255, 0.25);
-    border-color: var(--clr-primary);
-    box-shadow: 0 4px 12px 0 rgba(83, 134, 228, 0.15);
-  }
-}
-
-/* ==========================================================================
-   3. THE COMBINED SIGNATURE SYSTEM (Hybrid Sunken Lens)
-   ========================================================================== */
-.hybrid-input,
-.input-hybrid {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: var(--neu-shadow-inset);
-
-  &:focus,
-  &:focus-visible {
-    outline: none;
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(83, 134, 228, 0.5);
-    box-shadow: var(--neu-shadow-inset), 0 0 10px rgba(83, 134, 228, 0.15);
-  }
-}
-
-/* ==========================================================================
-   Sizing & Shape Utilities
-   ========================================================================== */
 .input-sm {
   padding: var(--sz-1) var(--sz-3);
   font-size: var(--fs-sm);
@@ -115,41 +97,37 @@ textarea.input-hybrid {
   border-radius: var(--radius-pill);
 }
 
-/* ==========================================================================
-   Validation State Overrides
-   ========================================================================== */
 .input-error {
-  border-color: rgba(231, 29, 54, 0.5) !important;
-  color: var(--clr-danger) !important;
+  border-color: tg-rgba(--clr-danger-rgb, 0.5);
+  color: var(--tg-danger);
 
   &:focus,
   &:focus-visible {
-    box-shadow: 0 0 8px rgba(231, 29, 54, 0.2) !important;
+    box-shadow: 0 0 8px tg-rgba(--clr-danger-rgb, 0.2);
   }
 }
 
 .input-valid,
 .input-success {
-  border-color: rgba(46, 196, 182, 0.5) !important;
+  border-color: tg-rgba(--clr-success-rgb, 0.5);
+  color: var(--tg-success);
 
   &:focus,
   &:focus-visible {
-    box-shadow: 0 0 8px rgba(46, 196, 182, 0.2) !important;
+    box-shadow: 0 0 8px tg-rgba(--clr-success-rgb, 0.2);
   }
 }
 
 .input-warning {
-  border-color: rgba(255, 159, 28, 0.5) !important;
+  border-color: tg-rgba(--clr-warning-rgb, 0.5);
+  color: var(--tg-warning);
 
   &:focus,
   &:focus-visible {
-    box-shadow: 0 0 8px rgba(255, 159, 28, 0.2) !important;
+    box-shadow: 0 0 8px tg-rgba(--clr-warning-rgb, 0.2);
   }
 }
 
-/* ==========================================================================
-   Form Structure Helpers
-   ========================================================================== */
 .form-label {
   display: flex;
   flex-direction: column;
@@ -172,13 +150,9 @@ textarea.input-hybrid {
   gap: var(--sz-2);
 }
 
-/* ==========================================================================
-   Switches
-   ========================================================================== */
-.neu-switch,
-.glass-switch,
-.hybrid-switch {
+.tg-switch {
   position: relative;
+  z-index: 0;
   display: inline-flex;
   align-items: center;
   width: 3rem;
@@ -210,7 +184,7 @@ textarea.input-hybrid {
     height: 1.35rem;
     border-radius: 50%;
     background: var(--clr-white);
-    box-shadow: 2px 2px 6px rgba(76, 75, 99, 0.2);
+    box-shadow: var(--neu-shadow-drop);
     pointer-events: none;
     @include interactive-transition;
   }
@@ -222,194 +196,66 @@ textarea.input-hybrid {
   &:has(input:focus-visible) {
     @include focus-ring;
   }
-}
 
-.neu-switch {
-  @include neu-inset;
-}
-
-.glass-switch {
-  @include glass-surface;
-}
-
-.hybrid-switch {
-  @include hybrid-surface;
-  box-shadow: var(--neu-shadow-inset);
-}
-
-.neu-switch:has(input:checked),
-.glass-switch:has(input:checked),
-.hybrid-switch:has(input:checked) {
-  background: rgba(83, 134, 228, 0.35);
-  border-color: rgba(83, 134, 228, 0.45);
-}
-
-/* ==========================================================================
-   Select / dropdown
-   Opt the closed field AND the picker in together. Chromium keeps the OS
-   menu unless appearance: base-select is on ::picker(select) as well.
-   ========================================================================== */
-select.neu-input,
-select.glass-input,
-select.hybrid-input,
-select.input-hybrid {
-  cursor: pointer;
-  color-scheme: light;
-
-  option,
-  optgroup {
-    font-family: var(--font-sans);
-    font-size: var(--fs-base);
-    color: var(--clr-dark);
-    background-color: var(--clr-bg);
+  &.tg-neu,
+  &.tg-neu-inset,
+  &.tg-neu-reverse {
+    @include neu-inset;
   }
 
-  optgroup {
-    font-weight: var(--font-weight-bold);
-    font-style: normal;
-    color: var(--clr-slate);
+  &.tg-hybrid,
+  &.tg-hybrid-inset,
+  &.tg-hybrid-reverse {
+    @include hybrid-pressed;
   }
 
-  > button {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: inherit;
-    font: inherit;
-    cursor: pointer;
+  &:has(input:checked) {
+    background: tg-rgba(--clr-primary-rgb, 0.35);
+    border-color: tg-rgba(--clr-primary-rgb, 0.45);
   }
 }
 
-select.glass-input {
-  background-color: rgba(255, 255, 255, 0.15);
-}
-
-select.hybrid-input,
-select.input-hybrid {
-  background-color: rgba(255, 255, 255, 0.08);
-}
-
-@supports not (appearance: base-select) {
-  select.neu-input,
-  select.glass-input,
-  select.hybrid-input,
-  select.input-hybrid {
-    padding-right: var(--sz-8);
-    background-repeat: no-repeat;
-    background-position: right var(--sz-4) center;
-    background-size: 0.75rem;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234C4B63' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
-  }
-}
-
-@supports (appearance: base-select) {
-  #{'::picker(select)'} {
-    appearance: base-select;
-    -webkit-appearance: base-select;
-  }
-
-  select.neu-input,
-  select.neu-input::picker(select),
-  select.glass-input,
-  select.glass-input::picker(select),
-  select.hybrid-input,
-  select.hybrid-input::picker(select),
-  select.input-hybrid,
-  select.input-hybrid::picker(select) {
-    appearance: base-select;
-    -webkit-appearance: base-select;
-  }
-
-  select.neu-input,
-  select.glass-input,
-  select.hybrid-input,
-  select.input-hybrid {
-    display: flex;
-    align-items: center;
-    padding-right: var(--sz-4);
-
-    &::picker-icon {
-      color: var(--clr-dark);
-      margin-inline-start: auto;
-      transition: transform var(--duration) var(--ease);
-    }
-
-    &:open::picker-icon {
-      transform: rotate(180deg);
-    }
-
-    option {
-      display: flex;
-      align-items: center;
-      gap: var(--sz-2);
-      padding: var(--sz-3) var(--sz-4);
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      background: transparent;
-      color: var(--clr-dark);
-    }
-
-    option:hover,
-    option:focus {
-      background: rgba(83, 134, 228, 0.12);
-    }
-
-    option:checked {
-      background: rgba(83, 134, 228, 0.2);
-      color: var(--clr-primary);
-      font-weight: var(--font-weight-medium);
-    }
-
-    option::checkmark {
-      color: var(--clr-primary);
-      margin-inline-end: var(--sz-2);
-    }
-
-    optgroup {
-      background: transparent;
-      padding: var(--sz-2);
-    }
-  }
-
-  select.neu-input::picker(select),
-  select.glass-input::picker(select),
-  select.hybrid-input::picker(select),
-  select.input-hybrid::picker(select) {
-    margin-top: var(--sz-2);
-    padding: var(--sz-2);
-    border-radius: var(--radius-md);
-    color: var(--clr-dark);
-    font-family: var(--font-sans);
-  }
-
-  select.neu-input::picker(select) {
-    @include neu-surface;
-  }
-
-  select.glass-input::picker(select) {
-    @include glass-surface;
-    background: rgba(255, 255, 255, 0.92);
-  }
-
-  select.hybrid-input::picker(select),
-  select.input-hybrid::picker(select) {
-    @include hybrid-surface;
-    background: rgba(255, 255, 255, 0.88);
-  }
-}
-
-/* ==========================================================================
-   Custom select (details) — always-styleable dropdown, no OS menu
-   ========================================================================== */
-.neu-select,
-.glass-select,
-.hybrid-select {
+.tg-select {
   position: relative;
   display: block;
   width: 100%;
+  z-index: var(--z-base);
+  /* Style class on <details> must not paint or clip the unrounded wrapper */
+  background: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+  overflow: visible !important;
+
+  &::before,
+  &::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  &:not([open]) .select-menu {
+    display: none !important;
+  }
+
+  &::details-content {
+    display: none;
+  }
+
+  &[open] {
+    z-index: var(--z-overlay);
+  }
+
+  &[open]::details-content {
+    display: block;
+    position: absolute;
+    inset-inline: 0;
+    top: calc(100% + var(--sz-2));
+    z-index: var(--z-overlay);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
 
   > summary {
     display: flex;
@@ -451,16 +297,14 @@ select.input-hybrid {
   }
 
   .select-menu {
-    position: absolute;
-    top: calc(100% + var(--sz-2));
-    left: 0;
-    right: 0;
+    position: relative;
     z-index: var(--z-overlay);
     display: flex;
     flex-direction: column;
     gap: 0.15rem;
     padding: var(--sz-2);
     border-radius: var(--radius-md);
+    overflow: hidden;
   }
 
   .select-group-label {
@@ -473,6 +317,8 @@ select.input-hybrid {
   }
 
   .select-option {
+    position: relative;
+    z-index: 2;
     display: flex;
     width: 100%;
     padding: var(--sz-3) var(--sz-4);
@@ -487,42 +333,69 @@ select.input-hybrid {
     &:hover,
     &:focus-visible,
     &[aria-current="true"] {
-      background: rgba(83, 134, 228, 0.14);
+      background: tg-rgba(--clr-primary-rgb, 0.14);
       color: var(--clr-primary);
     }
   }
-}
 
-.neu-select > summary {
-  @include neu-inset;
-}
+  &.tg-neu > summary,
+  &.tg-neu-inset > summary,
+  &.tg-neu-reverse > summary {
+    @include neu-inset;
+  }
 
-.neu-select .select-menu {
-  @include neu-surface;
-}
+  &.tg-neu-surface > summary {
+    @include neu;
+  }
 
-.glass-select > summary {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: var(--glass-border);
-  box-shadow: 0 2px 8px 0 rgba(76, 75, 99, 0.02);
-}
+  &.tg-neu .select-menu,
+  &.tg-neu-surface .select-menu,
+  &.tg-neu-inset .select-menu,
+  &.tg-neu-reverse .select-menu {
+    @include neu;
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--neu-shadow-lift);
+  }
 
-.glass-select .select-menu {
-  @include glass-surface;
-  background: rgba(255, 255, 255, 0.92);
-}
+  &.tg-glass > summary,
+  &.tg-glass-frosted > summary {
+    @include glass;
+  }
 
-.hybrid-select > summary {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: var(--neu-shadow-inset);
-}
+  &.tg-glass-surface > summary {
+    @include glass-raised;
+  }
 
-.hybrid-select .select-menu {
-  @include hybrid-surface;
-  background: rgba(255, 255, 255, 0.88);
+  &.tg-glass-inset > summary,
+  &.tg-glass-reverse > summary {
+    @include glass-pressed;
+  }
+
+  &.tg-glass .select-menu,
+  &.tg-glass-surface .select-menu,
+  &.tg-glass-inset .select-menu,
+  &.tg-glass-reverse .select-menu,
+  &.tg-glass-frosted .select-menu {
+    @include glass-menu-frost;
+  }
+
+  &.tg-hybrid > summary,
+  &.tg-hybrid-inset > summary,
+  &.tg-hybrid-reverse > summary {
+    @include hybrid-pressed;
+  }
+
+  &.tg-hybrid-surface > summary {
+    @include hybrid;
+  }
+
+  &.tg-hybrid .select-menu,
+  &.tg-hybrid-surface .select-menu,
+  &.tg-hybrid-inset .select-menu,
+  &.tg-hybrid-reverse .select-menu {
+    @include hybrid;
+    background: var(--glass-menu-bg, var(--hybrid-bg));
+    backdrop-filter: var(--glass-menu-blur, var(--glass-blur)) saturate(160%);
+    -webkit-backdrop-filter: var(--glass-menu-blur, var(--glass-blur)) saturate(160%);
+  }
 }

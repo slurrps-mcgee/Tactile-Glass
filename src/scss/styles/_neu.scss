@@ -1,0 +1,24 @@
+@mixin neu {
+  background-color: var(--clr-bg);
+  border: 1px solid transparent;
+  box-shadow: var(--neu-shadow-drop);
+}
+
+@mixin neu-inset {
+  background-color: var(--clr-bg);
+  border: 1px solid transparent;
+  box-shadow: var(--neu-shadow-inset);
+}
+
+.tg-neu,
+.tg-neu-surface {
+  @include neu;
+}
+
+.tg-neu-inset {
+  @include neu-inset;
+}
+
+.tg-neu-reverse {
+  @include neu-inset;
+}
