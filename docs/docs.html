@@ -44,11 +44,16 @@
         <div class="sidebar-label">Getting started</div>
         <a class="sidebar-link" href="docs.html">Introduction</a>
         <a class="sidebar-link" href="docs.html#install">Download / Install</a>
+        <a class="sidebar-link" href="contents.html">Contents</a>
+        <a class="sidebar-link" href="docs.html#css-only">CSS-only</a>
+        <a class="sidebar-link" href="accessibility.html">Accessibility</a>
       </div>
       <div class="sidebar-section">
         <div class="sidebar-label">Customize</div>
         <a class="sidebar-link" href="customize.html">Overview</a>
+        <a class="sidebar-link" href="customize.html#sass">Sass</a>
         <a class="sidebar-link" href="customize.html#css-variables">CSS variables</a>
+        <a class="sidebar-link" href="customize.html#optimize">Optimize</a>
       </div>
       <div class="sidebar-section">
         <div class="sidebar-label">Layout</div>
@@ -105,6 +110,8 @@
         <a class="sidebar-link" href="helpers.html#color-bg">Color & background</a>
         <a class="sidebar-link" href="helpers.html#colored-links">Colored links</a>
         <a class="sidebar-link" href="helpers.html#focus-ring">Focus ring</a>
+        <a class="sidebar-link" href="helpers.html#icon-link">Icon link</a>
+        <a class="sidebar-link" href="helpers.html#position">Position</a>
         <a class="sidebar-link" href="helpers.html#ratio">Ratio</a>
         <a class="sidebar-link" href="helpers.html#stacks">Stacks</a>
         <a class="sidebar-link" href="helpers.html#stretched-link">Stretched link</a>
@@ -123,13 +130,26 @@
       </div>
       <div class="sidebar-section">
         <div class="sidebar-label">Utilities</div>
+        <a class="sidebar-link" href="utilities.html#api">API</a>
+        <a class="sidebar-link" href="utilities.html#background">Background</a>
+        <a class="sidebar-link" href="utilities.html#borders">Borders</a>
         <a class="sidebar-link" href="utilities.html#colors">Colors</a>
-        <a class="sidebar-link" href="utilities.html#spacing">Spacing</a>
         <a class="sidebar-link" href="utilities.html#display">Display</a>
         <a class="sidebar-link" href="utilities.html#flex">Flex</a>
-        <a class="sidebar-link" href="utilities.html#text">Text</a>
-        <a class="sidebar-link" href="utilities.html#shadows">Shadows</a>
+        <a class="sidebar-link" href="utilities.html#float">Float</a>
+        <a class="sidebar-link" href="utilities.html#interactions">Interactions</a>
+        <a class="sidebar-link" href="utilities.html#link">Link</a>
+        <a class="sidebar-link" href="utilities.html#object-fit">Object fit</a>
         <a class="sidebar-link" href="utilities.html#opacity">Opacity</a>
+        <a class="sidebar-link" href="utilities.html#overflow">Overflow</a>
+        <a class="sidebar-link" href="utilities.html#position">Position</a>
+        <a class="sidebar-link" href="utilities.html#shadows">Shadows</a>
+        <a class="sidebar-link" href="utilities.html#sizing">Sizing</a>
+        <a class="sidebar-link" href="utilities.html#spacing">Spacing</a>
+        <a class="sidebar-link" href="utilities.html#text">Text</a>
+        <a class="sidebar-link" href="utilities.html#vertical-align">Vertical align</a>
+        <a class="sidebar-link" href="utilities.html#visibility">Visibility</a>
+        <a class="sidebar-link" href="utilities.html#z-index">Z-index</a>
         <a class="sidebar-link" href="utilities.html#morph">Morph</a>
       </div>
       </nav>
@@ -148,6 +168,7 @@
 
     <nav class="docs-toc mb-8" aria-label="Documentation sections">
       <a class="tg-badge tg-glass" href="#install">Install</a>
+      <a class="tg-badge tg-glass" href="#css-only">CSS-only</a>
       <a class="tg-badge tg-glass" href="#language">Class language</a>
       <a class="tg-badge tg-glass" href="#materials">Materials</a>
       <a class="tg-badge tg-glass" href="#layout">Layout</a>
@@ -169,6 +190,17 @@
         <p class="mt-3">Or link it from HTML:</p>
         <pre class="morph-neu-inset rounded-md p-4 text-sm mt-3">&lt;link rel="stylesheet" href="node_modules/tactileglass-css/dist/tactileglass.css"&gt;</pre>
         <p class="mt-3 mb-0">Sass entry if you compile it yourself: <code>tactileglass-css/src/scss/tactileglass.scss</code></p>
+      </section>
+
+      <section id="css-only" class="tg-card tg-glass mb-8">
+        <h2 class="text-xl font-display">CSS-only / no Bootstrap JS</h2>
+        <p>TactileGlass ships stylesheets only — there is no Bootstrap JavaScript runtime, Popper, or component plugins.</p>
+        <ul>
+          <li><strong>Dropdowns &amp; selects</strong> use native <code>&lt;details&gt;</code> / <code>&lt;summary&gt;</code> (optional tiny demo script in docs for closing extras).</li>
+          <li><strong>Nav collapse</strong> is CSS checkbox / details patterns — not Bootstrap’s collapse plugin.</li>
+          <li><strong>Theme toggle</strong> is a small docs helper; production apps can set <code>theme-dark</code> however they like.</li>
+        </ul>
+        <p class="mb-0">If you need modals, tooltips, or imperatively opened menus, bring your own JS — TG won’t conflict as long as you keep class names.</p>
       </section>
 
       <section id="language" class="tg-card tg-glass mb-8">

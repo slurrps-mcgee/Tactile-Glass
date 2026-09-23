@@ -70,11 +70,16 @@
         <div class="sidebar-label">Getting started</div>
         <a class="sidebar-link" href="docs.html">Introduction</a>
         <a class="sidebar-link" href="docs.html#install">Download / Install</a>
+        <a class="sidebar-link" href="contents.html">Contents</a>
+        <a class="sidebar-link" href="docs.html#css-only">CSS-only</a>
+        <a class="sidebar-link" href="accessibility.html">Accessibility</a>
       </div>
       <div class="sidebar-section">
         <div class="sidebar-label">Customize</div>
         <a class="sidebar-link" href="customize.html">Overview</a>
+        <a class="sidebar-link" href="customize.html#sass">Sass</a>
         <a class="sidebar-link" href="customize.html#css-variables">CSS variables</a>
+        <a class="sidebar-link" href="customize.html#optimize">Optimize</a>
       </div>
       <div class="sidebar-section">
         <div class="sidebar-label">Layout</div>
@@ -131,6 +136,8 @@
         <a class="sidebar-link" href="helpers.html#color-bg">Color & background</a>
         <a class="sidebar-link" href="helpers.html#colored-links">Colored links</a>
         <a class="sidebar-link" href="helpers.html#focus-ring">Focus ring</a>
+        <a class="sidebar-link" href="helpers.html#icon-link">Icon link</a>
+        <a class="sidebar-link" href="helpers.html#position">Position</a>
         <a class="sidebar-link" href="helpers.html#ratio">Ratio</a>
         <a class="sidebar-link" href="helpers.html#stacks">Stacks</a>
         <a class="sidebar-link" href="helpers.html#stretched-link">Stretched link</a>
@@ -149,13 +156,26 @@
       </div>
       <div class="sidebar-section">
         <div class="sidebar-label">Utilities</div>
+        <a class="sidebar-link" href="utilities.html#api">API</a>
+        <a class="sidebar-link" href="utilities.html#background">Background</a>
+        <a class="sidebar-link" href="utilities.html#borders">Borders</a>
         <a class="sidebar-link" href="utilities.html#colors">Colors</a>
-        <a class="sidebar-link" href="utilities.html#spacing">Spacing</a>
         <a class="sidebar-link" href="utilities.html#display">Display</a>
         <a class="sidebar-link" href="utilities.html#flex">Flex</a>
-        <a class="sidebar-link" href="utilities.html#text">Text</a>
-        <a class="sidebar-link" href="utilities.html#shadows">Shadows</a>
+        <a class="sidebar-link" href="utilities.html#float">Float</a>
+        <a class="sidebar-link" href="utilities.html#interactions">Interactions</a>
+        <a class="sidebar-link" href="utilities.html#link">Link</a>
+        <a class="sidebar-link" href="utilities.html#object-fit">Object fit</a>
         <a class="sidebar-link" href="utilities.html#opacity">Opacity</a>
+        <a class="sidebar-link" href="utilities.html#overflow">Overflow</a>
+        <a class="sidebar-link" href="utilities.html#position">Position</a>
+        <a class="sidebar-link" href="utilities.html#shadows">Shadows</a>
+        <a class="sidebar-link" href="utilities.html#sizing">Sizing</a>
+        <a class="sidebar-link" href="utilities.html#spacing">Spacing</a>
+        <a class="sidebar-link" href="utilities.html#text">Text</a>
+        <a class="sidebar-link" href="utilities.html#vertical-align">Vertical align</a>
+        <a class="sidebar-link" href="utilities.html#visibility">Visibility</a>
+        <a class="sidebar-link" href="utilities.html#z-index">Z-index</a>
         <a class="sidebar-link" href="utilities.html#morph">Morph</a>
       </div>
       </nav>
@@ -445,6 +465,29 @@
           </tbody>
         </table>
       </div>
+    </section>
+
+    <section id="sass" class="tg-card tg-neu mb-8">
+      <h2 class="text-xl font-display mb-3">Sass</h2>
+      <p class="text-sm mb-3">Compile from the package entry. Partials are loaded with <code>@use</code> in a fixed order from <code>tactileglass.scss</code>.</p>
+      <pre class="morph-neu-inset rounded-md p-4 text-sm mb-3">@use 'tactileglass-css/src/scss/tactileglass.scss';</pre>
+      <p class="text-sm mb-3">Override tokens after import with CSS variables (preferred), or fork theme maps in <code>base/_themes.scss</code> and recompile:</p>
+      <ul class="text-sm mb-3">
+        <li><code>$tg-theme-light</code> / <code>$tg-theme-dark</code> — color modes</li>
+        <li><code>$tg-colors</code> — semantic utility / component palette</li>
+        <li><code>$tg-breakpoints</code> + <code>tg-infix</code> — responsive utility generation</li>
+      </ul>
+      <p class="text-sm mb-0">There is no Bootstrap-style <code>$enable-*</code> option map yet; carve unused layers by forking the entry <code>@use</code> list if you need a smaller sheet.</p>
+    </section>
+
+    <section id="optimize" class="tg-card tg-glass mb-8">
+      <h2 class="text-xl font-display mb-3">Optimize</h2>
+      <ul class="text-sm mb-0">
+        <li>Ship <code>dist/tactileglass.min.css</code> in production (<code>npm run build</code>).</li>
+        <li>Purge unused selectors with your bundler / Lightning CSS / PurgeCSS — class names are static Bootstrap-style strings.</li>
+        <li>Prefer CSS variable overrides over duplicating component CSS.</li>
+        <li>Optional: compile a custom entry that drops unused component partials (alerts, pagination, …) if your app never uses them.</li>
+      </ul>
     </section>
     </main>
   </div>

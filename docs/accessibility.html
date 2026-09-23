@@ -6,7 +6,7 @@
     try { if (localStorage.getItem('tg-theme') === 'dark') document.documentElement.classList.add('theme-dark'); } catch (e) {}
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TactileGlass CSS — Layout</title>
+  <title>TactileGlass CSS — Accessibility</title>
   <link rel="stylesheet" href="tactileglass.css">
   <link rel="stylesheet" href="docs.css">
 </head>
@@ -157,84 +157,33 @@
     <main class="docs-main docs-prose">
 
       <section class="tg-card tg-hybrid mb-8">
-        <h1 class="text-2xl font-bold font-display">Layout</h1>
-        <p class="lead mb-0">Mobile-first breakpoints, centered containers, Bootstrap flex rows, and a CSS grid track system.</p>
+        <h1 class="text-2xl font-bold font-display">Accessibility</h1>
+        <p class="lead mb-0">TactileGlass is CSS-only. You still own semantics, focus order, and ARIA — these notes cover what the stylesheet helps with.</p>
       </section>
 
-      <section id="breakpoints" class="tg-card tg-neu mb-8">
-        <h2 class="text-xl font-display mb-3">Breakpoints</h2>
-        <div class="table-responsive">
-          <table class="tg-table table-striped">
-            <thead><tr><th>Infix</th><th>Min-width</th><th>Examples</th></tr></thead>
-            <tbody>
-              <tr><td>(none)</td><td>0</td><td><code>p-4</code> <code>d-none</code> <code>grid-2</code></td></tr>
-              <tr><td>sm</td><td>576px</td><td><code>p-sm-4</code> <code>grid-sm-2</code></td></tr>
-              <tr><td>md</td><td>768px</td><td><code>d-md-flex</code> <code>col-md-6</code></td></tr>
-              <tr><td>lg</td><td>992px</td><td><code>grid-lg-3</code></td></tr>
-              <tr><td>xl</td><td>1200px</td><td><code>d-xl-none</code></td></tr>
-              <tr><td>xxl</td><td>1400px</td><td><code>col-xxl-4</code></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <pre class="morph-neu-inset rounded-md p-4 text-sm mt-4 mb-0">&lt;div class="d-none d-md-block"&gt;Visible from md&lt;/div&gt;</pre>
+      <section id="color" class="tg-card tg-neu mb-8">
+        <h2 class="text-xl font-display mb-3">Color &amp; contrast</h2>
+        <p class="text-sm mb-0">Semantic tokens (<code>--tg-primary</code>, body ink, emphasis) are tuned for light and <code>theme-dark</code>. Prefer <code>text-body</code> / <code>text-body-secondary</code> over low-contrast custom greys. Don’t rely on color alone for validation — pair with <code>is-invalid</code> text / icons.</p>
       </section>
 
-      <section id="containers" class="tg-card tg-glass mb-8">
-        <h2 class="text-xl font-display mb-3">Containers</h2>
-        <p class="text-sm"><code>container</code> grows 540 / 720 / 960 / 1140 / 1320. Use <code>container-sm</code> … <code>container-xxl</code> to start later. <code>container-fluid</code> is full width with gutters.</p>
-        <pre class="morph-neu-inset rounded-md p-4 text-sm mb-0">&lt;div class="container"&gt;…&lt;/div&gt;
-&lt;div class="container-fluid"&gt;…&lt;/div&gt;</pre>
+      <section id="focus" class="tg-card tg-glass mb-8">
+        <h2 class="text-xl font-display mb-3">Focus</h2>
+        <p class="text-sm mb-0">Interactive controls expose visible focus (thicker borders / <code>focus-ring-*</code>). Keep custom components keyboard-reachable and avoid <code>outline: none</code> without a replacement. Use <code>visually-hidden</code> / <code>visually-hidden-focusable</code> for screen-reader-only labels.</p>
       </section>
 
-      <section id="grid-flex" class="tg-card tg-neu mb-8">
-        <h2 class="text-xl font-display mb-3">Flex row grid</h2>
-        <p class="text-sm mb-3">Bootstrap-style <code>.row</code> + <code>.col-*</code> with gutter variables <code>--tg-gutter-x</code>.</p>
-        <pre class="morph-neu-inset rounded-md p-4 text-sm mb-4">&lt;div class="row g-3"&gt;
-  &lt;div class="col-12 col-md-6"&gt;A&lt;/div&gt;
-  &lt;div class="col-12 col-md-6"&gt;B&lt;/div&gt;
-&lt;/div&gt;</pre>
-        <div class="row g-3">
-          <div class="col-12 col-md-6"><div class="morph-neu rounded-md p-3 text-sm">col-md-6</div></div>
-          <div class="col-12 col-md-6"><div class="morph-neu rounded-md p-3 text-sm">col-md-6</div></div>
-        </div>
+      <section id="motion" class="tg-card tg-neu mb-8">
+        <h2 class="text-xl font-display mb-3">Motion</h2>
+        <p class="text-sm mb-0">Animation utilities respect reduced-motion when you wire <code>prefers-reduced-motion</code> at the app level (or disable enter animations for that media query). Prefer purposeful motion over looping decoration.</p>
       </section>
 
-      <section id="columns" class="mb-8">
-        <h2 class="text-xl font-display mb-3">Columns (CSS grid)</h2>
-        <pre class="morph-neu-inset rounded-md p-4 text-sm mb-4">&lt;div class="grid grid-12 g-3"&gt;
-  &lt;div class="col-12 col-md-4"&gt;…&lt;/div&gt;
-&lt;/div&gt;</pre>
-        <div class="grid grid-12 g-3">
-          <div class="col-12 col-md-4"><div class="morph-glass p-3 rounded-md text-sm">col-md-4</div></div>
-          <div class="col-12 col-md-4"><div class="morph-glass p-3 rounded-md text-sm">col-md-4</div></div>
-          <div class="col-12 col-md-4"><div class="morph-glass p-3 rounded-md text-sm">col-md-4</div></div>
-        </div>
-      </section>
-
-      <section id="gutters" class="tg-card tg-hybrid mb-8">
-        <h2 class="text-xl font-display mb-3">Gutters</h2>
-        <p class="text-sm mb-3"><code>g-*</code>, <code>gx-*</code>, <code>gy-*</code> on rows or grids. Values follow <code>--spacing</code>.</p>
-        <div class="grid grid-2 g-4">
-          <div class="morph-neu p-4 rounded-md text-sm">g-4</div>
-          <div class="morph-neu p-4 rounded-md text-sm">g-4</div>
-        </div>
-      </section>
-
-      <section id="z-index" class="tg-card tg-neu mb-8">
-        <h2 class="text-xl font-display mb-3">Z-index</h2>
-        <p class="text-sm mb-3">Utilities: <code>z-0</code> <code>z-sticky</code> <code>z-overlay</code> <code>z-dropdown</code>.</p>
-        <pre class="morph-neu-inset rounded-md p-4 text-sm mb-0">&lt;header class="tg-nav nav-sticky z-sticky"&gt;…&lt;/header&gt;</pre>
-      </section>
-
-      <section id="css-grid" class="tg-card tg-glass mb-8">
-        <h2 class="text-xl font-display mb-3">CSS Grid tracks</h2>
-        <p class="text-sm mb-3"><code>grid-md-3</code> creates three equal tracks from 768px. Use with <code>gap-3</code>.</p>
-        <div class="grid grid-md-3 gap-3 mb-4">
-          <div class="morph-hybrid p-3 rounded-md text-sm">1</div>
-          <div class="morph-hybrid p-3 rounded-md text-sm">2</div>
-          <div class="morph-hybrid p-3 rounded-md text-sm">3</div>
-        </div>
-        <pre class="morph-neu-inset rounded-md p-4 text-sm mb-0">&lt;div class="grid grid-md-3 gap-4"&gt;…&lt;/div&gt;</pre>
+      <section id="structure" class="tg-card tg-hybrid mb-8">
+        <h2 class="text-xl font-display mb-3">Structure</h2>
+        <ul class="mb-0 text-sm">
+          <li>Use real headings, lists, and labels — classes don’t replace HTML.</li>
+          <li>Dropdowns/selects built with <code>&lt;details&gt;</code> need clear <code>summary</code> text and keyboard Esc handling (docs.js closes extras for demos).</li>
+          <li>Icon-only buttons need an accessible name (<code>aria-label</code> or visually hidden text).</li>
+          <li>Skip links and landmark regions are your responsibility; TG doesn’t inject a skip link.</li>
+        </ul>
       </section>
 
     </main>

@@ -1,0 +1,33 @@
+@use '../base/mixins' as *;
+
+// Bootstrap-style sticky / fixed position helpers
+
+.fixed-top {
+  position: fixed !important;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+}
+
+.fixed-bottom {
+  position: fixed !important;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+}
+
+@include tg-infix using ($bp) {
+  .#{tg-infix-class('sticky', $bp, 'top')} {
+    position: sticky !important;
+    top: 0;
+    z-index: var(--z-sticky);
+  }
+
+  .#{tg-infix-class('sticky', $bp, 'bottom')} {
+    position: sticky !important;
+    bottom: 0;
+    z-index: var(--z-sticky);
+  }
+}

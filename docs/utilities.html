@@ -44,11 +44,16 @@
         <div class="sidebar-label">Getting started</div>
         <a class="sidebar-link" href="docs.html">Introduction</a>
         <a class="sidebar-link" href="docs.html#install">Download / Install</a>
+        <a class="sidebar-link" href="contents.html">Contents</a>
+        <a class="sidebar-link" href="docs.html#css-only">CSS-only</a>
+        <a class="sidebar-link" href="accessibility.html">Accessibility</a>
       </div>
       <div class="sidebar-section">
         <div class="sidebar-label">Customize</div>
         <a class="sidebar-link" href="customize.html">Overview</a>
+        <a class="sidebar-link" href="customize.html#sass">Sass</a>
         <a class="sidebar-link" href="customize.html#css-variables">CSS variables</a>
+        <a class="sidebar-link" href="customize.html#optimize">Optimize</a>
       </div>
       <div class="sidebar-section">
         <div class="sidebar-label">Layout</div>
@@ -105,6 +110,8 @@
         <a class="sidebar-link" href="helpers.html#color-bg">Color & background</a>
         <a class="sidebar-link" href="helpers.html#colored-links">Colored links</a>
         <a class="sidebar-link" href="helpers.html#focus-ring">Focus ring</a>
+        <a class="sidebar-link" href="helpers.html#icon-link">Icon link</a>
+        <a class="sidebar-link" href="helpers.html#position">Position</a>
         <a class="sidebar-link" href="helpers.html#ratio">Ratio</a>
         <a class="sidebar-link" href="helpers.html#stacks">Stacks</a>
         <a class="sidebar-link" href="helpers.html#stretched-link">Stretched link</a>
@@ -123,13 +130,26 @@
       </div>
       <div class="sidebar-section">
         <div class="sidebar-label">Utilities</div>
+        <a class="sidebar-link" href="utilities.html#api">API</a>
+        <a class="sidebar-link" href="utilities.html#background">Background</a>
+        <a class="sidebar-link" href="utilities.html#borders">Borders</a>
         <a class="sidebar-link" href="utilities.html#colors">Colors</a>
-        <a class="sidebar-link" href="utilities.html#spacing">Spacing</a>
         <a class="sidebar-link" href="utilities.html#display">Display</a>
         <a class="sidebar-link" href="utilities.html#flex">Flex</a>
-        <a class="sidebar-link" href="utilities.html#text">Text</a>
-        <a class="sidebar-link" href="utilities.html#shadows">Shadows</a>
+        <a class="sidebar-link" href="utilities.html#float">Float</a>
+        <a class="sidebar-link" href="utilities.html#interactions">Interactions</a>
+        <a class="sidebar-link" href="utilities.html#link">Link</a>
+        <a class="sidebar-link" href="utilities.html#object-fit">Object fit</a>
         <a class="sidebar-link" href="utilities.html#opacity">Opacity</a>
+        <a class="sidebar-link" href="utilities.html#overflow">Overflow</a>
+        <a class="sidebar-link" href="utilities.html#position">Position</a>
+        <a class="sidebar-link" href="utilities.html#shadows">Shadows</a>
+        <a class="sidebar-link" href="utilities.html#sizing">Sizing</a>
+        <a class="sidebar-link" href="utilities.html#spacing">Spacing</a>
+        <a class="sidebar-link" href="utilities.html#text">Text</a>
+        <a class="sidebar-link" href="utilities.html#vertical-align">Vertical align</a>
+        <a class="sidebar-link" href="utilities.html#visibility">Visibility</a>
+        <a class="sidebar-link" href="utilities.html#z-index">Z-index</a>
         <a class="sidebar-link" href="utilities.html#morph">Morph</a>
       </div>
       </nav>
@@ -138,23 +158,46 @@
 
       <section class="tg-card tg-hybrid mb-8">
         <h1 class="text-2xl font-bold font-display">Utilities</h1>
-        <p class="lead mb-0">Spacing, display, flex, color, shadows, opacity, and morph overrides — compiled with Bootstrap infixes.</p>
+        <p class="lead mb-0">Bootstrap-aligned helpers for layout, color, type, and materials — many with responsive infixes via <code>tg-infix</code>.</p>
+      </section>
+
+      <section id="api" class="tg-card tg-neu mb-8">
+        <h2 class="text-xl font-display mb-3">API</h2>
+        <p class="text-sm mb-0">Responsive utilities use Bootstrap-style infixes: base class, then <code>*-sm-*</code>, <code>*-md-*</code>, <code>*-lg-*</code>, <code>*-xl-*</code>, <code>*-xxl-*</code> from the <code>tg-infix</code> mixin (breakpoints in <code>base/_tokens.scss</code>). Example: <code>d-none d-md-flex</code>, <code>p-2 p-lg-4</code>, <code>sticky-md-top</code>.</p>
+      </section>
+
+      <section id="background" class="tg-card tg-glass mb-8">
+        <h2 class="text-xl font-display mb-3">Background</h2>
+        <p class="text-sm mb-3"><code>bg-body</code>, <code>bg-body-secondary</code>, <code>bg-body-tertiary</code>, <code>bg-gradient</code>, plus semantic <code>bg-*</code>.</p>
+        <div class="d-flex flex-wrap gap-2">
+          <div class="bg-body-secondary p-3 rounded-md text-sm">bg-body-secondary</div>
+          <div class="bg-body-tertiary p-3 rounded-md text-sm">bg-body-tertiary</div>
+          <div class="bg-primary bg-gradient p-3 rounded-md text-sm text-white">bg-primary bg-gradient</div>
+        </div>
+      </section>
+
+      <section id="borders" class="tg-card tg-neu mb-8">
+        <h2 class="text-xl font-display mb-3">Borders</h2>
+        <p class="text-sm mb-3"><code>border</code>, sides, colors, radii. Pair colors with <code>border-opacity-*</code>.</p>
+        <div class="d-flex flex-wrap gap-3">
+          <div class="border border-primary p-3 rounded-md text-sm">border-primary</div>
+          <div class="border border-danger border-opacity-25 p-3 rounded-md text-sm">opacity-25</div>
+          <div class="border rounded-pill p-3 text-sm">rounded-pill</div>
+        </div>
       </section>
 
       <section id="colors" class="tg-card tg-glass mb-8">
         <h2 class="text-xl font-display mb-3">Colors</h2>
-        <p class="text-sm mb-3">Fill <code>bg-*</code>, ink <code>text-*</code>, subtle <code>bg-primary-subtle</code>, tint <code>tint-*</code>.</p>
-        <div class="d-flex flex-wrap gap-2">
+        <p class="text-sm mb-3">Fill <code>bg-*</code>, ink <code>text-*</code>, subtle, tint. Opacity: <code>text-opacity-*</code> / <code>bg-opacity-*</code> on RGB-backed colors.</p>
+        <div class="d-flex flex-wrap gap-2 mb-3">
           <span class="tg-badge bg-primary text-white">bg-primary</span>
           <span class="tg-badge bg-primary-subtle text-primary-emphasis">subtle</span>
           <span class="tint-warning p-2 rounded-md text-sm">tint-warning</span>
         </div>
-      </section>
-
-      <section id="spacing" class="tg-card tg-neu mb-8">
-        <h2 class="text-xl font-display mb-3">Spacing</h2>
-        <div class="morph-neu-inset rounded-md p-4 mb-2">p-4</div>
-        <div class="morph-neu-inset rounded-md p-4 p-md-8">p-4 p-md-8</div>
+        <div class="d-flex flex-wrap gap-2">
+          <span class="bg-primary bg-opacity-25 text-primary p-2 rounded-md text-sm">bg-opacity-25</span>
+          <span class="text-danger text-opacity-50 p-2 rounded-md text-sm">text-opacity-50</span>
+        </div>
       </section>
 
       <section id="display" class="tg-card tg-hybrid mb-8">
@@ -164,17 +207,59 @@
 
       <section id="flex" class="tg-card tg-neu mb-8">
         <h2 class="text-xl font-display mb-3">Flex</h2>
-        <p class="text-sm text-secondary mb-3">Bootstrap names: <code>d-flex</code>, <code>flex-column</code>, <code>flex-wrap</code>, <code>justify-content-*</code>, <code>align-items-*</code>, <code>align-self-*</code>.</p>
+        <p class="text-sm text-body-secondary mb-3"><code>d-flex</code>, <code>flex-column</code>, <code>flex-wrap</code>, <code>justify-content-*</code>, <code>align-items-*</code>, <code>align-self-*</code>.</p>
         <div class="d-flex justify-content-between align-items-center gap-3 morph-neu-inset p-3 rounded-md">
           <span>start</span><span>between</span><span>end</span>
         </div>
       </section>
 
-      <section id="text" class="tg-card tg-glass mb-8">
-        <h2 class="text-xl font-display mb-3">Text</h2>
-        <p class="text-sm text-secondary mb-3">Line height: <code>lh-1</code> <code>lh-sm</code> <code>lh-base</code> <code>lh-lg</code>. Truncate: <code>text-truncate</code>. Clamp: <code>line-clamp-2</code> … <code>line-clamp-6</code>.</p>
-        <p class="lh-lg mb-2">lh-lg paragraph leading.</p>
-        <p class="line-clamp-2 mb-0" style="max-width: 20rem;">line-clamp-2 cuts after two lines even when the sentence keeps going past the box so multi-line titles stay consistent.</p>
+      <section id="float" class="tg-card tg-glass mb-8">
+        <h2 class="text-xl font-display mb-3">Float</h2>
+        <p class="text-sm mb-0"><code>float-start</code>, <code>float-end</code>, <code>float-none</code> (+ responsive <code>float-md-end</code>). Contain with <a href="helpers.html#clearfix">clearfix</a>.</p>
+      </section>
+
+      <section id="interactions" class="tg-card tg-neu mb-8">
+        <h2 class="text-xl font-display mb-3">Interactions</h2>
+        <p class="text-sm mb-2"><code>user-select-none</code>, <code>user-select-all</code>, <code>pe-none</code> / <code>pe-auto</code>, <code>cursor-pointer</code>.</p>
+        <p class="user-select-all morph-neu-inset p-3 rounded-md text-sm mb-0">Click to select all of this text.</p>
+      </section>
+
+      <section id="link" class="tg-card tg-hybrid mb-8">
+        <h2 class="text-xl font-display mb-3">Link</h2>
+        <p class="text-sm mb-3"><code>link-opacity-*</code>, <code>link-underline</code> + <code>link-underline-opacity-*</code>, <code>link-offset-*</code>, semantic <code>link-underline-primary</code>.</p>
+        <div class="d-flex flex-wrap gap-4">
+          <a href="#link" class="link-underline link-underline-opacity-50 link-offset-2">underline 50%</a>
+          <a href="#link" class="link-underline-danger link-underline-opacity-100">danger underline</a>
+          <a href="#link" class="link-opacity-50">opacity 50</a>
+        </div>
+      </section>
+
+      <section id="object-fit" class="tg-card tg-neu mb-8">
+        <h2 class="text-xl font-display mb-3">Object fit</h2>
+        <p class="text-sm mb-0">Bootstrap names <code>object-fit-contain</code>, <code>object-fit-cover</code>, <code>object-fit-fill</code>, <code>object-fit-none</code>, <code>object-fit-scale-down</code> (short <code>object-*</code> aliases also work).</p>
+      </section>
+
+      <section id="opacity" class="tg-card tg-glass mb-8">
+        <h2 class="text-xl font-display mb-3">Opacity</h2>
+        <p class="text-sm mb-3">Element opacity: <code>opacity-0</code> … <code>opacity-100</code>. Color channel opacity: see Colors / Borders.</p>
+        <div class="d-flex gap-3">
+          <div class="tg-btn tg-hybrid opacity-100">100</div>
+          <div class="tg-btn tg-hybrid opacity-50">50</div>
+          <div class="tg-btn tg-hybrid opacity-25">25</div>
+        </div>
+      </section>
+
+      <section id="overflow" class="tg-card tg-neu mb-8">
+        <h2 class="text-xl font-display mb-3">Overflow</h2>
+        <p class="text-sm mb-0"><code>overflow-auto</code>, <code>overflow-hidden</code>, <code>overflow-visible</code>, <code>overflow-scroll</code> (and <code>overflow-x-*</code> / <code>overflow-y-*</code> when present).</p>
+      </section>
+
+      <section id="position" class="tg-card tg-hybrid mb-8">
+        <h2 class="text-xl font-display mb-3">Position</h2>
+        <p class="text-sm mb-3"><code>position-relative</code> / <code>absolute</code> / <code>fixed</code> / <code>sticky</code>. Edges: <code>top-0</code>, <code>top-50</code>, <code>start-50</code>, <code>translate-middle</code> / <code>-x</code> / <code>-y</code>. Sticky/fixed chrome: see <a href="helpers.html#position">Position helpers</a>.</p>
+        <div class="position-relative morph-neu-inset rounded-md" style="height: 6rem;">
+          <span class="position-absolute top-50 start-50 translate-middle tg-badge tg-hybrid">centered</span>
+        </div>
       </section>
 
       <section id="shadows" class="tg-card tg-glass mb-8">
@@ -186,13 +271,40 @@
         </div>
       </section>
 
-      <section id="opacity" class="tg-card tg-neu mb-8">
-        <h2 class="text-xl font-display mb-3">Opacity</h2>
-        <div class="d-flex gap-3">
-          <div class="tg-btn tg-hybrid opacity-100">100</div>
-          <div class="tg-btn tg-hybrid opacity-50">50</div>
-          <div class="tg-btn tg-hybrid opacity-25">25</div>
-        </div>
+      <section id="sizing" class="tg-card tg-neu mb-8">
+        <h2 class="text-xl font-display mb-3">Sizing</h2>
+        <p class="text-sm mb-0"><code>w-25</code>…<code>w-100</code>, <code>h-*</code>, <code>mw-100</code>, <code>vh-100</code>, <code>min-vh-100</code>, <code>vw-100</code>, <code>min-vw-100</code>.</p>
+      </section>
+
+      <section id="spacing" class="tg-card tg-glass mb-8">
+        <h2 class="text-xl font-display mb-3">Spacing</h2>
+        <div class="morph-neu-inset rounded-md p-4 mb-2">p-4</div>
+        <div class="morph-neu-inset rounded-md p-4 p-md-8">p-4 p-md-8</div>
+      </section>
+
+      <section id="text" class="tg-card tg-neu mb-8">
+        <h2 class="text-xl font-display mb-3">Text</h2>
+        <p class="text-sm text-body-secondary mb-3">Leading <code>lh-*</code>, <code>font-monospace</code>, <code>fst-italic</code>, <code>fw-semibold</code>, <code>text-decoration-*</code>, <code>text-body-secondary</code>.</p>
+        <p class="font-monospace mb-2">font-monospace</p>
+        <p class="fst-italic fw-semibold mb-2">italic semibold</p>
+        <p class="text-decoration-underline mb-2">text-decoration-underline</p>
+        <p class="lh-lg mb-2">lh-lg paragraph leading.</p>
+        <p class="line-clamp-2 mb-0" style="max-width: 20rem;">line-clamp-2 cuts after two lines even when the sentence keeps going past the box so multi-line titles stay consistent.</p>
+      </section>
+
+      <section id="vertical-align" class="tg-card tg-hybrid mb-8">
+        <h2 class="text-xl font-display mb-3">Vertical align</h2>
+        <p class="text-sm mb-0"><code>align-baseline</code>, <code>align-top</code>, <code>align-middle</code>, <code>align-bottom</code>, <code>align-text-top</code>, <code>align-text-bottom</code> (inline / table-cell contexts).</p>
+      </section>
+
+      <section id="visibility" class="tg-card tg-neu mb-8">
+        <h2 class="text-xl font-display mb-3">Visibility</h2>
+        <p class="text-sm mb-0"><code>visible</code> / <code>invisible</code> — keep layout space while hiding paint.</p>
+      </section>
+
+      <section id="z-index" class="tg-card tg-glass mb-8">
+        <h2 class="text-xl font-display mb-3">Z-index</h2>
+        <p class="text-sm mb-0"><code>z-n1</code>, <code>z-0</code>…<code>z-3</code>, plus <code>z-dropdown</code>, <code>z-sticky</code>, <code>z-fixed</code>, <code>z-overlay</code>.</p>
       </section>
 
       <section id="morph" class="tg-card tg-hybrid mb-8">

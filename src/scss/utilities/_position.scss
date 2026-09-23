@@ -1,3 +1,5 @@
+@use '../base/mixins' as *;
+
 .relative,
 .position-relative { position: relative !important; }
 .absolute,
@@ -12,16 +14,45 @@
 .inset-0 { inset: 0 !important; }
 .inset-x-0 { left: 0 !important; right: 0 !important; }
 .inset-y-0 { top: 0 !important; bottom: 0 !important; }
+
 .top-0 { top: 0 !important; }
+.top-50 { top: 50% !important; }
+.top-100 { top: 100% !important; }
 .bottom-0 { bottom: 0 !important; }
+.bottom-50 { bottom: 50% !important; }
+.bottom-100 { bottom: 100% !important; }
 .start-0 { left: 0 !important; }
+.start-50 { left: 50% !important; }
+.start-100 { left: 100% !important; }
 .end-0 { right: 0 !important; }
+.end-50 { right: 50% !important; }
+.end-100 { right: 100% !important; }
+
+.translate-middle {
+  transform: translate(-50%, -50%) !important;
+}
+
+.translate-middle-x {
+  transform: translateX(-50%) !important;
+}
+
+.translate-middle-y {
+  transform: translateY(-50%) !important;
+}
 
 .align-baseline { vertical-align: baseline !important; }
 .align-top { vertical-align: top !important; }
 .align-middle { vertical-align: middle !important; }
 .align-bottom { vertical-align: bottom !important; }
+.align-text-top { vertical-align: text-top !important; }
+.align-text-bottom { vertical-align: text-bottom !important; }
 
 .float-start { float: left !important; }
 .float-end { float: right !important; }
 .float-none { float: none !important; }
+
+@include tg-infix using ($bp) {
+  .#{tg-infix-class('float', $bp, 'start')} { float: left !important; }
+  .#{tg-infix-class('float', $bp, 'end')} { float: right !important; }
+  .#{tg-infix-class('float', $bp, 'none')} { float: none !important; }
+}

@@ -1,6 +1,6 @@
 {
     "name": "tactileglass-css",
-    "version": "0.4.1",
+    "version": "0.4.2",
     "description": "A premium hybrid CSS framework uniting glassmorphism and tactile neumorphism.",
     "main": "dist/tactileglass.css",
     "style": "dist/tactileglass.css",

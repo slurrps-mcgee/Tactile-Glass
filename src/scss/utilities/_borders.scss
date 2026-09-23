@@ -1,7 +1,10 @@
 @use '../base/mixins' as *;
 @use 'sass:map';
 
-.border { border: 1px solid var(--border-subtle) !important; }
+.border {
+  --tg-border-opacity: 1;
+  border: var(--tg-border-width, 1px) var(--tg-border-style, solid) rgba(var(--tg-body-color-rgb), calc(0.18 * var(--tg-border-opacity, 1))) !important;
+}
 .border-0,
 .border-none { border: 0 !important; }
 .border-2 { border-width: 2px !important; border-style: solid !important; }
@@ -11,12 +14,18 @@
 .border-end { border-right: 1px solid var(--border-subtle) !important; }
 
 @each $name, $meta in $tg-colors {
-  $color: map.get($meta, color);
+  $rgb: map.get($meta, rgb);
 
-  .border-#{$name} { border-color: $color !important; }
+  .border-#{$name} {
+    --tg-border-opacity: 1;
+    border-color: rgba(var(#{$rgb}), var(--tg-border-opacity)) !important;
+  }
 }
 
-.border-white { border-color: var(--clr-white) !important; }
+.border-white {
+  --tg-border-opacity: 1;
+  border-color: rgba(var(--tg-white-rgb), var(--tg-border-opacity)) !important;
+}
 .border-canvas { border-color: var(--clr-bg) !important; }
 
 .rounded { border-radius: var(--radius-md) !important; }

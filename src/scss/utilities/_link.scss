@@ -1,0 +1,76 @@
+@use '../base/mixins' as *;
+@use 'sass:map';
+
+// Bootstrap 5.3 link utilities
+// https://getbootstrap.com/docs/5.3/utilities/link/
+
+$tg-link-opacities: (
+  10: 0.1,
+  25: 0.25,
+  50: 0.5,
+  75: 0.75,
+  100: 1
+);
+
+$tg-link-offsets: (
+  1: 0.125em,
+  2: 0.25em,
+  3: 0.375em
+);
+
+@each $key, $value in $tg-link-opacities {
+  .link-opacity-#{$key} {
+    --tg-link-opacity: #{$value};
+    opacity: var(--tg-link-opacity) !important;
+  }
+
+  .link-opacity-#{$key}-hover {
+    &:hover,
+    &:focus {
+      --tg-link-opacity: #{$value};
+      opacity: var(--tg-link-opacity) !important;
+    }
+  }
+}
+
+.link-underline {
+  --tg-link-underline-opacity: 1;
+  text-decoration-line: underline !important;
+  text-decoration-color: rgba(var(--tg-link-color-rgb), var(--tg-link-underline-opacity, 1)) !important;
+}
+
+@each $name, $meta in $tg-colors {
+  $rgb: map.get($meta, rgb);
+
+  .link-underline-#{$name} {
+    --tg-link-underline-opacity: 1;
+    text-decoration-line: underline !important;
+    text-decoration-color: rgba(var(#{$rgb}), var(--tg-link-underline-opacity, 1)) !important;
+  }
+}
+
+@each $key, $value in $tg-link-opacities {
+  .link-underline-opacity-#{$key} {
+    --tg-link-underline-opacity: #{$value};
+  }
+
+  .link-underline-opacity-#{$key}-hover {
+    &:hover,
+    &:focus {
+      --tg-link-underline-opacity: #{$value};
+    }
+  }
+}
+
+@each $key, $value in $tg-link-offsets {
+  .link-offset-#{$key} {
+    text-underline-offset: #{$value} !important;
+  }
+
+  .link-offset-#{$key}-hover {
+    &:hover,
+    &:focus {
+      text-underline-offset: #{$value} !important;
+    }
+  }
+}

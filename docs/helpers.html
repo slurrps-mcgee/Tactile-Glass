@@ -44,11 +44,16 @@
         <div class="sidebar-label">Getting started</div>
         <a class="sidebar-link" href="docs.html">Introduction</a>
         <a class="sidebar-link" href="docs.html#install">Download / Install</a>
+        <a class="sidebar-link" href="contents.html">Contents</a>
+        <a class="sidebar-link" href="docs.html#css-only">CSS-only</a>
+        <a class="sidebar-link" href="accessibility.html">Accessibility</a>
       </div>
       <div class="sidebar-section">
         <div class="sidebar-label">Customize</div>
         <a class="sidebar-link" href="customize.html">Overview</a>
+        <a class="sidebar-link" href="customize.html#sass">Sass</a>
         <a class="sidebar-link" href="customize.html#css-variables">CSS variables</a>
+        <a class="sidebar-link" href="customize.html#optimize">Optimize</a>
       </div>
       <div class="sidebar-section">
         <div class="sidebar-label">Layout</div>
@@ -105,6 +110,8 @@
         <a class="sidebar-link" href="helpers.html#color-bg">Color & background</a>
         <a class="sidebar-link" href="helpers.html#colored-links">Colored links</a>
         <a class="sidebar-link" href="helpers.html#focus-ring">Focus ring</a>
+        <a class="sidebar-link" href="helpers.html#icon-link">Icon link</a>
+        <a class="sidebar-link" href="helpers.html#position">Position</a>
         <a class="sidebar-link" href="helpers.html#ratio">Ratio</a>
         <a class="sidebar-link" href="helpers.html#stacks">Stacks</a>
         <a class="sidebar-link" href="helpers.html#stretched-link">Stretched link</a>
@@ -123,13 +130,26 @@
       </div>
       <div class="sidebar-section">
         <div class="sidebar-label">Utilities</div>
+        <a class="sidebar-link" href="utilities.html#api">API</a>
+        <a class="sidebar-link" href="utilities.html#background">Background</a>
+        <a class="sidebar-link" href="utilities.html#borders">Borders</a>
         <a class="sidebar-link" href="utilities.html#colors">Colors</a>
-        <a class="sidebar-link" href="utilities.html#spacing">Spacing</a>
         <a class="sidebar-link" href="utilities.html#display">Display</a>
         <a class="sidebar-link" href="utilities.html#flex">Flex</a>
-        <a class="sidebar-link" href="utilities.html#text">Text</a>
-        <a class="sidebar-link" href="utilities.html#shadows">Shadows</a>
+        <a class="sidebar-link" href="utilities.html#float">Float</a>
+        <a class="sidebar-link" href="utilities.html#interactions">Interactions</a>
+        <a class="sidebar-link" href="utilities.html#link">Link</a>
+        <a class="sidebar-link" href="utilities.html#object-fit">Object fit</a>
         <a class="sidebar-link" href="utilities.html#opacity">Opacity</a>
+        <a class="sidebar-link" href="utilities.html#overflow">Overflow</a>
+        <a class="sidebar-link" href="utilities.html#position">Position</a>
+        <a class="sidebar-link" href="utilities.html#shadows">Shadows</a>
+        <a class="sidebar-link" href="utilities.html#sizing">Sizing</a>
+        <a class="sidebar-link" href="utilities.html#spacing">Spacing</a>
+        <a class="sidebar-link" href="utilities.html#text">Text</a>
+        <a class="sidebar-link" href="utilities.html#vertical-align">Vertical align</a>
+        <a class="sidebar-link" href="utilities.html#visibility">Visibility</a>
+        <a class="sidebar-link" href="utilities.html#z-index">Z-index</a>
         <a class="sidebar-link" href="utilities.html#morph">Morph</a>
       </div>
       </nav>
@@ -163,10 +183,34 @@
         <button class="tg-btn tg-neu focus-ring-primary">focus-ring-primary</button>
       </section>
 
+      <section id="icon-link" class="tg-card tg-neu mb-8">
+        <h2 class="text-xl font-display mb-3">Icon link</h2>
+        <p class="text-sm mb-3">Inline flex link with icon + label. Add <code>icon-link-hover</code> for a stronger icon nudge on hover.</p>
+        <a class="icon-link icon-link-hover" href="#icon-link">
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/></svg>
+          Learn more
+        </a>
+      </section>
+
+      <section id="position" class="tg-card tg-glass mb-8">
+        <h2 class="text-xl font-display mb-3">Position</h2>
+        <p class="text-sm mb-0">Chrome helpers: <code>fixed-top</code>, <code>fixed-bottom</code>, <code>sticky-top</code>, <code>sticky-bottom</code>, plus responsive <code>sticky-md-top</code>. Edge/transform utilities live under <a href="utilities.html#position">Utilities → Position</a>.</p>
+      </section>
+
       <section id="ratio" class="tg-card tg-neu mb-8">
         <h2 class="text-xl font-display mb-3">Ratio</h2>
-        <div class="ratio ratio-16x9 morph-neu-inset rounded-md">
-          <div class="d-flex align-items-center justify-content-center text-sm">16:9</div>
+        <p class="text-sm mb-3"><code>ratio-1x1</code>, <code>ratio-4x3</code>, <code>ratio-16x9</code>, <code>ratio-21x9</code>.</p>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="ratio ratio-16x9 morph-neu-inset rounded-md">
+              <div class="d-flex align-items-center justify-content-center text-sm">16:9</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="ratio ratio-21x9 morph-neu-inset rounded-md">
+              <div class="d-flex align-items-center justify-content-center text-sm">21:9</div>
+            </div>
+          </div>
         </div>
       </section>
 
