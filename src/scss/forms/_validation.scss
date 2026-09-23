@@ -1,0 +1,37 @@
+@use '../base/mixins' as *;
+
+.valid-feedback,
+.invalid-feedback {
+  display: none;
+  width: 100%;
+  margin-top: var(--sz-1);
+  font-size: var(--fs-xs);
+}
+
+.valid-feedback {
+  color: var(--tg-success);
+}
+
+.invalid-feedback {
+  color: var(--tg-danger);
+}
+
+.is-valid ~ .valid-feedback,
+.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+.was-validated :valid ~ .valid-feedback,
+.was-validated :invalid ~ .invalid-feedback {
+  display: block;
+}
+
+.was-validated .form-control:valid,
+.was-validated .tg-input:valid {
+  border-color: tg-rgba(--clr-success-rgb, 0.5);
+}
+
+.was-validated .form-control:invalid,
+.was-validated .tg-input:invalid {
+  border-color: tg-rgba(--clr-danger-rgb, 0.5);
+}

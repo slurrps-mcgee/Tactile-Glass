@@ -3,224 +3,12 @@
 @use '../styles/glass' as *;
 @use '../styles/hybrid' as *;
 
-.tg-input {
-  display: block;
-  width: 100%;
-  padding: var(--sz-3) var(--sz-4);
-  border-radius: var(--radius-md);
-  border: 1px solid transparent;
-  font-family: var(--font-sans);
-  font-size: var(--fs-base);
-  color: var(--clr-dark);
-  outline: none;
-  @include interactive-transition;
-  @include control-disabled;
-
-  &:not(select) {
-    appearance: none;
-    -webkit-appearance: none;
-  }
-
-  &::placeholder {
-    color: var(--clr-slate);
-    opacity: 0.7;
-  }
-
-  &:focus,
-  &:focus-visible {
-    @include focus-ring;
-    outline-offset: 0;
-  }
-
-  &.tg-neu,
-  &.tg-neu-inset,
-  &.tg-neu-reverse {
-    @include neu-inset;
-
-    &:focus,
-    &:focus-visible {
-      outline: none;
-      border-color: tg-rgba(--clr-primary-rgb, 0.4);
-      box-shadow: var(--neu-shadow-inset), 0 0 8px tg-rgba(--clr-primary-rgb, 0.2);
-    }
-  }
-
-  &.tg-neu-surface {
-    &:focus,
-    &:focus-visible {
-      outline: none;
-      border-color: tg-rgba(--clr-primary-rgb, 0.4);
-    }
-  }
-
-  &.tg-glass {
-    &:focus,
-    &:focus-visible {
-      outline: none;
-      background: var(--glass-bg-raised);
-      border-color: var(--clr-primary);
-    }
-  }
-
-  &.tg-hybrid,
-  &.tg-hybrid-inset,
-  &.tg-hybrid-reverse {
-    @include hybrid-pressed;
-
-    &:focus,
-    &:focus-visible {
-      outline: none;
-      background: var(--hybrid-bg);
-      border-color: tg-rgba(--clr-primary-rgb, 0.5);
-      box-shadow: var(--neu-shadow-inset), 0 0 10px tg-rgba(--clr-primary-rgb, 0.15);
-    }
-  }
-}
-
-textarea.tg-input {
-  min-height: 7rem;
-  line-height: var(--line-height-relaxed);
-}
-
-.input-sm {
-  padding: var(--sz-1) var(--sz-3);
-  font-size: var(--fs-sm);
-  border-radius: var(--radius-sm);
-}
-
-.input-lg {
-  padding: var(--sz-4) var(--sz-6);
-  font-size: var(--fs-lg);
-}
-
-.input-pill {
-  border-radius: var(--radius-pill);
-}
-
-.input-error {
-  border-color: tg-rgba(--clr-danger-rgb, 0.5);
-  color: var(--tg-danger);
-
-  &:focus,
-  &:focus-visible {
-    box-shadow: 0 0 8px tg-rgba(--clr-danger-rgb, 0.2);
-  }
-}
-
-.input-valid,
-.input-success {
-  border-color: tg-rgba(--clr-success-rgb, 0.5);
-  color: var(--tg-success);
-
-  &:focus,
-  &:focus-visible {
-    box-shadow: 0 0 8px tg-rgba(--clr-success-rgb, 0.2);
-  }
-}
-
-.input-warning {
-  border-color: tg-rgba(--clr-warning-rgb, 0.5);
-  color: var(--tg-warning);
-
-  &:focus,
-  &:focus-visible {
-    box-shadow: 0 0 8px tg-rgba(--clr-warning-rgb, 0.2);
-  }
-}
-
-.form-label {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sz-1);
-  font-size: var(--fs-xs);
-  font-weight: var(--font-weight-bold);
-  letter-spacing: var(--letter-spacing-wide);
-  text-transform: uppercase;
-  color: var(--clr-slate);
-}
-
-.form-text {
-  font-size: var(--fs-xs);
-  color: var(--clr-slate);
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sz-2);
-}
-
-.tg-switch {
-  position: relative;
-  z-index: 0;
-  display: inline-flex;
-  align-items: center;
-  width: 3rem;
-  height: 1.75rem;
-  border-radius: var(--radius-pill);
-  cursor: pointer;
-  @include interactive-transition;
-
-  input {
-    appearance: none;
-    -webkit-appearance: none;
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    opacity: 0;
-    cursor: pointer;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0.2rem;
-    left: 0.2rem;
-    z-index: 1;
-    width: 1.35rem;
-    height: 1.35rem;
-    border-radius: 50%;
-    background: var(--clr-white);
-    box-shadow: var(--neu-shadow-drop);
-    pointer-events: none;
-    @include interactive-transition;
-  }
-
-  &:has(input:checked)::after {
-    transform: translateX(1.25rem);
-  }
-
-  &:has(input:focus-visible) {
-    @include focus-ring;
-  }
-
-  &.tg-neu,
-  &.tg-neu-inset,
-  &.tg-neu-reverse {
-    @include neu-inset;
-  }
-
-  &.tg-hybrid,
-  &.tg-hybrid-inset,
-  &.tg-hybrid-reverse {
-    @include hybrid-pressed;
-  }
-
-  &:has(input:checked) {
-    background: tg-rgba(--clr-primary-rgb, 0.35);
-    border-color: tg-rgba(--clr-primary-rgb, 0.45);
-  }
-}
-
+.tg-dropdown,
 .tg-select {
   position: relative;
   display: block;
   width: 100%;
   z-index: var(--z-base);
-  /* Style class on <details> must not paint or clip the unrounded wrapper */
   background: none !important;
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
@@ -235,6 +23,7 @@ textarea.tg-input {
     display: none !important;
   }
 
+  &:not([open]) .dropdown-menu,
   &:not([open]) .select-menu {
     display: none !important;
   }
@@ -296,6 +85,7 @@ textarea.tg-input {
     outline-offset: 0;
   }
 
+  .dropdown-menu,
   .select-menu {
     position: relative;
     z-index: var(--z-overlay);
@@ -307,6 +97,7 @@ textarea.tg-input {
     overflow: hidden;
   }
 
+  .dropdown-header,
   .select-group-label {
     padding: var(--sz-2) var(--sz-4) var(--sz-1);
     font-size: var(--fs-xs);
@@ -316,6 +107,7 @@ textarea.tg-input {
     color: var(--clr-slate);
   }
 
+  .dropdown-item,
   .select-option {
     position: relative;
     z-index: 2;
@@ -348,9 +140,13 @@ textarea.tg-input {
     @include neu;
   }
 
+  &.tg-neu .dropdown-menu,
   &.tg-neu .select-menu,
+  &.tg-neu-surface .dropdown-menu,
   &.tg-neu-surface .select-menu,
+  &.tg-neu-inset .dropdown-menu,
   &.tg-neu-inset .select-menu,
+  &.tg-neu-reverse .dropdown-menu,
   &.tg-neu-reverse .select-menu {
     @include neu;
     border: 1px solid var(--border-subtle);
@@ -371,10 +167,15 @@ textarea.tg-input {
     @include glass-pressed;
   }
 
+  &.tg-glass .dropdown-menu,
   &.tg-glass .select-menu,
+  &.tg-glass-surface .dropdown-menu,
   &.tg-glass-surface .select-menu,
+  &.tg-glass-inset .dropdown-menu,
   &.tg-glass-inset .select-menu,
+  &.tg-glass-reverse .dropdown-menu,
   &.tg-glass-reverse .select-menu,
+  &.tg-glass-frosted .dropdown-menu,
   &.tg-glass-frosted .select-menu {
     @include glass-menu-frost;
   }
@@ -389,9 +190,13 @@ textarea.tg-input {
     @include hybrid;
   }
 
+  &.tg-hybrid .dropdown-menu,
   &.tg-hybrid .select-menu,
+  &.tg-hybrid-surface .dropdown-menu,
   &.tg-hybrid-surface .select-menu,
+  &.tg-hybrid-inset .dropdown-menu,
   &.tg-hybrid-inset .select-menu,
+  &.tg-hybrid-reverse .dropdown-menu,
   &.tg-hybrid-reverse .select-menu {
     @include hybrid;
     background: var(--glass-menu-bg, var(--hybrid-bg));

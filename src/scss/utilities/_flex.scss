@@ -1,31 +1,87 @@
-/* src/scss/utilities/_flex.scss */
+@use '../base/mixins' as *;
 
-/* ==========================================================================
-   Atomic Child Element Alignment (Align Self)
-   ========================================================================== */
-   .self-auto    { align-self: auto !important; }
-   .self-start   { align-self: flex-start !important; }
-   .self-center  { align-self: center !important; }
-   .self-end     { align-self: flex-end !important; }
-   .self-stretch { align-self: stretch !important; }
-   
-   /* ==========================================================================
-      Flex Grow & Shrink Modifiers
-      ========================================================================== */
-   .grow-1 { flex-grow: 1 !important; }
-   .grow-0 { flex-grow: 0 !important; }
-   
-   .shrink-1 { flex-shrink: 1 !important; }
-   .shrink-0 { flex-shrink: 0 !important; }
-   
-   /* ==========================================================================
-      Structural Order Shifting
-      ========================================================================== */
-   .order-first { order: -9999 !important; }
-   .order-last  { order: 9999 !important; }
-   .order-none  { order: 0 !important; }
-   
-   .order-1 { order: 1 !important; }
-   .order-2 { order: 2 !important; }
-   .order-3 { order: 3 !important; }
-   
+.d-flex { display: flex !important; }
+.d-inline-flex { display: inline-flex !important; }
+
+.f-row { flex-direction: row !important; }
+.f-col { flex-direction: column !important; }
+.f-wrap { flex-wrap: wrap !important; }
+.f-nowrap { flex-wrap: nowrap !important; }
+
+.justify-start { justify-content: flex-start !important; }
+.justify-center { justify-content: center !important; }
+.justify-end { justify-content: flex-end !important; }
+.justify-between { justify-content: space-between !important; }
+.justify-around { justify-content: space-around !important; }
+.justify-evenly { justify-content: space-evenly !important; }
+
+.align-start { align-items: flex-start !important; }
+.align-center { align-items: center !important; }
+.align-end { align-items: flex-end !important; }
+.align-stretch { align-items: stretch !important; }
+
+.flex-1 { flex: 1 1 0% !important; }
+.flex-auto { flex: 1 1 auto !important; }
+.flex-none { flex: none !important; }
+
+.gap-0 { gap: 0 !important; }
+.gap-1 { gap: var(--sz-1) !important; }
+.gap-2 { gap: var(--sz-2) !important; }
+.gap-3 { gap: var(--sz-3) !important; }
+.gap-4 { gap: var(--sz-4) !important; }
+.gap-6 { gap: var(--sz-6) !important; }
+.gap-8 { gap: var(--sz-8) !important; }
+
+.self-auto { align-self: auto !important; }
+.self-start { align-self: flex-start !important; }
+.self-center { align-self: center !important; }
+.self-end { align-self: flex-end !important; }
+.self-stretch { align-self: stretch !important; }
+
+.grow-1 { flex-grow: 1 !important; }
+.grow-0 { flex-grow: 0 !important; }
+.shrink-1 { flex-shrink: 1 !important; }
+.shrink-0 { flex-shrink: 0 !important; }
+
+.order-first { order: -9999 !important; }
+.order-last { order: 9999 !important; }
+.order-none { order: 0 !important; }
+.order-1 { order: 1 !important; }
+.order-2 { order: 2 !important; }
+.order-3 { order: 3 !important; }
+
+$tg-justify: (
+  start: flex-start,
+  center: center,
+  end: flex-end,
+  between: space-between,
+  around: space-around,
+  evenly: space-evenly
+);
+
+$tg-align: (
+  start: flex-start,
+  center: center,
+  end: flex-end,
+  stretch: stretch
+);
+
+@include tg-infix using ($bp) {
+  @each $key, $value in $tg-justify {
+    .#{tg-infix-class('justify', $bp, $key)} {
+      justify-content: $value !important;
+    }
+  }
+
+  @each $key, $value in $tg-align {
+    .#{tg-infix-class('align', $bp, $key)} {
+      align-items: $value !important;
+    }
+  }
+
+  @each $key, $value in $tg-align {
+    .#{tg-infix-class('align-self', $bp, $key)} {
+      align-self: $value !important;
+    }
+  }
+}

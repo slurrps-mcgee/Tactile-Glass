@@ -31,14 +31,16 @@
 
   syncToggles();
 
+  var dropdownSelector = '.tg-dropdown, .tg-select';
+
   function closeSelects(except) {
-    document.querySelectorAll('details.tg-select[open]').forEach(function (select) {
+    document.querySelectorAll('details.tg-dropdown[open], details.tg-select[open]').forEach(function (select) {
       if (select !== except) select.open = false;
     });
   }
 
-  document.querySelectorAll('.tg-select').forEach(function (select) {
-    select.setAttribute('name', 'tg-select');
+  document.querySelectorAll(dropdownSelector).forEach(function (select) {
+    select.setAttribute('name', 'tg-dropdown');
 
     select.addEventListener('toggle', function () {
       if (select.open) closeSelects(select);
@@ -67,7 +69,7 @@
   });
 
   document.addEventListener('pointerdown', function (event) {
-    if (event.target.closest('.tg-select')) return;
+    if (event.target.closest('.tg-dropdown, .tg-select')) return;
     closeSelects();
   });
 
@@ -91,4 +93,106 @@
       ripple.remove();
     });
   });
+
+  /* —— Docs sidebar: sync is-active to path + hash / scroll —— */
+  (function syncDocsSidebar() {
+    var nav = document.querySelector('.docs-sidebar .sidebar-nav');
+    if (!nav) return;
+
+    var links = Array.prototype.slice.call(nav.querySelectorAll('a.sidebar-link'));
+    if (!links.length) return;
+
+    function pageFile() {
+      var parts = location.pathname.split('/');
+      var file = parts[parts.length - 1] || '';
+      if (!file || file.indexOf('.') === -1) return 'docs.html';
+      return file;
+    }
+
+    function linkParts(href) {
+      var a = document.createElement('a');
+      a.href = href;
+      var file = (a.pathname.split('/').pop() || pageFile());
+      if (!file || file.indexOf('.') === -1) file = pageFile();
+      return { file: file, hash: a.hash || '' };
+    }
+
+    function setActive(active) {
+      links.forEach(function (link) {
+        link.classList.toggle('is-active', link === active);
+      });
+    }
+
+    function pickFromUrl() {
+      var file = pageFile();
+      var hash = location.hash || '';
+      var samePage = links.filter(function (link) {
+        return linkParts(link.getAttribute('href')).file === file;
+      });
+      if (!samePage.length) return null;
+
+      if (hash) {
+        var exact = samePage.find(function (link) {
+          return linkParts(link.getAttribute('href')).hash === hash;
+        });
+        if (exact) return exact;
+      }
+
+      var bare = samePage.find(function (link) {
+        return !linkParts(link.getAttribute('href')).hash;
+      });
+      return bare || samePage[0];
+    }
+
+    function pickFromScroll() {
+      var file = pageFile();
+      var main = document.querySelector('.docs-main');
+      var probe = (main ? main.getBoundingClientRect().top : 0) + 96;
+      var best = null;
+      var bestTop = -Infinity;
+
+      samePageSections(file).forEach(function (entry) {
+        var top = entry.el.getBoundingClientRect().top;
+        if (top <= probe && top > bestTop) {
+          bestTop = top;
+          best = entry.link;
+        }
+      });
+      return best;
+    }
+
+    function samePageSections(file) {
+      var out = [];
+      links.forEach(function (link) {
+        var parts = linkParts(link.getAttribute('href'));
+        if (parts.file !== file || !parts.hash) return;
+        var id = parts.hash.slice(1);
+        var el = document.getElementById(id);
+        if (el) out.push({ link: link, el: el });
+      });
+      return out;
+    }
+
+    function refresh() {
+      var fromScroll = pickFromScroll();
+      setActive(fromScroll || pickFromUrl());
+    }
+
+    links.forEach(function (link) {
+      link.addEventListener('click', function () {
+        var parts = linkParts(link.getAttribute('href'));
+        if (parts.file === pageFile()) {
+          setActive(link);
+        }
+      });
+    });
+
+    window.addEventListener('hashchange', refresh);
+    var main = document.querySelector('.docs-main');
+    if (main) {
+      main.addEventListener('scroll', refresh, { passive: true });
+    }
+    window.addEventListener('scroll', refresh, { passive: true });
+    refresh();
+  })();
 })();

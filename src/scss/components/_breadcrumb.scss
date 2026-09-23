@@ -1,0 +1,58 @@
+@use '../base/mixins' as *;
+
+.tg-breadcrumb,
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sz-2);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-size: var(--fs-sm);
+}
+
+.breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+  color: var(--clr-slate);
+
+  + .breadcrumb-item::before {
+    content: '/';
+    margin-right: var(--sz-2);
+    color: var(--clr-light-gray);
+    user-select: none;
+  }
+
+  a {
+    color: var(--clr-primary);
+    text-decoration: none;
+    @include interactive-transition;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:focus-visible {
+      @include focus-ring;
+    }
+  }
+
+  &.active,
+  &.is-active {
+    color: var(--clr-dark);
+    font-weight: var(--font-weight-medium);
+  }
+}
+
+.breadcrumb-divider-slash .breadcrumb-item + .breadcrumb-item::before {
+  content: '/';
+}
+
+.breadcrumb-divider-chevron .breadcrumb-item + .breadcrumb-item::before {
+  content: '›';
+}
+
+.breadcrumb-divider-dot .breadcrumb-item + .breadcrumb-item::before {
+  content: '·';
+}

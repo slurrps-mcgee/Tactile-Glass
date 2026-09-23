@@ -1,0 +1,13 @@
+.figure {
+  display: inline-block;
+}
+
+.figure-img {
+  margin-bottom: var(--sz-2);
+  line-height: 1;
+}
+
+.figure-caption {
+  font-size: var(--fs-sm);
+  color: var(--clr-slate);
+}

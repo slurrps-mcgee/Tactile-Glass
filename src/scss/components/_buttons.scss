@@ -63,13 +63,7 @@
     }
   }
 
-  &.tg-glass {
-    &:active,
-    &.is-active {
-      @include glass-pressed;
-    }
-  }
-
+  &.tg-glass,
   &.tg-glass-frosted {
     &:active,
     &.is-active {
@@ -77,13 +71,7 @@
     }
   }
 
-  &.tg-glass-reverse {
-    &:active,
-    &.is-active {
-      @include glass-raised;
-    }
-  }
-
+  &.tg-glass-reverse,
   &.tg-glass-surface {
     &:active,
     &.is-active {
@@ -105,13 +93,7 @@
     }
   }
 
-  &.tg-hybrid-reverse {
-    &:active,
-    &.is-active {
-      @include hybrid;
-    }
-  }
-
+  &.tg-hybrid-reverse,
   &.tg-hybrid-surface {
     &:active,
     &.is-active {
@@ -144,9 +126,23 @@
 }
 
 .btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  padding: var(--sz-2);
+  padding: 0;
+  flex-shrink: 0;
+  line-height: 1;
+  text-decoration: none;
+
+  svg,
+  .bi {
+    width: 1.15rem;
+    height: 1.15rem;
+    flex-shrink: 0;
+    fill: currentColor;
+  }
 }
 
 .btn-block {
@@ -154,32 +150,73 @@
   width: 100%;
 }
 
+.btn-link {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: var(--tg-link-color);
+  text-decoration: underline;
+
+  &:hover {
+    color: var(--tg-link-hover-color);
+  }
+}
+
 @each $name, $meta in $tg-colors {
   $color: map.get($meta, color);
   $rgb: map.get($meta, rgb);
+  $on: map.get($meta, on);
 
   .tg-btn.btn-#{$name}.tg-neu,
   .tg-btn.btn-#{$name}.tg-neu-surface,
   .tg-btn.btn-#{$name}.tg-neu-inset,
   .tg-btn.btn-#{$name}.tg-neu-reverse {
-    @include semantic-solid($color, $rgb);
+    @include semantic-solid($color, $rgb, $on);
   }
 
-  .tg-btn.btn-#{$name}.tg-glass,
-  .tg-btn.btn-#{$name}.tg-glass-frosted,
-  .tg-btn.btn-#{$name}.tg-glass-surface,
-  .tg-btn.btn-#{$name}.tg-glass-inset,
-  .tg-btn.btn-#{$name}.tg-glass-reverse,
-  .tg-btn.btn-#{$name}.tg-hybrid,
-  .tg-btn.btn-#{$name}.tg-hybrid-surface,
-  .tg-btn.btn-#{$name}.tg-hybrid-inset,
-  .tg-btn.btn-#{$name}.tg-hybrid-reverse {
-    @include semantic-lens($color, $rgb);
+  // Dark always solid + light text (including glass/hybrid) for contrast
+  @if $name == dark {
+    .tg-btn.btn-dark.tg-glass,
+    .tg-btn.btn-dark.tg-glass-frosted,
+    .tg-btn.btn-dark.tg-glass-surface,
+    .tg-btn.btn-dark.tg-glass-inset,
+    .tg-btn.btn-dark.tg-glass-reverse,
+    .tg-btn.btn-dark.tg-hybrid,
+    .tg-btn.btn-dark.tg-hybrid-surface,
+    .tg-btn.btn-dark.tg-hybrid-inset,
+    .tg-btn.btn-dark.tg-hybrid-reverse {
+      @include semantic-solid-dark;
+    }
+  } @else {
+    .tg-btn.btn-#{$name}.tg-glass,
+    .tg-btn.btn-#{$name}.tg-glass-frosted,
+    .tg-btn.btn-#{$name}.tg-glass-surface,
+    .tg-btn.btn-#{$name}.tg-glass-inset,
+    .tg-btn.btn-#{$name}.tg-glass-reverse,
+    .tg-btn.btn-#{$name}.tg-hybrid,
+    .tg-btn.btn-#{$name}.tg-hybrid-surface,
+    .tg-btn.btn-#{$name}.tg-hybrid-inset,
+    .tg-btn.btn-#{$name}.tg-hybrid-reverse {
+      @include semantic-lens($color, $rgb);
+    }
+  }
+
+  .tg-btn.btn-outline-#{$name} {
+    background: transparent;
+    border: 1px solid $color;
+    color: $color;
+    box-shadow: none;
+
+    &:hover,
+    &:focus-visible,
+    &.is-active {
+      @include semantic-solid($color, $rgb, $on);
+    }
   }
 }
 
 .tg-btn.btn-dark {
-  @include semantic-solid(var(--tg-dark), --tg-dark-rgb);
+  @include semantic-solid-dark;
 }
 
 .tg-btn.tg-glass,

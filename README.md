@@ -38,7 +38,7 @@ Two core layers, then modifiers:
 
 | Layer | Examples | Role |
 | --- | --- | --- |
-| Component | `tg-btn`, `tg-card`, `tg-select`, `tg-nav` | Skeleton — layout, type, radius, behavior |
+| Component | `tg-btn`, `tg-card`, `tg-dropdown`, `tg-nav` | Skeleton — layout, type, radius, behavior |
 | Style | `tg-neu`, `tg-glass`, `tg-glass-frosted`, `tg-hybrid`, `tg-neu-reverse` | Token-driven surface paint |
 | Modifiers + utilities | `btn-sm`, `btn-primary`, `p-4`, `bg-white`, `border-none` | Same names on every style |
 
@@ -47,7 +47,7 @@ Two core layers, then modifiers:
 
 <section class="tg-card tg-glass-frosted card-sm">…</section>
 
-<details class="tg-select tg-glass-frosted">…</details>
+<details class="tg-dropdown tg-glass-frosted">…</details>
 
 <header class="tg-nav tg-neu tg-neu-reverse nav-sm">…</header>
 ```
@@ -111,7 +111,7 @@ Full catalog: docs `customize.html`. Color utilities are fill-only and ink-only:
 
 `container` is a centered shell that grows with the viewport (540 / 720 / 960 / 1140 / 1320). Start later with `container-sm` through `container-xxl`. `container-fluid` stays full width with the same gutters.
 
-Grid is CSS Grid, mobile-first, with Bootstrap infixes: `grid-2` from 0px, `grid-md-2` from 768px. Twelve columns: `grid grid-12` plus `col-12 col-md-6`. Gutters: `g-3`, `gx-4`, `gy-2`. Display: `d-none d-md-flex`. Do not use Tailwind colon prefixes (`md:p-4`) or JIT arbitrary values (`p-[5px]`).
+Layout is mobile-first with Bootstrap infixes. Use flex rows (`.row`, `.col-md-6`) or CSS grid tracks (`.grid`, `.grid-md-3`, `.grid-12`). Gutters: `g-3`, `gx-4`, `gy-2`. Display: `d-none d-md-flex`. Do not use Tailwind colon prefixes (`md:p-4`) or JIT arbitrary values (`p-[5px]`).
 
 Navbars collapse with a CSS-only `<details class="nav-collapse nav-expand-md">` that holds only the hamburger. Put `.nav-links` as a sibling under `.tg-nav`. Keep `theme-toggle` in `.nav-end` on the top row. From 768px up the links stay in a row and the hamburger hides. Depth (`tg-neu-reverse`, `tg-neu-surface`, `tg-neu-inset`) lives on the `tg-nav` parent — not on `.nav-links`.
 
@@ -121,12 +121,15 @@ The GitHub Pages site lives in `docs/` at the repo root. GitHub Actions compiles
 
 | Page | What it is |
 | --- | --- |
-| `index.html` | Dashboard — install, class language, materials |
-| `components.html` | Component catalog |
-| `layout.html` | Breakpoints, containers, 12-col grid, gutters |
-| `utilities.html` | Spacing scale, display, type, helpers |
-| `docs.html` | Open-source documentation |
-| `customize.html` | Live token and theme examples |
+| `index.html` | Dashboard — install, class language, doc map |
+| `docs.html` | Getting started — install, tokens, contribute |
+| `customize.html` | CSS variable overrides and live theme demos |
+| `layout.html` | Breakpoints, containers, flex row, CSS grid, gutters |
+| `content.html` | Reboot, typography, images, tables, figures |
+| `forms.html` | Form controls, validation, floating labels |
+| `components.html` | Shipped component demos (accordion → spinners) |
+| `helpers.html` | Clearfix, stacks, ratio, stretched-link, a11y helpers |
+| `utilities.html` | Spacing, color, flex, shadows, morph |
 
 ```bash
 npm install
@@ -158,7 +161,10 @@ src/scss/
 ├── tactileglass.scss
 ├── base/            # tokens, reset, mixins, typography
 ├── styles/          # neu, glass, hybrid mixins + public classes
-├── layouts/         # container, flexbox, grid
+├── layout/          # container, flexbox, grid, breakpoints
+├── content/         # reboot, typography, tables
+├── forms/           # form-control, validation, input-group
+├── helpers/         # ratio, stacks, visually-hidden
 ├── animations/      # keyframes + motion utilities
 ├── components/      # tg-btn, tg-card, tg-nav, …
 └── utilities/       # morph, theme, spacing, colors, borders

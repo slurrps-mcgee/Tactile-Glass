@@ -16,7 +16,8 @@
 .text-primary { color: var(--tg-primary) !important; }
 .text-success { color: var(--tg-success) !important; }
 .text-warning { color: var(--tg-warning) !important; }
-.text-danger  { color: var(--tg-danger) !important; }
+.text-danger { color: var(--tg-danger) !important; }
+.text-info { color: var(--tg-info) !important; }
 .text-body { color: var(--tg-body-color) !important; }
 
 @each $name, $meta in $tg-colors {
@@ -25,6 +26,14 @@
 
   .bg-#{$name} {
     background-color: $color !important;
+  }
+
+  .bg-#{$name}-subtle {
+    background-color: var(--tg-#{$name}-bg-subtle) !important;
+  }
+
+  .text-#{$name}-emphasis {
+    color: var(--tg-#{$name}-text-emphasis) !important;
   }
 
   @if $name != dark {
@@ -40,14 +49,4 @@
 }
 
 .text-dark,
-.text-main,
-.text-body { color: var(--tg-body-color) !important; }
-
-.link-primary {
-  color: var(--tg-link-color) !important;
-  text-decoration: var(--tg-link-decoration);
-
-  &:hover {
-    color: var(--tg-link-hover-color) !important;
-  }
-}
+.text-main { color: var(--tg-body-color) !important; }

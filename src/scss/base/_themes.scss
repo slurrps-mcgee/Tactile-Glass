@@ -35,14 +35,18 @@ $tg-theme-light: (
   info: #7ec8e0,
   warning: #ffb347,
   danger: #f07178,
+  light: #f7f6fa,
   dark: #1a1922,
+  white: #ffffff,
   primary-rgb: "122, 164, 239",
   secondary-rgb: "168, 166, 178",
   success-rgb: "94, 212, 200",
   info-rgb: "126, 200, 224",
   warning-rgb: "255, 179, 71",
   danger-rgb: "240, 113, 120",
+  light-rgb: "247, 246, 250",
   dark-rgb: "26, 25, 34",
+  white-rgb: "255, 255, 255",
 
   // Text Styles
   primary-text-emphasis: #adc6f2,
@@ -194,6 +198,9 @@ $tg-theme-dark: (
   secondary-color: rgba(236, 234, 244, 0.75),
   secondary-color-rgb: "236, 234, 244",
 
+  // Dark semantic text on tinted surfaces stays light in dark mode
+  dark-text-emphasis: #f7f6fa,
+
   // Secondary Styles
   secondary-bg: #3e3c4c,
   secondary-bg-rgb: "62, 60, 76",
@@ -284,6 +291,8 @@ $tg-theme-dark: (
   --clr-success-rgb: var(--tg-success-rgb);
   --clr-warning-rgb: var(--tg-warning-rgb);
   --clr-danger-rgb: var(--tg-danger-rgb);
+  --clr-light-rgb: var(--tg-light-rgb);
+  --clr-white-rgb: var(--tg-white-rgb);
   --clr-body-rgb: var(--tg-body-color-rgb);
   --clr-dark-rgb: var(--tg-body-color-rgb);
   --clr-inverse-rgb: var(--tg-dark-rgb);

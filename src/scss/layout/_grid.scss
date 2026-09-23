@@ -34,7 +34,10 @@
   }
 
   @for $n from 1 through 12 {
-    .#{tg-infix-class('col', $bp, $n)} {
+    $col-class: tg-infix-class('col', $bp, $n);
+
+    .grid > .#{$col-class},
+    .grid-auto > .#{$col-class} {
       grid-column: span #{$n} / span #{$n} !important;
     }
 
@@ -54,8 +57,13 @@
   }
 
   @for $n from 1 through 12 {
-    .#{tg-infix-class('col-start', $bp, $n)},
-    .#{tg-infix-class('offset', $bp, $n)} {
+    $start-class: tg-infix-class('col-start', $bp, $n);
+    $offset-class: tg-infix-class('offset', $bp, $n);
+
+    .grid > .#{$start-class},
+    .grid-auto > .#{$start-class},
+    .grid > .#{$offset-class},
+    .grid-auto > .#{$offset-class} {
       grid-column-start: #{$n} !important;
     }
   }

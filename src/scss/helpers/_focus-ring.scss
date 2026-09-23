@@ -1,0 +1,15 @@
+@use '../base/mixins' as *;
+@use 'sass:map';
+
+.focus-ring:focus-visible {
+  @include focus-ring;
+}
+
+@each $name, $meta in $tg-colors {
+  $color: map.get($meta, color);
+
+  .focus-ring-#{$name}:focus-visible {
+    outline: var(--tg-focus-ring-width) solid $color;
+    outline-offset: var(--focus-offset);
+  }
+}

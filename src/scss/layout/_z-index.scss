@@ -1,0 +1,8 @@
+.z-0 { z-index: 0 !important; }
+.z-1 { z-index: var(--z-base) !important; }
+.z-2 { z-index: calc(var(--z-base) + 1) !important; }
+.z-3 { z-index: calc(var(--z-base) + 2) !important; }
+.z-dropdown { z-index: var(--z-dropdown) !important; }
+.z-sticky { z-index: var(--z-sticky) !important; }
+.z-fixed { z-index: var(--z-fixed) !important; }
+.z-overlay { z-index: var(--z-overlay) !important; }

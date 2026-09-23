@@ -1,0 +1,70 @@
+@use '../base/mixins' as *;
+
+.btn-group {
+  display: inline-flex;
+  vertical-align: middle;
+
+  > .tg-btn,
+  > .btn {
+    position: relative;
+    flex: 1 1 auto;
+
+    &:not(:first-child) {
+      margin-left: -1px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:focus-visible,
+    &:hover,
+    &.is-active,
+    &.active {
+      z-index: calc(var(--z-base) + 1);
+    }
+  }
+}
+
+.btn-group-vertical {
+  flex-direction: column;
+  align-items: stretch;
+
+  > .tg-btn,
+  > .btn {
+    width: 100%;
+
+    &:not(:first-child) {
+      margin-left: 0;
+      margin-top: -1px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    &:not(:last-child) {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+}
+
+.btn-group-sm {
+  > .tg-btn,
+  > .btn {
+    padding: var(--sz-1) var(--sz-3);
+    font-size: var(--fs-sm);
+    border-radius: var(--radius-sm);
+  }
+}
+
+.btn-group-lg {
+  > .tg-btn,
+  > .btn {
+    padding: var(--sz-4) var(--sz-8);
+    font-size: var(--fs-lg);
+    border-radius: var(--radius-lg);
+  }
+}

@@ -1,0 +1,332 @@
+@use '../base/mixins' as *;
+@use '../styles/neu' as *;
+@use '../styles/glass' as *;
+@use '../styles/hybrid' as *;
+
+.tg-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sz-4);
+  width: var(--tg-sidebar-width);
+  max-width: 100%;
+  min-height: 0;
+  padding: var(--sz-4);
+  border-radius: var(--radius-lg);
+  @include interactive-transition;
+
+  .sidebar-brand {
+    display: block;
+    padding: var(--sz-2) var(--sz-3);
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--fs-lg);
+    letter-spacing: var(--letter-spacing-tight);
+    text-decoration: none;
+    color: var(--clr-dark);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sidebar-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sz-1);
+  }
+
+  .sidebar-label {
+    padding: var(--sz-2) var(--sz-3) var(--sz-1);
+    font-size: var(--fs-xs);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--letter-spacing-wide);
+    text-transform: uppercase;
+    color: var(--clr-slate);
+  }
+
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: var(--sz-3);
+    padding: var(--sz-2) var(--sz-3);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--fs-sm);
+    color: var(--clr-dark);
+    @include interactive-transition;
+
+    &:hover {
+      color: var(--clr-primary);
+    }
+
+    &:focus-visible {
+      @include focus-ring;
+    }
+
+    &.is-active,
+    &.active {
+      color: var(--clr-dark);
+    }
+  }
+
+  &:has(.sidebar-collapse) > .sidebar-nav {
+    display: none;
+  }
+
+  &:has(.sidebar-collapse[open]) > .sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sz-4);
+    width: 100%;
+  }
+
+  &.tg-neu {
+    .sidebar-nav {
+      @include neu-inset;
+      flex: 1 1 auto;
+      min-height: 100%;
+      padding: var(--sz-2);
+      border-radius: var(--radius-md);
+    }
+
+    .sidebar-link.is-active,
+    .sidebar-link.active {
+      @include neu;
+    }
+
+    .sidebar-toggle {
+      @include neu;
+    }
+  }
+
+  &.tg-neu-reverse {
+    .sidebar-nav {
+      @include neu;
+      padding: var(--sz-2);
+      border-radius: var(--radius-md);
+    }
+
+    .sidebar-link.is-active,
+    .sidebar-link.active {
+      @include neu-inset;
+    }
+  }
+
+  &.tg-neu-surface,
+  &.tg-neu-inset {
+    .sidebar-nav {
+      @include neu-inset;
+      padding: var(--sz-2);
+      border-radius: var(--radius-md);
+    }
+
+    .sidebar-link.is-active,
+    .sidebar-link.active {
+      @include neu-inset;
+    }
+  }
+
+  &.tg-glass {
+    .sidebar-link.is-active,
+    .sidebar-link.active {
+      @include glass-raised;
+    }
+
+    .sidebar-toggle {
+      @include glass;
+    }
+  }
+
+  &.tg-glass-reverse,
+  &.tg-glass-inset {
+    .sidebar-nav {
+      @include glass-pressed;
+      padding: var(--sz-2);
+      border-radius: var(--radius-md);
+    }
+
+    .sidebar-link.is-active,
+    .sidebar-link.active {
+      @include glass-raised;
+    }
+  }
+
+  &.tg-glass-surface {
+    .sidebar-nav {
+      @include glass-raised;
+      padding: var(--sz-2);
+      border-radius: var(--radius-md);
+    }
+
+    .sidebar-link.is-active,
+    .sidebar-link.active {
+      @include glass-raised;
+    }
+  }
+
+  &.tg-hybrid {
+    .sidebar-nav {
+      @include hybrid-pressed;
+      padding: var(--sz-2);
+      border-radius: var(--radius-md);
+    }
+
+    .sidebar-link.is-active,
+    .sidebar-link.active {
+      @include hybrid;
+    }
+
+    .sidebar-toggle {
+      @include hybrid;
+    }
+  }
+
+  &.tg-hybrid-reverse {
+    .sidebar-nav {
+      @include hybrid;
+      padding: var(--sz-2);
+      border-radius: var(--radius-md);
+    }
+
+    .sidebar-link.is-active,
+    .sidebar-link.active {
+      @include hybrid-pressed;
+    }
+  }
+
+  &.tg-hybrid-surface,
+  &.tg-hybrid-inset {
+    .sidebar-nav {
+      @include hybrid-pressed;
+      padding: var(--sz-2);
+      border-radius: var(--radius-md);
+    }
+
+    .sidebar-link.is-active,
+    .sidebar-link.active {
+      @include hybrid-pressed;
+    }
+  }
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sz-4);
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.sidebar-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 44px;
+  min-height: 44px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  color: var(--clr-dark);
+  cursor: pointer;
+  list-style: none;
+  @include interactive-transition;
+
+  &::-webkit-details-marker,
+  &::marker {
+    display: none;
+    content: '';
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.sidebar-toggle-bars {
+  position: relative;
+  display: block;
+  width: 1.15rem;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+    @include interactive-transition;
+  }
+
+  &::before {
+    top: -6px;
+  }
+
+  &::after {
+    top: 6px;
+  }
+}
+
+.sidebar-collapse {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  &[open] > .sidebar-toggle .sidebar-toggle-bars {
+    background: transparent;
+  }
+
+  &[open] > .sidebar-toggle .sidebar-toggle-bars::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  &[open] > .sidebar-toggle .sidebar-toggle-bars::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+}
+
+@mixin sidebar-expand-desktop {
+  .sidebar-collapse {
+    display: none;
+  }
+
+  > .sidebar-nav,
+  &:has(.sidebar-collapse) > .sidebar-nav,
+  &:has(.sidebar-collapse[open]) > .sidebar-nav {
+    display: flex;
+  }
+}
+
+.tg-sidebar:has(.sidebar-expand-md) {
+  @include media-up(md) {
+    @include sidebar-expand-desktop;
+  }
+}
+
+.tg-sidebar:has(.sidebar-expand-lg) {
+  @include media-up(lg) {
+    @include sidebar-expand-desktop;
+  }
+}
+
+.sidebar-sticky {
+  position: sticky;
+  top: var(--sz-4);
+  align-self: flex-start;
+  max-height: calc(100vh - var(--sz-8));
+  overflow-y: auto;
+  z-index: var(--z-sticky);
+}
+
+.sidebar-full-height {
+  min-height: 100vh;
+  min-height: 100dvh;
+}

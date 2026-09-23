@@ -27,6 +27,103 @@
   color: var(--clr-dark);
 }
 
+.card-title {
+  margin: 0 0 var(--sz-2);
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--clr-dark);
+}
+
+.card-subtitle {
+  margin: calc(-1 * var(--sz-1)) 0 var(--sz-3);
+  font-size: var(--fs-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--clr-slate);
+}
+
+.card-text {
+  margin: 0 0 var(--sz-4);
+  font-size: var(--fs-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--clr-dark);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.card-link {
+  font-weight: var(--font-weight-medium);
+  color: var(--clr-primary);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  + .card-link {
+    margin-left: var(--sz-3);
+  }
+}
+
+.card-img-top,
+.card-img-bottom {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-img-top {
+  margin: calc(-1 * var(--sz-4)) calc(-1 * var(--sz-4)) var(--sz-4);
+  width: calc(100% + var(--sz-4) * 2);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+
+  @include media-up(sm) {
+    margin: calc(-1 * var(--sz-6)) calc(-1 * var(--sz-6)) var(--sz-6);
+    width: calc(100% + var(--sz-6) * 2);
+  }
+}
+
+.card-img-bottom {
+  margin: var(--sz-4) calc(-1 * var(--sz-4)) calc(-1 * var(--sz-4));
+  width: calc(100% + var(--sz-4) * 2);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+
+  @include media-up(sm) {
+    margin: var(--sz-6) calc(-1 * var(--sz-6)) calc(-1 * var(--sz-6));
+    width: calc(100% + var(--sz-6) * 2);
+  }
+}
+
+.card-img-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--sz-6);
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    tg-rgba(--tg-dark-rgb, 0.55) 100%
+  );
+  color: var(--tg-white);
+
+  .card-title,
+  .card-subtitle,
+  .card-text {
+    color: inherit;
+  }
+}
+
+.tg-card:has(.card-img-overlay) {
+  position: relative;
+  overflow: hidden;
+}
+
 .card-footer {
   margin-top: var(--sz-4);
   padding-top: var(--sz-3);

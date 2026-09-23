@@ -1,0 +1,108 @@
+@use '../base/mixins' as *;
+@use '../styles/neu' as *;
+@use '../styles/glass' as *;
+@use '../styles/hybrid' as *;
+
+.tg-pagination,
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sz-1);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.page-item {
+  display: flex;
+
+  &.active .page-link,
+  &.is-active .page-link {
+    color: var(--clr-dark);
+    pointer-events: none;
+  }
+
+  &.disabled .page-link,
+  &.is-disabled .page-link {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}
+
+.page-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.25rem;
+  min-height: 2.25rem;
+  padding: var(--sz-2) var(--sz-3);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--clr-dark);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  @include interactive-transition;
+
+  &:hover {
+    color: var(--clr-primary);
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.pagination-sm .page-link {
+  min-width: 1.85rem;
+  min-height: 1.85rem;
+  padding: var(--sz-1) var(--sz-2);
+  font-size: var(--fs-xs);
+}
+
+.pagination-lg .page-link {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: var(--sz-3) var(--sz-4);
+  font-size: var(--fs-base);
+}
+
+.tg-pagination.tg-neu,
+.pagination.tg-neu {
+  padding: var(--sz-1);
+  border-radius: var(--radius-pill);
+  @include neu-inset;
+
+  .page-item.active .page-link,
+  .page-item.is-active .page-link {
+    @include neu;
+  }
+}
+
+.tg-pagination.tg-glass,
+.pagination.tg-glass {
+  padding: var(--sz-1);
+  border-radius: var(--radius-pill);
+  @include glass-pressed;
+
+  .page-item.active .page-link,
+  .page-item.is-active .page-link {
+    @include glass-raised;
+  }
+}
+
+.tg-pagination.tg-hybrid,
+.pagination.tg-hybrid {
+  padding: var(--sz-1);
+  border-radius: var(--radius-pill);
+  @include hybrid-pressed;
+
+  .page-item.active .page-link,
+  .page-item.is-active .page-link {
+    @include hybrid;
+  }
+}

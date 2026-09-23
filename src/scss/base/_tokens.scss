@@ -65,6 +65,7 @@ $bp-xxl: 1400px;
   --max-w-xl: 36rem;
   --max-w-2xl: 42rem;
   --max-w-prose: 65ch;
+  --tg-sidebar-width: 16rem;
 
   // Radius Tokens
   --radius-sm: 8px;
@@ -78,9 +79,18 @@ $bp-xxl: 1400px;
   --duration: 0.2s;
   --focus-offset: 4px;
 
-  // Z-Index Tokens
+  // Z-Index Tokens (Bootstrap-aligned scale; modal slots reserved)
   --z-base: 1;
-  --z-sticky: 1000;
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-offcanvas-backdrop: 1040;
+  --z-offcanvas: 1045;
+  --z-modal-backdrop: 1050;
+  --z-modal: 1055;
+  --z-popover: 1070;
+  --z-tooltip: 1080;
+  --z-toast: 1090;
   --z-overlay: 2000;
 
   // Breakpoint Tokens

@@ -1,0 +1,24 @@
+@use '../base/mixins' as *;
+@use 'form-control' as *;
+
+.tg-form-select,
+select.form-select {
+  @include tg-control-surface;
+  padding-right: calc(var(--sz-4) + 1.25rem);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234C4B63' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--sz-4) center;
+  background-size: 0.75rem 0.5rem;
+  cursor: pointer;
+
+  &.form-select-sm {
+    padding: var(--sz-1) calc(var(--sz-3) + 1.25rem) var(--sz-1) var(--sz-3);
+    font-size: var(--fs-sm);
+    border-radius: var(--radius-sm);
+  }
+
+  &.form-select-lg {
+    padding: var(--sz-4) calc(var(--sz-6) + 1.25rem) var(--sz-4) var(--sz-6);
+    font-size: var(--fs-lg);
+  }
+}

@@ -1,0 +1,26 @@
+// Bootstrap typography aliases (base/_typography.scss holds core type scale)
+
+.text-start { text-align: left !important; }
+.text-end { text-align: right !important; }
+
+.fs-1 { font-size: var(--fs-2xl) !important; }
+.fs-2 { font-size: var(--fs-xl) !important; }
+.fs-3 { font-size: var(--fs-lg) !important; }
+.fs-4 { font-size: var(--fs-base) !important; }
+.fs-5 { font-size: var(--fs-sm) !important; }
+.fs-6 { font-size: var(--fs-xs) !important; }
+
+.fw-normal { font-weight: var(--font-weight-normal) !important; }
+.fw-medium { font-weight: var(--font-weight-medium) !important; }
+.fw-bold { font-weight: var(--font-weight-bold) !important; }
+
+.text-wrap { white-space: normal !important; }
+.text-break {
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+.text-reset {
+  color: inherit !important;
+  text-decoration: none !important;
+}

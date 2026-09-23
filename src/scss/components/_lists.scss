@@ -1,4 +1,5 @@
 @use '../base/mixins' as *;
+@use 'sass:map';
 
 .tg-list {
   display: flex;
@@ -29,6 +30,30 @@
     &:hover {
       background: var(--glass-bg);
     }
+  }
+}
+
+.list-item.active,
+.list-item.is-active {
+  background: tg-rgba(--tg-primary-rgb, 0.12);
+  color: var(--clr-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+.list-item.disabled,
+.list-item.is-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+@each $name, $meta in $tg-colors {
+  $color: map.get($meta, color);
+  $rgb: map.get($meta, rgb);
+
+  .list-item-#{$name} {
+    @include semantic-lens($color, $rgb);
+    border-bottom-color: tg-rgba($rgb, 0.25);
   }
 }
 

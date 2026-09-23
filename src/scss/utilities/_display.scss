@@ -18,27 +18,3 @@ $tg-displays: none, block, inline, inline-block, flex, inline-flex, grid, conten
   .#{tg-infix-class('f', $bp, 'wrap')} { flex-wrap: wrap !important; }
   .#{tg-infix-class('f', $bp, 'nowrap')} { flex-wrap: nowrap !important; }
 }
-
-.vstack {
-  display: flex !important;
-  flex-direction: column !important;
-  align-self: stretch !important;
-}
-
-.hstack {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: center !important;
-}
-
-.vr {
-  display: inline-block;
-  align-self: stretch;
-  width: 1px;
-  min-height: 1em;
-  background: var(--border-subtle);
-}
-
-.focus-ring:focus-visible {
-  @include focus-ring;
-}

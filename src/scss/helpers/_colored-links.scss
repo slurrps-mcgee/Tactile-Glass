@@ -1,0 +1,27 @@
+@use '../base/mixins' as *;
+@use 'sass:map';
+
+.link-primary {
+  color: var(--tg-link-color) !important;
+  text-decoration: var(--tg-link-decoration);
+
+  &:hover {
+    color: var(--tg-link-hover-color) !important;
+  }
+}
+
+@each $name, $meta in $tg-colors {
+  $color: map.get($meta, color);
+
+  .link-#{$name} {
+    color: $color !important;
+    text-decoration: underline;
+
+    @media (hover: hover) {
+      &:hover {
+        color: $color !important;
+        opacity: 0.85;
+      }
+    }
+  }
+}

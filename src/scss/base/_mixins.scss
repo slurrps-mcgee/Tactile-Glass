@@ -2,7 +2,7 @@
 @use 'sass:map';
 @use 'tokens' as *;
 
-// Media Up Mixin 
+// Media Up Mixin
 @mixin media-up($bp) {
   $mins: (
     sm: $bp-sm,
@@ -32,18 +32,15 @@
   }
 }
 
-// Focus Ring Mixin
 @mixin focus-ring {
   outline: var(--focus-ring);
   outline-offset: var(--focus-offset);
 }
 
-// Interactive Transition Mixin
 @mixin interactive-transition {
   transition: all var(--duration) var(--ease);
 }
 
-// Control Disabled Mixin
 @mixin control-disabled {
   &:disabled,
   &[aria-disabled="true"],
@@ -54,12 +51,10 @@
   }
 }
 
-// RGBA Function
 @function tg-rgba($token, $alpha) {
   @return string.unquote('rgba(var(#{$token}), #{$alpha})');
 }
 
-// Breakpoints Map
 $tg-breakpoints: (
   sm: $bp-sm,
   md: $bp-md,
@@ -68,10 +63,8 @@ $tg-breakpoints: (
   xxl: $bp-xxl
 );
 
-// Spacing Steps Map
 $tg-spacing-steps: 0, 1, 2, 3, 4, 5, 6, 8, 10, 12;
 
-// Spacing Function
 @function tg-space($n) {
   @if $n == 0 {
     @return 0;
@@ -80,7 +73,6 @@ $tg-spacing-steps: 0, 1, 2, 3, 4, 5, 6, 8, 10, 12;
   @return calc(var(--spacing) * #{$n});
 }
 
-// Infix Mixin
 @mixin tg-infix {
   @content (null);
 
@@ -91,7 +83,6 @@ $tg-spacing-steps: 0, 1, 2, 3, 4, 5, 6, 8, 10, 12;
   }
 }
 
-// Infix Class Function
 @function tg-infix-class($prefix, $bp, $suffix) {
   @if $bp {
     @return #{$prefix}-#{$bp}-#{$suffix};
@@ -100,26 +91,37 @@ $tg-spacing-steps: 0, 1, 2, 3, 4, 5, 6, 8, 10, 12;
   @return #{$prefix}-#{$suffix};
 }
 
-// Colors Map
+// Semantic colors — drives buttons, alerts, badges, utilities
 $tg-colors: (
-  primary: (color: var(--tg-primary), rgb: --tg-primary-rgb),
-  secondary: (color: var(--tg-secondary), rgb: --tg-secondary-rgb),
-  success: (color: var(--tg-success), rgb: --tg-success-rgb),
-  warning: (color: var(--tg-warning), rgb: --tg-warning-rgb),
-  danger: (color: var(--tg-danger), rgb: --tg-danger-rgb),
-  dark: (color: var(--tg-dark), rgb: --tg-dark-rgb)
+  primary: (color: var(--tg-primary), rgb: --tg-primary-rgb, on: var(--tg-white)),
+  secondary: (color: var(--tg-secondary), rgb: --tg-secondary-rgb, on: var(--tg-white)),
+  success: (color: var(--tg-success), rgb: --tg-success-rgb, on: var(--tg-dark)),
+  info: (color: var(--tg-info), rgb: --tg-info-rgb, on: var(--tg-dark)),
+  warning: (color: var(--tg-warning), rgb: --tg-warning-rgb, on: var(--tg-dark)),
+  danger: (color: var(--tg-danger), rgb: --tg-danger-rgb, on: var(--tg-white)),
+  light: (color: var(--tg-light), rgb: --tg-light-rgb, on: var(--tg-dark)),
+  dark: (color: var(--tg-dark), rgb: --tg-dark-rgb, on: var(--tg-white))
 );
 
-// Semantic Solid Mixin
-@mixin semantic-solid($color, $rgb-token) {
+// Filled semantic surface — always uses explicit on-color for contrast
+@mixin semantic-solid($color, $rgb-token, $on-color: var(--tg-white)) {
   background-color: $color;
-  color: var(--tg-white);
+  color: $on-color;
   border-color: transparent;
 }
 
-// Semantic Lens Mixin
-@mixin semantic-lens($color, $rgb-token) {
+// Tinted lens — text follows semantic token; dark/light use emphasis for contrast
+@mixin semantic-lens($color, $rgb-token, $text: null) {
   background: tg-rgba($rgb-token, 0.15);
   border-color: tg-rgba($rgb-token, 0.4);
-  color: $color;
+  color: if($text, $text, $color);
+}
+
+// Solid dark / light helpers for materials that must not use lens ink
+@mixin semantic-solid-dark {
+  @include semantic-solid(var(--tg-dark), --tg-dark-rgb, var(--tg-white));
+}
+
+@mixin semantic-solid-light {
+  @include semantic-solid(var(--tg-light), --tg-light-rgb, var(--tg-dark));
 }

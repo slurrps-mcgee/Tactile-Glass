@@ -110,39 +110,6 @@ p {
   display: inline-block;
 }
 
-// Image Fluid Typography
-.img-fluid {
-  max-width: 100%;
-  height: auto;
-}
-
-// Image Thumbnail Typography
-.img-thumbnail {
-  max-width: 100%;
-  height: auto;
-  padding: var(--sz-1);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  background: var(--clr-bg);
-}
-
-// Figure Typography
-.figure {
-  display: inline-block;
-}
-
-// Figure Image Typography
-.figure-img {
-  margin-bottom: var(--sz-2);
-  line-height: 1;
-}
-
-// Figure Caption Typography
-.figure-caption {
-  font-size: var(--fs-sm);
-  color: var(--clr-slate);
-}
-
 // Code Typography
 code, kbd {
   font-family: var(--font-mono);

@@ -1,6 +1,6 @@
 {
     "name": "tactileglass-css",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "A premium hybrid CSS framework uniting glassmorphism and tactile neumorphism.",
     "main": "dist/tactileglass.css",
     "style": "dist/tactileglass.css",
@@ -25,7 +25,7 @@
         "sass:watch": "sass src/scss/tactileglass.scss docs/tactileglass.css --watch --no-source-map",
         "css:minify": "lightningcss --minify --bundle --targets \"> 0.25%\" dist/tactileglass.css -o dist/tactileglass.min.css",
         "build": "npm run sass:build && npm run css:minify",
-        "serve": "vite --port 8080 --host 127.0.0.1 --open /",
+        "serve": "vite --port 8080 --host 127.0.0.1 --open /docs.html",
         "dev": "npm run sass:build && concurrently -k \"npm run sass:watch\" \"npm run serve\""
     },
     "keywords": [

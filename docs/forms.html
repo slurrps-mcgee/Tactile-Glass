@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script>
+    try { if (localStorage.getItem('tg-theme') === 'dark') document.documentElement.classList.add('theme-dark'); } catch (e) {}
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TactileGlass CSS — Forms</title>
+  <link rel="stylesheet" href="tactileglass.css">
+  <link rel="stylesheet" href="docs.css">
+</head>
+<body class="docs-body">
+  <input type="checkbox" id="docs-nav-toggle" class="docs-nav-checkbox" aria-hidden="true" tabindex="-1">
+  <header class="tg-nav tg-hybrid docs-topnav docs-topbar">
+    <label for="docs-nav-toggle" class="tg-btn tg-hybrid btn-icon docs-drawer-toggle" aria-label="Open documentation menu">
+      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/></svg>
+    </label>
+    <a href="docs.html" class="nav-brand" aria-label="TactileGlass.css home">
+      <svg class="docs-logo-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"> <defs> <linearGradient id="tgGlass" x1="18%" y1="8%" x2="88%" y2="92%"> <stop offset="0%" stop-color="#eef1f7"/> <stop offset="55%" stop-color="#c9d0de"/> <stop offset="100%" stop-color="#aeb6c6"/> </linearGradient> <linearGradient id="tgSheen" x1="0%" y1="0%" x2="100%" y2="100%"> <stop offset="0%" stop-color="#ffffff" stop-opacity="0.75"/> <stop offset="42%" stop-color="#ffffff" stop-opacity="0"/> </linearGradient> <filter id="tgSoft" x="-20%" y="-20%" width="140%" height="140%"> <feDropShadow dx="0" dy="2" stdDeviation="2.2" flood-color="#6b6580" flood-opacity="0.28"/> </filter> </defs> <rect x="5" y="10" width="47" height="47" rx="14" fill="#9f96b4" filter="url(#tgSoft)"/> <rect x="11" y="5" width="47" height="47" rx="14" fill="url(#tgGlass)" filter="url(#tgSoft)"/> <rect x="11" y="5" width="47" height="47" rx="14" fill="url(#tgSheen)"/> <rect x="11.75" y="5.75" width="45.5" height="45.5" rx="13.25" fill="none" stroke="#ffffff" stroke-opacity="0.6" stroke-width="1.25"/> <!-- Center of glass tile: (11+47/2, 5+47/2) = (34.5, 28.5) --> <text x="34.5" y="28.5" text-anchor="middle" dominant-baseline="central" font-family="Futura, Trebuchet MS, Arial, system-ui, sans-serif" font-size="26" font-weight="700" letter-spacing="0.02em" fill="#2a2740" >TG</text> </svg>
+      <span class="docs-logo-title">
+        <span class="docs-logo-name">TactileGlass</span>
+        <span class="docs-logo-sub">CSS</span>
+      </span>
+    </a>
+    <div class="nav-end">
+      <button type="button" class="tg-btn tg-hybrid btn-icon theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
+        <svg class="theme-icon-moon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286"/></svg>
+        <svg class="theme-icon-sun" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/></svg>
+      </button>
+      <a class="tg-btn tg-hybrid btn-icon" href="https://www.npmjs.com/package/tactileglass-css" target="_blank" rel="noopener noreferrer" aria-label="npm package">
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><!-- Custom npm mark (not part of Bootstrap Icons). Used for docs npm link. --><path d="M0 0v16h16V0zm13 13h-2.5V5.5H8V13H3V3h10z"/></svg>
+      </a>
+      <a class="tg-btn tg-hybrid btn-icon" href="https://github.com/slurrps-mcgee/Tactile-Glass" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg>
+      </a>
+    </div>
+  </header>
+  <label for="docs-nav-toggle" class="docs-backdrop" aria-label="Close documentation menu"></label>
+  <div class="docs-shell">
+    <aside class="tg-sidebar tg-neu docs-sidebar">
+      <nav class="sidebar-nav" aria-label="Documentation">
+      <div class="sidebar-section">
+        <div class="sidebar-label">Getting started</div>
+        <a class="sidebar-link" href="docs.html">Introduction</a>
+        <a class="sidebar-link" href="docs.html#install">Download / Install</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Customize</div>
+        <a class="sidebar-link" href="customize.html">Overview</a>
+        <a class="sidebar-link" href="customize.html#css-variables">CSS variables</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Layout</div>
+        <a class="sidebar-link" href="layout.html#breakpoints">Breakpoints</a>
+        <a class="sidebar-link" href="layout.html#containers">Containers</a>
+        <a class="sidebar-link" href="layout.html#grid-flex">Grid (flex row)</a>
+        <a class="sidebar-link" href="layout.html#columns">Columns</a>
+        <a class="sidebar-link" href="layout.html#gutters">Gutters</a>
+        <a class="sidebar-link" href="layout.html#z-index">Z-index</a>
+        <a class="sidebar-link" href="layout.html#css-grid">CSS Grid</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Content</div>
+        <a class="sidebar-link" href="content.html#reboot">Reboot</a>
+        <a class="sidebar-link" href="content.html#typography">Typography</a>
+        <a class="sidebar-link" href="content.html#images">Images</a>
+        <a class="sidebar-link" href="content.html#tables">Tables</a>
+        <a class="sidebar-link" href="content.html#figures">Figures</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Forms</div>
+        <a class="sidebar-link" href="forms.html#overview">Overview</a>
+        <a class="sidebar-link" href="forms.html#form-control">Form control</a>
+        <a class="sidebar-link" href="forms.html#form-select">Select</a>
+        <a class="sidebar-link" href="forms.html#checks">Checks</a>
+        <a class="sidebar-link" href="forms.html#range">Range</a>
+        <a class="sidebar-link" href="forms.html#input-group">Input group</a>
+        <a class="sidebar-link" href="forms.html#floating-labels">Floating labels</a>
+        <a class="sidebar-link" href="forms.html#layout">Layout</a>
+        <a class="sidebar-link" href="forms.html#validation">Validation</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Components</div>
+        <a class="sidebar-link" href="components.html#accordion">Accordion</a>
+        <a class="sidebar-link" href="components.html#alerts">Alerts</a>
+        <a class="sidebar-link" href="components.html#badges">Badge</a>
+        <a class="sidebar-link" href="components.html#breadcrumb">Breadcrumb</a>
+        <a class="sidebar-link" href="components.html#buttons">Buttons</a>
+        <a class="sidebar-link" href="components.html#button-group">Button group</a>
+        <a class="sidebar-link" href="components.html#cards">Cards</a>
+        <a class="sidebar-link" href="components.html#close">Close</a>
+        <a class="sidebar-link" href="components.html#collapse">Collapse</a>
+        <a class="sidebar-link" href="components.html#dropdowns">Dropdowns</a>
+        <a class="sidebar-link" href="components.html#lists">List group</a>
+        <a class="sidebar-link" href="components.html#navbar">Navbar</a>
+        <a class="sidebar-link" href="components.html#navs">Navs & tabs</a>
+        <a class="sidebar-link" href="components.html#pagination">Pagination</a>
+        <a class="sidebar-link" href="components.html#placeholders">Placeholders</a>
+        <a class="sidebar-link" href="components.html#progress">Progress</a>
+        <a class="sidebar-link" href="components.html#sidebar">Sidebar</a>
+        <a class="sidebar-link" href="components.html#spinners">Spinners</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Helpers</div>
+        <a class="sidebar-link" href="helpers.html#clearfix">Clearfix</a>
+        <a class="sidebar-link" href="helpers.html#color-bg">Color & background</a>
+        <a class="sidebar-link" href="helpers.html#colored-links">Colored links</a>
+        <a class="sidebar-link" href="helpers.html#focus-ring">Focus ring</a>
+        <a class="sidebar-link" href="helpers.html#ratio">Ratio</a>
+        <a class="sidebar-link" href="helpers.html#stacks">Stacks</a>
+        <a class="sidebar-link" href="helpers.html#stretched-link">Stretched link</a>
+        <a class="sidebar-link" href="helpers.html#truncate">Text truncation</a>
+        <a class="sidebar-link" href="helpers.html#vr">Vertical rule</a>
+        <a class="sidebar-link" href="helpers.html#visually-hidden">Visually hidden</a>
+      </div>
+      <div class="sidebar-section">
+        <div class="sidebar-label">Utilities</div>
+        <a class="sidebar-link" href="utilities.html#colors">Colors</a>
+        <a class="sidebar-link" href="utilities.html#spacing">Spacing</a>
+        <a class="sidebar-link" href="utilities.html#display">Display</a>
+        <a class="sidebar-link" href="utilities.html#flex">Flex</a>
+        <a class="sidebar-link" href="utilities.html#shadows">Shadows</a>
+        <a class="sidebar-link" href="utilities.html#opacity">Opacity</a>
+        <a class="sidebar-link" href="utilities.html#morph">Morph</a>
+      </div>
+      </nav>
+    </aside>
+    <main class="docs-main docs-prose">
+
+      <section class="tg-card tg-hybrid mb-8">
+        <h1 class="text-2xl font-bold font-display">Forms</h1>
+        <p class="lead mb-0"><code>form-control</code> / <code>tg-input</code> share surfaces. Prefer native <code>form-select</code> on this page; use <code>tg-dropdown</code> in menus.</p>
+      </section>
+
+      <section id="overview" class="tg-card tg-neu mb-8">
+        <h2 class="text-xl font-display mb-3">Overview</h2>
+        <p class="text-sm mb-0">Layer labels, controls, and validation feedback. Material classes (<code>tg-neu</code>, <code>tg-glass</code>, <code>tg-hybrid</code>) paint the control.</p>
+      </section>
+
+      <section id="form-control" class="tg-card tg-glass mb-8">
+        <h2 class="text-xl font-display mb-3">Form control</h2>
+        <label class="form-label">Email
+          <input class="form-control tg-hybrid" type="email" placeholder="you@example.com">
+        </label>
+        <label class="form-label mt-3">Textarea
+          <textarea class="form-control tg-neu" rows="2" placeholder="Notes"></textarea>
+        </label>
+        <pre class="morph-neu-inset rounded-md p-4 text-sm mt-4 mb-0">&lt;input class="form-control tg-hybrid" type="text"&gt;</pre>
+      </section>
+
+      <section id="form-select" class="tg-card tg-neu mb-8">
+        <h2 class="text-xl font-display mb-3">Select</h2>
+        <select class="form-select tg-form-select tg-hybrid">
+          <option>Choose…</option>
+          <option selected>Production</option>
+          <option>Staging</option>
+        </select>
+        <pre class="morph-neu-inset rounded-md p-4 text-sm mt-4 mb-0">&lt;select class="form-select tg-hybrid"&gt;…&lt;/select&gt;</pre>
+      </section>
+
+      <section id="checks" class="tg-card tg-hybrid mb-8">
+        <h2 class="text-xl font-display mb-3">Checks</h2>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="c1" checked>
+          <label class="form-check-label" for="c1">Remember me</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="r" id="r1" checked>
+          <label class="form-check-label" for="r1">Option A</label>
+        </div>
+        <label class="tg-switch tg-neu mt-3">
+          <input type="checkbox" checked>
+          <span class="visually-hidden">Tactile switch</span>
+        </label>
+      </section>
+
+      <section id="range" class="tg-card tg-neu mb-8">
+        <h2 class="text-xl font-display mb-3">Range</h2>
+        <input class="form-range tg-hybrid" type="range" min="0" max="100" value="45">
+      </section>
+
+      <section id="input-group" class="tg-card tg-glass mb-8">
+        <h2 class="text-xl font-display mb-3">Input group</h2>
+        <div class="input-group">
+          <span class="input-group-text tg-neu">@</span>
+          <input class="form-control tg-neu" type="text" placeholder="handle">
+        </div>
+      </section>
+
+      <section id="floating-labels" class="tg-card tg-neu mb-8">
+        <h2 class="text-xl font-display mb-3">Floating labels</h2>
+        <div class="form-floating">
+          <input class="form-control tg-hybrid" id="floatEmail" placeholder=" ">
+          <label for="floatEmail">Email address</label>
+        </div>
+      </section>
+
+      <section id="layout" class="tg-card tg-hybrid mb-8">
+        <h2 class="text-xl font-display mb-3">Layout</h2>
+        <div class="row g-3">
+          <div class="col-md-6"><input class="form-control tg-neu" placeholder="First"></div>
+          <div class="col-md-6"><input class="form-control tg-neu" placeholder="Last"></div>
+        </div>
+      </section>
+
+      <section id="validation" class="tg-card tg-neu mb-8">
+        <h2 class="text-xl font-display mb-3">Validation</h2>
+        <div class="was-validated">
+          <input class="form-control tg-hybrid is-valid" value="valid@mail.com">
+          <input class="form-control tg-hybrid is-invalid mt-3" value="bad">
+          <div class="invalid-feedback">Required field.</div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+  <script src="docs.js"></script>
+</body>
+</html>

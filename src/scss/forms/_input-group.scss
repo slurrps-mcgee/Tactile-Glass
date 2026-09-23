@@ -1,0 +1,69 @@
+.input-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+
+  > .form-control,
+  > .tg-input,
+  > .form-select,
+  > .tg-form-select {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+  }
+
+  > .form-control:not(:first-child),
+  > .tg-input:not(:first-child),
+  > .form-select:not(:first-child),
+  > .tg-form-select:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  > .form-control:not(:last-child),
+  > .tg-input:not(:last-child),
+  > .form-select:not(:last-child),
+  > .tg-form-select:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.input-group-text {
+  display: flex;
+  align-items: center;
+  padding: var(--sz-3) var(--sz-4);
+  font-size: var(--fs-base);
+  color: var(--clr-slate);
+  white-space: nowrap;
+  background: var(--code-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.input-group > .input-group-text:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.input-group > .input-group-text:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.input-group-sm > .form-control,
+.input-group-sm > .tg-input,
+.input-group-sm > .input-group-text {
+  padding: var(--sz-1) var(--sz-3);
+  font-size: var(--fs-sm);
+}
+
+.input-group-lg > .form-control,
+.input-group-lg > .tg-input,
+.input-group-lg > .input-group-text {
+  padding: var(--sz-4) var(--sz-6);
+  font-size: var(--fs-lg);
+}

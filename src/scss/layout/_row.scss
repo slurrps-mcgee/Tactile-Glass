@@ -1,0 +1,88 @@
+@use '../base/mixins' as *;
+@use 'sass:math';
+
+$row-columns: 12;
+
+@mixin make-col-ready {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--tg-gutter-x) * 0.5);
+  padding-left: calc(var(--tg-gutter-x) * 0.5);
+  margin-top: var(--tg-gutter-y);
+}
+
+@mixin make-col($size: false) {
+  @if $size {
+    flex: 0 0 auto;
+    width: math.percentage(math.div($size, $row-columns));
+  } @else {
+    flex: 1 0 0%;
+  }
+}
+
+@mixin make-col-offset($size) {
+  margin-left: if($size > 0, math.percentage(math.div($size, $row-columns)), 0);
+}
+
+.row {
+  --tg-gutter-x: 1.5rem;
+  --tg-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--tg-gutter-y));
+  margin-right: calc(-0.5 * var(--tg-gutter-x));
+  margin-left: calc(-0.5 * var(--tg-gutter-x));
+
+  > * {
+    @include make-col-ready;
+  }
+}
+
+.row > .col {
+  @include make-col;
+}
+
+.row > .col-auto {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+@for $i from 1 through $row-columns {
+  .row > .col-#{$i} {
+    @include make-col($i);
+  }
+}
+
+@include tg-infix using ($bp) {
+  @for $i from 1 through $row-columns {
+    .row > .#{tg-infix-class('col', $bp, $i)} {
+      @include make-col($i);
+    }
+
+    .row > .#{tg-infix-class('col', $bp, 'auto')} {
+      flex: 0 0 auto;
+      width: auto;
+    }
+  }
+
+  @for $n from 1 through $row-columns {
+    .row.#{tg-infix-class('row-cols', $bp, $n)} > * {
+      flex: 0 0 auto;
+      width: math.percentage(math.div(1, $n));
+    }
+  }
+
+  @for $i from 0 through $row-columns - 1 {
+    .row > .#{tg-infix-class('offset', $bp, $i)} {
+      @include make-col-offset($i);
+    }
+  }
+}
+
+@for $n from 1 through $row-columns {
+  .row.row-cols-#{$n} > * {
+    flex: 0 0 auto;
+    width: math.percentage(math.div(1, $n));
+  }
+}

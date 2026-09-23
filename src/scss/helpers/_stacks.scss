@@ -1,0 +1,11 @@
+.vstack {
+  display: flex !important;
+  flex-direction: column !important;
+  align-self: stretch !important;
+}
+
+.hstack {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+}

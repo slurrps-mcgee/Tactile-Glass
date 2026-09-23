@@ -1,0 +1,25 @@
+// Content reboot — form/document polish beyond base/_reset.scss
+
+label {
+  display: inline-block;
+}
+
+legend {
+  float: left;
+  width: 100%;
+  padding: 0;
+  margin-bottom: var(--sz-2);
+  font-size: var(--fs-base);
+  font-weight: var(--font-weight-bold);
+  line-height: inherit;
+}
+
+legend + * {
+  clear: left;
+}
+
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+  text-decoration-skip-ink: none;
+}

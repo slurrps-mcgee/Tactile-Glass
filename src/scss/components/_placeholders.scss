@@ -1,0 +1,55 @@
+@use '../base/mixins' as *;
+
+.tg-placeholder,
+.placeholder {
+  display: inline-block;
+  width: 100%;
+  min-height: 1em;
+  vertical-align: middle;
+  border-radius: var(--radius-sm);
+  background-color: var(--glass-bg);
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--glass-bg-raised) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: tg-shimmer 1.4s var(--ease) infinite;
+  cursor: wait;
+}
+
+.placeholder-xs {
+  min-height: 0.5em;
+}
+
+.placeholder-sm {
+  min-height: 0.75em;
+}
+
+.placeholder-lg {
+  min-height: 1.25em;
+}
+
+.placeholder-glow {
+  .tg-placeholder,
+  .placeholder {
+    animation: tg-shimmer 2s ease-in-out infinite;
+  }
+}
+
+.animate-shimmer {
+  animation: tg-shimmer 1.4s var(--ease) infinite;
+}
+
+.placeholder-btn {
+  width: 4.5rem;
+  min-height: 2.25rem;
+  border-radius: var(--radius-md);
+}
+
+.placeholder-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-pill);
+}

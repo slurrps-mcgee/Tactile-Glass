@@ -30,6 +30,11 @@
   100% { background-position: -100% 0; }
 }
 
+@keyframes tg-progress-bar-stripes {
+  0% { background-position-x: 1rem; }
+  100% { background-position-x: 0; }
+}
+
 @keyframes tg-ripple {
   from {
     transform: scale(0);

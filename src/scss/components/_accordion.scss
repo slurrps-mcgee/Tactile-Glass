@@ -1,0 +1,133 @@
+@use '../base/mixins' as *;
+@use '../styles/neu' as *;
+@use '../styles/glass' as *;
+@use '../styles/hybrid' as *;
+
+.tg-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sz-2);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.accordion-item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+
+  > summary.accordion-header,
+  > .accordion-header > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sz-3);
+    width: 100%;
+    padding: var(--sz-4);
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--fs-base);
+    color: var(--clr-dark);
+    cursor: pointer;
+    list-style: none;
+    @include interactive-transition;
+
+    &::-webkit-details-marker,
+    &::marker {
+      display: none;
+      content: '';
+    }
+
+    &::after {
+      content: '';
+      width: 0.65rem;
+      height: 0.65rem;
+      flex-shrink: 0;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(45deg);
+      transition: transform var(--duration) var(--ease);
+    }
+
+    &:focus-visible {
+      @include focus-ring;
+    }
+  }
+
+  &[open] > summary.accordion-header::after,
+  &[open] > .accordion-header > summary::after {
+    transform: rotate(-135deg);
+  }
+}
+
+.accordion-body {
+  padding: var(--sz-4);
+  font-size: var(--fs-sm);
+  line-height: var(--line-height-relaxed);
+  color: var(--clr-dark);
+}
+
+.tg-accordion.tg-neu {
+  .accordion-item {
+    @include neu-inset;
+  }
+
+  .accordion-item[open] > summary.accordion-header,
+  .accordion-item[open] > .accordion-header > summary {
+    @include neu;
+  }
+}
+
+.tg-accordion.tg-neu-reverse {
+  .accordion-item {
+    @include neu;
+  }
+
+  .accordion-item[open] > summary.accordion-header,
+  .accordion-item[open] > .accordion-header > summary {
+    @include neu-inset;
+  }
+}
+
+.tg-accordion.tg-glass {
+  .accordion-item {
+    @include glass-pressed;
+  }
+
+  .accordion-item[open] > summary.accordion-header,
+  .accordion-item[open] > .accordion-header > summary {
+    @include glass-raised;
+  }
+}
+
+.tg-accordion.tg-glass-reverse {
+  .accordion-item {
+    @include glass-raised;
+  }
+
+  .accordion-item[open] > summary.accordion-header,
+  .accordion-item[open] > .accordion-header > summary {
+    @include glass-pressed;
+  }
+}
+
+.tg-accordion.tg-hybrid {
+  .accordion-item {
+    @include hybrid-pressed;
+  }
+
+  .accordion-item[open] > summary.accordion-header,
+  .accordion-item[open] > .accordion-header > summary {
+    @include hybrid;
+  }
+}
+
+.tg-accordion.tg-hybrid-reverse {
+  .accordion-item {
+    @include hybrid;
+  }
+
+  .accordion-item[open] > summary.accordion-header,
+  .accordion-item[open] > .accordion-header > summary {
+    @include hybrid-pressed;
+  }
+}

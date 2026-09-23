@@ -33,23 +33,48 @@
 @each $name, $meta in $tg-colors {
   $color: map.get($meta, color);
   $rgb: map.get($meta, rgb);
+  $on: map.get($meta, on);
 
   .tg-badge.badge-#{$name}.tg-neu,
   .tg-badge.badge-#{$name}.tg-neu-surface,
   .tg-badge.badge-#{$name}.tg-neu-inset,
   .tg-badge.badge-#{$name}.tg-neu-reverse {
-    @include semantic-solid($color, $rgb);
+    @include semantic-solid($color, $rgb, $on);
   }
 
-  .tg-badge.badge-#{$name}.tg-glass,
-  .tg-badge.badge-#{$name}.tg-glass-frosted,
-  .tg-badge.badge-#{$name}.tg-glass-surface,
-  .tg-badge.badge-#{$name}.tg-glass-inset,
-  .tg-badge.badge-#{$name}.tg-glass-reverse,
-  .tg-badge.badge-#{$name}.tg-hybrid,
-  .tg-badge.badge-#{$name}.tg-hybrid-surface,
-  .tg-badge.badge-#{$name}.tg-hybrid-inset,
-  .tg-badge.badge-#{$name}.tg-hybrid-reverse {
-    @include semantic-lens($color, $rgb);
+  @if $name == dark {
+    .tg-badge.badge-dark.tg-glass,
+    .tg-badge.badge-dark.tg-glass-frosted,
+    .tg-badge.badge-dark.tg-glass-surface,
+    .tg-badge.badge-dark.tg-glass-inset,
+    .tg-badge.badge-dark.tg-glass-reverse,
+    .tg-badge.badge-dark.tg-hybrid,
+    .tg-badge.badge-dark.tg-hybrid-surface,
+    .tg-badge.badge-dark.tg-hybrid-inset,
+    .tg-badge.badge-dark.tg-hybrid-reverse {
+      @include semantic-solid-dark;
+    }
+  } @else if $name == light {
+    .tg-badge.badge-light.tg-glass,
+    .tg-badge.badge-light.tg-glass-frosted,
+    .tg-badge.badge-light.tg-hybrid {
+      @include semantic-lens($color, $rgb, var(--tg-dark));
+    }
+  } @else {
+    .tg-badge.badge-#{$name}.tg-glass,
+    .tg-badge.badge-#{$name}.tg-glass-frosted,
+    .tg-badge.badge-#{$name}.tg-glass-surface,
+    .tg-badge.badge-#{$name}.tg-glass-inset,
+    .tg-badge.badge-#{$name}.tg-glass-reverse,
+    .tg-badge.badge-#{$name}.tg-hybrid,
+    .tg-badge.badge-#{$name}.tg-hybrid-surface,
+    .tg-badge.badge-#{$name}.tg-hybrid-inset,
+    .tg-badge.badge-#{$name}.tg-hybrid-reverse {
+      @include semantic-lens($color, $rgb);
+    }
+  }
+
+  .text-bg-#{$name} {
+    @include semantic-solid($color, $rgb, $on);
   }
 }

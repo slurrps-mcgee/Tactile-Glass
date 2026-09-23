@@ -1,0 +1,22 @@
+.relative { position: relative !important; }
+.absolute { position: absolute !important; }
+.fixed { position: fixed !important; }
+.sticky { position: sticky !important; }
+.static { position: static !important; }
+
+.inset-0 { inset: 0 !important; }
+.inset-x-0 { left: 0 !important; right: 0 !important; }
+.inset-y-0 { top: 0 !important; bottom: 0 !important; }
+.top-0 { top: 0 !important; }
+.bottom-0 { bottom: 0 !important; }
+.start-0 { left: 0 !important; }
+.end-0 { right: 0 !important; }
+
+.align-baseline { vertical-align: baseline !important; }
+.align-top { vertical-align: top !important; }
+.align-middle { vertical-align: middle !important; }
+.align-bottom { vertical-align: bottom !important; }
+
+.float-start { float: left !important; }
+.float-end { float: right !important; }
+.float-none { float: none !important; }

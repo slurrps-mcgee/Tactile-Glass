@@ -10,7 +10,7 @@ export default defineConfig({
   server: {
     port: 8080,
     host: '127.0.0.1',
-    open: '/',
+    open: '/docs.html',
     fs: { allow: [projectRoot] },
   },
   plugins: [

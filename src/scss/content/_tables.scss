@@ -1,6 +1,8 @@
 @use '../base/mixins' as *;
+@use 'sass:map';
 
-.tg-table {
+.tg-table,
+.table {
   width: 100%;
   font-size: var(--fs-sm);
 
@@ -35,7 +37,8 @@
   overflow: hidden;
   border-radius: var(--radius-md);
 
-  .tg-table {
+  .tg-table,
+  .table {
     margin: 0;
   }
 }
@@ -69,7 +72,49 @@
   padding: var(--sz-2) var(--sz-3);
 }
 
+.caption-top caption {
+  caption-side: top;
+}
+
+.table-active,
+.table-active > th,
+.table-active > td {
+  background: tg-rgba(--clr-primary-rgb, 0.12);
+}
+
+@each $name, $meta in $tg-colors {
+  $color: map.get($meta, color);
+  $rgb: map.get($meta, rgb);
+
+  .table-#{$name} {
+    --tg-table-accent: #{$color};
+    --tg-table-accent-rgb: var(--tg-#{$name}-rgb);
+
+    thead th {
+      color: $color;
+      border-bottom-color: tg-rgba($rgb, 0.35);
+    }
+
+    tbody tr {
+      @media (hover: hover) {
+        &:hover {
+          background: tg-rgba($rgb, 0.08);
+        }
+      }
+    }
+  }
+}
+
 .table-responsive {
   width: 100%;
   overflow-x: auto;
+}
+
+@include tg-infix using ($bp) {
+  @if $bp {
+    .table-responsive-#{$bp} {
+      width: 100%;
+      overflow-x: auto;
+    }
+  }
 }

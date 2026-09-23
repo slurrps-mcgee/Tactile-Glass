@@ -1,0 +1,21 @@
+.ratio {
+  position: relative;
+  width: 100%;
+}
+
+.ratio::before {
+  display: block;
+  padding-top: var(--tg-aspect, 56.25%);
+  content: '';
+}
+
+.ratio > * {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ratio-1x1 { --tg-aspect: 100%; }
+.ratio-4x3 { --tg-aspect: 75%; }
+.ratio-16x9 { --tg-aspect: 56.25%; }

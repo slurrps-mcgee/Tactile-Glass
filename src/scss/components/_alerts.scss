@@ -2,6 +2,7 @@
 @use 'sass:map';
 
 .tg-alert {
+  position: relative;
   display: flex;
   align-items: flex-start;
   gap: var(--sz-3);
@@ -9,6 +10,7 @@
   border-radius: var(--radius-md);
   font-size: var(--fs-sm);
   line-height: var(--line-height-relaxed);
+  border: 1px solid transparent;
 }
 
 .alert-sm {
@@ -21,11 +23,41 @@
   font-size: var(--fs-base);
 }
 
+.alert-heading {
+  margin: 0 0 var(--sz-2);
+  font-size: var(--fs-lg);
+  font-weight: var(--font-weight-bold);
+  color: inherit;
+}
+
+.alert-link {
+  font-weight: var(--font-weight-bold);
+  color: inherit;
+  text-decoration: underline;
+}
+
+.alert-dismissible {
+  padding-right: calc(var(--sz-4) * 3);
+
+  .btn-close {
+    position: absolute;
+    top: var(--sz-3);
+    right: var(--sz-3);
+    z-index: calc(var(--z-base) + 1);
+  }
+}
+
 @each $name, $meta in $tg-colors {
   $color: map.get($meta, color);
   $rgb: map.get($meta, rgb);
 
   .alert-#{$name} {
-    @include semantic-lens($color, $rgb);
+    @if $name == dark {
+      @include semantic-lens($color, $rgb, var(--tg-dark-text-emphasis));
+    } @else if $name == light {
+      @include semantic-lens($color, $rgb, var(--tg-dark));
+    } @else {
+      @include semantic-lens($color, $rgb);
+    }
   }
 }

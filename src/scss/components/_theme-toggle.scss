@@ -1,4 +1,19 @@
+/* Theme toggle: visibility only when paired with tg-btn btn-icon.
+   Standalone .theme-toggle keeps a circular hybrid fallback for demos. */
+
 .theme-toggle {
+  cursor: pointer;
+
+  .theme-icon-sun {
+    display: none;
+  }
+
+  .theme-icon-moon {
+    display: block;
+  }
+
+  /* Standalone (no tg-btn): keep circular hybrid chrome */
+  &:not(.tg-btn) {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -12,34 +27,21 @@
     -webkit-backdrop-filter: var(--tg-glass-blur);
     border: var(--tg-glass-border);
     box-shadow: var(--tg-neu-shadow-inset);
-    cursor: pointer;
-  
+
     svg {
       width: 1.15rem;
       height: 1.15rem;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-  
-    .theme-icon-moon {
       fill: currentColor;
-      stroke: none;
-    }
-  
-    .theme-icon-sun {
-      display: none;
     }
   }
-  
-  .theme-dark .theme-toggle .theme-icon-moon,
-  [data-theme="dark"] .theme-toggle .theme-icon-moon {
-    display: none;
-  }
-  
-  .theme-dark .theme-toggle .theme-icon-sun,
-  [data-theme="dark"] .theme-toggle .theme-icon-sun {
-    display: block;
-  }
+}
+
+.theme-dark .theme-toggle .theme-icon-moon,
+[data-theme="dark"] .theme-toggle .theme-icon-moon {
+  display: none;
+}
+
+.theme-dark .theme-toggle .theme-icon-sun,
+[data-theme="dark"] .theme-toggle .theme-icon-sun {
+  display: block;
+}

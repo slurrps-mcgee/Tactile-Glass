@@ -1,0 +1,12 @@
+@use '../base/mixins' as *;
+@use 'sass:map';
+
+@each $name, $meta in $tg-colors {
+  $color: map.get($meta, color);
+  $rgb: map.get($meta, rgb);
+  $on: map.get($meta, on);
+
+  .text-bg-#{$name} {
+    @include semantic-solid($color, $rgb, $on);
+  }
+}

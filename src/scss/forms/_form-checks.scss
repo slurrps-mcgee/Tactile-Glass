@@ -1,0 +1,153 @@
+@use '../base/mixins' as *;
+@use '../styles/neu' as *;
+@use '../styles/hybrid' as *;
+
+.form-check {
+  display: block;
+  min-height: 1.5rem;
+  padding-left: 1.75rem;
+  margin-bottom: var(--sz-2);
+
+  .form-check-input {
+    float: left;
+    margin-left: -1.75rem;
+  }
+}
+
+.form-check-inline {
+  display: inline-block;
+  margin-right: var(--sz-4);
+}
+
+.form-check-input {
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-top: 0.2em;
+  vertical-align: top;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  background-color: var(--clr-bg);
+  cursor: pointer;
+  @include interactive-transition;
+
+  &[type="radio"] {
+    border-radius: 50%;
+  }
+
+  &:checked {
+    background-color: var(--clr-primary);
+    border-color: var(--clr-primary);
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.form-check-input[type="checkbox"]:checked {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23fff' d='M12.2 4.2 6.5 10l-3.7-3.7L1.5 7.6l5 5 7.7-7.7z'/%3E%3C/svg%3E");
+  background-size: 75% 75%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.form-switch {
+  padding-left: 2.75rem;
+
+  .form-check-input {
+    width: 2.75rem;
+    margin-left: -2.75rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%23fff'/%3E%3C/svg%3E");
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-subtle);
+    background-color: var(--clr-bg);
+    transition: background-position var(--duration) var(--ease);
+
+    &:checked {
+      background-position: right center;
+      background-color: tg-rgba(--clr-primary-rgb, 0.45);
+      border-color: tg-rgba(--clr-primary-rgb, 0.5);
+    }
+  }
+}
+
+.tg-switch,
+.form-switch.tg-switch {
+  position: relative;
+  z-index: 0;
+  display: inline-flex;
+  align-items: center;
+  width: 3rem;
+  height: 1.75rem;
+  padding-left: 0;
+  min-height: 0;
+  margin-bottom: 0;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  @include interactive-transition;
+
+  input,
+  .form-check-input {
+    appearance: none;
+    -webkit-appearance: none;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    float: none;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+    background: none;
+    border: 0;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0.2rem;
+    left: 0.2rem;
+    z-index: 1;
+    width: 1.35rem;
+    height: 1.35rem;
+    border-radius: 50%;
+    background: var(--clr-white);
+    box-shadow: var(--neu-shadow-drop);
+    pointer-events: none;
+    @include interactive-transition;
+  }
+
+  &:has(input:checked)::after,
+  &:has(.form-check-input:checked)::after {
+    transform: translateX(1.25rem);
+  }
+
+  &:has(input:focus-visible),
+  &:has(.form-check-input:focus-visible) {
+    @include focus-ring;
+  }
+
+  &.tg-neu,
+  &.tg-neu-inset,
+  &.tg-neu-reverse {
+    @include neu-inset;
+  }
+
+  &.tg-hybrid,
+  &.tg-hybrid-inset,
+  &.tg-hybrid-reverse {
+    @include hybrid-pressed;
+  }
+
+  &:has(input:checked),
+  &:has(.form-check-input:checked) {
+    background: tg-rgba(--clr-primary-rgb, 0.35);
+    border-color: tg-rgba(--clr-primary-rgb, 0.45);
+  }
+}
