@@ -127,6 +127,7 @@
         <a class="sidebar-link" href="utilities.html#spacing">Spacing</a>
         <a class="sidebar-link" href="utilities.html#display">Display</a>
         <a class="sidebar-link" href="utilities.html#flex">Flex</a>
+        <a class="sidebar-link" href="utilities.html#text">Text</a>
         <a class="sidebar-link" href="utilities.html#shadows">Shadows</a>
         <a class="sidebar-link" href="utilities.html#opacity">Opacity</a>
         <a class="sidebar-link" href="utilities.html#morph">Morph</a>
@@ -152,13 +153,24 @@
         <h2 class="text-xl">Heading 2</h2>
         <p class="lead">Lead paragraph with relaxed line height.</p>
         <p><strong>Strong</strong> and <a href="#typography" class="link-primary">link-primary</a>.</p>
-        <pre class="morph-neu-inset rounded-md p-4 text-sm mt-3 mb-0">&lt;p class="lead"&gt;…&lt;/p&gt;</pre>
+
+        <h3 class="text-lg font-display mb-2 mt-4">Line height</h3>
+        <p class="text-sm text-secondary mb-2">Bootstrap <code>lh-*</code>: <code>lh-1</code>, <code>lh-sm</code>, <code>lh-base</code>, <code>lh-lg</code>.</p>
+        <div class="d-flex flex-column gap-3">
+          <p class="lh-1 mb-0 morph-neu-inset rounded-md p-3 text-sm">lh-1 — tight unit leading for compact UI chrome.</p>
+          <p class="lh-sm mb-0 morph-neu-inset rounded-md p-3 text-sm">lh-sm — maps to <code>--line-height-tight</code>.</p>
+          <p class="lh-base mb-0 morph-neu-inset rounded-md p-3 text-sm">lh-base — maps to <code>--line-height-relaxed</code> (body default).</p>
+          <p class="lh-lg mb-0 morph-neu-inset rounded-md p-3 text-sm">lh-lg — maps to <code>--line-height-loose</code> for airy paragraphs.</p>
+        </div>
+        <pre class="morph-neu-inset rounded-md p-4 text-sm mt-3 mb-0">&lt;p class="lh-lg"&gt;…&lt;/p&gt;
+&lt;p class="text-truncate"&gt;…&lt;/p&gt;
+&lt;p class="line-clamp-3"&gt;…&lt;/p&gt;</pre>
       </section>
 
       <section id="images" class="tg-card tg-neu mb-8">
         <h2 class="text-xl font-display mb-3">Images</h2>
         <p class="text-sm mb-3"><code>img-fluid</code> scales; <code>rounded</code> / <code>rounded-circle</code> shape corners.</p>
-        <div class="ratio ratio-16x9 morph-neu-inset rounded-md d-flex align-center justify-center text-sm">img-fluid demo</div>
+        <div class="ratio ratio-16x9 morph-neu-inset rounded-md d-flex align-items-center justify-content-center text-sm">img-fluid demo</div>
         <pre class="morph-neu-inset rounded-md p-4 text-sm mt-3 mb-0">&lt;img class="img-fluid rounded-lg" src="…" alt=""&gt;</pre>
       </section>
 

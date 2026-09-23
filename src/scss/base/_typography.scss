@@ -111,13 +111,28 @@ p {
 }
 
 // Code Typography
-code, kbd {
+code,
+kbd {
   font-family: var(--font-mono);
-  font-size: var(--fs-sm);
+  font-size: 0.875em;
   background: var(--code-bg);
-  padding: var(--sz-1) var(--sz-2);
+  padding: 0.15em 0.4em;
   border-radius: var(--radius-sm);
-  overflow-wrap: anywhere;
+  white-space: nowrap;
+  margin-inline: 0.12em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+pre code {
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  white-space: inherit;
+  border-radius: 0;
+  box-decoration-break: slice;
+  -webkit-box-decoration-break: slice;
 }
 
 // Pre Typography
@@ -149,11 +164,6 @@ pre {
 .font-medium { font-weight: var(--font-weight-medium) !important; }
 .font-bold   { font-weight: var(--font-weight-bold) !important; }
 
-// Line Height Typography
-.lh-tight   { line-height: var(--line-height-tight) !important; }
-.lh-relaxed { line-height: var(--line-height-relaxed) !important; }
-.lh-loose   { line-height: var(--line-height-loose) !important; }
-
 // Letter Spacing Typography
 .track-tight   { letter-spacing: var(--letter-spacing-tight) !important; }
 .track-relaxed { letter-spacing: var(--letter-spacing-relaxed) !important; }
@@ -174,30 +184,6 @@ pre {
 .line-through { text-decoration: line-through !important; }
 .no-underline { text-decoration: none !important; }
 
-// Text Truncate Typography
-.truncate {
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: nowrap !important;
-}
-
-// Line Clamp 1 Typography
-.line-clamp-1,
-.line-clamp-2,
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-// Line Clamp Typography
-.line-clamp-1 { -webkit-line-clamp: 1; }
-.line-clamp-2 { -webkit-line-clamp: 2; }
-.line-clamp-3 { -webkit-line-clamp: 3; }
-
-// White Space Typography
-.whitespace-nowrap { white-space: nowrap !important; }
-.whitespace-pre { white-space: pre !important; }
-.whitespace-pre-line { white-space: pre-line !important; }
-.whitespace-pre-wrap { white-space: pre-wrap !important; }
-.whitespace-normal { white-space: normal !important; }
+// White space (Bootstrap: text-nowrap / text-wrap)
+.text-nowrap { white-space: nowrap !important; }
+.text-wrap { white-space: normal !important; }

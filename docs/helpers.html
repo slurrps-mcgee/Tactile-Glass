@@ -127,6 +127,7 @@
         <a class="sidebar-link" href="utilities.html#spacing">Spacing</a>
         <a class="sidebar-link" href="utilities.html#display">Display</a>
         <a class="sidebar-link" href="utilities.html#flex">Flex</a>
+        <a class="sidebar-link" href="utilities.html#text">Text</a>
         <a class="sidebar-link" href="utilities.html#shadows">Shadows</a>
         <a class="sidebar-link" href="utilities.html#opacity">Opacity</a>
         <a class="sidebar-link" href="utilities.html#morph">Morph</a>
@@ -165,7 +166,7 @@
       <section id="ratio" class="tg-card tg-neu mb-8">
         <h2 class="text-xl font-display mb-3">Ratio</h2>
         <div class="ratio ratio-16x9 morph-neu-inset rounded-md">
-          <div class="d-flex align-center justify-center text-sm">16:9</div>
+          <div class="d-flex align-items-center justify-content-center text-sm">16:9</div>
         </div>
       </section>
 
@@ -187,12 +188,29 @@
 
       <section id="truncate" class="tg-card tg-hybrid mb-8">
         <h2 class="text-xl font-display mb-3">Text truncation</h2>
-        <p class="text-truncate mb-0" style="max-width: 12rem;">Long copy truncates with ellipsis when constrained.</p>
+        <h3 class="text-lg font-display mb-2">Single line</h3>
+        <p class="text-truncate mb-4" style="max-width: 12rem;">Long copy truncates with ellipsis when constrained.</p>
+        <h3 class="text-lg font-display mb-2">Line clamp</h3>
+        <p class="text-sm text-secondary mb-2">Clamp to N lines with <code>line-clamp-1</code> … <code>line-clamp-6</code>. Reset with <code>line-clamp-none</code>.</p>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <p class="line-clamp-2 mb-0 morph-neu-inset rounded-md p-3 text-sm">This block is limited to two lines. Extra copy is cut with an ellipsis so cards and lists stay even height when titles wrap.</p>
+            <code class="text-xs">line-clamp-2</code>
+          </div>
+          <div class="col-md-4">
+            <p class="line-clamp-3 mb-0 morph-neu-inset rounded-md p-3 text-sm">Three-line clamp keeps a bit more context while still capping growth. Useful for descriptions under thumbnails or search result snippets that would otherwise stretch the layout.</p>
+            <code class="text-xs">line-clamp-3</code>
+          </div>
+          <div class="col-md-4">
+            <p class="line-clamp-1 mb-0 morph-neu-inset rounded-md p-3 text-sm">One line only — similar to text-truncate but without forcing nowrap on flex children the same way.</p>
+            <code class="text-xs">line-clamp-1</code>
+          </div>
+        </div>
       </section>
 
       <section id="vr" class="tg-card tg-neu mb-8">
         <h2 class="text-xl font-display mb-3">Vertical rule</h2>
-        <div class="d-flex align-center gap-3"><span>Left</span><div class="vr"></div><span>Right</span></div>
+        <div class="d-flex align-items-center gap-3"><span>Left</span><div class="vr"></div><span>Right</span></div>
       </section>
 
       <section id="visually-hidden" class="tg-card tg-glass mb-8">

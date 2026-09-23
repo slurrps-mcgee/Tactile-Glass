@@ -127,6 +127,7 @@
         <a class="sidebar-link" href="utilities.html#spacing">Spacing</a>
         <a class="sidebar-link" href="utilities.html#display">Display</a>
         <a class="sidebar-link" href="utilities.html#flex">Flex</a>
+        <a class="sidebar-link" href="utilities.html#text">Text</a>
         <a class="sidebar-link" href="utilities.html#shadows">Shadows</a>
         <a class="sidebar-link" href="utilities.html#opacity">Opacity</a>
         <a class="sidebar-link" href="utilities.html#morph">Morph</a>
@@ -142,7 +143,7 @@
 
       <section id="fade-in" class="mb-8">
         <h2 class="text-xl font-display mb-3">Fade in</h2>
-        <div class="d-flex align-center gap-3 mb-3">
+        <div class="d-flex align-items-center gap-3 mb-3">
           <div class="tg-card tg-neu p-4 animate-fade-in" data-anim-demo>
             <code>animate-fade-in</code> — opacity 0 → 1
           </div>
@@ -151,9 +152,19 @@
         <pre class="morph-neu-inset rounded-md p-4 text-sm mt-3 mb-0">&lt;div class="animate-fade-in"&gt;…&lt;/div&gt;</pre>
       </section>
 
+      <section id="fade-out" class="mb-8">
+        <h2 class="text-xl font-display mb-3">Fade out</h2>
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <div class="tg-card tg-neu p-4 animate-fade-out" data-anim-demo>
+            <code>animate-fade-out</code> — opacity 1 → 0
+          </div>
+          <button type="button" class="tg-btn tg-hybrid btn-sm" data-anim-replay>Replay</button>
+        </div>
+      </section>
+
       <section id="slide-up" class="mb-8">
         <h2 class="text-xl font-display mb-3">Slide up</h2>
-        <div class="d-flex align-center gap-3 mb-3">
+        <div class="d-flex align-items-center gap-3 mb-3">
           <div class="tg-card tg-glass p-4 animate-slide-up" data-anim-demo>
             <code>animate-slide-up</code> — fade + translateY
           </div>
@@ -162,9 +173,42 @@
         <pre class="morph-neu-inset rounded-md p-4 text-sm mt-3 mb-0">&lt;div class="animate-slide-up"&gt;…&lt;/div&gt;</pre>
       </section>
 
+      <section id="slide-down" class="mb-8">
+        <h2 class="text-xl font-display mb-3">Slide down</h2>
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <div class="tg-card tg-glass p-4 animate-slide-down" data-anim-demo>
+            <code>animate-slide-down</code> — fade + translateY
+          </div>
+          <button type="button" class="tg-btn tg-hybrid btn-sm" data-anim-replay>Replay</button>
+        </div>
+        <pre class="morph-neu-inset rounded-md p-4 text-sm mt-3 mb-0">&lt;div class="animate-slide-down"&gt;…&lt;/div&gt;</pre>
+      </section>
+
+      <section id="slide-left" class="mb-8">
+        <h2 class="text-xl font-display mb-3">Slide left</h2>
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <div class="tg-card tg-hybrid p-4 animate-slide-left" data-anim-demo>
+            <code>animate-slide-left</code> — fade + translateX
+          </div>
+          <button type="button" class="tg-btn tg-hybrid btn-sm" data-anim-replay>Replay</button>
+        </div>
+        <pre class="morph-neu-inset rounded-md p-4 text-sm mt-3 mb-0">&lt;div class="animate-slide-left"&gt;…&lt;/div&gt;</pre>
+      </section>
+
+      <section id="slide-right" class="mb-8">
+        <h2 class="text-xl font-display mb-3">Slide right</h2>
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <div class="tg-card tg-hybrid p-4 animate-slide-right" data-anim-demo>
+            <code>animate-slide-right</code> — fade + translateX
+          </div>
+          <button type="button" class="tg-btn tg-hybrid btn-sm" data-anim-replay>Replay</button>
+        </div>
+        <pre class="morph-neu-inset rounded-md p-4 text-sm mt-3 mb-0">&lt;div class="animate-slide-right"&gt;…&lt;/div&gt;</pre>
+      </section>
+
       <section id="pop" class="mb-8">
         <h2 class="text-xl font-display mb-3">Pop</h2>
-        <div class="d-flex align-center gap-3 mb-3">
+        <div class="d-flex align-items-center gap-3 mb-3">
           <div class="tg-card tg-hybrid p-4 animate-pop" data-anim-demo>
             <code>animate-pop</code> — fade + scale
           </div>
@@ -183,7 +227,7 @@
       <section id="durations" class="mb-8">
         <h2 class="text-xl font-display mb-3">Durations</h2>
         <p class="text-sm text-secondary mb-3">Pair with any animate-* class: <code>duration-100</code> … <code>duration-1000</code>. Default enter motion is <code>--duration-enter</code> (0.75s).</p>
-        <div class="d-flex f-wrap gap-3">
+        <div class="d-flex flex-wrap gap-3">
           <div class="tg-badge tg-neu badge-primary animate-pop duration-300" data-anim-demo>300ms</div>
           <div class="tg-badge tg-neu badge-success animate-pop duration-500" data-anim-demo>500ms</div>
           <div class="tg-badge tg-neu badge-info animate-pop duration-700" data-anim-demo>700ms</div>

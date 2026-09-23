@@ -2,7 +2,7 @@
 
 A utility-first and component-based CSS framework that unites **neumorphism**, **glassmorphism**, and a **hybrid** of both — aligned with Bootstrap 5.3-style layout, forms, helpers, and utilities, while staying **CSS-only** (no JS runtime required for components).
 
-Components are generic (`tg-btn`, `tg-card`, `tg-nav`, `tg-sidebar`). Materials are separate classes (`tg-neu`, `tg-glass`, `tg-hybrid`) driven by CSS tokens. Bootstrap-style modifiers (`btn-sm`, `btn-primary`, `btn-icon`) and Tailwind-style utilities (`d-flex`, `p-4`, `bg-white`, `theme-dark`) stack on top.
+Components are generic (`tg-btn`, `tg-card`, `tg-nav`, `tg-sidebar`). Materials are separate classes (`tg-neu`, `tg-glass`, `tg-hybrid`) driven by CSS tokens. Bootstrap-style modifiers and utilities (`btn-sm`, `btn-primary`, `d-flex`, `p-4`, `justify-content-between`, `theme-dark`) stack on top.
 
 - **Version:** 0.3.0
 - npm: [`tactileglass-css`](https://www.npmjs.com/package/tactileglass-css)
@@ -77,8 +77,8 @@ Bootstrap-inspired coverage, organized the same way as the Sass tree:
 | **Layout** | Breakpoints, `container` / `container-*`, flex `.row` / `.col-*`, gutters, CSS grid tracks, z-index |
 | **Content** | Reboot, typography, images, figures, tables |
 | **Forms** | Form control, select, checks / switches, range, input group, floating labels, layout, validation |
-| **Helpers** | Clearfix, color-bg, colored links, focus ring, ratio, stacks, stretched link, text truncation, VR, visually hidden |
-| **Utilities** | Flex, spacing, display, sizing, overflow, position, colors, borders, shadows, morph, opacity, visibility, object-fit, interactions |
+| **Helpers** | Clearfix, color-bg, colored links, focus ring, ratio, stacks, stretched link, text truncation / line-clamp, VR, visually hidden |
+| **Utilities** | Flex, spacing, display, text (`lh-*`), sizing, overflow, position, colors, borders, shadows, morph, opacity, visibility, object-fit, interactions |
 | **Components** | Alerts, badges, breadcrumb, buttons / button group / `btn-icon`, cards, close, dropdowns, list group, navbar, navs & tabs, pagination, placeholders (shimmer), progress, sidebar, spinners, theme toggle |
 
 Menus use **`tg-dropdown`** (`<details>` + `.dropdown-menu`) — CSS-only, no select-based menu control.
@@ -132,7 +132,7 @@ Full catalog: docs `customize.html`. Color utilities are fill-only and ink-only:
 
 `container` is a centered shell that grows with the viewport (540 / 720 / 960 / 1140 / 1320). Start later with `container-sm` through `container-xxl`. `container-fluid` stays full width with the same gutters.
 
-Layout is mobile-first with Bootstrap infixes. Use flex rows (`.row`, `.col-md-6`) or CSS grid tracks (`.grid`, `.grid-md-3`, `.grid-12`). Gutters: `g-3`, `gx-4`, `gy-2`. Display: `d-none d-md-flex`. Do not use Tailwind colon prefixes (`md:p-4`) or JIT arbitrary values (`p-[5px]`).
+Layout is mobile-first with Bootstrap infixes. Use flex rows (`.row`, `.col-md-6`) or CSS grid tracks (`.grid`, `.grid-md-3`, `.grid-12`). Gutters: `g-3`, `gx-4`, `gy-2`. Display: `d-none d-md-flex`. Flex: `flex-column`, `justify-content-between`, `align-items-center`. Utility names follow Bootstrap 5.3 (not Tailwind colon prefixes like `md:p-4`).
 
 Navbars collapse with a CSS-only `<details class="nav-collapse nav-expand-md">` that holds only the hamburger. Put `.nav-links` as a sibling under `.tg-nav`. Keep `theme-toggle` in `.nav-end` on the top row. From 768px up the links stay in a row and the hamburger hides. Depth (`tg-neu-reverse`, `tg-neu-surface`, `tg-neu-inset`) lives on the `tg-nav` parent — not on `.nav-links`.
 

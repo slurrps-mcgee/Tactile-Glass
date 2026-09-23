@@ -1,6 +1,35 @@
-.text-truncate,
-.truncate {
+// Single-line truncate (Bootstrap)
+.text-truncate {
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   white-space: nowrap !important;
+}
+
+// Multi-line clamp (CSS line-clamp)
+.line-clamp-1,
+.line-clamp-2,
+.line-clamp-3,
+.line-clamp-4,
+.line-clamp-5,
+.line-clamp-6 {
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.line-clamp-1 { -webkit-line-clamp: 1 !important; line-clamp: 1 !important; }
+.line-clamp-2 { -webkit-line-clamp: 2 !important; line-clamp: 2 !important; }
+.line-clamp-3 { -webkit-line-clamp: 3 !important; line-clamp: 3 !important; }
+.line-clamp-4 { -webkit-line-clamp: 4 !important; line-clamp: 4 !important; }
+.line-clamp-5 { -webkit-line-clamp: 5 !important; line-clamp: 5 !important; }
+.line-clamp-6 { -webkit-line-clamp: 6 !important; line-clamp: 6 !important; }
+
+.line-clamp-none {
+  display: block !important;
+  -webkit-box-orient: horizontal !important;
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
 }

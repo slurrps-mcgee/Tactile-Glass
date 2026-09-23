@@ -49,8 +49,20 @@ body {
   margin-bottom: var(--sz-2);
 }
 
+.docs-prose p,
+.docs-prose li,
+.docs-prose .text-sm {
+  line-height: 1.75;
+}
+
 .docs-prose p + p {
   margin-top: var(--sz-3);
+}
+
+/* Keep inline code chips from colliding when lines wrap */
+.docs-prose :not(pre) > code {
+  line-height: 1.35;
+  vertical-align: baseline;
 }
 
 /* Only unclassed lists — never paint bullets on component lists */

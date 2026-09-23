@@ -153,6 +153,7 @@
         <a class="sidebar-link" href="utilities.html#spacing">Spacing</a>
         <a class="sidebar-link" href="utilities.html#display">Display</a>
         <a class="sidebar-link" href="utilities.html#flex">Flex</a>
+        <a class="sidebar-link" href="utilities.html#text">Text</a>
         <a class="sidebar-link" href="utilities.html#shadows">Shadows</a>
         <a class="sidebar-link" href="utilities.html#opacity">Opacity</a>
         <a class="sidebar-link" href="utilities.html#morph">Morph</a>
@@ -161,8 +162,8 @@
     </aside>
     <main class="docs-main docs-prose">
 <section class="tg-card tg-hybrid mb-8">
-      <span class="tg-badge tg-hybrid badge-primary badge-pill self-start mb-3">Theming</span>
-      <h1 class="text-2xl font-bold font-display lh-tight track-tight">Customize</h1>
+      <span class="tg-badge tg-hybrid badge-primary badge-pill align-self-start mb-3">Theming</span>
+      <h1 class="text-2xl font-bold font-display lh-sm track-tight">Customize</h1>
       <p class="lead mt-2 mb-0">
         Color modes live in one sheet: <code>src/scss/base/_themes.scss</code>.
         Light is the full palette on <code>:root</code>. Dark is a patch —
@@ -198,14 +199,14 @@
       <div class="grid grid-md-2 g-6">
         <article class="tg-card tg-neu">
           <h3 class="text-lg mb-3">Default</h3>
-          <div class="d-flex f-col gap-4">
+          <div class="d-flex flex-column gap-4">
             <div class="morph-neu-inset rounded-md p-4 text-sm">p-4 gap-4</div>
             <div class="morph-neu-inset rounded-md p-4 text-sm">p-4 gap-4</div>
           </div>
         </article>
         <article class="demo-spacing tg-card tg-neu">
           <h3 class="text-lg mb-3">--spacing: 0.5rem</h3>
-          <div class="d-flex f-col gap-4">
+          <div class="d-flex flex-column gap-4">
             <div class="morph-neu-inset rounded-md p-4 text-sm">p-4 gap-4</div>
             <div class="morph-neu-inset rounded-md p-4 text-sm">p-4 gap-4</div>
           </div>
@@ -217,7 +218,7 @@
       <h2 class="text-xl font-display mb-2">3. Scoped brand</h2>
       <div class="demo-aurora tg-card tg-hybrid">
         <h3 class="text-lg mb-3">.demo-aurora</h3>
-        <div class="d-flex f-wrap gap-3 mb-4">
+        <div class="d-flex flex-wrap gap-3 mb-4">
           <button class="tg-btn tg-hybrid btn-primary">Primary</button>
           <button class="tg-btn tg-hybrid">Default</button>
           <span class="tg-badge tg-hybrid badge-primary">badge-primary</span>
@@ -235,7 +236,7 @@
       <div class="grid grid-md-2 g-6">
         <article class="demo-tight tg-card tg-neu">
           <h3 class="text-lg mb-3">Tight radii</h3>
-          <div class="d-flex f-col gap-3">
+          <div class="d-flex flex-column gap-3">
             <button class="tg-btn tg-neu btn-primary">tg-btn tg-neu btn-primary</button>
             <input class="tg-input tg-neu" type="text" value="input follows --radius-md">
           </div>
@@ -244,7 +245,7 @@
         </article>
         <article class="demo-clay tg-card tg-neu">
           <h3 class="text-lg mb-3">Warm clay</h3>
-          <div class="d-flex f-col gap-3">
+          <div class="d-flex flex-column gap-3">
             <button class="tg-btn tg-neu">tg-btn tg-neu</button>
             <div class="morph-neu-inset rounded-md p-4 text-sm">morph-neu-inset</div>
           </div>
@@ -261,7 +262,7 @@
         <article class="theme-dark p-6 rounded-lg">
           <h3 class="text-lg mb-2">theme-dark island</h3>
           <p class="text-sm mb-4">Canvas, ink, and shadows flip even if the page is light.</p>
-          <div class="d-flex f-wrap gap-3">
+          <div class="d-flex flex-wrap gap-3">
             <button class="tg-btn tg-neu btn-primary">Primary</button>
             <button class="tg-btn tg-neu btn-dark">Dark</button>
             <button class="tg-btn tg-glass">Glass</button>
@@ -270,7 +271,7 @@
         <article class="theme-light p-6 rounded-lg">
           <h3 class="text-lg mb-2">theme-light island</h3>
           <p class="text-sm mb-4">Force the default palette inside a dark page.</p>
-          <div class="d-flex f-wrap gap-3">
+          <div class="d-flex flex-wrap gap-3">
             <button class="tg-btn tg-neu btn-primary">Primary</button>
             <button class="tg-btn tg-neu btn-dark">Dark</button>
             <button class="tg-btn tg-glass">Glass</button>

@@ -127,6 +127,7 @@
         <a class="sidebar-link" href="utilities.html#spacing">Spacing</a>
         <a class="sidebar-link" href="utilities.html#display">Display</a>
         <a class="sidebar-link" href="utilities.html#flex">Flex</a>
+        <a class="sidebar-link" href="utilities.html#text">Text</a>
         <a class="sidebar-link" href="utilities.html#shadows">Shadows</a>
         <a class="sidebar-link" href="utilities.html#opacity">Opacity</a>
         <a class="sidebar-link" href="utilities.html#morph">Morph</a>
@@ -143,7 +144,7 @@
       <section id="colors" class="tg-card tg-glass mb-8">
         <h2 class="text-xl font-display mb-3">Colors</h2>
         <p class="text-sm mb-3">Fill <code>bg-*</code>, ink <code>text-*</code>, subtle <code>bg-primary-subtle</code>, tint <code>tint-*</code>.</p>
-        <div class="d-flex f-wrap gap-2">
+        <div class="d-flex flex-wrap gap-2">
           <span class="tg-badge bg-primary text-white">bg-primary</span>
           <span class="tg-badge bg-primary-subtle text-primary-emphasis">subtle</span>
           <span class="tint-warning p-2 rounded-md text-sm">tint-warning</span>
@@ -163,14 +164,22 @@
 
       <section id="flex" class="tg-card tg-neu mb-8">
         <h2 class="text-xl font-display mb-3">Flex</h2>
-        <div class="d-flex justify-between align-center gap-3 morph-neu-inset p-3 rounded-md">
+        <p class="text-sm text-secondary mb-3">Bootstrap names: <code>d-flex</code>, <code>flex-column</code>, <code>flex-wrap</code>, <code>justify-content-*</code>, <code>align-items-*</code>, <code>align-self-*</code>.</p>
+        <div class="d-flex justify-content-between align-items-center gap-3 morph-neu-inset p-3 rounded-md">
           <span>start</span><span>between</span><span>end</span>
         </div>
       </section>
 
+      <section id="text" class="tg-card tg-glass mb-8">
+        <h2 class="text-xl font-display mb-3">Text</h2>
+        <p class="text-sm text-secondary mb-3">Line height: <code>lh-1</code> <code>lh-sm</code> <code>lh-base</code> <code>lh-lg</code>. Truncate: <code>text-truncate</code>. Clamp: <code>line-clamp-2</code> … <code>line-clamp-6</code>.</p>
+        <p class="lh-lg mb-2">lh-lg paragraph leading.</p>
+        <p class="line-clamp-2 mb-0" style="max-width: 20rem;">line-clamp-2 cuts after two lines even when the sentence keeps going past the box so multi-line titles stay consistent.</p>
+      </section>
+
       <section id="shadows" class="tg-card tg-glass mb-8">
         <h2 class="text-xl font-display mb-3">Shadows</h2>
-        <div class="d-flex f-wrap gap-3">
+        <div class="d-flex flex-wrap gap-3">
           <div class="shadow-sm bg-white p-4 rounded-md text-sm">shadow-sm</div>
           <div class="shadow bg-white p-4 rounded-md text-sm">shadow</div>
           <div class="shadow-lg bg-white p-4 rounded-md text-sm">shadow-lg</div>

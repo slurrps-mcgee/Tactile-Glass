@@ -1,0 +1,7 @@
+// Bootstrap 5.3 line-height utilities
+// Maps onto TactileGlass leading tokens where sizes align.
+
+.lh-1 { line-height: 1 !important; }
+.lh-sm { line-height: var(--line-height-tight) !important; }
+.lh-base { line-height: var(--line-height-relaxed) !important; }
+.lh-lg { line-height: var(--line-height-loose) !important; }

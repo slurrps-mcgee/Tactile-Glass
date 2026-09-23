@@ -1,14 +1,2 @@
-// Component-level flex containers (atomic flex lives in utilities/flex)
-
-.flex-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: var(--sz-4);
-}
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sz-4);
-}
+// Flex direction / wrap / justify / align utilities live in utilities/_flex.scss
+// (Bootstrap 5.3 naming). This file intentionally has no conflicting class definitions.

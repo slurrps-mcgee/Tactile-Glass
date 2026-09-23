@@ -127,6 +127,7 @@
         <a class="sidebar-link" href="utilities.html#spacing">Spacing</a>
         <a class="sidebar-link" href="utilities.html#display">Display</a>
         <a class="sidebar-link" href="utilities.html#flex">Flex</a>
+        <a class="sidebar-link" href="utilities.html#text">Text</a>
         <a class="sidebar-link" href="utilities.html#shadows">Shadows</a>
         <a class="sidebar-link" href="utilities.html#opacity">Opacity</a>
         <a class="sidebar-link" href="utilities.html#morph">Morph</a>
@@ -144,7 +145,7 @@
       <section id="alerts" class="mb-8">
         <h2 class="text-xl font-display mb-3">Alerts</h2>
         <p class="text-sm text-secondary mb-3">All semantic colors. Materials: neu / glass / hybrid (one each for variety).</p>
-        <div class="d-flex f-col gap-3">
+        <div class="d-flex flex-column gap-3">
           <div class="tg-alert tg-neu alert-primary">Primary — neu</div>
           <div class="tg-alert tg-glass alert-secondary">Secondary — glass</div>
           <div class="tg-alert tg-hybrid alert-success">Success — hybrid</div>
@@ -177,7 +178,7 @@
       <section id="buttons" class="mb-8">
         <h2 class="text-xl font-display mb-3">Buttons</h2>
         <h3 class="text-lg font-display mb-2">Neu (solid)</h3>
-        <div class="d-flex f-wrap gap-2 mb-3">
+        <div class="d-flex flex-wrap gap-2 mb-3">
           <button class="tg-btn tg-neu btn-primary">Primary</button>
           <button class="tg-btn tg-neu btn-secondary">Secondary</button>
           <button class="tg-btn tg-neu btn-success">Success</button>
@@ -189,7 +190,7 @@
           <button class="tg-btn tg-neu" disabled>Disabled</button>
         </div>
         <h3 class="text-lg font-display mb-2">Glass (lens)</h3>
-        <div class="d-flex f-wrap gap-2 mb-3">
+        <div class="d-flex flex-wrap gap-2 mb-3">
           <button class="tg-btn tg-glass btn-primary">Primary</button>
           <button class="tg-btn tg-glass btn-secondary">Secondary</button>
           <button class="tg-btn tg-glass btn-success">Success</button>
@@ -200,7 +201,7 @@
           <button class="tg-btn tg-glass btn-dark">Dark</button>
         </div>
         <h3 class="text-lg font-display mb-2">Hybrid (lens)</h3>
-        <div class="d-flex f-wrap gap-2 mb-3">
+        <div class="d-flex flex-wrap gap-2 mb-3">
           <button class="tg-btn tg-hybrid btn-primary">Primary</button>
           <button class="tg-btn tg-hybrid btn-secondary">Secondary</button>
           <button class="tg-btn tg-hybrid btn-success">Success</button>
@@ -211,7 +212,7 @@
           <button class="tg-btn tg-hybrid btn-dark">Dark</button>
         </div>
         <h3 class="text-lg font-display mb-2">Outline</h3>
-        <div class="d-flex f-wrap gap-2 mb-3">
+        <div class="d-flex flex-wrap gap-2 mb-3">
           <button class="tg-btn btn-outline-primary">Primary</button>
           <button class="tg-btn btn-outline-secondary">Secondary</button>
           <button class="tg-btn btn-outline-success">Success</button>
@@ -224,13 +225,13 @@
         </div>
         <p class="text-sm text-secondary mb-3">Outline fills on hover, focus, <code>:active</code>, and <code>.is-active</code>.</p>
         <h3 class="text-lg font-display mb-2">Sizes</h3>
-        <div class="d-flex f-wrap gap-2 align-center mb-3">
+        <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
           <button class="tg-btn tg-neu btn-primary btn-sm">Small</button>
           <button class="tg-btn tg-neu btn-primary">Default</button>
           <button class="tg-btn tg-neu btn-primary btn-lg">Large</button>
         </div>
         <h3 class="text-lg font-display mb-2">Pill</h3>
-        <div class="d-flex f-wrap gap-2 mb-3">
+        <div class="d-flex flex-wrap gap-2 mb-3">
           <button class="tg-btn tg-neu btn-primary btn-pill">Neu pill</button>
           <button class="tg-btn btn-outline-danger btn-pill">Outline pill</button>
           <button class="tg-btn tg-hybrid btn-success btn-pill btn-lg">Large pill</button>
@@ -241,7 +242,7 @@
           <button class="tg-btn btn-outline-secondary btn-block">Outline block</button>
         </div>
         <h3 class="text-lg font-display mb-2">Icon buttons</h3>
-        <div class="d-flex f-wrap gap-2 align-center mb-3">
+        <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
           <button type="button" class="tg-btn tg-neu btn-icon" aria-label="Menu">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/></svg>
           </button>
@@ -372,7 +373,7 @@
         </ul>
 
         <h3 class="text-lg font-display mb-2">Flex alignment</h3>
-        <p class="text-sm text-secondary mb-2">Use <code>justify-content-*</code> / <code>align-items-*</code> (or <code>justify-*</code> / <code>align-*</code>) on <code>.nav</code>.</p>
+        <p class="text-sm text-secondary mb-2">Use <code>justify-content-*</code> / <code>align-items-*</code> on <code>.nav</code>.</p>
         <ul class="nav nav-pills justify-content-center tg-navs tg-neu mb-3">
           <li class="nav-item"><a class="nav-link is-active" href="#navs">Active</a></li>
           <li class="nav-item"><a class="nav-link" href="#navs">Link</a></li>
@@ -385,6 +386,7 @@
         </ul>
 
         <h3 class="text-lg font-display mb-2">Tabs with dropdown</h3>
+        <p class="text-sm text-secondary mb-2">Dropdown trigger stays inactive until a menu item is selected (<code>aria-current</code>).</p>
         <ul class="nav nav-tabs tg-navs tg-hybrid">
           <li class="nav-item"><a class="nav-link is-active" href="#navs" aria-current="page">Active</a></li>
           <li class="nav-item"><a class="nav-link" href="#navs">Link</a></li>
@@ -439,7 +441,7 @@
 
       <section id="spinners" class="mb-8">
         <h2 class="text-xl font-display mb-3">Spinners</h2>
-        <div class="d-flex gap-4 align-center">
+        <div class="d-flex gap-4 align-items-center">
           <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading</span></div>
           <div class="spinner-grow text-primary" role="status"><span class="visually-hidden">Loading</span></div>
         </div>

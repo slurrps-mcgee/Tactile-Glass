@@ -2,8 +2,24 @@
   animation: tg-fade-in var(--duration-enter, 0.75s) var(--ease) both;
 }
 
+.animate-fade-out {
+  animation: tg-fade-out var(--duration-exit, 0.75s) var(--ease) both;
+}
+
 .animate-slide-up {
   animation: tg-slide-up var(--duration-enter, 0.75s) var(--ease) both;
+}
+
+.animate-slide-down {
+  animation: tg-slide-down var(--duration-enter, 0.75s) var(--ease) both;
+}
+
+.animate-slide-right {
+  animation: tg-slide-right var(--duration-enter, 0.75s) var(--ease) both;
+}
+
+.animate-slide-left {
+  animation: tg-slide-left var(--duration-enter, 0.75s) var(--ease) both;
 }
 
 .animate-pop {
