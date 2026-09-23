@@ -79,7 +79,7 @@ Bootstrap-inspired coverage, organized the same way as the Sass tree:
 | **Forms** | Form control, select, checks / switches, range, input group, floating labels, layout, validation |
 | **Helpers** | Clearfix, color-bg, colored links, focus ring, ratio, stacks, stretched link, text truncation, VR, visually hidden |
 | **Utilities** | Flex, spacing, display, sizing, overflow, position, colors, borders, shadows, morph, opacity, visibility, object-fit, interactions |
-| **Components** | Accordion, alerts, badges, breadcrumb, buttons / button group / `btn-icon`, cards, close, collapse, dropdowns, list group, navbar, navs & tabs, pagination, placeholders (shimmer), progress, sidebar, spinners, theme toggle |
+| **Components** | Alerts, badges, breadcrumb, buttons / button group / `btn-icon`, cards, close, dropdowns, list group, navbar, navs & tabs, pagination, placeholders (shimmer), progress, sidebar, spinners, theme toggle |
 
 Menus use **`tg-dropdown`** (`<details>` + `.dropdown-menu`) — CSS-only, no select-based menu control.
 
@@ -150,8 +150,9 @@ The GitHub Pages site lives in `docs/` at the repo root. GitHub Actions compiles
 | `layout.html` | Breakpoints, containers, flex row, CSS grid, gutters |
 | `content.html` | Reboot, typography, images, tables, figures |
 | `forms.html` | Form controls, validation, floating labels |
-| `components.html` | Component gallery (accordion → spinners) |
+| `components.html` | Component gallery (alerts → spinners) |
 | `helpers.html` | Clearfix, stacks, ratio, stretched-link, a11y helpers |
+| `animations.html` | Motion utilities (fade, slide, pop, shimmer, durations) |
 | `utilities.html` | Spacing, color, flex, shadows, morph |
 
 Docs chrome highlights:
@@ -197,7 +198,7 @@ src/scss/
 ├── forms/           # controls, checks, range, input-group, floating labels, validation
 ├── helpers/         # ratio, stacks, visually-hidden, …
 ├── animations/      # keyframes + motion utilities
-├── components/      # buttons, cards, nav, sidebar, accordion, …
+├── components/      # buttons, cards, nav, sidebar, …
 └── utilities/       # flex, spacing, display, morph, shadows, …
 ```
 

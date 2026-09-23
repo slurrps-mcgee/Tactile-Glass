@@ -4,7 +4,9 @@
 @use '../styles/hybrid' as *;
 
 .tg-dropdown,
-.tg-select {
+.tg-select,
+details.form-select,
+details.tg-form-select {
   position: relative;
   display: block;
   width: 100%;
@@ -23,13 +25,15 @@
     display: none !important;
   }
 
-  &:not([open]) .dropdown-menu,
-  &:not([open]) .select-menu {
-    display: none !important;
-  }
-
   &::details-content {
-    display: none;
+    display: block;
+    position: absolute;
+    inset-inline: 0;
+    top: calc(100% + var(--sz-2));
+    z-index: var(--z-overlay);
+    border-radius: var(--radius-md);
+    overflow: visible;
+    pointer-events: none;
   }
 
   &[open] {
@@ -37,13 +41,7 @@
   }
 
   &[open]::details-content {
-    display: block;
-    position: absolute;
-    inset-inline: 0;
-    top: calc(100% + var(--sz-2));
-    z-index: var(--z-overlay);
-    border-radius: var(--radius-md);
-    overflow: hidden;
+    pointer-events: auto;
   }
 
   > summary {
@@ -95,6 +93,22 @@
     padding: var(--sz-2);
     border-radius: var(--radius-md);
     overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-0.35rem) scale(0.98);
+    pointer-events: none;
+    transition:
+      opacity var(--duration) var(--ease),
+      transform var(--duration) var(--ease),
+      visibility var(--duration) var(--ease);
+  }
+
+  &[open] .dropdown-menu,
+  &[open] .select-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
   }
 
   .dropdown-header,
@@ -178,6 +192,7 @@
   &.tg-glass-frosted .dropdown-menu,
   &.tg-glass-frosted .select-menu {
     @include glass-menu-frost;
+    background: var(--glass-menu-bg);
   }
 
   &.tg-hybrid > summary,
@@ -199,8 +214,40 @@
   &.tg-hybrid-reverse .dropdown-menu,
   &.tg-hybrid-reverse .select-menu {
     @include hybrid;
-    background: var(--glass-menu-bg, var(--hybrid-bg));
+    background: var(--glass-menu-bg);
     backdrop-filter: var(--glass-menu-blur, var(--glass-blur)) saturate(160%);
     -webkit-backdrop-filter: var(--glass-menu-blur, var(--glass-blur)) saturate(160%);
   }
+}
+
+// Compact dropdown trigger inside nav / nav-tabs
+.nav-item .tg-dropdown,
+.nav .tg-dropdown {
+  width: auto;
+  display: inline-block;
+
+  > summary {
+    width: auto;
+    padding: var(--sz-2) var(--sz-4);
+    font-size: var(--fs-sm);
+    gap: var(--sz-2);
+  }
+
+  &::details-content {
+    inset-inline: auto;
+    inset-inline-start: 0;
+    min-width: 10rem;
+  }
+}
+
+.nav-tabs .nav-item .tg-dropdown > summary.nav-link,
+.nav-pills .nav-item .tg-dropdown > summary.nav-link,
+.nav .nav-item .tg-dropdown > summary.nav-link {
+  margin: 0;
+  border-radius: var(--radius-pill);
+}
+
+.nav-tabs .nav-item .tg-dropdown[open] > summary.nav-link {
+  border-color: var(--border-subtle);
+  background: tg-rgba(--tg-body-color-rgb, 0.08);
 }

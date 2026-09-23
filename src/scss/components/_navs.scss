@@ -15,6 +15,7 @@
 
 .nav-item {
   display: flex;
+  align-items: stretch;
 }
 
 .nav-link {
@@ -57,29 +58,68 @@
 }
 
 .nav-tabs {
-  gap: var(--sz-2);
-  padding-bottom: var(--sz-2);
-  border-bottom: 1px solid var(--border-subtle);
+  gap: var(--sz-1);
+  padding: var(--sz-1);
+  border-radius: var(--radius-pill);
 
   .nav-link {
-    margin-bottom: calc(-1 * var(--sz-2) - 1px);
-    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    margin-bottom: 0;
+    border-radius: var(--radius-pill);
     border: 1px solid transparent;
-    border-bottom: 0;
+    box-shadow: none !important;
+    filter: none !important;
+
+    &::before,
+    &::after {
+      box-shadow: none !important;
+    }
 
     &.active,
     &.is-active,
     &[aria-current='page'] {
       border-color: var(--border-subtle);
-      border-bottom-color: transparent;
+      background: tg-rgba(--tg-body-color-rgb, 0.08);
+      color: var(--clr-dark);
     }
   }
 }
 
 .nav-pills {
+  gap: var(--sz-1);
   padding: var(--sz-1);
   border-radius: var(--radius-pill);
-  gap: var(--sz-1);
+
+  .nav-link {
+    border-radius: var(--radius-pill);
+
+    &.active,
+    &.is-active,
+    &[aria-current='page'] {
+      color: var(--tg-white);
+      background: var(--tg-primary);
+    }
+  }
+}
+
+.nav-underline {
+  gap: var(--sz-2);
+  border-bottom: 1px solid var(--border-subtle);
+
+  .nav-link {
+    border-radius: 0;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    box-shadow: none !important;
+
+    &.active,
+    &.is-active,
+    &[aria-current='page'] {
+      border-bottom-color: var(--tg-primary);
+      color: var(--clr-dark);
+      font-weight: var(--font-weight-bold);
+      background: transparent;
+    }
+  }
 }
 
 .nav-fill {
@@ -108,99 +148,90 @@
 
 .tg-navs.tg-neu,
 .nav.tg-neu {
-  &.nav-pills {
+  &.nav-pills,
+  &.nav-tabs {
     @include neu-inset;
-  }
 
-  .nav-link.active,
-  .nav-link.is-active {
-    @include neu;
+    .nav-link.active,
+    .nav-link.is-active {
+      @include neu;
+      color: var(--clr-dark);
+      background: transparent;
+    }
   }
 }
 
 .tg-navs.tg-neu-reverse,
 .nav.tg-neu-reverse {
-  &.nav-pills {
+  &.nav-pills,
+  &.nav-tabs {
     @include neu;
-  }
 
-  .nav-link.active,
-  .nav-link.is-active {
-    @include neu-inset;
+    .nav-link.active,
+    .nav-link.is-active {
+      @include neu-inset;
+      color: var(--clr-dark);
+      background: transparent;
+    }
   }
 }
 
 .tg-navs.tg-glass,
 .nav.tg-glass {
-  &.nav-pills {
+  &.nav-pills,
+  &.nav-tabs {
     @include glass-pressed;
-  }
 
-  .nav-link.active,
-  .nav-link.is-active {
-    @include glass-raised;
+    .nav-link.active,
+    .nav-link.is-active {
+      @include glass-raised;
+      color: var(--clr-dark);
+      background: transparent;
+    }
   }
 }
 
 .tg-navs.tg-glass-reverse,
 .nav.tg-glass-reverse {
-  &.nav-pills {
+  &.nav-pills,
+  &.nav-tabs {
     @include glass-raised;
-  }
 
-  .nav-link.active,
-  .nav-link.is-active {
-    @include glass-pressed;
+    .nav-link.active,
+    .nav-link.is-active {
+      @include glass-pressed;
+      color: var(--clr-dark);
+      background: transparent;
+    }
   }
 }
 
 .tg-navs.tg-hybrid,
 .nav.tg-hybrid {
-  &.nav-pills {
+  &.nav-pills,
+  &.nav-tabs {
     @include hybrid-pressed;
-  }
 
-  .nav-link.active,
-  .nav-link.is-active {
-    @include hybrid;
+    .nav-link.active,
+    .nav-link.is-active {
+      @include hybrid;
+      color: var(--clr-dark);
+      background: transparent;
+    }
   }
 }
 
 .tg-navs.tg-hybrid-reverse,
 .nav.tg-hybrid-reverse {
-  &.nav-pills {
+  &.nav-pills,
+  &.nav-tabs {
     @include hybrid;
-  }
 
-  .nav-link.active,
-  .nav-link.is-active {
-    @include hybrid-pressed;
-  }
-}
-
-.tg-navs.tg-neu.nav-tabs,
-.nav.tg-neu.nav-tabs {
-  .nav-link.active,
-  .nav-link.is-active {
-    @include neu;
-    border-bottom-color: transparent;
-  }
-}
-
-.tg-navs.tg-glass.nav-tabs,
-.nav.tg-glass.nav-tabs {
-  .nav-link.active,
-  .nav-link.is-active {
-    @include glass-raised;
-    border-bottom-color: transparent;
-  }
-}
-
-.tg-navs.tg-hybrid.nav-tabs,
-.nav.tg-hybrid.nav-tabs {
-  .nav-link.active,
-  .nav-link.is-active {
-    @include hybrid;
-    border-bottom-color: transparent;
+    .nav-link.active,
+    .nav-link.is-active {
+      @include hybrid-pressed;
+      color: var(--clr-dark);
+      background: transparent;
+    }
   }
 }

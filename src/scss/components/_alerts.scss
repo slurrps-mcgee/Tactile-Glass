@@ -52,12 +52,6 @@
   $rgb: map.get($meta, rgb);
 
   .alert-#{$name} {
-    @if $name == dark {
-      @include semantic-lens($color, $rgb, var(--tg-dark-text-emphasis));
-    } @else if $name == light {
-      @include semantic-lens($color, $rgb, var(--tg-dark));
-    } @else {
-      @include semantic-lens($color, $rgb);
-    }
+    @include semantic-lens($color, $rgb, var(--tg-#{$name}-text-emphasis));
   }
 }

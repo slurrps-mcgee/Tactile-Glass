@@ -1,3 +1,5 @@
+@use '../base/mixins' as *;
+
 .input-group {
   position: relative;
   display: flex;
@@ -7,28 +9,84 @@
 
   > .form-control,
   > .tg-input,
-  > .form-select,
-  > .tg-form-select {
+  > .form-select:not(details),
+  > .tg-form-select:not(details),
+  > select.form-select {
     position: relative;
     flex: 1 1 auto;
     width: 1%;
     min-width: 0;
   }
 
-  > .form-control:not(:first-child),
-  > .tg-input:not(:first-child),
-  > .form-select:not(:first-child),
-  > .tg-form-select:not(:first-child) {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+  > .tg-btn,
+  > .btn,
+  > button:not(.dropdown-item):not(.select-option),
+  > .input-group-text,
+  > .tg-dropdown,
+  > .tg-select,
+  > details.form-select {
+    display: flex;
+    align-items: stretch;
   }
 
-  > .form-control:not(:last-child),
-  > .tg-input:not(:last-child),
-  > .form-select:not(:last-child),
-  > .tg-form-select:not(:last-child) {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  > .tg-btn,
+  > .btn,
+  > button:not(.dropdown-item):not(.select-option) {
+    position: relative;
+    z-index: 2;
+  }
+
+  > .tg-dropdown,
+  > .tg-select,
+  > details.form-select {
+    position: relative;
+    width: auto;
+    flex: 0 1 auto;
+    z-index: 2;
+
+    > summary {
+      display: inline-flex;
+      align-items: center;
+      height: 100%;
+      white-space: nowrap;
+    }
+  }
+
+  // Flush radii: first / last visible children
+  > :not(:first-child):not(.dropdown-menu):not(.select-menu) {
+    margin-left: -1px;
+  }
+
+  > :first-child {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+
+    > summary {
+      border-top-right-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+    }
+  }
+
+  > :last-child {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+
+    > summary {
+      border-top-left-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+    }
+  }
+
+  > :not(:first-child):not(:last-child) {
+    border-radius: 0 !important;
+
+    > summary {
+      border-radius: 0 !important;
+    }
+  }
+
+  &.flex-nowrap {
+    flex-wrap: nowrap;
   }
 }
 
@@ -37,33 +95,61 @@
   align-items: center;
   padding: var(--sz-3) var(--sz-4);
   font-size: var(--fs-base);
+  font-weight: var(--font-weight-medium);
   color: var(--clr-slate);
+  text-align: center;
   white-space: nowrap;
   background: var(--code-bg);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
+
+  .form-check-input {
+    margin-top: 0;
+  }
 }
 
-.input-group > .input-group-text:first-child {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+.input-group-sm {
+  > .form-control,
+  > .tg-input,
+  > .input-group-text,
+  > .tg-btn,
+  > .btn,
+  > .tg-dropdown > summary,
+  > .tg-select > summary,
+  > details.form-select > summary {
+    padding: var(--sz-1) var(--sz-3);
+    font-size: var(--fs-sm);
+    border-radius: var(--radius-sm);
+  }
 }
 
-.input-group > .input-group-text:last-child {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+.input-group-lg {
+  > .form-control,
+  > .tg-input,
+  > .input-group-text,
+  > .tg-btn,
+  > .btn,
+  > .tg-dropdown > summary,
+  > .tg-select > summary,
+  > details.form-select > summary {
+    padding: var(--sz-4) var(--sz-6);
+    font-size: var(--fs-lg);
+  }
 }
 
-.input-group-sm > .form-control,
-.input-group-sm > .tg-input,
-.input-group-sm > .input-group-text {
-  padding: var(--sz-1) var(--sz-3);
-  font-size: var(--fs-sm);
+// Segmented dropdown caret-only trigger
+.input-group .dropdown-toggle-split > summary,
+.tg-dropdown.dropdown-toggle-split > summary {
+  padding-left: var(--sz-3);
+  padding-right: var(--sz-3);
+
+  &::after {
+    margin-left: 0;
+  }
 }
 
-.input-group-lg > .form-control,
-.input-group-lg > .tg-input,
-.input-group-lg > .input-group-text {
-  padding: var(--sz-4) var(--sz-6);
-  font-size: var(--fs-lg);
+.input-group .tg-dropdown[open],
+.input-group .tg-select[open],
+.input-group details.form-select[open] {
+  z-index: var(--z-overlay);
 }

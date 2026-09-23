@@ -197,20 +197,26 @@
     .tg-btn.btn-#{$name}.tg-hybrid-surface,
     .tg-btn.btn-#{$name}.tg-hybrid-inset,
     .tg-btn.btn-#{$name}.tg-hybrid-reverse {
-      @include semantic-lens($color, $rgb);
+      @include semantic-lens($color, $rgb, var(--tg-#{$name}-text-emphasis));
     }
   }
 
   .tg-btn.btn-outline-#{$name} {
     background: transparent;
     border: 1px solid $color;
-    color: $color;
+    color: var(--tg-#{$name}-text-emphasis);
     box-shadow: none;
+    @include interactive-transition;
 
     &:hover,
     &:focus-visible,
+    &:active,
     &.is-active {
       @include semantic-solid($color, $rgb, $on);
+    }
+
+    &:active {
+      transform: scale(0.98);
     }
   }
 }

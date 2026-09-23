@@ -1,13 +1,13 @@
 .animate-fade-in {
-  animation: tg-fade-in var(--duration) var(--ease) both;
+  animation: tg-fade-in var(--duration-enter, 0.75s) var(--ease) both;
 }
 
 .animate-slide-up {
-  animation: tg-slide-up var(--duration) var(--ease) both;
+  animation: tg-slide-up var(--duration-enter, 0.75s) var(--ease) both;
 }
 
 .animate-pop {
-  animation: tg-pop var(--duration) var(--ease) both;
+  animation: tg-pop var(--duration-enter, 0.75s) var(--ease) both;
 }
 
 .animate-shimmer {
@@ -18,10 +18,12 @@
     transparent 100%
   );
   background-size: 200% 100%;
-  animation: tg-shimmer 1.4s var(--ease) infinite;
+  animation: tg-shimmer 2s var(--ease) infinite;
 }
 
 .duration-100 { animation-duration: 0.1s; }
 .duration-200 { animation-duration: 0.2s; }
 .duration-300 { animation-duration: 0.3s; }
 .duration-500 { animation-duration: 0.5s; }
+.duration-700 { animation-duration: 0.7s; }
+.duration-1000 { animation-duration: 1s; }

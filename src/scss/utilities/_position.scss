@@ -1,8 +1,13 @@
-.relative { position: relative !important; }
-.absolute { position: absolute !important; }
-.fixed { position: fixed !important; }
-.sticky { position: sticky !important; }
-.static { position: static !important; }
+.relative,
+.position-relative { position: relative !important; }
+.absolute,
+.position-absolute { position: absolute !important; }
+.fixed,
+.position-fixed { position: fixed !important; }
+.sticky,
+.position-sticky { position: sticky !important; }
+.static,
+.position-static { position: static !important; }
 
 .inset-0 { inset: 0 !important; }
 .inset-x-0 { left: 0 !important; right: 0 !important; }

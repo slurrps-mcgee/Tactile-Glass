@@ -73,7 +73,7 @@
         <a class="sidebar-link" href="forms.html#overview">Overview</a>
         <a class="sidebar-link" href="forms.html#form-control">Form control</a>
         <a class="sidebar-link" href="forms.html#form-select">Select</a>
-        <a class="sidebar-link" href="forms.html#checks">Checks</a>
+        <a class="sidebar-link" href="forms.html#checks">Checks & radios</a>
         <a class="sidebar-link" href="forms.html#range">Range</a>
         <a class="sidebar-link" href="forms.html#input-group">Input group</a>
         <a class="sidebar-link" href="forms.html#floating-labels">Floating labels</a>
@@ -82,7 +82,6 @@
       </div>
       <div class="sidebar-section">
         <div class="sidebar-label">Components</div>
-        <a class="sidebar-link" href="components.html#accordion">Accordion</a>
         <a class="sidebar-link" href="components.html#alerts">Alerts</a>
         <a class="sidebar-link" href="components.html#badges">Badge</a>
         <a class="sidebar-link" href="components.html#breadcrumb">Breadcrumb</a>
@@ -90,7 +89,6 @@
         <a class="sidebar-link" href="components.html#button-group">Button group</a>
         <a class="sidebar-link" href="components.html#cards">Cards</a>
         <a class="sidebar-link" href="components.html#close">Close</a>
-        <a class="sidebar-link" href="components.html#collapse">Collapse</a>
         <a class="sidebar-link" href="components.html#dropdowns">Dropdowns</a>
         <a class="sidebar-link" href="components.html#lists">List group</a>
         <a class="sidebar-link" href="components.html#navbar">Navbar</a>
@@ -115,6 +113,15 @@
         <a class="sidebar-link" href="helpers.html#visually-hidden">Visually hidden</a>
       </div>
       <div class="sidebar-section">
+        <div class="sidebar-label">Animations</div>
+        <a class="sidebar-link" href="animations.html">Overview</a>
+        <a class="sidebar-link" href="animations.html#fade-in">Fade in</a>
+        <a class="sidebar-link" href="animations.html#slide-up">Slide up</a>
+        <a class="sidebar-link" href="animations.html#pop">Pop</a>
+        <a class="sidebar-link" href="animations.html#shimmer">Shimmer</a>
+        <a class="sidebar-link" href="animations.html#durations">Durations</a>
+      </div>
+      <div class="sidebar-section">
         <div class="sidebar-label">Utilities</div>
         <a class="sidebar-link" href="utilities.html#colors">Colors</a>
         <a class="sidebar-link" href="utilities.html#spacing">Spacing</a>
@@ -130,7 +137,7 @@
 
       <section class="tg-card tg-hybrid mb-8">
         <h1 class="text-2xl font-bold font-display">Forms</h1>
-        <p class="lead mb-0"><code>form-control</code> / <code>tg-input</code> share surfaces. Prefer native <code>form-select</code> on this page; use <code>tg-dropdown</code> in menus.</p>
+        <p class="lead mb-0">Bootstrap-aligned form patterns with TactileGlass materials. Prefer <code>tg-select</code> / <code>details.form-select</code> for selects; native <code>select.form-select</code> remains available.</p>
       </section>
 
       <section id="overview" class="tg-card tg-neu mb-8">
@@ -140,76 +147,435 @@
 
       <section id="form-control" class="tg-card tg-glass mb-8">
         <h2 class="text-xl font-display mb-3">Form control</h2>
-        <label class="form-label">Email
-          <input class="form-control tg-hybrid" type="email" placeholder="you@example.com">
-        </label>
-        <label class="form-label mt-3">Textarea
-          <textarea class="form-control tg-neu" rows="2" placeholder="Notes"></textarea>
-        </label>
-        <pre class="morph-neu-inset rounded-md p-4 text-sm mt-4 mb-0">&lt;input class="form-control tg-hybrid" type="text"&gt;</pre>
+        <label class="form-label" for="fcEmail">Email address</label>
+        <input class="form-control tg-hybrid mb-3" id="fcEmail" type="email" placeholder="name@example.com">
+        <label class="form-label" for="fcText">Textarea</label>
+        <textarea class="form-control tg-neu mb-4" id="fcText" rows="3" placeholder="Notes"></textarea>
+
+        <h3 class="text-lg font-display mb-2">Sizing</h3>
+        <input class="form-control form-control-lg tg-hybrid mb-2" type="text" placeholder=".form-control-lg">
+        <input class="form-control tg-hybrid mb-2" type="text" placeholder="Default">
+        <input class="form-control form-control-sm tg-hybrid mb-4" type="text" placeholder=".form-control-sm">
+
+        <h3 class="text-lg font-display mb-2">Form text</h3>
+        <label class="form-label" for="fcPass">Password</label>
+        <input class="form-control tg-neu mb-1" id="fcPass" type="password" aria-describedby="fcPassHelp">
+        <div id="fcPassHelp" class="form-text mb-4">Must be 8–20 characters.</div>
+
+        <h3 class="text-lg font-display mb-2">Disabled / readonly</h3>
+        <input class="form-control tg-hybrid mb-2" type="text" placeholder="Disabled" disabled>
+        <input class="form-control tg-hybrid mb-2" type="text" value="Readonly…" readonly>
+        <input class="form-control-plaintext mb-4" type="text" readonly value="form-control-plaintext">
+
+        <h3 class="text-lg font-display mb-2">File &amp; color</h3>
+        <input class="form-control tg-neu mb-3" type="file">
+        <label class="form-label" for="fcColor">Color picker</label>
+        <input class="form-control form-control-color tg-hybrid" id="fcColor" type="color" value="#5386e4" title="Choose color">
       </section>
 
       <section id="form-select" class="tg-card tg-neu mb-8">
         <h2 class="text-xl font-display mb-3">Select</h2>
-        <select class="form-select tg-form-select tg-hybrid">
+        <p class="text-sm text-secondary mb-3">Dropdown-nature select via <code>details.tg-select</code> (or <code>details.form-select</code>). Same menu pattern as <code>tg-dropdown</code>.</p>
+        <details class="tg-select form-select tg-hybrid mb-3">
+          <summary>Production</summary>
+          <div class="select-menu">
+            <button type="button" class="select-option">Choose…</button>
+            <button type="button" class="select-option" aria-current="true">Production</button>
+            <button type="button" class="select-option">Staging</button>
+            <button type="button" class="select-option">Development</button>
+          </div>
+        </details>
+        <details class="tg-select form-select form-select-sm tg-glass mb-3">
+          <summary>Small</summary>
+          <div class="select-menu">
+            <button type="button" class="select-option" aria-current="true">Small</button>
+            <button type="button" class="select-option">Medium</button>
+          </div>
+        </details>
+        <details class="tg-select form-select form-select-lg tg-hybrid mb-4">
+          <summary>Large</summary>
+          <div class="select-menu">
+            <button type="button" class="select-option" aria-current="true">Large</button>
+            <button type="button" class="select-option">X-Large</button>
+          </div>
+        </details>
+        <p class="text-sm text-secondary mb-2">Native fallback:</p>
+        <select class="form-select tg-hybrid">
           <option>Choose…</option>
-          <option selected>Production</option>
-          <option>Staging</option>
+          <option selected>One</option>
+          <option>Two</option>
         </select>
-        <pre class="morph-neu-inset rounded-md p-4 text-sm mt-4 mb-0">&lt;select class="form-select tg-hybrid"&gt;…&lt;/select&gt;</pre>
       </section>
 
       <section id="checks" class="tg-card tg-hybrid mb-8">
-        <h2 class="text-xl font-display mb-3">Checks</h2>
+        <h2 class="text-xl font-display mb-3">Checks &amp; radios</h2>
+
+        <h3 class="text-lg font-display mb-2">Checks</h3>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="c1" checked>
-          <label class="form-check-label" for="c1">Remember me</label>
+          <input class="form-check-input" type="checkbox" id="checkDefault">
+          <label class="form-check-label" for="checkDefault">Default checkbox</label>
+        </div>
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" id="checkChecked" checked>
+          <label class="form-check-label" for="checkChecked">Checked checkbox</label>
+        </div>
+
+        <h3 class="text-lg font-display mb-2">Indeterminate</h3>
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" id="checkIndeterminate" data-indeterminate>
+          <label class="form-check-label" for="checkIndeterminate">Indeterminate checkbox</label>
+        </div>
+
+        <h3 class="text-lg font-display mb-2">Disabled</h3>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="checkDisabled" disabled>
+          <label class="form-check-label" for="checkDisabled">Disabled checkbox</label>
+        </div>
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" id="checkCheckedDisabled" checked disabled>
+          <label class="form-check-label" for="checkCheckedDisabled">Disabled checked</label>
+        </div>
+
+        <h3 class="text-lg font-display mb-2">Radios</h3>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="flexRadio" id="radioDefault" checked>
+          <label class="form-check-label" for="radioDefault">Default radio</label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="r" id="r1" checked>
-          <label class="form-check-label" for="r1">Option A</label>
+          <input class="form-check-input" type="radio" name="flexRadio" id="radio2">
+          <label class="form-check-label" for="radio2">Second radio</label>
         </div>
-        <label class="tg-switch tg-neu mt-3">
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="radio" name="flexRadio" id="radioDisabled" disabled>
+          <label class="form-check-label" for="radioDisabled">Disabled radio</label>
+        </div>
+
+        <h3 class="text-lg font-display mb-2">Switches</h3>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" id="flexSwitch" checked>
+          <label class="form-check-label" for="flexSwitch">Default switch</label>
+        </div>
+        <div class="form-check form-switch mb-3">
+          <input class="form-check-input" type="checkbox" id="flexSwitchDisabled" disabled>
+          <label class="form-check-label" for="flexSwitchDisabled">Disabled switch</label>
+        </div>
+        <label class="tg-switch tg-neu mb-3">
           <input type="checkbox" checked>
           <span class="visually-hidden">Tactile switch</span>
         </label>
+
+        <h3 class="text-lg font-display mb-2">Inline &amp; reverse</h3>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inline1" checked>
+          <label class="form-check-label" for="inline1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="inline2">
+          <label class="form-check-label" for="inline2">2</label>
+        </div>
+        <div class="form-check form-check-inline mb-3">
+          <input class="form-check-input" type="radio" name="inlineRadio" id="inlineRadio1" checked>
+          <label class="form-check-label" for="inlineRadio1">A</label>
+        </div>
+        <div class="form-check form-check-reverse">
+          <input class="form-check-input" type="checkbox" id="reverseCheck" checked>
+          <label class="form-check-label" for="reverseCheck">Reverse checkbox</label>
+        </div>
       </section>
 
       <section id="range" class="tg-card tg-neu mb-8">
         <h2 class="text-xl font-display mb-3">Range</h2>
-        <input class="form-range tg-hybrid" type="range" min="0" max="100" value="45">
+        <label class="form-label" for="customRange">Example range</label>
+        <input class="form-range" id="customRange" type="range" min="0" max="100" value="45">
       </section>
 
       <section id="input-group" class="tg-card tg-glass mb-8">
         <h2 class="text-xl font-display mb-3">Input group</h2>
-        <div class="input-group">
+
+        <h3 class="text-lg font-display mb-2">Basic</h3>
+        <div class="input-group mb-3">
           <span class="input-group-text tg-neu">@</span>
-          <input class="form-control tg-neu" type="text" placeholder="handle">
+          <input class="form-control tg-neu" type="text" placeholder="Username" aria-label="Username">
+        </div>
+        <div class="input-group mb-3">
+          <input class="form-control tg-neu" type="text" placeholder="Recipient" aria-label="Recipient">
+          <span class="input-group-text tg-neu">@example.com</span>
+        </div>
+        <div class="input-group mb-4">
+          <span class="input-group-text tg-neu">$</span>
+          <input class="form-control tg-neu" type="text" aria-label="Amount">
+          <span class="input-group-text tg-neu">.00</span>
+        </div>
+
+        <h3 class="text-lg font-display mb-2">Sizing</h3>
+        <div class="input-group input-group-sm mb-2">
+          <span class="input-group-text tg-neu">Small</span>
+          <input class="form-control tg-neu" type="text" aria-label="Small">
+        </div>
+        <div class="input-group input-group-lg mb-4">
+          <span class="input-group-text tg-neu">Large</span>
+          <input class="form-control tg-neu" type="text" aria-label="Large">
+        </div>
+
+        <h3 class="text-lg font-display mb-2">Checkboxes and radios</h3>
+        <div class="input-group mb-2">
+          <div class="input-group-text tg-neu">
+            <input class="form-check-input mt-0" type="checkbox" aria-label="Checkbox addon">
+          </div>
+          <input class="form-control tg-neu" type="text" aria-label="Text with checkbox">
+        </div>
+        <div class="input-group mb-4">
+          <div class="input-group-text tg-neu">
+            <input class="form-check-input mt-0" type="radio" name="igRadio" aria-label="Radio addon">
+          </div>
+          <input class="form-control tg-neu" type="text" aria-label="Text with radio">
+        </div>
+
+        <h3 class="text-lg font-display mb-2">Multiple inputs &amp; addons</h3>
+        <div class="input-group mb-3">
+          <span class="input-group-text tg-neu">First and last name</span>
+          <input class="form-control tg-neu" type="text" aria-label="First name">
+          <input class="form-control tg-neu" type="text" aria-label="Last name">
+        </div>
+        <div class="input-group mb-4">
+          <span class="input-group-text tg-neu">$</span>
+          <span class="input-group-text tg-neu">0.00</span>
+          <input class="form-control tg-neu" type="text" aria-label="Amount">
+        </div>
+
+        <h3 class="text-lg font-display mb-2">Button addons</h3>
+        <div class="input-group mb-3">
+          <button class="tg-btn tg-hybrid" type="button">Button</button>
+          <input class="form-control tg-hybrid" type="text" aria-label="With button">
+        </div>
+        <div class="input-group mb-4">
+          <input class="form-control tg-hybrid" type="text" placeholder="Recipient" aria-label="Recipient">
+          <button class="tg-btn tg-hybrid" type="button">Button</button>
+        </div>
+
+        <h3 class="text-lg font-display mb-2">Buttons with dropdowns</h3>
+        <div class="input-group mb-3">
+          <details class="tg-dropdown tg-hybrid">
+            <summary>Dropdown</summary>
+            <div class="dropdown-menu">
+              <button type="button" class="dropdown-item">Action</button>
+              <button type="button" class="dropdown-item">Another</button>
+              <button type="button" class="dropdown-item">Something else</button>
+            </div>
+          </details>
+          <input class="form-control tg-hybrid" type="text" aria-label="Text with dropdown">
+        </div>
+        <div class="input-group mb-4">
+          <input class="form-control tg-hybrid" type="text" aria-label="Text with dropdown">
+          <details class="tg-dropdown tg-hybrid">
+            <summary>Dropdown</summary>
+            <div class="dropdown-menu">
+              <button type="button" class="dropdown-item">Action</button>
+              <button type="button" class="dropdown-item">Another</button>
+            </div>
+          </details>
+        </div>
+
+        <h3 class="text-lg font-display mb-2">Segmented buttons</h3>
+        <div class="input-group mb-4">
+          <button class="tg-btn tg-hybrid" type="button">Action</button>
+          <details class="tg-dropdown tg-hybrid dropdown-toggle-split">
+            <summary><span class="visually-hidden">Toggle Dropdown</span></summary>
+            <div class="dropdown-menu">
+              <button type="button" class="dropdown-item">Action</button>
+              <button type="button" class="dropdown-item">Another</button>
+            </div>
+          </details>
+          <input class="form-control tg-hybrid" type="text" aria-label="Segmented">
+        </div>
+
+        <h3 class="text-lg font-display mb-2">Custom select in group</h3>
+        <div class="input-group mb-3">
+          <span class="input-group-text tg-neu">Options</span>
+          <details class="tg-select form-select tg-neu">
+            <summary>Choose…</summary>
+            <div class="select-menu">
+              <button type="button" class="select-option" aria-current="true">Choose…</button>
+              <button type="button" class="select-option">One</button>
+              <button type="button" class="select-option">Two</button>
+            </div>
+          </details>
+        </div>
+        <div class="input-group">
+          <details class="tg-select form-select tg-hybrid">
+            <summary>Choose…</summary>
+            <div class="select-menu">
+              <button type="button" class="select-option" aria-current="true">Choose…</button>
+              <button type="button" class="select-option">One</button>
+            </div>
+          </details>
+          <button class="tg-btn tg-hybrid" type="button">Button</button>
         </div>
       </section>
 
       <section id="floating-labels" class="tg-card tg-neu mb-8">
         <h2 class="text-xl font-display mb-3">Floating labels</h2>
-        <div class="form-floating">
+        <div class="form-floating mb-3">
           <input class="form-control tg-hybrid" id="floatEmail" placeholder=" ">
           <label for="floatEmail">Email address</label>
+        </div>
+        <div class="form-floating">
+          <textarea class="form-control tg-hybrid" id="floatText" placeholder=" " style="min-height: 6rem;"></textarea>
+          <label for="floatText">Comments</label>
         </div>
       </section>
 
       <section id="layout" class="tg-card tg-hybrid mb-8">
         <h2 class="text-xl font-display mb-3">Layout</h2>
-        <div class="row g-3">
-          <div class="col-md-6"><input class="form-control tg-neu" placeholder="First"></div>
-          <div class="col-md-6"><input class="form-control tg-neu" placeholder="Last"></div>
+
+        <h3 class="text-lg font-display mb-2">Utilities</h3>
+        <div class="mb-3">
+          <label class="form-label" for="formGroup1">Example label</label>
+          <input type="text" class="form-control tg-neu" id="formGroup1" placeholder="Example input">
         </div>
+        <div class="mb-4">
+          <label class="form-label" for="formGroup2">Another label</label>
+          <input type="text" class="form-control tg-neu" id="formGroup2" placeholder="Another input">
+        </div>
+
+        <h3 class="text-lg font-display mb-2">Form grid &amp; gutters</h3>
+        <div class="row g-3 mb-4">
+          <div class="col"><input type="text" class="form-control tg-neu" placeholder="First name" aria-label="First name"></div>
+          <div class="col"><input type="text" class="form-control tg-neu" placeholder="Last name" aria-label="Last name"></div>
+        </div>
+
+        <h3 class="text-lg font-display mb-2">Horizontal form</h3>
+        <div class="row mb-3">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control tg-hybrid" id="inputEmail3">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control tg-hybrid" id="inputPassword3">
+          </div>
+        </div>
+        <fieldset class="row mb-4">
+          <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" checked>
+              <label class="form-check-label" for="gridRadios1">First radio</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2">
+              <label class="form-check-label" for="gridRadios2">Second radio</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <h3 class="text-lg font-display mb-2">Auto-sizing / inline</h3>
+        <form class="row gy-2 gx-3 align-items-center">
+          <div class="col-auto">
+            <label class="visually-hidden" for="autoName">Name</label>
+            <input type="text" class="form-control tg-neu" id="autoName" placeholder="Jane Doe">
+          </div>
+          <div class="col-auto">
+            <div class="input-group">
+              <span class="input-group-text tg-neu">@</span>
+              <input type="text" class="form-control tg-neu" placeholder="Username" aria-label="Username">
+            </div>
+          </div>
+          <div class="col-auto">
+            <div class="form-check mb-0">
+              <input class="form-check-input" type="checkbox" id="autoCheck">
+              <label class="form-check-label" for="autoCheck">Remember me</label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <button type="button" class="tg-btn tg-hybrid btn-primary">Submit</button>
+          </div>
+        </form>
       </section>
 
       <section id="validation" class="tg-card tg-neu mb-8">
         <h2 class="text-xl font-display mb-3">Validation</h2>
-        <div class="was-validated">
-          <input class="form-control tg-hybrid is-valid" value="valid@mail.com">
-          <input class="form-control tg-hybrid is-invalid mt-3" value="bad">
-          <div class="invalid-feedback">Required field.</div>
+        <p class="text-sm text-secondary mb-3">Scope <code>:valid</code> / <code>:invalid</code> with <code>.was-validated</code> (after submit), or use server-side <code>.is-valid</code> / <code>.is-invalid</code>. See <a href="https://getbootstrap.com/docs/5.3/forms/validation/" target="_blank" rel="noopener">Bootstrap validation</a>.</p>
+
+        <h3 class="text-lg font-display mb-2">Custom styles</h3>
+        <form class="row g-3 needs-validation mb-4" novalidate>
+          <div class="col-md-4">
+            <label class="form-label" for="validationCustom01">First name</label>
+            <input type="text" class="form-control tg-hybrid" id="validationCustom01" value="Mark" required>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label" for="validationCustom02">Last name</label>
+            <input type="text" class="form-control tg-hybrid" id="validationCustom02" value="Otto" required>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label" for="validationCustomUsername">Username</label>
+            <div class="input-group has-validation">
+              <span class="input-group-text tg-neu">@</span>
+              <input type="text" class="form-control tg-neu" id="validationCustomUsername" required>
+              <div class="invalid-feedback">Please choose a username.</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="validationCustom03">City</label>
+            <input type="text" class="form-control tg-hybrid" id="validationCustom03" required>
+            <div class="invalid-feedback">Please provide a valid city.</div>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label" for="validationCustom04">State</label>
+            <select class="form-select tg-hybrid" id="validationCustom04" required>
+              <option selected disabled value="">Choose…</option>
+              <option>NY</option>
+              <option>CA</option>
+            </select>
+            <div class="invalid-feedback">Please select a valid state.</div>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label" for="validationCustom05">Zip</label>
+            <input type="text" class="form-control tg-hybrid" id="validationCustom05" required>
+            <div class="invalid-feedback">Please provide a valid zip.</div>
+          </div>
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="invalidCheck" required>
+              <label class="form-check-label" for="invalidCheck">Agree to terms and conditions</label>
+              <div class="invalid-feedback">You must agree before submitting.</div>
+            </div>
+          </div>
+          <div class="col-12">
+            <button class="tg-btn tg-hybrid btn-primary" type="submit">Submit form</button>
+          </div>
+        </form>
+
+        <h3 class="text-lg font-display mb-2">Server-side</h3>
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <label class="form-label" for="validationServer01">Valid</label>
+            <input type="text" class="form-control tg-hybrid is-valid" id="validationServer01" value="Mark" required>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label" for="validationServer02">Invalid</label>
+            <input type="text" class="form-control tg-hybrid is-invalid" id="validationServer02" required aria-describedby="validationServer02Feedback">
+            <div id="validationServer02Feedback" class="invalid-feedback">Please provide a value.</div>
+          </div>
+        </div>
+
+        <!-- <h3 class="text-lg font-display mb-2">Tooltips</h3>
+        <div class="row g-3">
+          <div class="col-md-6 position-relative">
+            <label class="form-label" for="validationTooltip01">Valid tooltip</label>
+            <input type="text" class="form-control tg-hybrid is-valid" id="validationTooltip01" value="Mark">
+            <div class="valid-tooltip">Looks good!</div>
+          </div>
+          <div class="col-md-6 position-relative">
+            <label class="form-label" for="validationTooltip02">Invalid tooltip</label>
+            <input type="text" class="form-control tg-hybrid is-invalid" id="validationTooltip02">
+            <div class="invalid-tooltip">Please provide a valid value.</div>
+          </div> -->
         </div>
       </section>
 

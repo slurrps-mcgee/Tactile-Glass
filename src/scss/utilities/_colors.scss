@@ -2,7 +2,11 @@
 @use 'sass:map';
 
 .bg-canvas { background-color: var(--tg-body-bg) !important; }
-.bg-white { background-color: var(--tg-white) !important; }
+.bg-white {
+  background-color: var(--tg-white) !important;
+  // White surfaces stay white across themes — keep ink dark for contrast.
+  color: #4c4b63 !important;
+}
 .bg-slate { background-color: var(--tg-secondary) !important; }
 .bg-transparent { background-color: transparent !important; }
 .bg-body { background-color: var(--tg-body-bg) !important; }

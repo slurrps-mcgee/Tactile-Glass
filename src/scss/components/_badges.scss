@@ -6,14 +6,15 @@
   align-items: center;
   justify-content: center;
   gap: var(--sz-1);
-  padding: var(--sz-1) var(--sz-3);
+  padding: 0.35em 0.7em;
   border-radius: var(--radius-sm);
   font-size: var(--fs-xs);
   font-weight: var(--font-weight-bold);
   letter-spacing: var(--letter-spacing-wide);
   text-transform: uppercase;
-  line-height: 1.4;
+  line-height: 1;
   white-space: nowrap;
+  vertical-align: middle;
 }
 
 .badge-pill {
@@ -21,12 +22,12 @@
 }
 
 .badge-sm {
-  padding: 0.1rem var(--sz-2);
+  padding: 0.2em 0.5em;
   font-size: 0.65rem;
 }
 
 .badge-lg {
-  padding: var(--sz-2) var(--sz-4);
+  padding: 0.45em 0.85em;
   font-size: var(--fs-sm);
 }
 
@@ -54,12 +55,6 @@
     .tg-badge.badge-dark.tg-hybrid-reverse {
       @include semantic-solid-dark;
     }
-  } @else if $name == light {
-    .tg-badge.badge-light.tg-glass,
-    .tg-badge.badge-light.tg-glass-frosted,
-    .tg-badge.badge-light.tg-hybrid {
-      @include semantic-lens($color, $rgb, var(--tg-dark));
-    }
   } @else {
     .tg-badge.badge-#{$name}.tg-glass,
     .tg-badge.badge-#{$name}.tg-glass-frosted,
@@ -70,7 +65,7 @@
     .tg-badge.badge-#{$name}.tg-hybrid-surface,
     .tg-badge.badge-#{$name}.tg-hybrid-inset,
     .tg-badge.badge-#{$name}.tg-hybrid-reverse {
-      @include semantic-lens($color, $rgb);
+      @include semantic-lens($color, $rgb, var(--tg-#{$name}-text-emphasis));
     }
   }
 

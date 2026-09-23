@@ -31,10 +31,10 @@
 
   syncToggles();
 
-  var dropdownSelector = '.tg-dropdown, .tg-select';
+  var dropdownSelector = '.tg-dropdown, .tg-select, details.form-select, details.tg-form-select';
 
   function closeSelects(except) {
-    document.querySelectorAll('details.tg-dropdown[open], details.tg-select[open]').forEach(function (select) {
+    document.querySelectorAll('details.tg-dropdown[open], details.tg-select[open], details.form-select[open], details.tg-form-select[open]').forEach(function (select) {
       if (select !== except) select.open = false;
     });
   }
@@ -69,7 +69,7 @@
   });
 
   document.addEventListener('pointerdown', function (event) {
-    if (event.target.closest('.tg-dropdown, .tg-select')) return;
+    if (event.target.closest('.tg-dropdown, .tg-select, details.form-select, details.tg-form-select')) return;
     closeSelects();
   });
 
@@ -195,4 +195,43 @@
     window.addEventListener('scroll', refresh, { passive: true });
     refresh();
   })();
+
+  function replayAnim(node) {
+    if (!node) return;
+    var name = node.style.animationName;
+    node.style.animation = 'none';
+    void node.offsetWidth;
+    node.style.animation = name || '';
+    node.style.removeProperty('animation');
+  }
+
+  document.querySelectorAll('[data-anim-replay]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var demo = btn.parentElement && btn.parentElement.querySelector('[data-anim-demo]');
+      replayAnim(demo);
+    });
+  });
+
+  document.querySelectorAll('[data-anim-replay-all]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var section = btn.closest('section');
+      if (!section) return;
+      section.querySelectorAll('[data-anim-demo]').forEach(replayAnim);
+    });
+  });
+
+  /* Bootstrap-style custom validation for .needs-validation forms */
+  document.querySelectorAll('form.needs-validation').forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  });
+
+  document.querySelectorAll('[data-indeterminate]').forEach(function (input) {
+    input.indeterminate = true;
+  });
 })();

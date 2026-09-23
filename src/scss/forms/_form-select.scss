@@ -1,8 +1,9 @@
 @use '../base/mixins' as *;
 @use 'form-control' as *;
 
-.tg-form-select,
-select.form-select {
+// Native <select> fallback
+select.form-select,
+select.tg-form-select {
   @include tg-control-surface;
   padding-right: calc(var(--sz-4) + 1.25rem);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234C4B63' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
@@ -21,4 +22,35 @@ select.form-select {
     padding: var(--sz-4) calc(var(--sz-6) + 1.25rem) var(--sz-4) var(--sz-6);
     font-size: var(--fs-lg);
   }
+}
+
+// Dropdown-nature selects (preferred): details.form-select / details.tg-select
+details.form-select,
+details.tg-form-select {
+  // Styles live with .tg-select in components/_dropdowns.scss
+}
+
+.tg-select.form-select-sm > summary,
+details.form-select.form-select-sm > summary,
+.tg-select.form-select-sm > summary {
+  padding: var(--sz-1) var(--sz-3);
+  font-size: var(--fs-sm);
+  border-radius: var(--radius-sm);
+}
+
+.tg-select.form-select-lg > summary,
+details.form-select.form-select-lg > summary {
+  padding: var(--sz-4) var(--sz-6);
+  font-size: var(--fs-lg);
+}
+
+.tg-select[multiple] .select-menu,
+details.form-select[multiple] .select-menu {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  pointer-events: auto;
+  max-height: 10rem;
+  overflow: auto;
 }

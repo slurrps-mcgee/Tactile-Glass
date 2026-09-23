@@ -1,5 +1,16 @@
 @use '../base/mixins' as *;
 
+@mixin tg-validation-state($color, $rgb) {
+  border-color: tg-rgba($rgb, 0.55);
+
+  &:focus,
+  &:focus-visible {
+    border-width: 2px;
+    border-color: $color;
+    box-shadow: 0 0 0 3px tg-rgba($rgb, 0.22);
+  }
+}
+
 .valid-feedback,
 .invalid-feedback {
   display: none;
@@ -9,29 +20,176 @@
 }
 
 .valid-feedback {
-  color: var(--tg-success);
+  color: var(--tg-form-valid-color, var(--tg-success));
 }
 
 .invalid-feedback {
-  color: var(--tg-danger);
+  color: var(--tg-form-invalid-color, var(--tg-danger));
 }
 
-.is-valid ~ .valid-feedback,
-.is-invalid ~ .invalid-feedback {
-  display: block;
+.valid-tooltip,
+.invalid-tooltip {
+  position: absolute;
+  top: 100%;
+  z-index: 5;
+  display: none;
+  max-width: 100%;
+  padding: var(--sz-2) var(--sz-3);
+  margin-top: 0.1rem;
+  font-size: var(--fs-xs);
+  color: var(--tg-white);
+  border-radius: var(--radius-sm);
 }
 
-.was-validated :valid ~ .valid-feedback,
-.was-validated :invalid ~ .invalid-feedback {
-  display: block;
+.valid-tooltip {
+  background-color: var(--tg-form-valid-color, var(--tg-success));
+}
+
+.invalid-tooltip {
+  background-color: var(--tg-form-invalid-color, var(--tg-danger));
 }
 
 .was-validated .form-control:valid,
-.was-validated .tg-input:valid {
-  border-color: tg-rgba(--clr-success-rgb, 0.5);
+.was-validated .tg-input:valid,
+.was-validated .form-select:valid,
+.was-validated .tg-form-select:valid,
+.form-control.is-valid,
+.tg-input.is-valid,
+.form-select.is-valid,
+.tg-form-select.is-valid {
+  @include tg-validation-state(var(--tg-form-valid-color, var(--tg-success)), --clr-success-rgb);
 }
 
 .was-validated .form-control:invalid,
-.was-validated .tg-input:invalid {
-  border-color: tg-rgba(--clr-danger-rgb, 0.5);
+.was-validated .tg-input:invalid,
+.was-validated .form-select:invalid,
+.was-validated .tg-form-select:invalid,
+.form-control.is-invalid,
+.tg-input.is-invalid,
+.form-select.is-invalid,
+.tg-form-select.is-invalid {
+  @include tg-validation-state(var(--tg-form-invalid-color, var(--tg-danger)), --clr-danger-rgb);
+}
+
+.was-validated .form-check-input:valid,
+.form-check-input.is-valid {
+  border-color: var(--tg-form-valid-color, var(--tg-success));
+
+  &:checked {
+    background-color: var(--tg-form-valid-color, var(--tg-success));
+    border-color: var(--tg-form-valid-color, var(--tg-success));
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px tg-rgba(--clr-success-rgb, 0.25);
+  }
+
+  ~ .form-check-label {
+    color: var(--tg-form-valid-color, var(--tg-success));
+  }
+}
+
+.was-validated .form-check-input:invalid,
+.form-check-input.is-invalid {
+  border-color: var(--tg-form-invalid-color, var(--tg-danger));
+
+  &:checked {
+    background-color: var(--tg-form-invalid-color, var(--tg-danger));
+    border-color: var(--tg-form-invalid-color, var(--tg-danger));
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px tg-rgba(--clr-danger-rgb, 0.25);
+  }
+
+  ~ .form-check-label {
+    color: var(--tg-form-invalid-color, var(--tg-danger));
+  }
+}
+
+.was-validated :valid ~ .valid-feedback,
+.was-validated :valid ~ .valid-tooltip,
+.was-validated .form-check-input:valid ~ .valid-feedback,
+.was-validated .form-check-input:valid ~ .valid-tooltip,
+.is-valid ~ .valid-feedback,
+.is-valid ~ .valid-tooltip,
+.was-validated .is-valid ~ .valid-feedback,
+.was-validated .is-valid ~ .valid-tooltip {
+  display: block;
+}
+
+.was-validated :invalid ~ .invalid-feedback,
+.was-validated :invalid ~ .invalid-tooltip,
+.was-validated .form-check-input:invalid ~ .invalid-feedback,
+.was-validated .form-check-input:invalid ~ .invalid-tooltip,
+.is-invalid ~ .invalid-feedback,
+.is-invalid ~ .invalid-tooltip,
+.was-validated .is-invalid ~ .invalid-feedback,
+.was-validated .is-invalid ~ .invalid-tooltip {
+  display: block;
+}
+
+// Input groups: keep feedback below the row; fix end radii
+.input-group {
+  > .form-control:not(:focus).is-valid,
+  > .form-control:not(:focus):valid,
+  > .form-control:not(:focus).is-invalid,
+  > .form-control:not(:focus):invalid {
+    z-index: 3;
+  }
+}
+
+.input-group.has-validation {
+  > :nth-last-child(n + 3):not(.dropdown-menu):not(.select-menu):not(.valid-tooltip):not(.invalid-tooltip):not(.valid-feedback):not(.invalid-feedback) {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+
+    > summary {
+      border-top-right-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+    }
+  }
+
+  > .form-control:nth-last-child(2),
+  > .tg-input:nth-last-child(2),
+  > .form-select:nth-last-child(2),
+  > .tg-form-select:nth-last-child(2),
+  > .tg-btn:nth-last-child(2),
+  > .input-group-text:nth-last-child(2) {
+    border-top-right-radius: var(--radius-md) !important;
+    border-bottom-right-radius: var(--radius-md) !important;
+  }
+
+  > .valid-feedback,
+  > .invalid-feedback {
+    order: 5;
+  }
+}
+
+.was-validated textarea.form-control:valid,
+.was-validated textarea.tg-input:valid,
+textarea.form-control.is-valid,
+textarea.tg-input.is-valid,
+.was-validated textarea.form-control:invalid,
+.was-validated textarea.tg-input:invalid,
+textarea.form-control.is-invalid,
+textarea.tg-input.is-invalid {
+  padding-right: calc(var(--sz-4) + 1.25rem);
+  background-repeat: no-repeat;
+  background-position: top var(--sz-3) right var(--sz-3);
+  background-size: 1rem 1rem;
+}
+
+.was-validated textarea.form-control:valid,
+.was-validated textarea.tg-input:valid,
+textarea.form-control.is-valid,
+textarea.tg-input.is-valid {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%232a8f85' d='M12.2 4.2 6.5 10l-3.7-3.7L1.5 7.6l5 5 7.7-7.7z'/%3E%3C/svg%3E");
+}
+
+.was-validated textarea.form-control:invalid,
+.was-validated textarea.tg-input:invalid,
+textarea.form-control.is-invalid,
+textarea.tg-input.is-invalid {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23c9444f' d='M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m-.75 3.5h1.5v5h-1.5zm0 6.5h1.5V13h-1.5z'/%3E%3C/svg%3E");
 }

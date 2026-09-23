@@ -77,6 +77,9 @@ $bp-xxl: 1400px;
   // Ease Tokens
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --duration: 0.2s;
+  --duration-enter: 0.75s;
+  --duration-collapse: 0.32s;
+  interpolate-size: allow-keywords;
   --focus-offset: 4px;
 
   // Z-Index Tokens (Bootstrap-aligned scale; modal slots reserved)

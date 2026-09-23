@@ -82,7 +82,6 @@
       </div>
       <div class="sidebar-section">
         <div class="sidebar-label">Components</div>
-        <a class="sidebar-link" href="components.html#accordion">Accordion</a>
         <a class="sidebar-link" href="components.html#alerts">Alerts</a>
         <a class="sidebar-link" href="components.html#badges">Badge</a>
         <a class="sidebar-link" href="components.html#breadcrumb">Breadcrumb</a>
@@ -90,7 +89,6 @@
         <a class="sidebar-link" href="components.html#button-group">Button group</a>
         <a class="sidebar-link" href="components.html#cards">Cards</a>
         <a class="sidebar-link" href="components.html#close">Close</a>
-        <a class="sidebar-link" href="components.html#collapse">Collapse</a>
         <a class="sidebar-link" href="components.html#dropdowns">Dropdowns</a>
         <a class="sidebar-link" href="components.html#lists">List group</a>
         <a class="sidebar-link" href="components.html#navbar">Navbar</a>
@@ -115,6 +113,15 @@
         <a class="sidebar-link" href="helpers.html#visually-hidden">Visually hidden</a>
       </div>
       <div class="sidebar-section">
+        <div class="sidebar-label">Animations</div>
+        <a class="sidebar-link" href="animations.html">Overview</a>
+        <a class="sidebar-link" href="animations.html#fade-in">Fade in</a>
+        <a class="sidebar-link" href="animations.html#slide-up">Slide up</a>
+        <a class="sidebar-link" href="animations.html#pop">Pop</a>
+        <a class="sidebar-link" href="animations.html#shimmer">Shimmer</a>
+        <a class="sidebar-link" href="animations.html#durations">Durations</a>
+      </div>
+      <div class="sidebar-section">
         <div class="sidebar-label">Utilities</div>
         <a class="sidebar-link" href="utilities.html#colors">Colors</a>
         <a class="sidebar-link" href="utilities.html#spacing">Spacing</a>
@@ -134,29 +141,18 @@
         <p class="lead mb-0">Generic <span class="class-chip">tg-*</span> skeleton + one material class. Dropdowns use <span class="class-chip">tg-dropdown</span> and <span class="class-chip">dropdown-menu</span>.</p>
       </section>
 
-      <section id="accordion" class="mb-8">
-        <h2 class="text-xl font-display mb-3">Accordion</h2>
-        <div class="tg-accordion tg-hybrid">
-          <details class="accordion-item" open>
-            <summary class="accordion-header">Item one</summary>
-            <div class="accordion-body">CSS-only <code>details.accordion-item</code> inside <code>tg-accordion</code>.</div>
-          </details>
-          <details class="accordion-item">
-            <summary class="accordion-header">Item two</summary>
-            <div class="accordion-body">Second panel content.</div>
-          </details>
-        </div>
-        <pre class="morph-neu-inset rounded-md p-4 text-sm mt-4 mb-0">&lt;div class="tg-accordion tg-hybrid"&gt;
-  &lt;details class="accordion-item" open&gt;…&lt;/details&gt;
-&lt;/div&gt;</pre>
-      </section>
-
       <section id="alerts" class="mb-8">
         <h2 class="text-xl font-display mb-3">Alerts</h2>
+        <p class="text-sm text-secondary mb-3">All semantic colors. Materials: neu / glass / hybrid (one each for variety).</p>
         <div class="d-flex f-col gap-3">
-          <div class="tg-alert tg-neu alert-success">Neu success</div>
-          <div class="tg-alert tg-glass alert-dark">Glass dark — readable on light and dark canvas</div>
-          <div class="tg-alert tg-hybrid alert-danger">Hybrid danger</div>
+          <div class="tg-alert tg-neu alert-primary">Primary — neu</div>
+          <div class="tg-alert tg-glass alert-secondary">Secondary — glass</div>
+          <div class="tg-alert tg-hybrid alert-success">Success — hybrid</div>
+          <div class="tg-alert tg-neu alert-info">Info — neu</div>
+          <div class="tg-alert tg-glass alert-warning">Warning — glass</div>
+          <div class="tg-alert tg-hybrid alert-danger">Danger — hybrid</div>
+          <div class="tg-alert tg-neu alert-light">Light — neu</div>
+          <div class="tg-alert tg-glass alert-dark">Dark — glass (dark ink on light theme)</div>
         </div>
       </section>
 
@@ -180,11 +176,69 @@
 
       <section id="buttons" class="mb-8">
         <h2 class="text-xl font-display mb-3">Buttons</h2>
+        <h3 class="text-lg font-display mb-2">Neu (solid)</h3>
         <div class="d-flex f-wrap gap-2 mb-3">
           <button class="tg-btn tg-neu btn-primary">Primary</button>
-          <button class="tg-btn tg-glass btn-dark">btn-dark</button>
-          <button class="tg-btn tg-hybrid btn-danger">Danger</button>
+          <button class="tg-btn tg-neu btn-secondary">Secondary</button>
+          <button class="tg-btn tg-neu btn-success">Success</button>
+          <button class="tg-btn tg-neu btn-info">Info</button>
+          <button class="tg-btn tg-neu btn-warning">Warning</button>
+          <button class="tg-btn tg-neu btn-danger">Danger</button>
+          <button class="tg-btn tg-neu btn-light">Light</button>
+          <button class="tg-btn tg-neu btn-dark">Dark</button>
           <button class="tg-btn tg-neu" disabled>Disabled</button>
+        </div>
+        <h3 class="text-lg font-display mb-2">Glass (lens)</h3>
+        <div class="d-flex f-wrap gap-2 mb-3">
+          <button class="tg-btn tg-glass btn-primary">Primary</button>
+          <button class="tg-btn tg-glass btn-secondary">Secondary</button>
+          <button class="tg-btn tg-glass btn-success">Success</button>
+          <button class="tg-btn tg-glass btn-info">Info</button>
+          <button class="tg-btn tg-glass btn-warning">Warning</button>
+          <button class="tg-btn tg-glass btn-danger">Danger</button>
+          <button class="tg-btn tg-glass btn-light">Light</button>
+          <button class="tg-btn tg-glass btn-dark">Dark</button>
+        </div>
+        <h3 class="text-lg font-display mb-2">Hybrid (lens)</h3>
+        <div class="d-flex f-wrap gap-2 mb-3">
+          <button class="tg-btn tg-hybrid btn-primary">Primary</button>
+          <button class="tg-btn tg-hybrid btn-secondary">Secondary</button>
+          <button class="tg-btn tg-hybrid btn-success">Success</button>
+          <button class="tg-btn tg-hybrid btn-info">Info</button>
+          <button class="tg-btn tg-hybrid btn-warning">Warning</button>
+          <button class="tg-btn tg-hybrid btn-danger">Danger</button>
+          <button class="tg-btn tg-hybrid btn-light">Light</button>
+          <button class="tg-btn tg-hybrid btn-dark">Dark</button>
+        </div>
+        <h3 class="text-lg font-display mb-2">Outline</h3>
+        <div class="d-flex f-wrap gap-2 mb-3">
+          <button class="tg-btn btn-outline-primary">Primary</button>
+          <button class="tg-btn btn-outline-secondary">Secondary</button>
+          <button class="tg-btn btn-outline-success">Success</button>
+          <button class="tg-btn btn-outline-info">Info</button>
+          <button class="tg-btn btn-outline-warning">Warning</button>
+          <button class="tg-btn btn-outline-danger">Danger</button>
+          <button class="tg-btn btn-outline-light">Light</button>
+          <button class="tg-btn btn-outline-dark">Dark</button>
+          <button class="tg-btn btn-outline-primary is-active">Active</button>
+        </div>
+        <p class="text-sm text-secondary mb-3">Outline fills on hover, focus, <code>:active</code>, and <code>.is-active</code>.</p>
+        <h3 class="text-lg font-display mb-2">Sizes</h3>
+        <div class="d-flex f-wrap gap-2 align-center mb-3">
+          <button class="tg-btn tg-neu btn-primary btn-sm">Small</button>
+          <button class="tg-btn tg-neu btn-primary">Default</button>
+          <button class="tg-btn tg-neu btn-primary btn-lg">Large</button>
+        </div>
+        <h3 class="text-lg font-display mb-2">Pill</h3>
+        <div class="d-flex f-wrap gap-2 mb-3">
+          <button class="tg-btn tg-neu btn-primary btn-pill">Neu pill</button>
+          <button class="tg-btn btn-outline-danger btn-pill">Outline pill</button>
+          <button class="tg-btn tg-hybrid btn-success btn-pill btn-lg">Large pill</button>
+        </div>
+        <h3 class="text-lg font-display mb-2">Block</h3>
+        <div class="mb-3" style="max-width: 20rem;">
+          <button class="tg-btn tg-neu btn-primary btn-block mb-2">Block button</button>
+          <button class="tg-btn btn-outline-secondary btn-block">Outline block</button>
         </div>
         <h3 class="text-lg font-display mb-2">Icon buttons</h3>
         <div class="d-flex f-wrap gap-2 align-center mb-3">
@@ -221,14 +275,6 @@
       <section id="close" class="mb-8">
         <h2 class="text-xl font-display mb-3">Close</h2>
         <button type="button" class="btn-close tg-neu" aria-label="Close"></button>
-      </section>
-
-      <section id="collapse" class="mb-8">
-        <h2 class="text-xl font-display mb-3">Collapse</h2>
-        <details class="tg-collapse tg-neu">
-          <summary class="collapse-toggle">Toggle panel</summary>
-          <div class="collapse-body">Collapsed content via <code>details.tg-collapse</code>.</div>
-        </details>
       </section>
 
       <section id="dropdowns" class="mb-8">
@@ -270,10 +316,87 @@
 
       <section id="navs" class="mb-8">
         <h2 class="text-xl font-display mb-3">Navs &amp; tabs</h2>
-        <ul class="nav nav-tabs tg-navs tg-hybrid">
-          <li class="nav-item"><a class="nav-link is-active" href="#navs">Active</a></li>
+
+        <h3 class="text-lg font-display mb-2">Base</h3>
+        <ul class="nav tg-navs mb-4">
+          <li class="nav-item"><a class="nav-link is-active" href="#navs" aria-current="page">Active</a></li>
+          <li class="nav-item"><a class="nav-link" href="#navs">Link</a></li>
+          <li class="nav-item"><a class="nav-link" href="#navs">Link</a></li>
+          <li class="nav-item"><a class="nav-link disabled" href="#navs" aria-disabled="true">Disabled</a></li>
+        </ul>
+
+        <h3 class="text-lg font-display mb-2">Tabs</h3>
+        <ul class="nav nav-tabs tg-navs tg-hybrid mb-4">
+          <li class="nav-item"><a class="nav-link is-active" href="#navs" aria-current="page">Active</a></li>
           <li class="nav-item"><a class="nav-link" href="#navs">Link</a></li>
           <li class="nav-item"><a class="nav-link" href="#navs">Another</a></li>
+          <li class="nav-item"><a class="nav-link disabled" href="#navs" aria-disabled="true">Disabled</a></li>
+        </ul>
+
+        <h3 class="text-lg font-display mb-2">Pills</h3>
+        <ul class="nav nav-pills tg-navs tg-neu mb-4">
+          <li class="nav-item"><a class="nav-link is-active" href="#navs" aria-current="page">Active</a></li>
+          <li class="nav-item"><a class="nav-link" href="#navs">Link</a></li>
+          <li class="nav-item"><a class="nav-link" href="#navs">Link</a></li>
+          <li class="nav-item"><a class="nav-link disabled" href="#navs" aria-disabled="true">Disabled</a></li>
+        </ul>
+
+        <h3 class="text-lg font-display mb-2">Underline</h3>
+        <ul class="nav nav-underline tg-navs mb-4">
+          <li class="nav-item"><a class="nav-link is-active" href="#navs" aria-current="page">Active</a></li>
+          <li class="nav-item"><a class="nav-link" href="#navs">Link</a></li>
+          <li class="nav-item"><a class="nav-link" href="#navs">Link</a></li>
+          <li class="nav-item"><a class="nav-link disabled" href="#navs" aria-disabled="true">Disabled</a></li>
+        </ul>
+
+        <h3 class="text-lg font-display mb-2">Fill and justify</h3>
+        <ul class="nav nav-pills nav-fill tg-navs tg-glass mb-3">
+          <li class="nav-item"><a class="nav-link is-active" href="#navs" aria-current="page">Active</a></li>
+          <li class="nav-item"><a class="nav-link" href="#navs">Much longer nav link</a></li>
+          <li class="nav-item"><a class="nav-link" href="#navs">Link</a></li>
+          <li class="nav-item"><a class="nav-link disabled" href="#navs" aria-disabled="true">Disabled</a></li>
+        </ul>
+        <ul class="nav nav-pills nav-justified tg-navs tg-hybrid mb-4">
+          <li class="nav-item"><a class="nav-link is-active" href="#navs" aria-current="page">Active</a></li>
+          <li class="nav-item"><a class="nav-link" href="#navs">Much longer nav link</a></li>
+          <li class="nav-item"><a class="nav-link" href="#navs">Link</a></li>
+          <li class="nav-item"><a class="nav-link disabled" href="#navs" aria-disabled="true">Disabled</a></li>
+        </ul>
+
+        <h3 class="text-lg font-display mb-2">Vertical</h3>
+        <ul class="nav flex-column tg-navs mb-4" style="max-width: 12rem;">
+          <li class="nav-item"><a class="nav-link is-active" href="#navs" aria-current="page">Active</a></li>
+          <li class="nav-item"><a class="nav-link" href="#navs">Link</a></li>
+          <li class="nav-item"><a class="nav-link" href="#navs">Link</a></li>
+          <li class="nav-item"><a class="nav-link disabled" href="#navs" aria-disabled="true">Disabled</a></li>
+        </ul>
+
+        <h3 class="text-lg font-display mb-2">Flex alignment</h3>
+        <p class="text-sm text-secondary mb-2">Use <code>justify-content-*</code> / <code>align-items-*</code> (or <code>justify-*</code> / <code>align-*</code>) on <code>.nav</code>.</p>
+        <ul class="nav nav-pills justify-content-center tg-navs tg-neu mb-3">
+          <li class="nav-item"><a class="nav-link is-active" href="#navs">Active</a></li>
+          <li class="nav-item"><a class="nav-link" href="#navs">Link</a></li>
+          <li class="nav-item"><a class="nav-link" href="#navs">Link</a></li>
+        </ul>
+        <ul class="nav nav-pills justify-content-end tg-navs tg-hybrid mb-4">
+          <li class="nav-item"><a class="nav-link is-active" href="#navs">Active</a></li>
+          <li class="nav-item"><a class="nav-link" href="#navs">Link</a></li>
+          <li class="nav-item"><a class="nav-link" href="#navs">Link</a></li>
+        </ul>
+
+        <h3 class="text-lg font-display mb-2">Tabs with dropdown</h3>
+        <ul class="nav nav-tabs tg-navs tg-hybrid">
+          <li class="nav-item"><a class="nav-link is-active" href="#navs" aria-current="page">Active</a></li>
+          <li class="nav-item"><a class="nav-link" href="#navs">Link</a></li>
+          <li class="nav-item">
+            <details class="tg-dropdown tg-hybrid">
+              <summary class="nav-link">Dropdown</summary>
+              <div class="dropdown-menu">
+                <button type="button" class="dropdown-item">Action</button>
+                <button type="button" class="dropdown-item">Another</button>
+              </div>
+            </details>
+          </li>
         </ul>
       </section>
 
