@@ -1,4 +1,12 @@
-.shadow { box-shadow: var(--tg-box-shadow) !important; }
-.shadow-sm { box-shadow: var(--tg-box-shadow-sm) !important; }
-.shadow-lg { box-shadow: var(--tg-box-shadow-lg) !important; }
-.shadow-none { box-shadow: none !important; }
+.shadow {
+  box-shadow: var(--tg-box-shadow) !important;
+}
+.shadow-sm {
+  box-shadow: var(--tg-box-shadow-sm) !important;
+}
+.shadow-lg {
+  box-shadow: var(--tg-box-shadow-lg) !important;
+}
+.shadow-none {
+  box-shadow: none !important;
+}

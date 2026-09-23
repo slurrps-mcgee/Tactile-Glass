@@ -1,4 +1,4 @@
-@use '../base/mixins' as *;
+@use "../base/mixins" as *;
 
 .grid {
   display: grid;
@@ -21,20 +21,20 @@
 
 @include tg-infix using ($bp) {
   @for $n from 1 through 12 {
-    .#{tg-infix-class('grid', $bp, $n)} {
+    .#{tg-infix-class("grid", $bp, $n)} {
       display: grid;
       grid-template-columns: repeat(#{$n}, minmax(0, 1fr));
     }
   }
 
   @for $n from 1 through 4 {
-    .#{tg-infix-class('cols', $bp, $n)} {
+    .#{tg-infix-class("cols", $bp, $n)} {
       grid-template-columns: repeat(#{$n}, minmax(0, 1fr)) !important;
     }
   }
 
   @for $n from 1 through 12 {
-    $col-class: tg-infix-class('col', $bp, $n);
+    $col-class: tg-infix-class("col", $bp, $n);
 
     .grid > .#{$col-class},
     .grid-auto > .#{$col-class} {
@@ -52,13 +52,13 @@
     }
   }
 
-  .#{tg-infix-class('col-span', $bp, 'full')} {
+  .#{tg-infix-class("col-span", $bp, "full")} {
     grid-column: 1 / -1 !important;
   }
 
   @for $n from 1 through 12 {
-    $start-class: tg-infix-class('col-start', $bp, $n);
-    $offset-class: tg-infix-class('offset', $bp, $n);
+    $start-class: tg-infix-class("col-start", $bp, $n);
+    $offset-class: tg-infix-class("offset", $bp, $n);
 
     .grid > .#{$start-class},
     .grid-auto > .#{$start-class},
@@ -69,28 +69,58 @@
   }
 
   @for $n from 1 through 5 {
-    .#{tg-infix-class('order', $bp, $n)} {
+    .#{tg-infix-class("order", $bp, $n)} {
       order: #{$n} !important;
     }
   }
 
-  .#{tg-infix-class('order', $bp, 'first')} { order: -9999 !important; }
-  .#{tg-infix-class('order', $bp, 'last')} { order: 9999 !important; }
-  .#{tg-infix-class('order', $bp, 'none')} { order: 0 !important; }
+  .#{tg-infix-class("order", $bp, "first")} {
+    order: -9999 !important;
+  }
+  .#{tg-infix-class("order", $bp, "last")} {
+    order: 9999 !important;
+  }
+  .#{tg-infix-class("order", $bp, "none")} {
+    order: 0 !important;
+  }
 }
 
-.d-grid { display: grid !important; }
+.d-grid {
+  display: grid !important;
+}
 
-.row-span-1 { grid-row: span 1 / span 1 !important; }
-.row-span-2 { grid-row: span 2 / span 2 !important; }
-.row-span-full { grid-row: 1 / -1 !important; }
+.row-span-1 {
+  grid-row: span 1 / span 1 !important;
+}
+.row-span-2 {
+  grid-row: span 2 / span 2 !important;
+}
+.row-span-full {
+  grid-row: 1 / -1 !important;
+}
 
-.items-start   { align-items: start !important; }
-.items-center  { align-items: center !important; }
-.items-end     { align-items: end !important; }
-.items-stretch { align-items: stretch !important; }
+.items-start {
+  align-items: start !important;
+}
+.items-center {
+  align-items: center !important;
+}
+.items-end {
+  align-items: end !important;
+}
+.items-stretch {
+  align-items: stretch !important;
+}
 
-.content-start   { justify-content: start !important; }
-.content-center  { justify-content: center !important; }
-.content-end     { justify-content: end !important; }
-.content-stretch { justify-content: stretch !important; }
+.content-start {
+  justify-content: start !important;
+}
+.content-center {
+  justify-content: center !important;
+}
+.content-end {
+  justify-content: end !important;
+}
+.content-stretch {
+  justify-content: stretch !important;
+}

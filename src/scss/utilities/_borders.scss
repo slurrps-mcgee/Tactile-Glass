@@ -1,17 +1,31 @@
-@use '../base/mixins' as *;
-@use 'sass:map';
+@use "../base/mixins" as *;
+@use "sass:map";
 
 .border {
   --tg-border-opacity: 1;
-  border: var(--tg-border-width, 1px) var(--tg-border-style, solid) rgba(var(--tg-body-color-rgb), calc(0.18 * var(--tg-border-opacity, 1))) !important;
+  border: var(--tg-border-width, 1px) var(--tg-border-style, solid)
+    rgba(var(--tg-body-color-rgb), calc(0.18 * var(--tg-border-opacity, 1))) !important;
 }
 .border-0,
-.border-none { border: 0 !important; }
-.border-2 { border-width: 2px !important; border-style: solid !important; }
-.border-top { border-top: 1px solid var(--border-subtle) !important; }
-.border-bottom { border-bottom: 1px solid var(--border-subtle) !important; }
-.border-start { border-left: 1px solid var(--border-subtle) !important; }
-.border-end { border-right: 1px solid var(--border-subtle) !important; }
+.border-none {
+  border: 0 !important;
+}
+.border-2 {
+  border-width: 2px !important;
+  border-style: solid !important;
+}
+.border-top {
+  border-top: 1px solid var(--border-subtle) !important;
+}
+.border-bottom {
+  border-bottom: 1px solid var(--border-subtle) !important;
+}
+.border-start {
+  border-left: 1px solid var(--border-subtle) !important;
+}
+.border-end {
+  border-right: 1px solid var(--border-subtle) !important;
+}
 
 @each $name, $meta in $tg-colors {
   $rgb: map.get($meta, rgb);
@@ -26,17 +40,35 @@
   --tg-border-opacity: 1;
   border-color: rgba(var(--tg-white-rgb), var(--tg-border-opacity)) !important;
 }
-.border-canvas { border-color: var(--clr-bg) !important; }
+.border-canvas {
+  border-color: var(--clr-bg) !important;
+}
 
-.rounded { border-radius: var(--radius-md) !important; }
+.rounded {
+  border-radius: var(--radius-md) !important;
+}
 .rounded-0,
-.rounded-none { border-radius: 0 !important; }
-.rounded-sm { border-radius: var(--radius-sm) !important; }
-.rounded-md { border-radius: var(--radius-md) !important; }
-.rounded-lg { border-radius: var(--radius-lg) !important; }
-.rounded-pill { border-radius: var(--radius-pill) !important; }
-.rounded-circle { border-radius: 50% !important; }
-.rounded-full { border-radius: var(--radius-pill) !important; }
+.rounded-none {
+  border-radius: 0 !important;
+}
+.rounded-sm {
+  border-radius: var(--radius-sm) !important;
+}
+.rounded-md {
+  border-radius: var(--radius-md) !important;
+}
+.rounded-lg {
+  border-radius: var(--radius-lg) !important;
+}
+.rounded-pill {
+  border-radius: var(--radius-pill) !important;
+}
+.rounded-circle {
+  border-radius: 50% !important;
+}
+.rounded-full {
+  border-radius: var(--radius-pill) !important;
+}
 
 .rounded-squircle {
   border-radius: var(--radius-squircle) !important;

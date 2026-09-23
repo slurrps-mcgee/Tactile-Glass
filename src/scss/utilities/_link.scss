@@ -1,5 +1,5 @@
-@use '../base/mixins' as *;
-@use 'sass:map';
+@use "../base/mixins" as *;
+@use "sass:map";
 
 // Bootstrap 5.3 link utilities
 // https://getbootstrap.com/docs/5.3/utilities/link/
@@ -9,13 +9,13 @@ $tg-link-opacities: (
   25: 0.25,
   50: 0.5,
   75: 0.75,
-  100: 1
+  100: 1,
 );
 
 $tg-link-offsets: (
   1: 0.125em,
   2: 0.25em,
-  3: 0.375em
+  3: 0.375em,
 );
 
 @each $key, $value in $tg-link-opacities {
@@ -36,7 +36,10 @@ $tg-link-offsets: (
 .link-underline {
   --tg-link-underline-opacity: 1;
   text-decoration-line: underline !important;
-  text-decoration-color: rgba(var(--tg-link-color-rgb), var(--tg-link-underline-opacity, 1)) !important;
+  text-decoration-color: rgba(
+    var(--tg-link-color-rgb),
+    var(--tg-link-underline-opacity, 1)
+  ) !important;
 }
 
 @each $name, $meta in $tg-colors {
@@ -45,7 +48,10 @@ $tg-link-offsets: (
   .link-underline-#{$name} {
     --tg-link-underline-opacity: 1;
     text-decoration-line: underline !important;
-    text-decoration-color: rgba(var(#{$rgb}), var(--tg-link-underline-opacity, 1)) !important;
+    text-decoration-color: rgba(
+      var(#{$rgb}),
+      var(--tg-link-underline-opacity, 1)
+    ) !important;
   }
 }
 

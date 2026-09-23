@@ -37,9 +37,21 @@
   animation: tg-shimmer 2s var(--ease) infinite;
 }
 
-.duration-100 { animation-duration: 0.1s; }
-.duration-200 { animation-duration: 0.2s; }
-.duration-300 { animation-duration: 0.3s; }
-.duration-500 { animation-duration: 0.5s; }
-.duration-700 { animation-duration: 0.7s; }
-.duration-1000 { animation-duration: 1s; }
+.duration-100 {
+  animation-duration: 0.1s;
+}
+.duration-200 {
+  animation-duration: 0.2s;
+}
+.duration-300 {
+  animation-duration: 0.3s;
+}
+.duration-500 {
+  animation-duration: 0.5s;
+}
+.duration-700 {
+  animation-duration: 0.7s;
+}
+.duration-1000 {
+  animation-duration: 1s;
+}

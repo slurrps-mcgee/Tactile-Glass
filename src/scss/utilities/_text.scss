@@ -1,24 +1,58 @@
 // Bootstrap 5.3 text utilities (line-height + aliases mirrored in content/_typography)
 
-.lh-1 { line-height: 1 !important; }
-.lh-sm { line-height: var(--line-height-tight) !important; }
-.lh-base { line-height: var(--line-height-relaxed) !important; }
-.lh-lg { line-height: var(--line-height-loose) !important; }
+.lh-1 {
+  line-height: 1 !important;
+}
+.lh-sm {
+  line-height: var(--line-height-tight) !important;
+}
+.lh-base {
+  line-height: var(--line-height-relaxed) !important;
+}
+.lh-lg {
+  line-height: var(--line-height-loose) !important;
+}
 
-.font-monospace { font-family: var(--tg-font-monospace, var(--font-mono)) !important; }
+.font-monospace {
+  font-family: var(--tg-font-monospace, var(--font-mono)) !important;
+}
 
-.fst-italic { font-style: italic !important; }
-.fst-normal { font-style: normal !important; }
+.fst-italic {
+  font-style: italic !important;
+}
+.fst-normal {
+  font-style: normal !important;
+}
 
-.fw-lighter { font-weight: lighter !important; }
-.fw-light { font-weight: 300 !important; }
-.fw-semibold { font-weight: 600 !important; }
-.fw-bolder { font-weight: bolder !important; }
+.fw-lighter {
+  font-weight: lighter !important;
+}
+.fw-light {
+  font-weight: 300 !important;
+}
+.fw-semibold {
+  font-weight: 600 !important;
+}
+.fw-bolder {
+  font-weight: bolder !important;
+}
 
-.text-decoration-underline { text-decoration: underline !important; }
-.text-decoration-line-through { text-decoration: line-through !important; }
-.text-decoration-none { text-decoration: none !important; }
+.text-decoration-underline {
+  text-decoration: underline !important;
+}
+.text-decoration-line-through {
+  text-decoration: line-through !important;
+}
+.text-decoration-none {
+  text-decoration: none !important;
+}
 
-.text-body-secondary { color: var(--tg-secondary-color) !important; }
-.text-body-tertiary { color: var(--tg-tertiary-color) !important; }
-.text-body-emphasis { color: var(--tg-emphasis-color) !important; }
+.text-body-secondary {
+  color: var(--tg-secondary-color) !important;
+}
+.text-body-tertiary {
+  color: var(--tg-tertiary-color) !important;
+}
+.text-body-emphasis {
+  color: var(--tg-emphasis-color) !important;
+}

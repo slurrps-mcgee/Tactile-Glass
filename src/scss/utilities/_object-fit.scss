@@ -1,16 +1,26 @@
 // Bootstrap object-fit names + short aliases
 
 .object-fit-contain,
-.object-contain { object-fit: contain !important; }
+.object-contain {
+  object-fit: contain !important;
+}
 
 .object-fit-cover,
-.object-cover { object-fit: cover !important; }
+.object-cover {
+  object-fit: cover !important;
+}
 
 .object-fit-fill,
-.object-fill { object-fit: fill !important; }
+.object-fill {
+  object-fit: fill !important;
+}
 
 .object-fit-none,
-.object-none { object-fit: none !important; }
+.object-none {
+  object-fit: none !important;
+}
 
 .object-fit-scale-down,
-.object-scale-down { object-fit: scale-down !important; }
+.object-scale-down {
+  object-fit: scale-down !important;
+}

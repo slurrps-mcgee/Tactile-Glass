@@ -1,57 +1,143 @@
-@use '../base/mixins' as *;
+@use "../base/mixins" as *;
 
 // Bootstrap 5.3 flex utilities (canonical naming)
 
-.flex-row { flex-direction: row !important; }
-.flex-row-reverse { flex-direction: row-reverse !important; }
-.flex-column { flex-direction: column !important; }
-.flex-column-reverse { flex-direction: column-reverse !important; }
+.flex-row {
+  flex-direction: row !important;
+}
+.flex-row-reverse {
+  flex-direction: row-reverse !important;
+}
+.flex-column {
+  flex-direction: column !important;
+}
+.flex-column-reverse {
+  flex-direction: column-reverse !important;
+}
 
-.flex-wrap { flex-wrap: wrap !important; }
-.flex-nowrap { flex-wrap: nowrap !important; }
-.flex-wrap-reverse { flex-wrap: wrap-reverse !important; }
+.flex-wrap {
+  flex-wrap: wrap !important;
+}
+.flex-nowrap {
+  flex-wrap: nowrap !important;
+}
+.flex-wrap-reverse {
+  flex-wrap: wrap-reverse !important;
+}
 
-.flex-fill { flex: 1 1 auto !important; }
-.flex-grow-0 { flex-grow: 0 !important; }
-.flex-grow-1 { flex-grow: 1 !important; }
-.flex-shrink-0 { flex-shrink: 0 !important; }
-.flex-shrink-1 { flex-shrink: 1 !important; }
+.flex-fill {
+  flex: 1 1 auto !important;
+}
+.flex-grow-0 {
+  flex-grow: 0 !important;
+}
+.flex-grow-1 {
+  flex-grow: 1 !important;
+}
+.flex-shrink-0 {
+  flex-shrink: 0 !important;
+}
+.flex-shrink-1 {
+  flex-shrink: 1 !important;
+}
 
-.justify-content-start { justify-content: flex-start !important; }
-.justify-content-end { justify-content: flex-end !important; }
-.justify-content-center { justify-content: center !important; }
-.justify-content-between { justify-content: space-between !important; }
-.justify-content-around { justify-content: space-around !important; }
-.justify-content-evenly { justify-content: space-evenly !important; }
+.justify-content-start {
+  justify-content: flex-start !important;
+}
+.justify-content-end {
+  justify-content: flex-end !important;
+}
+.justify-content-center {
+  justify-content: center !important;
+}
+.justify-content-between {
+  justify-content: space-between !important;
+}
+.justify-content-around {
+  justify-content: space-around !important;
+}
+.justify-content-evenly {
+  justify-content: space-evenly !important;
+}
 
-.align-items-start { align-items: flex-start !important; }
-.align-items-end { align-items: flex-end !important; }
-.align-items-center { align-items: center !important; }
-.align-items-baseline { align-items: baseline !important; }
-.align-items-stretch { align-items: stretch !important; }
+.align-items-start {
+  align-items: flex-start !important;
+}
+.align-items-end {
+  align-items: flex-end !important;
+}
+.align-items-center {
+  align-items: center !important;
+}
+.align-items-baseline {
+  align-items: baseline !important;
+}
+.align-items-stretch {
+  align-items: stretch !important;
+}
 
-.align-content-start { align-content: flex-start !important; }
-.align-content-end { align-content: flex-end !important; }
-.align-content-center { align-content: center !important; }
-.align-content-between { align-content: space-between !important; }
-.align-content-around { align-content: space-around !important; }
-.align-content-stretch { align-content: stretch !important; }
+.align-content-start {
+  align-content: flex-start !important;
+}
+.align-content-end {
+  align-content: flex-end !important;
+}
+.align-content-center {
+  align-content: center !important;
+}
+.align-content-between {
+  align-content: space-between !important;
+}
+.align-content-around {
+  align-content: space-around !important;
+}
+.align-content-stretch {
+  align-content: stretch !important;
+}
 
-.align-self-auto { align-self: auto !important; }
-.align-self-start { align-self: flex-start !important; }
-.align-self-end { align-self: flex-end !important; }
-.align-self-center { align-self: center !important; }
-.align-self-baseline { align-self: baseline !important; }
-.align-self-stretch { align-self: stretch !important; }
+.align-self-auto {
+  align-self: auto !important;
+}
+.align-self-start {
+  align-self: flex-start !important;
+}
+.align-self-end {
+  align-self: flex-end !important;
+}
+.align-self-center {
+  align-self: center !important;
+}
+.align-self-baseline {
+  align-self: baseline !important;
+}
+.align-self-stretch {
+  align-self: stretch !important;
+}
 
-.order-first { order: -1 !important; }
-.order-0 { order: 0 !important; }
-.order-1 { order: 1 !important; }
-.order-2 { order: 2 !important; }
-.order-3 { order: 3 !important; }
-.order-4 { order: 4 !important; }
-.order-5 { order: 5 !important; }
-.order-last { order: 6 !important; }
+.order-first {
+  order: -1 !important;
+}
+.order-0 {
+  order: 0 !important;
+}
+.order-1 {
+  order: 1 !important;
+}
+.order-2 {
+  order: 2 !important;
+}
+.order-3 {
+  order: 3 !important;
+}
+.order-4 {
+  order: 4 !important;
+}
+.order-5 {
+  order: 5 !important;
+}
+.order-last {
+  order: 6 !important;
+}
 
 $tg-justify-content: (
   start: flex-start,
@@ -59,7 +145,7 @@ $tg-justify-content: (
   center: center,
   between: space-between,
   around: space-around,
-  evenly: space-evenly
+  evenly: space-evenly,
 );
 
 $tg-align-items: (
@@ -67,47 +153,47 @@ $tg-align-items: (
   end: flex-end,
   center: center,
   baseline: baseline,
-  stretch: stretch
+  stretch: stretch,
 );
 
 $tg-flex-direction: (
   row: row,
-  'row-reverse': row-reverse,
+  "row-reverse": row-reverse,
   column: column,
-  'column-reverse': column-reverse
+  "column-reverse": column-reverse,
 );
 
 $tg-flex-wrap: (
   wrap: wrap,
   nowrap: nowrap,
-  'wrap-reverse': wrap-reverse
+  "wrap-reverse": wrap-reverse,
 );
 
 @include tg-infix using ($bp) {
   @each $key, $value in $tg-flex-direction {
-    .#{tg-infix-class('flex', $bp, $key)} {
+    .#{tg-infix-class("flex", $bp, $key)} {
       flex-direction: $value !important;
     }
   }
 
   @each $key, $value in $tg-flex-wrap {
-    .#{tg-infix-class('flex', $bp, $key)} {
+    .#{tg-infix-class("flex", $bp, $key)} {
       flex-wrap: $value !important;
     }
   }
 
   @each $key, $value in $tg-justify-content {
-    .#{tg-infix-class('justify-content', $bp, $key)} {
+    .#{tg-infix-class("justify-content", $bp, $key)} {
       justify-content: $value !important;
     }
   }
 
   @each $key, $value in $tg-align-items {
-    .#{tg-infix-class('align-items', $bp, $key)} {
+    .#{tg-infix-class("align-items", $bp, $key)} {
       align-items: $value !important;
     }
 
-    .#{tg-infix-class('align-self', $bp, $key)} {
+    .#{tg-infix-class("align-self", $bp, $key)} {
       align-self: $value !important;
     }
   }

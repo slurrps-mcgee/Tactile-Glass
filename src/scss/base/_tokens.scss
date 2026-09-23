@@ -12,10 +12,11 @@ $bp-xxl: 1400px;
 // Root Tokens
 :root {
   // Font Tokens
-  --font-sans: 'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
-  --font-display: 'Futura', 'Trebuchet MS', Arial, system-ui, sans-serif;
-  --font-serif: 'Georgia', 'Times New Roman', Times, serif;
-  --font-mono: 'SF Mono', 'Cascadia Code', 'Fira Code', Menlo, Monaco, Consolas, monospace;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
+  --font-display: "Futura", "Trebuchet MS", Arial, system-ui, sans-serif;
+  --font-serif: "Georgia", "Times New Roman", Times, serif;
+  --font-mono:
+    "SF Mono", "Cascadia Code", "Fira Code", Menlo, Monaco, Consolas, monospace;
 
   // Font Weight Tokens
   --font-weight-normal: 400;

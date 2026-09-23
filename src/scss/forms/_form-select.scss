@@ -1,5 +1,5 @@
-@use '../base/mixins' as *;
-@use 'form-control' as *;
+@use "../base/mixins" as *;
+@use "form-control" as *;
 
 // Native <select> fallback
 select.form-select,

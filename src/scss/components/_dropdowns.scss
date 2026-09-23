@@ -1,7 +1,7 @@
-@use '../base/mixins' as *;
-@use '../styles/neu' as *;
-@use '../styles/glass' as *;
-@use '../styles/hybrid' as *;
+@use "../base/mixins" as *;
+@use "../styles/neu" as *;
+@use "../styles/glass" as *;
+@use "../styles/hybrid" as *;
 
 .tg-dropdown,
 .tg-select,
@@ -60,16 +60,17 @@ details.tg-form-select {
     &::-webkit-details-marker,
     &::marker {
       display: none;
-      content: '';
+      content: "";
     }
 
     &::after {
-      content: '';
+      content: "";
       width: 0.75rem;
       height: 0.5rem;
       margin-left: auto;
       flex-shrink: 0;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234C4B63' d='M1 1l5 5 5-5'/%3E%3C/svg%3E") center / contain no-repeat;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234C4B63' d='M1 1l5 5 5-5'/%3E%3C/svg%3E")
+        center / contain no-repeat;
       transition: transform var(--duration) var(--ease);
     }
   }
@@ -216,7 +217,8 @@ details.tg-form-select {
     @include hybrid;
     background: var(--glass-menu-bg);
     backdrop-filter: var(--glass-menu-blur, var(--glass-blur)) saturate(160%);
-    -webkit-backdrop-filter: var(--glass-menu-blur, var(--glass-blur)) saturate(160%);
+    -webkit-backdrop-filter: var(--glass-menu-blur, var(--glass-blur))
+      saturate(160%);
   }
 }
 
@@ -234,7 +236,7 @@ details.tg-form-select {
   }
 
   // Quiet trigger until a menu item is selected (or summary is .active / .is-active).
-  &:not(:has([aria-current='true'])) > summary:not(.active):not(.is-active) {
+  &:not(:has([aria-current="true"])) > summary:not(.active):not(.is-active) {
     background: transparent !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;

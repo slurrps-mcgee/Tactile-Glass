@@ -1,7 +1,7 @@
-@use '../base/mixins' as *;
-@use '../styles/neu' as *;
-@use '../styles/glass' as *;
-@use '../styles/hybrid' as *;
+@use "../base/mixins" as *;
+@use "../styles/neu" as *;
+@use "../styles/glass" as *;
+@use "../styles/hybrid" as *;
 
 @mixin tg-control-surface {
   display: block;
@@ -47,7 +47,9 @@
       outline: none;
       border-width: 2px;
       border-color: tg-rgba(--clr-primary-rgb, 0.55);
-      box-shadow: var(--neu-shadow-inset), 0 0 0 3px tg-rgba(--clr-primary-rgb, 0.22);
+      box-shadow:
+        var(--neu-shadow-inset),
+        0 0 0 3px tg-rgba(--clr-primary-rgb, 0.22);
     }
   }
 
@@ -83,7 +85,9 @@
       background: var(--hybrid-bg);
       border-width: 2px;
       border-color: tg-rgba(--clr-primary-rgb, 0.6);
-      box-shadow: var(--neu-shadow-inset), 0 0 0 3px tg-rgba(--clr-primary-rgb, 0.2);
+      box-shadow:
+        var(--neu-shadow-inset),
+        0 0 0 3px tg-rgba(--clr-primary-rgb, 0.2);
     }
   }
 }
@@ -125,7 +129,7 @@
   }
 }
 
-.form-control[type='file'] {
+.form-control[type="file"] {
   overflow: hidden;
 
   &:not(:disabled):not([readonly]) {

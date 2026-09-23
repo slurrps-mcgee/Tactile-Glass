@@ -1,36 +1,64 @@
-@use '../base/mixins' as *;
-@use 'sass:map';
+@use "../base/mixins" as *;
+@use "sass:map";
 
-.bg-canvas { background-color: var(--tg-body-bg) !important; }
+.bg-canvas {
+  background-color: var(--tg-body-bg) !important;
+}
 .bg-white {
   --tg-bg-opacity: 1;
   background-color: rgba(var(--tg-white-rgb), var(--tg-bg-opacity)) !important;
   // White surfaces stay white across themes — keep ink dark for contrast.
   color: #4c4b63 !important;
 }
-.bg-slate { background-color: var(--tg-secondary) !important; }
-.bg-transparent { background-color: transparent !important; }
-.bg-body { background-color: var(--tg-body-bg) !important; }
-.bg-body-secondary { background-color: var(--tg-secondary-bg) !important; }
-.bg-body-tertiary { background-color: var(--tg-tertiary-bg) !important; }
-.bg-gradient { background-image: var(--tg-gradient) !important; }
+.bg-slate {
+  background-color: var(--tg-secondary) !important;
+}
+.bg-transparent {
+  background-color: transparent !important;
+}
+.bg-body {
+  background-color: var(--tg-body-bg) !important;
+}
+.bg-body-secondary {
+  background-color: var(--tg-secondary-bg) !important;
+}
+.bg-body-tertiary {
+  background-color: var(--tg-tertiary-bg) !important;
+}
+.bg-gradient {
+  background-image: var(--tg-gradient) !important;
+}
 
-.text-canvas { color: var(--tg-body-bg) !important; }
+.text-canvas {
+  color: var(--tg-body-bg) !important;
+}
 .text-white {
   --tg-text-opacity: 1;
   color: rgba(var(--tg-white-rgb), var(--tg-text-opacity)) !important;
 }
 .text-slate,
-.text-muted { color: var(--tg-secondary-color) !important; }
+.text-muted {
+  color: var(--tg-secondary-color) !important;
+}
 .text-light {
   --tg-text-opacity: 1;
   color: rgba(var(--tg-light-rgb), var(--tg-text-opacity)) !important;
 }
-.text-transparent { color: transparent !important; }
-.text-body { color: var(--tg-body-color) !important; }
-.text-body-secondary { color: var(--tg-secondary-color) !important; }
-.text-body-tertiary { color: var(--tg-tertiary-color) !important; }
-.text-body-emphasis { color: var(--tg-emphasis-color) !important; }
+.text-transparent {
+  color: transparent !important;
+}
+.text-body {
+  color: var(--tg-body-color) !important;
+}
+.text-body-secondary {
+  color: var(--tg-secondary-color) !important;
+}
+.text-body-tertiary {
+  color: var(--tg-tertiary-color) !important;
+}
+.text-body-emphasis {
+  color: var(--tg-emphasis-color) !important;
+}
 
 @each $name, $meta in $tg-colors {
   $color: map.get($meta, color);
@@ -74,11 +102,17 @@ $tg-color-opacities: (
   25: 0.25,
   50: 0.5,
   75: 0.75,
-  100: 1
+  100: 1,
 );
 
 @each $key, $value in $tg-color-opacities {
-  .text-opacity-#{$key} { --tg-text-opacity: #{$value}; }
-  .bg-opacity-#{$key} { --tg-bg-opacity: #{$value}; }
-  .border-opacity-#{$key} { --tg-border-opacity: #{$value}; }
+  .text-opacity-#{$key} {
+    --tg-text-opacity: #{$value};
+  }
+  .bg-opacity-#{$key} {
+    --tg-bg-opacity: #{$value};
+  }
+  .border-opacity-#{$key} {
+    --tg-border-opacity: #{$value};
+  }
 }

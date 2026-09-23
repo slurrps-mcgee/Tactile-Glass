@@ -1,4 +1,4 @@
-@use 'mixins' as *;
+@use "mixins" as *;
 
 /* src/scss/base/_typography.scss */
 
@@ -13,8 +13,18 @@ body {
 }
 
 // Heading Typography
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
   font-family: var(--font-display);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
@@ -23,23 +33,58 @@ h1, h2, h3, h4, h5, h6,
 }
 
 // Heading Sizes
-h1, .h1 { font-size: var(--fs-2xl); }
-h2, .h2 { font-size: var(--fs-xl); }
-h3, .h3 { font-size: var(--fs-lg); }
-h4, .h4 { font-size: var(--fs-base); }
-h5, .h5 { font-size: var(--fs-sm); }
-h6, .h6 { font-size: var(--fs-xs); }
+h1,
+.h1 {
+  font-size: var(--fs-2xl);
+}
+h2,
+.h2 {
+  font-size: var(--fs-xl);
+}
+h3,
+.h3 {
+  font-size: var(--fs-lg);
+}
+h4,
+.h4 {
+  font-size: var(--fs-base);
+}
+h5,
+.h5 {
+  font-size: var(--fs-sm);
+}
+h6,
+.h6 {
+  font-size: var(--fs-xs);
+}
 
 // Display Sizes
-.display-1 { font-size: var(--fs-6xl); }
-.display-2 { font-size: var(--fs-5xl); }
-.display-3 { font-size: var(--fs-4xl); }
-.display-4 { font-size: var(--fs-3xl); }
-.display-5 { font-size: var(--fs-2xl); }
-.display-6 { font-size: var(--fs-xl); }
+.display-1 {
+  font-size: var(--fs-6xl);
+}
+.display-2 {
+  font-size: var(--fs-5xl);
+}
+.display-3 {
+  font-size: var(--fs-4xl);
+}
+.display-4 {
+  font-size: var(--fs-3xl);
+}
+.display-5 {
+  font-size: var(--fs-2xl);
+}
+.display-6 {
+  font-size: var(--fs-xl);
+}
 
 // Display Styles
-.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5,
+.display-6 {
   font-family: var(--font-display);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
@@ -61,13 +106,15 @@ p {
 }
 
 // Small Typography
-.small, small {
+.small,
+small {
   font-size: var(--fs-sm);
   color: var(--clr-slate);
 }
 
 // Mark Typography
-.mark, mark {
+.mark,
+mark {
   background: tg-rgba(--clr-warning-rgb, 0.35);
   color: var(--clr-body);
   padding: 0.1em 0.3em;
@@ -86,7 +133,7 @@ p {
   color: var(--clr-slate);
 
   &::before {
-    content: '— ';
+    content: "— ";
   }
 }
 
@@ -146,44 +193,106 @@ pre {
 }
 
 // Font Sans Typography
-.font-sans    { font-family: var(--font-sans) !important; }
-.font-display { font-family: var(--font-display) !important; }
-.font-serif   { font-family: var(--font-serif) !important; }
-.font-mono    { font-family: var(--font-mono) !important; }
+.font-sans {
+  font-family: var(--font-sans) !important;
+}
+.font-display {
+  font-family: var(--font-display) !important;
+}
+.font-serif {
+  font-family: var(--font-serif) !important;
+}
+.font-mono {
+  font-family: var(--font-mono) !important;
+}
 
 // Text size Typography
-.text-xs   { font-size: var(--fs-xs) !important; }
-.text-sm   { font-size: var(--fs-sm) !important; }
-.text-base { font-size: var(--fs-base) !important; }
-.text-lg   { font-size: var(--fs-lg) !important; }
-.text-xl   { font-size: var(--fs-xl) !important; }
-.text-2xl  { font-size: var(--fs-2xl) !important; }
+.text-xs {
+  font-size: var(--fs-xs) !important;
+}
+.text-sm {
+  font-size: var(--fs-sm) !important;
+}
+.text-base {
+  font-size: var(--fs-base) !important;
+}
+.text-lg {
+  font-size: var(--fs-lg) !important;
+}
+.text-xl {
+  font-size: var(--fs-xl) !important;
+}
+.text-2xl {
+  font-size: var(--fs-2xl) !important;
+}
 
 // Font Weight Typography
-.font-normal { font-weight: var(--font-weight-normal) !important; }
-.font-medium { font-weight: var(--font-weight-medium) !important; }
-.font-bold   { font-weight: var(--font-weight-bold) !important; }
+.font-normal {
+  font-weight: var(--font-weight-normal) !important;
+}
+.font-medium {
+  font-weight: var(--font-weight-medium) !important;
+}
+.font-bold {
+  font-weight: var(--font-weight-bold) !important;
+}
 
 // Letter Spacing Typography
-.track-tight   { letter-spacing: var(--letter-spacing-tight) !important; }
-.track-relaxed { letter-spacing: var(--letter-spacing-relaxed) !important; }
-.track-loose   { letter-spacing: var(--letter-spacing-loose) !important; }
-.track-wide    { letter-spacing: var(--letter-spacing-wide) !important; }
+.track-tight {
+  letter-spacing: var(--letter-spacing-tight) !important;
+}
+.track-relaxed {
+  letter-spacing: var(--letter-spacing-relaxed) !important;
+}
+.track-loose {
+  letter-spacing: var(--letter-spacing-loose) !important;
+}
+.track-wide {
+  letter-spacing: var(--letter-spacing-wide) !important;
+}
 
 // Text Typography
-.text-left   { text-align: left !important; }
-.text-center { text-align: center !important; }
-.text-right  { text-align: right !important; }
-.uppercase { text-transform: uppercase !important; }
-.lowercase { text-transform: lowercase !important; }
-.capitalize { text-transform: capitalize !important; }
-.normal-case { text-transform: none !important; }
-.italic { font-style: italic !important; }
-.not-italic { font-style: normal !important; }
-.underline { text-decoration: underline !important; }
-.line-through { text-decoration: line-through !important; }
-.no-underline { text-decoration: none !important; }
+.text-left {
+  text-align: left !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.text-right {
+  text-align: right !important;
+}
+.uppercase {
+  text-transform: uppercase !important;
+}
+.lowercase {
+  text-transform: lowercase !important;
+}
+.capitalize {
+  text-transform: capitalize !important;
+}
+.normal-case {
+  text-transform: none !important;
+}
+.italic {
+  font-style: italic !important;
+}
+.not-italic {
+  font-style: normal !important;
+}
+.underline {
+  text-decoration: underline !important;
+}
+.line-through {
+  text-decoration: line-through !important;
+}
+.no-underline {
+  text-decoration: none !important;
+}
 
 // White space (Bootstrap: text-nowrap / text-wrap)
-.text-nowrap { white-space: nowrap !important; }
-.text-wrap { white-space: normal !important; }
+.text-nowrap {
+  white-space: nowrap !important;
+}
+.text-wrap {
+  white-space: normal !important;
+}

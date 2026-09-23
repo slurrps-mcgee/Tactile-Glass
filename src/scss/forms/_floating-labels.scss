@@ -31,7 +31,9 @@
     pointer-events: none;
     border: 1px solid transparent;
     transform-origin: 0 0;
-    transition: opacity var(--duration) var(--ease), transform var(--duration) var(--ease);
+    transition:
+      opacity var(--duration) var(--ease),
+      transform var(--duration) var(--ease);
     color: var(--clr-slate);
     text-transform: none;
     letter-spacing: normal;

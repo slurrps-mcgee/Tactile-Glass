@@ -1,7 +1,7 @@
-@use '../base/mixins' as *;
-@use '../styles/neu' as *;
-@use '../styles/glass' as *;
-@use '../styles/hybrid' as *;
+@use "../base/mixins" as *;
+@use "../styles/neu" as *;
+@use "../styles/glass" as *;
+@use "../styles/hybrid" as *;
 
 .tg-navs,
 .nav {
@@ -44,7 +44,7 @@
 
   &.active,
   &.is-active,
-  &[aria-current='page'] {
+  &[aria-current="page"] {
     color: var(--clr-dark);
   }
 
@@ -76,14 +76,14 @@
 
     &.active,
     &.is-active,
-    &[aria-current='page'] {
+    &[aria-current="page"] {
       border-color: var(--border-subtle);
       background: tg-rgba(--tg-body-color-rgb, 0.08);
       color: var(--clr-dark);
     }
   }
 
-  .tg-dropdown:has([aria-current='true']) > summary.nav-link {
+  .tg-dropdown:has([aria-current="true"]) > summary.nav-link {
     border-color: var(--border-subtle);
     background: tg-rgba(--tg-body-color-rgb, 0.08);
     color: var(--clr-dark);
@@ -100,13 +100,13 @@
 
     &.active,
     &.is-active,
-    &[aria-current='page'] {
+    &[aria-current="page"] {
       color: var(--tg-white);
       background: var(--tg-primary);
     }
   }
 
-  .tg-dropdown:has([aria-current='true']) > summary.nav-link {
+  .tg-dropdown:has([aria-current="true"]) > summary.nav-link {
     color: var(--tg-white);
     background: var(--tg-primary);
   }
@@ -124,7 +124,7 @@
 
     &.active,
     &.is-active,
-    &[aria-current='page'] {
+    &[aria-current="page"] {
       border-bottom-color: var(--tg-primary);
       color: var(--clr-dark);
       font-weight: var(--font-weight-bold);
@@ -165,7 +165,7 @@
 
     .nav-link.active,
     .nav-link.is-active,
-    .tg-dropdown:has([aria-current='true']) > summary.nav-link {
+    .tg-dropdown:has([aria-current="true"]) > summary.nav-link {
       @include neu;
       color: var(--clr-dark);
       background: transparent;
@@ -181,7 +181,7 @@
 
     .nav-link.active,
     .nav-link.is-active,
-    .tg-dropdown:has([aria-current='true']) > summary.nav-link {
+    .tg-dropdown:has([aria-current="true"]) > summary.nav-link {
       @include neu-inset;
       color: var(--clr-dark);
       background: transparent;
@@ -197,7 +197,7 @@
 
     .nav-link.active,
     .nav-link.is-active,
-    .tg-dropdown:has([aria-current='true']) > summary.nav-link {
+    .tg-dropdown:has([aria-current="true"]) > summary.nav-link {
       @include glass-raised;
       color: var(--clr-dark);
       background: transparent;
@@ -213,7 +213,7 @@
 
     .nav-link.active,
     .nav-link.is-active,
-    .tg-dropdown:has([aria-current='true']) > summary.nav-link {
+    .tg-dropdown:has([aria-current="true"]) > summary.nav-link {
       @include glass-pressed;
       color: var(--clr-dark);
       background: transparent;
@@ -229,7 +229,7 @@
 
     .nav-link.active,
     .nav-link.is-active,
-    .tg-dropdown:has([aria-current='true']) > summary.nav-link {
+    .tg-dropdown:has([aria-current="true"]) > summary.nav-link {
       @include hybrid;
       color: var(--clr-dark);
       background: transparent;
@@ -245,7 +245,7 @@
 
     .nav-link.active,
     .nav-link.is-active,
-    .tg-dropdown:has([aria-current='true']) > summary.nav-link {
+    .tg-dropdown:has([aria-current="true"]) > summary.nav-link {
       @include hybrid-pressed;
       color: var(--clr-dark);
       background: transparent;

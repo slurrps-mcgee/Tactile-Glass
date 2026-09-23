@@ -1,7 +1,7 @@
-@use '../base/mixins' as *;
-@use '../styles/neu' as *;
-@use '../styles/glass' as *;
-@use '../styles/hybrid' as *;
+@use "../base/mixins" as *;
+@use "../styles/neu" as *;
+@use "../styles/glass" as *;
+@use "../styles/hybrid" as *;
 
 .tg-nav {
   display: grid;
@@ -238,7 +238,7 @@
   &::-webkit-details-marker,
   &::marker {
     display: none;
-    content: '';
+    content: "";
   }
 
   &:focus-visible {
@@ -256,7 +256,7 @@
 
   &::before,
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     width: 100%;
@@ -342,15 +342,23 @@
 .nav-sm {
   padding: var(--sz-2) var(--sz-4);
 
-  .nav-brand { font-size: var(--fs-base); }
-  .nav-links { gap: var(--sz-1); }
-  .nav-links a { font-size: var(--fs-sm); }
+  .nav-brand {
+    font-size: var(--fs-base);
+  }
+  .nav-links {
+    gap: var(--sz-1);
+  }
+  .nav-links a {
+    font-size: var(--fs-sm);
+  }
 }
 
 .nav-lg {
   padding: var(--sz-6) var(--sz-8);
 
-  .nav-brand { font-size: var(--fs-xl); }
+  .nav-brand {
+    font-size: var(--fs-xl);
+  }
 }
 
 .nav-pill {

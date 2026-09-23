@@ -1,4 +1,4 @@
-@use '../base/mixins' as *;
+@use "../base/mixins" as *;
 
 .tg-breadcrumb,
 .breadcrumb {
@@ -18,7 +18,7 @@
   color: var(--clr-slate);
 
   + .breadcrumb-item::before {
-    content: '/';
+    content: "/";
     margin-right: var(--sz-2);
     color: var(--clr-light-gray);
     user-select: none;
@@ -46,13 +46,13 @@
 }
 
 .breadcrumb-divider-slash .breadcrumb-item + .breadcrumb-item::before {
-  content: '/';
+  content: "/";
 }
 
 .breadcrumb-divider-chevron .breadcrumb-item + .breadcrumb-item::before {
-  content: '›';
+  content: "›";
 }
 
 .breadcrumb-divider-dot .breadcrumb-item + .breadcrumb-item::before {
-  content: '·';
+  content: "·";
 }

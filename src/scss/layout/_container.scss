@@ -1,12 +1,12 @@
-@use '../base/tokens' as *;
-@use 'sass:map';
+@use "../base/tokens" as *;
+@use "sass:map";
 
 $tg-container-max: (
   sm: 540px,
   md: 720px,
   lg: 960px,
   xl: 1140px,
-  xxl: 1320px
+  xxl: 1320px,
 );
 
 $tg-container-bp: (
@@ -14,7 +14,7 @@ $tg-container-bp: (
   md: $bp-md,
   lg: $bp-lg,
   xl: $bp-xl,
-  xxl: $bp-xxl
+  xxl: $bp-xxl,
 );
 
 @mixin container-base {

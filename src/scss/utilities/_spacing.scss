@@ -1,4 +1,4 @@
-@use '../base/mixins' as *;
+@use "../base/mixins" as *;
 
 $tg-box-sides: (
   p: padding,
@@ -14,14 +14,26 @@ $tg-box-sides: (
   ml: margin-left,
   mr: margin-right,
   ms: margin-inline-start,
-  me: margin-inline-end
+  me: margin-inline-end,
 );
 
 $tg-box-axes: (
-  px: (padding-left, padding-right),
-  py: (padding-top, padding-bottom),
-  mx: (margin-left, margin-right),
-  my: (margin-top, margin-bottom)
+  px: (
+    padding-left,
+    padding-right,
+  ),
+  py: (
+    padding-top,
+    padding-bottom,
+  ),
+  mx: (
+    margin-left,
+    margin-right,
+  ),
+  my: (
+    margin-top,
+    margin-bottom,
+  ),
 );
 
 $tg-gaps: (
@@ -30,7 +42,7 @@ $tg-gaps: (
   gap-x: column-gap,
   gx: column-gap,
   gap-y: row-gap,
-  gy: row-gap
+  gy: row-gap,
 );
 
 @include tg-infix using ($bp) {
@@ -61,27 +73,41 @@ $tg-gaps: (
   }
 
   @each $step in $tg-spacing-steps {
-    .#{tg-infix-class('space-y', $bp, $step)} > * + * {
+    .#{tg-infix-class("space-y", $bp, $step)} > * + * {
       margin-top: tg-space($step) !important;
     }
 
-    .#{tg-infix-class('space-x', $bp, $step)} > * + * {
+    .#{tg-infix-class("space-x", $bp, $step)} > * + * {
       margin-inline-start: tg-space($step) !important;
     }
   }
 
-  .#{tg-infix-class('m', $bp, 'auto')} { margin: auto !important; }
-  .#{tg-infix-class('mt', $bp, 'auto')} { margin-top: auto !important; }
-  .#{tg-infix-class('mb', $bp, 'auto')} { margin-bottom: auto !important; }
-  .#{tg-infix-class('ml', $bp, 'auto')} { margin-left: auto !important; }
-  .#{tg-infix-class('mr', $bp, 'auto')} { margin-right: auto !important; }
-  .#{tg-infix-class('ms', $bp, 'auto')} { margin-inline-start: auto !important; }
-  .#{tg-infix-class('me', $bp, 'auto')} { margin-inline-end: auto !important; }
-  .#{tg-infix-class('mx', $bp, 'auto')} {
+  .#{tg-infix-class("m", $bp, "auto")} {
+    margin: auto !important;
+  }
+  .#{tg-infix-class("mt", $bp, "auto")} {
+    margin-top: auto !important;
+  }
+  .#{tg-infix-class("mb", $bp, "auto")} {
+    margin-bottom: auto !important;
+  }
+  .#{tg-infix-class("ml", $bp, "auto")} {
+    margin-left: auto !important;
+  }
+  .#{tg-infix-class("mr", $bp, "auto")} {
+    margin-right: auto !important;
+  }
+  .#{tg-infix-class("ms", $bp, "auto")} {
+    margin-inline-start: auto !important;
+  }
+  .#{tg-infix-class("me", $bp, "auto")} {
+    margin-inline-end: auto !important;
+  }
+  .#{tg-infix-class("mx", $bp, "auto")} {
     margin-left: auto !important;
     margin-right: auto !important;
   }
-  .#{tg-infix-class('my', $bp, 'auto')} {
+  .#{tg-infix-class("my", $bp, "auto")} {
     margin-top: auto !important;
     margin-bottom: auto !important;
   }

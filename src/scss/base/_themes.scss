@@ -85,13 +85,14 @@ $tg-theme-light: (
   body-line-height: var(--line-height-relaxed),
   font-sans-serif: var(--font-sans),
   font-monospace: var(--font-mono),
-  gradient: "linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0))",
+  gradient:
+    "linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0))",
   focus-ring-blur: 0,
 
   // Body Styles
-  body-color: #4C4B63,
+  body-color: #4c4b63,
   body-color-rgb: "76, 75, 99",
-  body-bg: #C3C3C3,
+  body-bg: #c3c3c3,
   body-bg-rgb: "195, 195, 195",
 
   // Emphasis Styles
@@ -101,7 +102,7 @@ $tg-theme-light: (
   // Secondary Styles
   secondary-color: rgba(76, 75, 99, 0.75),
   secondary-color-rgb: "76, 75, 99",
-  secondary-bg: #ABA8B2,
+  secondary-bg: #aba8b2,
   secondary-bg-rgb: "171, 168, 178",
 
   // Tertiary Styles
@@ -111,20 +112,20 @@ $tg-theme-light: (
   tertiary-bg-rgb: "216, 214, 224",
 
   // Heading Styles
-  heading-color: #4C4B63,
+  heading-color: #4c4b63,
 
   // Link Styles
-  link-color: #5386E4,
+  link-color: #5386e4,
   link-color-rgb: "83, 134, 228",
   link-decoration: underline,
   link-hover-color: #2f5cb8,
   link-hover-color-rgb: "47, 92, 184",
 
   // Code Styles
-  code-color: #4C4B63,
+  code-color: #4c4b63,
 
   // Highlight Styles
-  highlight-color: #4C4B63,
+  highlight-color: #4c4b63,
   highlight-bg: #ffe8c6,
 
   // Border Styles
@@ -140,7 +141,6 @@ $tg-theme-light: (
   border-radius-2xl: var(--radius-lg),
   border-radius-pill: var(--radius-pill),
   border-subtle: rgba(76, 75, 99, 0.18),
-
   // Box Shadow Styles
   box-shadow: "5px 5px 13px #a6a6a6, -5px -5px 13px #e0e0e0",
   box-shadow-sm: "3px 3px 8px #a6a6a6, -3px -3px 8px #e0e0e0",
@@ -150,7 +150,7 @@ $tg-theme-light: (
   // Focus Ring Styles
   focus-ring-width: 3px,
   focus-ring-opacity: 1,
-  focus-ring-color: #5386E4,
+  focus-ring-color: #5386e4,
 
   // Form Styles
   form-valid-color: #2a8f85,
@@ -166,13 +166,12 @@ $tg-theme-light: (
   glass-menu-blur: blur(28px),
   glass-menu-bg: rgba(236, 234, 244, 0.94),
   glass-border: 1px solid rgba(255, 255, 255, 0.3),
-  glass-shadow: "0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(255, 255, 255, 0.1), inset 0 0 20px 10px rgba(255, 255, 255, 0.35)",
+  glass-shadow:
+    "0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(255, 255, 255, 0.1), inset 0 0 20px 10px rgba(255, 255, 255, 0.35)",
   glass-ripple: rgba(255, 255, 255, 0.55),
-
   // Hybrid Styles
   hybrid-bg: rgba(255, 255, 255, 0.15),
   hybrid-bg-pressed: rgba(255, 255, 255, 0.08),
-
   // Neu Styles
   neu-shadow-drop: "5px 5px 13px #a6a6a6, -5px -5px 13px #e0e0e0",
   neu-shadow-inset: "inset 5px 5px 13px #a6a6a6, inset -5px -5px 13px #e0e0e0",
@@ -180,7 +179,6 @@ $tg-theme-light: (
 
   // Code Styles
   code-bg: rgba(76, 75, 99, 0.08),
-
   // HR Styles
   hr-color: rgba(76, 75, 99, 0.12)
 );
@@ -300,13 +298,12 @@ $tg-theme-dark: (
   glass-bg-pressed: rgba(255, 255, 255, 0.04),
   glass-menu-bg: rgba(36, 31, 44, 0.94),
   glass-border: 1px solid rgba(255, 255, 255, 0.2),
-  glass-shadow: "0 8px 32px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -1px 0 rgba(255, 255, 255, 0.08), inset 0 0 20px 10px rgba(255, 255, 255, 0.08)",
+  glass-shadow:
+    "0 8px 32px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -1px 0 rgba(255, 255, 255, 0.08), inset 0 0 20px 10px rgba(255, 255, 255, 0.08)",
   glass-ripple: rgba(255, 255, 255, 0.35),
-
   // Hybrid Styles
   hybrid-bg: rgba(255, 255, 255, 0.1),
   hybrid-bg-pressed: rgba(255, 255, 255, 0.04),
-
   // Neu Styles
   neu-shadow-drop: "5px 5px 13px #1a1922, -5px -5px 13px #3e3c4c",
   neu-shadow-inset: "inset 5px 5px 13px #1a1922, inset -5px -5px 13px #3e3c4c",
@@ -320,7 +317,6 @@ $tg-theme-dark: (
   border-subtle: rgba(255, 255, 255, 0.12),
   border-color: rgba(255, 255, 255, 0.12),
   border-color-translucent: rgba(255, 255, 255, 0.15),
-
   // Form Styles
   form-valid-color: #5ed4c8,
   form-valid-border-color: #5ed4c8,

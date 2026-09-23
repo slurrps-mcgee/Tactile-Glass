@@ -1,15 +1,22 @@
-@use '../base/mixins' as *;
+@use "../base/mixins" as *;
 
-$tg-displays: none, block, inline, inline-block, flex, inline-flex, grid, contents;
+$tg-displays:
+  none, block, inline, inline-block, flex, inline-flex, grid, contents;
 
 @include tg-infix using ($bp) {
   @each $value in $tg-displays {
-    .#{tg-infix-class('d', $bp, $value)} {
+    .#{tg-infix-class("d", $bp, $value)} {
       display: $value !important;
     }
   }
 
-  .#{tg-infix-class('float', $bp, 'start')} { float: left !important; }
-  .#{tg-infix-class('float', $bp, 'end')} { float: right !important; }
-  .#{tg-infix-class('float', $bp, 'none')} { float: none !important; }
+  .#{tg-infix-class("float", $bp, "start")} {
+    float: left !important;
+  }
+  .#{tg-infix-class("float", $bp, "end")} {
+    float: right !important;
+  }
+  .#{tg-infix-class("float", $bp, "none")} {
+    float: none !important;
+  }
 }

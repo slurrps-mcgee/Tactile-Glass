@@ -1,5 +1,5 @@
-@use '../base/mixins' as *;
-@use 'sass:math';
+@use "../base/mixins" as *;
+@use "sass:math";
 
 $row-columns: 12;
 
@@ -56,25 +56,25 @@ $row-columns: 12;
 
 @include tg-infix using ($bp) {
   @for $i from 1 through $row-columns {
-    .row > .#{tg-infix-class('col', $bp, $i)} {
+    .row > .#{tg-infix-class("col", $bp, $i)} {
       @include make-col($i);
     }
 
-    .row > .#{tg-infix-class('col', $bp, 'auto')} {
+    .row > .#{tg-infix-class("col", $bp, "auto")} {
       flex: 0 0 auto;
       width: auto;
     }
   }
 
   @for $n from 1 through $row-columns {
-    .row.#{tg-infix-class('row-cols', $bp, $n)} > * {
+    .row.#{tg-infix-class("row-cols", $bp, $n)} > * {
       flex: 0 0 auto;
       width: math.percentage(math.div(1, $n));
     }
   }
 
   @for $i from 0 through $row-columns - 1 {
-    .row > .#{tg-infix-class('offset', $bp, $i)} {
+    .row > .#{tg-infix-class("offset", $bp, $i)} {
       @include make-col-offset($i);
     }
   }

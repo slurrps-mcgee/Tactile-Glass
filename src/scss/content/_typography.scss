@@ -1,38 +1,86 @@
 // Bootstrap typography aliases (base/_typography.scss holds core type scale)
 
-.text-start { text-align: left !important; }
-.text-center { text-align: center !important; }
-.text-end { text-align: right !important; }
+.text-start {
+  text-align: left !important;
+}
+.text-center {
+  text-align: center !important;
+}
+.text-end {
+  text-align: right !important;
+}
 
-.fs-1 { font-size: var(--fs-2xl) !important; }
-.fs-2 { font-size: var(--fs-xl) !important; }
-.fs-3 { font-size: var(--fs-lg) !important; }
-.fs-4 { font-size: var(--fs-base) !important; }
-.fs-5 { font-size: var(--fs-sm) !important; }
-.fs-6 { font-size: var(--fs-xs) !important; }
+.fs-1 {
+  font-size: var(--fs-2xl) !important;
+}
+.fs-2 {
+  font-size: var(--fs-xl) !important;
+}
+.fs-3 {
+  font-size: var(--fs-lg) !important;
+}
+.fs-4 {
+  font-size: var(--fs-base) !important;
+}
+.fs-5 {
+  font-size: var(--fs-sm) !important;
+}
+.fs-6 {
+  font-size: var(--fs-xs) !important;
+}
 
-.font-monospace { font-family: var(--tg-font-monospace, var(--font-mono)) !important; }
+.font-monospace {
+  font-family: var(--tg-font-monospace, var(--font-mono)) !important;
+}
 
-.fst-italic { font-style: italic !important; }
-.fst-normal { font-style: normal !important; }
+.fst-italic {
+  font-style: italic !important;
+}
+.fst-normal {
+  font-style: normal !important;
+}
 
-.fw-lighter { font-weight: lighter !important; }
-.fw-light { font-weight: 300 !important; }
-.fw-normal { font-weight: var(--font-weight-normal) !important; }
-.fw-medium { font-weight: var(--font-weight-medium) !important; }
-.fw-semibold { font-weight: 600 !important; }
-.fw-bold { font-weight: var(--font-weight-bold) !important; }
-.fw-bolder { font-weight: bolder !important; }
+.fw-lighter {
+  font-weight: lighter !important;
+}
+.fw-light {
+  font-weight: 300 !important;
+}
+.fw-normal {
+  font-weight: var(--font-weight-normal) !important;
+}
+.fw-medium {
+  font-weight: var(--font-weight-medium) !important;
+}
+.fw-semibold {
+  font-weight: 600 !important;
+}
+.fw-bold {
+  font-weight: var(--font-weight-bold) !important;
+}
+.fw-bolder {
+  font-weight: bolder !important;
+}
 
 .text-decoration-underline,
-.underline { text-decoration: underline !important; }
+.underline {
+  text-decoration: underline !important;
+}
 .text-decoration-line-through,
-.line-through { text-decoration: line-through !important; }
+.line-through {
+  text-decoration: line-through !important;
+}
 .text-decoration-none,
-.no-underline { text-decoration: none !important; }
+.no-underline {
+  text-decoration: none !important;
+}
 
-.text-wrap { white-space: normal !important; }
-.text-nowrap { white-space: nowrap !important; }
+.text-wrap {
+  white-space: normal !important;
+}
+.text-nowrap {
+  white-space: nowrap !important;
+}
 .text-break {
   overflow-wrap: break-word !important;
   word-break: break-word !important;

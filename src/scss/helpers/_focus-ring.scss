@@ -1,5 +1,5 @@
-@use '../base/mixins' as *;
-@use 'sass:map';
+@use "../base/mixins" as *;
+@use "sass:map";
 
 .focus-ring:focus-visible {
   @include focus-ring;
