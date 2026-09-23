@@ -1,10 +1,12 @@
 # TactileGlass
 
-A utility-first and component-based CSS framework that unites **neumorphism**, **glassmorphism**, and a **hybrid** of both.
+A utility-first and component-based CSS framework that unites **neumorphism**, **glassmorphism**, and a **hybrid** of both — aligned with Bootstrap 5.3-style layout, forms, helpers, and utilities, while staying **CSS-only** (no JS runtime required for components).
 
-Components are generic (`tg-btn`, `tg-card`, `tg-nav`). Materials are separate classes (`tg-neu`, `tg-glass`, `tg-hybrid`) driven by CSS tokens. Bootstrap-style modifiers (`btn-sm`, `btn-primary`) and Tailwind-style utilities (`d-flex`, `p-4`, `bg-white`, `theme-dark`) stack on top.
+Components are generic (`tg-btn`, `tg-card`, `tg-nav`, `tg-sidebar`). Materials are separate classes (`tg-neu`, `tg-glass`, `tg-hybrid`) driven by CSS tokens. Bootstrap-style modifiers (`btn-sm`, `btn-primary`, `btn-icon`) and Tailwind-style utilities (`d-flex`, `p-4`, `bg-white`, `theme-dark`) stack on top.
 
+- **Version:** 0.3.0
 - npm: [`tactileglass-css`](https://www.npmjs.com/package/tactileglass-css)
+- Docs: [slurrps-mcgee.github.io/Tactile-Glass](https://slurrps-mcgee.github.io/Tactile-Glass/)
 - Source: [github.com/slurrps-mcgee/Tactile-Glass](https://github.com/slurrps-mcgee/Tactile-Glass)
 - License: MIT
 
@@ -38,16 +40,20 @@ Two core layers, then modifiers:
 
 | Layer | Examples | Role |
 | --- | --- | --- |
-| Component | `tg-btn`, `tg-card`, `tg-dropdown`, `tg-nav` | Skeleton — layout, type, radius, behavior |
+| Component | `tg-btn`, `tg-card`, `tg-dropdown`, `tg-nav`, `tg-sidebar` | Skeleton — layout, type, radius, behavior |
 | Style | `tg-neu`, `tg-glass`, `tg-glass-frosted`, `tg-hybrid`, `tg-neu-reverse` | Token-driven surface paint |
-| Modifiers + utilities | `btn-sm`, `btn-primary`, `p-4`, `bg-white`, `border-none` | Same names on every style |
+| Modifiers + utilities | `btn-sm`, `btn-icon`, `btn-primary`, `p-4`, `bg-white`, `border-none` | Same names on every style |
 
 ```html
 <button class="tg-btn tg-hybrid btn-primary">Save</button>
 
-<section class="tg-card tg-glass-frosted card-sm">…</section>
+<button type="button" class="tg-btn tg-neu btn-icon" aria-label="Menu">…</button>
+
+<section class="tg-card tg-glass-frosted tg-interactive card-sm">…</section>
 
 <details class="tg-dropdown tg-glass-frosted">…</details>
+
+<aside class="tg-sidebar tg-neu">…</aside>
 
 <header class="tg-nav tg-neu tg-neu-reverse nav-sm">…</header>
 ```
@@ -62,6 +68,21 @@ Pick one style per node. Do not mix `tg-neu` with `tg-glass` on the same element
 
 Prefer style classes on any element. `morph-*` mirrors the same matrix with `!important` for overrides. `--clr-*` / `--glass-*` stay aliases of `--tg-*`.
 
+## What’s included
+
+Bootstrap-inspired coverage, organized the same way as the Sass tree:
+
+| Area | Highlights |
+| --- | --- |
+| **Layout** | Breakpoints, `container` / `container-*`, flex `.row` / `.col-*`, gutters, CSS grid tracks, z-index |
+| **Content** | Reboot, typography, images, figures, tables |
+| **Forms** | Form control, select, checks / switches, range, input group, floating labels, layout, validation |
+| **Helpers** | Clearfix, color-bg, colored links, focus ring, ratio, stacks, stretched link, text truncation, VR, visually hidden |
+| **Utilities** | Flex, spacing, display, sizing, overflow, position, colors, borders, shadows, morph, opacity, visibility, object-fit, interactions |
+| **Components** | Accordion, alerts, badges, breadcrumb, buttons / button group / `btn-icon`, cards, close, collapse, dropdowns, list group, navbar, navs & tabs, pagination, placeholders (shimmer), progress, sidebar, spinners, theme toggle |
+
+Menus use **`tg-dropdown`** (`<details>` + `.dropdown-menu`) — CSS-only, no select-based menu control.
+
 ## Dark mode
 
 Add `theme-dark` to `<html>` (or any subtree) to invert canvas, ink, glass, and neu shadows. `theme-light` forces a light island inside a dark page. `data-theme="dark"` / `data-theme="light"` work the same way.
@@ -74,7 +95,7 @@ Add `theme-dark` to `<html>` (or any subtree) to invert canvas, ink, glass, and 
 <section class="theme-dark p-6 rounded-lg">Dark island</section>
 ```
 
-The docs site toggle is a `theme-toggle` button. Persist the choice on `document.documentElement`.
+The docs site toggle is a `theme-toggle` on a `tg-btn btn-icon`. Persist the choice on `document.documentElement`.
 
 ## Customize
 
@@ -115,28 +136,38 @@ Layout is mobile-first with Bootstrap infixes. Use flex rows (`.row`, `.col-md-6
 
 Navbars collapse with a CSS-only `<details class="nav-collapse nav-expand-md">` that holds only the hamburger. Put `.nav-links` as a sibling under `.tg-nav`. Keep `theme-toggle` in `.nav-end` on the top row. From 768px up the links stay in a row and the hamburger hides. Depth (`tg-neu-reverse`, `tg-neu-surface`, `tg-neu-inset`) lives on the `tg-nav` parent — not on `.nav-links`.
 
+Sidebars use `tg-sidebar` with the same material classes. Docs use a full-height neu inset nav that scrolls independently of the main column.
+
 ## Docs site
 
 The GitHub Pages site lives in `docs/` at the repo root. GitHub Actions compiles the Sass on every push to `main` and deploys it — you do not commit `tactileglass.css`.
 
 | Page | What it is |
 | --- | --- |
-| `index.html` | Dashboard — install, class language, doc map |
+| `index.html` | Thin redirect → `docs.html` (so `/` works on Pages) |
 | `docs.html` | Getting started — install, tokens, contribute |
 | `customize.html` | CSS variable overrides and live theme demos |
 | `layout.html` | Breakpoints, containers, flex row, CSS grid, gutters |
 | `content.html` | Reboot, typography, images, tables, figures |
 | `forms.html` | Form controls, validation, floating labels |
-| `components.html` | Shipped component demos (accordion → spinners) |
+| `components.html` | Component gallery (accordion → spinners) |
 | `helpers.html` | Clearfix, stacks, ratio, stretched-link, a11y helpers |
 | `utilities.html` | Spacing, color, flex, shadows, morph |
+
+Docs chrome highlights:
+
+- **Split-scroll shell** — locked sidebar, scrolling main; neu shadows preserved with scrollport gutters
+- **Topnav** — logo (TG mark + title on desktop; mark only, centered on mobile), theme / npm / GitHub as `tg-btn btn-icon`
+- **Mobile drawer** — CSS checkbox overlay from the left
+- **Sidebar active state** — syncs to URL hash, click, and scroll
+- **Brand assets** — `docs/logo/` (SVG mark + lockup); icons in `docs/icons/` (Bootstrap Icons subset + npm mark)
 
 ```bash
 npm install
 npm run dev
 ```
 
-`dev` compiles Sass into both `dist/` and `docs/`, then serves [http://127.0.0.1:8080](http://127.0.0.1:8080).
+`dev` compiles Sass into both `dist/` and `docs/`, then opens [http://127.0.0.1:8080/docs.html](http://127.0.0.1:8080/docs.html).
 
 After the first push of `.github/workflows/pages.yml`, set **Settings → Pages → Source** to **GitHub Actions**. The live site is:
 
@@ -146,9 +177,9 @@ https://slurrps-mcgee.github.io/Tactile-Glass/
 
 | Script | Purpose |
 | --- | --- |
-| `npm run sass:build` | Compile `dist/tactileglass.css` |
-| `npm run sass:watch` | Rebuild on Sass changes |
-| `npm run serve` | Docs server |
+| `npm run sass:build` | Compile `dist/tactileglass.css` and copy into `docs/` |
+| `npm run sass:watch` | Rebuild docs CSS on Sass changes |
+| `npm run serve` | Vite docs server (opens `/docs.html`) |
 | `npm run build` | Compile + minify |
 | `npm run dev` | Watch + serve |
 
@@ -159,15 +190,15 @@ https://slurrps-mcgee.github.io/Tactile-Glass/
 ```text
 src/scss/
 ├── tactileglass.scss
-├── base/            # tokens, reset, mixins, typography
+├── base/            # tokens, themes, reset, mixins, typography
 ├── styles/          # neu, glass, hybrid mixins + public classes
-├── layout/          # container, flexbox, grid, breakpoints
-├── content/         # reboot, typography, tables
-├── forms/           # form-control, validation, input-group
-├── helpers/         # ratio, stacks, visually-hidden
+├── layout/          # breakpoints, container, gutters, row, grid, flex, z-index
+├── content/         # reboot, typography, images, figures, tables
+├── forms/           # controls, checks, range, input-group, floating labels, validation
+├── helpers/         # ratio, stacks, visually-hidden, …
 ├── animations/      # keyframes + motion utilities
-├── components/      # tg-btn, tg-card, tg-nav, …
-└── utilities/       # morph, theme, spacing, colors, borders
+├── components/      # buttons, cards, nav, sidebar, accordion, …
+└── utilities/       # flex, spacing, display, morph, shadows, …
 ```
 
 Keep class names unambiguous: component, then material, then modifiers, then utilities.
