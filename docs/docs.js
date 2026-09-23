@@ -19,7 +19,9 @@
     root.classList.toggle('theme-dark', dark);
     try {
       localStorage.setItem(KEY, dark ? 'dark' : 'light');
-    } catch (err) { /* ignore quota / private mode */ }
+    } catch (err) {
+      /* ignore quota / private mode */
+    }
     syncToggles();
   }
 
@@ -34,9 +36,13 @@
   var dropdownSelector = '.tg-dropdown, .tg-select, details.form-select, details.tg-form-select';
 
   function closeSelects(except) {
-    document.querySelectorAll('details.tg-dropdown[open], details.tg-select[open], details.form-select[open], details.tg-form-select[open]').forEach(function (select) {
-      if (select !== except) select.open = false;
-    });
+    document
+      .querySelectorAll(
+        'details.tg-dropdown[open], details.tg-select[open], details.form-select[open], details.tg-form-select[open]'
+      )
+      .forEach(function (select) {
+        if (select !== except) select.open = false;
+      });
   }
 
   document.querySelectorAll(dropdownSelector).forEach(function (select) {
@@ -71,7 +77,10 @@
   });
 
   document.addEventListener('pointerdown', function (event) {
-    if (event.target.closest('.tg-dropdown, .tg-select, details.form-select, details.tg-form-select')) return;
+    if (
+      event.target.closest('.tg-dropdown, .tg-select, details.form-select, details.tg-form-select')
+    )
+      return;
     closeSelects();
   });
 
@@ -88,8 +97,8 @@
     ripple.className = 'tg-ripple';
     ripple.style.width = size + 'px';
     ripple.style.height = size + 'px';
-    ripple.style.left = (event.clientX - rect.left - size / 2) + 'px';
-    ripple.style.top = (event.clientY - rect.top - size / 2) + 'px';
+    ripple.style.left = event.clientX - rect.left - size / 2 + 'px';
+    ripple.style.top = event.clientY - rect.top - size / 2 + 'px';
     btn.appendChild(ripple);
     ripple.addEventListener('animationend', function () {
       ripple.remove();
@@ -114,7 +123,7 @@
     function linkParts(href) {
       var a = document.createElement('a');
       a.href = href;
-      var file = (a.pathname.split('/').pop() || pageFile());
+      var file = a.pathname.split('/').pop() || pageFile();
       if (!file || file.indexOf('.') === -1) file = pageFile();
       return { file: file, hash: a.hash || '' };
     }
@@ -224,13 +233,17 @@
 
   /* Bootstrap-style custom validation for .needs-validation forms */
   document.querySelectorAll('form.needs-validation').forEach(function (form) {
-    form.addEventListener('submit', function (event) {
-      if (!form.checkValidity()) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      form.classList.add('was-validated');
-    }, false);
+    form.addEventListener(
+      'submit',
+      function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      },
+      false
+    );
   });
 
   document.querySelectorAll('[data-indeterminate]').forEach(function (input) {

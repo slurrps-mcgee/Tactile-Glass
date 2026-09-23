@@ -25,7 +25,7 @@ import 'tactileglass-css/dist/tactileglass.min.css';
 HTML:
 
 ```html
-<link rel="stylesheet" href="node_modules/tactileglass-css/dist/tactileglass.css">
+<link rel="stylesheet" href="node_modules/tactileglass-css/dist/tactileglass.css" />
 ```
 
 Sass entry if you compile it yourself:
@@ -38,11 +38,11 @@ Sass entry if you compile it yourself:
 
 Two core layers, then modifiers:
 
-| Layer | Examples | Role |
-| --- | --- | --- |
-| Component | `tg-btn`, `tg-card`, `tg-dropdown`, `tg-nav`, `tg-sidebar` | Skeleton — layout, type, radius, behavior |
-| Style | `tg-neu`, `tg-glass`, `tg-glass-frosted`, `tg-hybrid`, `tg-neu-reverse` | Token-driven surface paint |
-| Modifiers + utilities | `btn-sm`, `btn-icon`, `btn-primary`, `p-4`, `bg-white`, `border-none` | Same names on every style |
+| Layer                 | Examples                                                                | Role                                      |
+| --------------------- | ----------------------------------------------------------------------- | ----------------------------------------- |
+| Component             | `tg-btn`, `tg-card`, `tg-dropdown`, `tg-nav`, `tg-sidebar`              | Skeleton — layout, type, radius, behavior |
+| Style                 | `tg-neu`, `tg-glass`, `tg-glass-frosted`, `tg-hybrid`, `tg-neu-reverse` | Token-driven surface paint                |
+| Modifiers + utilities | `btn-sm`, `btn-icon`, `btn-primary`, `p-4`, `bg-white`, `border-none`   | Same names on every style                 |
 
 ```html
 <button class="tg-btn tg-hybrid btn-primary">Save</button>
@@ -72,13 +72,13 @@ Prefer style classes on any element. `morph-*` mirrors the same matrix with `!im
 
 Bootstrap-inspired coverage, organized the same way as the Sass tree:
 
-| Area | Highlights |
-| --- | --- |
-| **Layout** | Breakpoints, `container` / `container-*`, flex `.row` / `.col-*`, gutters, CSS grid tracks, z-index |
-| **Content** | Reboot, typography, images, figures, tables |
-| **Forms** | Form control, select, checks / switches, range, input group, floating labels, layout, validation |
-| **Helpers** | Clearfix, color-bg, colored links, focus ring, ratio, stacks, stretched link, text truncation / line-clamp, VR, visually hidden |
-| **Utilities** | Flex, spacing, display, text (`lh-*`), sizing, overflow, position, colors, borders, shadows, morph, opacity, visibility, object-fit, interactions |
+| Area           | Highlights                                                                                                                                                                                               |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Layout**     | Breakpoints, `container` / `container-*`, flex `.row` / `.col-*`, gutters, CSS grid tracks, z-index                                                                                                      |
+| **Content**    | Reboot, typography, images, figures, tables                                                                                                                                                              |
+| **Forms**      | Form control, select, checks / switches, range, input group, floating labels, layout, validation                                                                                                         |
+| **Helpers**    | Clearfix, color-bg, colored links, focus ring, ratio, stacks, stretched link, text truncation / line-clamp, VR, visually hidden                                                                          |
+| **Utilities**  | Flex, spacing, display, text (`lh-*`), sizing, overflow, position, colors, borders, shadows, morph, opacity, visibility, object-fit, interactions                                                        |
 | **Components** | Alerts, badges, breadcrumb, buttons / button group / `btn-icon`, cards, close, dropdowns, list group, navbar, navs & tabs, pagination, placeholders (shimmer), progress, sidebar, spinners, theme toggle |
 
 Menus use **`tg-dropdown`** (`<details>` + `.dropdown-menu`) — CSS-only, no select-based menu control.
@@ -109,7 +109,7 @@ Public API is `--tg-{name}` from the light map in `src/scss/base/_themes.scss`, 
   --tg-glass-blur: blur(24px);
   --spacing: 0.25rem;
   --radius-md: 12px;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
 }
 ```
 
@@ -117,14 +117,14 @@ Keep the matching `*-rgb` channel in sync. `--tg-body-color` is page ink. `--tg-
 
 Override groups:
 
-| Group | Examples |
-| --- | --- |
-| Brand / semantic | `--tg-primary`, `--tg-success`, `--tg-warning`, `--tg-danger`, `--tg-dark` |
-| Body / ink | `--tg-body-color`, `--tg-body-bg`, `--tg-link-color`, `--tg-secondary-color` |
-| Emphasis / subtle | `--tg-primary-text-emphasis`, `--tg-primary-bg-subtle`, `--tg-primary-border-subtle` |
-| Glass / hybrid / neu | `--tg-glass-bg`, `--tg-glass-blur`, `--tg-glass-menu-blur`, `--tg-glass-shadow`, `--tg-hybrid-bg`, `--tg-neu-shadow-drop` |
-| Border / radius / shadow / focus | `--tg-border-color`, `--radius-md`, `--tg-box-shadow`, `--tg-focus-ring-color` |
-| Type / spacing / breakpoints | `--font-sans`, `--spacing`, `--tg-breakpoint-md` |
+| Group                            | Examples                                                                                                                  |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| Brand / semantic                 | `--tg-primary`, `--tg-success`, `--tg-warning`, `--tg-danger`, `--tg-dark`                                                |
+| Body / ink                       | `--tg-body-color`, `--tg-body-bg`, `--tg-link-color`, `--tg-secondary-color`                                              |
+| Emphasis / subtle                | `--tg-primary-text-emphasis`, `--tg-primary-bg-subtle`, `--tg-primary-border-subtle`                                      |
+| Glass / hybrid / neu             | `--tg-glass-bg`, `--tg-glass-blur`, `--tg-glass-menu-blur`, `--tg-glass-shadow`, `--tg-hybrid-bg`, `--tg-neu-shadow-drop` |
+| Border / radius / shadow / focus | `--tg-border-color`, `--radius-md`, `--tg-box-shadow`, `--tg-focus-ring-color`                                            |
+| Type / spacing / breakpoints     | `--font-sans`, `--spacing`, `--tg-breakpoint-md`                                                                          |
 
 Full catalog: docs `customize.html`. Color utilities are fill-only and ink-only: `bg-primary`, `text-body`. Compose a solid chip as `bg-primary text-white`. Beat a material border with `border-none` or `shadow-none`.
 
@@ -142,18 +142,18 @@ Sidebars use `tg-sidebar` with the same material classes. Docs use a full-height
 
 The GitHub Pages site lives in `docs/` at the repo root. GitHub Actions compiles the Sass on every push to `main` and deploys it — you do not commit `tactileglass.css`.
 
-| Page | What it is |
-| --- | --- |
-| `index.html` | Thin redirect → `docs.html` (so `/` works on Pages) |
-| `docs.html` | Getting started — install, tokens, contribute |
-| `customize.html` | CSS variable overrides and live theme demos |
-| `layout.html` | Breakpoints, containers, flex row, CSS grid, gutters |
-| `content.html` | Reboot, typography, images, tables, figures |
-| `forms.html` | Form controls, validation, floating labels |
-| `components.html` | Component gallery (alerts → spinners) |
-| `helpers.html` | Clearfix, stacks, ratio, stretched-link, a11y helpers |
+| Page              | What it is                                              |
+| ----------------- | ------------------------------------------------------- |
+| `index.html`      | Thin redirect → `docs.html` (so `/` works on Pages)     |
+| `docs.html`       | Getting started — install, tokens, contribute           |
+| `customize.html`  | CSS variable overrides and live theme demos             |
+| `layout.html`     | Breakpoints, containers, flex row, CSS grid, gutters    |
+| `content.html`    | Reboot, typography, images, tables, figures             |
+| `forms.html`      | Form controls, validation, floating labels              |
+| `components.html` | Component gallery (alerts → spinners)                   |
+| `helpers.html`    | Clearfix, stacks, ratio, stretched-link, a11y helpers   |
 | `animations.html` | Motion utilities (fade, slide, pop, shimmer, durations) |
-| `utilities.html` | Spacing, color, flex, shadows, morph |
+| `utilities.html`  | Spacing, color, flex, shadows, morph                    |
 
 Docs chrome highlights:
 
@@ -176,13 +176,13 @@ https://slurrps-mcgee.github.io/Tactile-Glass/
 
 ## Scripts
 
-| Script | Purpose |
-| --- | --- |
+| Script               | Purpose                                               |
+| -------------------- | ----------------------------------------------------- |
 | `npm run sass:build` | Compile `dist/tactileglass.css` and copy into `docs/` |
-| `npm run sass:watch` | Rebuild docs CSS on Sass changes |
-| `npm run serve` | Vite docs server (opens `/docs.html`) |
-| `npm run build` | Compile + minify |
-| `npm run dev` | Watch + serve |
+| `npm run sass:watch` | Rebuild docs CSS on Sass changes                      |
+| `npm run serve`      | Vite docs server (opens `/docs.html`)                 |
+| `npm run build`      | Compile + minify                                      |
+| `npm run dev`        | Watch + serve                                         |
 
 `dist/` and `docs/tactileglass.css` are gitignored. Run `sass:build` (or `dev`) after a clone. CI builds the CSS for GitHub Pages. The published npm package includes `dist` and `src/scss`.
 

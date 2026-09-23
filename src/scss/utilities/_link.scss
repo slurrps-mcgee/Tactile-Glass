@@ -1,5 +1,5 @@
-@use "../base/mixins" as *;
-@use "sass:map";
+@use '../base/mixins' as *;
+@use 'sass:map';
 
 // Bootstrap 5.3 link utilities
 // https://getbootstrap.com/docs/5.3/utilities/link/
@@ -48,10 +48,7 @@ $tg-link-offsets: (
   .link-underline-#{$name} {
     --tg-link-underline-opacity: 1;
     text-decoration-line: underline !important;
-    text-decoration-color: rgba(
-      var(#{$rgb}),
-      var(--tg-link-underline-opacity, 1)
-    ) !important;
+    text-decoration-color: rgba(var(#{$rgb}), var(--tg-link-underline-opacity, 1)) !important;
   }
 }
 

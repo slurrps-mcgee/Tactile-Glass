@@ -56,9 +56,9 @@ select {
 
 // Reset button styles
 button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
+[type='button'],
+[type='reset'],
+[type='submit'] {
   cursor: pointer;
   -webkit-appearance: none;
   appearance: none;

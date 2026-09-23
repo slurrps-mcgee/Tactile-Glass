@@ -1,6 +1,6 @@
-@use "sass:string";
-@use "sass:map";
-@use "tokens" as *;
+@use 'sass:string';
+@use 'sass:map';
+@use 'tokens' as *;
 
 // Media Up Mixin
 @mixin media-up($bp) {
@@ -43,7 +43,7 @@
 
 @mixin control-disabled {
   &:disabled,
-  &[aria-disabled="true"],
+  &[aria-disabled='true'],
   &.is-disabled {
     opacity: 0.6;
     pointer-events: none;
@@ -52,7 +52,7 @@
 }
 
 @function tg-rgba($token, $alpha) {
-  @return string.unquote("rgba(var(#{$token}), #{$alpha})");
+  @return string.unquote('rgba(var(#{$token}), #{$alpha})');
 }
 
 $tg-breakpoints: (

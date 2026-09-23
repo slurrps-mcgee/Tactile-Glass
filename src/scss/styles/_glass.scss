@@ -25,8 +25,7 @@
   @include glass;
   background: var(--glass-menu-bg, var(--glass-bg));
   backdrop-filter: var(--glass-menu-blur, var(--glass-blur)) saturate(160%);
-  -webkit-backdrop-filter: var(--glass-menu-blur, var(--glass-blur))
-    saturate(160%);
+  -webkit-backdrop-filter: var(--glass-menu-blur, var(--glass-blur)) saturate(160%);
 }
 
 .tg-glass {

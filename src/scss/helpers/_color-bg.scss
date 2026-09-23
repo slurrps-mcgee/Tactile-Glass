@@ -1,5 +1,5 @@
-@use "../base/mixins" as *;
-@use "sass:map";
+@use '../base/mixins' as *;
+@use 'sass:map';
 
 @each $name, $meta in $tg-colors {
   $color: map.get($meta, color);

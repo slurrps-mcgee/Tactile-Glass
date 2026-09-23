@@ -1,4 +1,4 @@
-@use "../base/mixins" as *;
+@use '../base/mixins' as *;
 
 // Bootstrap 5.3 flex utilities (canonical naming)
 
@@ -158,42 +158,42 @@ $tg-align-items: (
 
 $tg-flex-direction: (
   row: row,
-  "row-reverse": row-reverse,
+  'row-reverse': row-reverse,
   column: column,
-  "column-reverse": column-reverse,
+  'column-reverse': column-reverse,
 );
 
 $tg-flex-wrap: (
   wrap: wrap,
   nowrap: nowrap,
-  "wrap-reverse": wrap-reverse,
+  'wrap-reverse': wrap-reverse,
 );
 
 @include tg-infix using ($bp) {
   @each $key, $value in $tg-flex-direction {
-    .#{tg-infix-class("flex", $bp, $key)} {
+    .#{tg-infix-class('flex', $bp, $key)} {
       flex-direction: $value !important;
     }
   }
 
   @each $key, $value in $tg-flex-wrap {
-    .#{tg-infix-class("flex", $bp, $key)} {
+    .#{tg-infix-class('flex', $bp, $key)} {
       flex-wrap: $value !important;
     }
   }
 
   @each $key, $value in $tg-justify-content {
-    .#{tg-infix-class("justify-content", $bp, $key)} {
+    .#{tg-infix-class('justify-content', $bp, $key)} {
       justify-content: $value !important;
     }
   }
 
   @each $key, $value in $tg-align-items {
-    .#{tg-infix-class("align-items", $bp, $key)} {
+    .#{tg-infix-class('align-items', $bp, $key)} {
       align-items: $value !important;
     }
 
-    .#{tg-infix-class("align-self", $bp, $key)} {
+    .#{tg-infix-class('align-self', $bp, $key)} {
       align-self: $value !important;
     }
   }

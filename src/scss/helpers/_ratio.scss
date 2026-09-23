@@ -6,7 +6,7 @@
 .ratio::before {
   display: block;
   padding-top: var(--tg-aspect, 56.25%);
-  content: "";
+  content: '';
 }
 
 .ratio > * {

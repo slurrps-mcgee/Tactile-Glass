@@ -1,7 +1,7 @@
-@use "../base/mixins" as *;
-@use "../styles/neu" as *;
-@use "../styles/glass" as *;
-@use "../styles/hybrid" as *;
+@use '../base/mixins' as *;
+@use '../styles/neu' as *;
+@use '../styles/glass' as *;
+@use '../styles/hybrid' as *;
 
 .tg-sidebar {
   display: flex;
@@ -236,7 +236,7 @@
   &::-webkit-details-marker,
   &::marker {
     display: none;
-    content: "";
+    content: '';
   }
 
   &:focus-visible {
@@ -254,7 +254,7 @@
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     width: 100%;

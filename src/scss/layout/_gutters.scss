@@ -1,4 +1,4 @@
-@use "../base/mixins" as *;
+@use '../base/mixins' as *;
 
 $tg-gutter-steps: 0, 1, 2, 3, 4, 5, 6;
 
@@ -23,16 +23,16 @@ $tg-gutter-steps: 0, 1, 2, 3, 4, 5, 6;
   @each $step in $tg-gutter-steps {
     $val: if($step == 0, 0, tg-space($step));
 
-    .#{tg-infix-class("g", $bp, $step)} {
+    .#{tg-infix-class('g', $bp, $step)} {
       --tg-gutter-x: #{$val};
       --tg-gutter-y: #{$val};
     }
 
-    .#{tg-infix-class("gx", $bp, $step)} {
+    .#{tg-infix-class('gx', $bp, $step)} {
       --tg-gutter-x: #{$val};
     }
 
-    .#{tg-infix-class("gy", $bp, $step)} {
+    .#{tg-infix-class('gy', $bp, $step)} {
       --tg-gutter-y: #{$val};
     }
   }

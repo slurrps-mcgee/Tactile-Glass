@@ -1,0 +1,10 @@
+node_modules
+dist
+coverage
+build
+tmp
+*.tgz
+package-lock.json
+docs/tactileglass.css
+docs/tactileglass.min.css
+docs/**/*.html

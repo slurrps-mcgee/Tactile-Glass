@@ -1,5 +1,5 @@
-@use "../base/mixins" as *;
-@use "sass:map";
+@use '../base/mixins' as *;
+@use 'sass:map';
 
 .link-primary {
   color: var(--tg-link-color) !important;

@@ -1,4 +1,4 @@
-@use "../base/mixins" as *;
+@use '../base/mixins' as *;
 
 .btn-close {
   display: inline-flex;
@@ -17,7 +17,7 @@
   @include interactive-transition;
 
   &::before {
-    content: "";
+    content: '';
     display: block;
     width: 0.85rem;
     height: 0.85rem;

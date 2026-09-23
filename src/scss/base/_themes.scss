@@ -38,15 +38,15 @@ $tg-theme-light: (
   light: #f7f6fa,
   dark: #1a1922,
   white: #ffffff,
-  primary-rgb: "59, 107, 199",
-  secondary-rgb: "94, 92, 107",
-  success-rgb: "42, 143, 133",
-  info-rgb: "45, 122, 148",
-  warning-rgb: "184, 107, 0",
-  danger-rgb: "201, 68, 79",
-  light-rgb: "247, 246, 250",
-  dark-rgb: "26, 25, 34",
-  white-rgb: "255, 255, 255",
+  primary-rgb: '59, 107, 199',
+  secondary-rgb: '94, 92, 107',
+  success-rgb: '42, 143, 133',
+  info-rgb: '45, 122, 148',
+  warning-rgb: '184, 107, 0',
+  danger-rgb: '201, 68, 79',
+  light-rgb: '247, 246, 250',
+  dark-rgb: '26, 25, 34',
+  white-rgb: '255, 255, 255',
 
   // Text Styles — darkened ink for tinted lenses / outlines on light canvas
   primary-text-emphasis: #2a4f94,
@@ -85,41 +85,40 @@ $tg-theme-light: (
   body-line-height: var(--line-height-relaxed),
   font-sans-serif: var(--font-sans),
   font-monospace: var(--font-mono),
-  gradient:
-    "linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0))",
+  gradient: 'linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0))',
   focus-ring-blur: 0,
 
   // Body Styles
   body-color: #4c4b63,
-  body-color-rgb: "76, 75, 99",
+  body-color-rgb: '76, 75, 99',
   body-bg: #c3c3c3,
-  body-bg-rgb: "195, 195, 195",
+  body-bg-rgb: '195, 195, 195',
 
   // Emphasis Styles
   emphasis-color: #1a1922,
-  emphasis-color-rgb: "26, 25, 34",
+  emphasis-color-rgb: '26, 25, 34',
 
   // Secondary Styles
   secondary-color: rgba(76, 75, 99, 0.75),
-  secondary-color-rgb: "76, 75, 99",
+  secondary-color-rgb: '76, 75, 99',
   secondary-bg: #aba8b2,
-  secondary-bg-rgb: "171, 168, 178",
+  secondary-bg-rgb: '171, 168, 178',
 
   // Tertiary Styles
   tertiary-color: rgba(76, 75, 99, 0.5),
-  tertiary-color-rgb: "76, 75, 99",
+  tertiary-color-rgb: '76, 75, 99',
   tertiary-bg: #d8d6e0,
-  tertiary-bg-rgb: "216, 214, 224",
+  tertiary-bg-rgb: '216, 214, 224',
 
   // Heading Styles
   heading-color: #4c4b63,
 
   // Link Styles
   link-color: #5386e4,
-  link-color-rgb: "83, 134, 228",
+  link-color-rgb: '83, 134, 228',
   link-decoration: underline,
   link-hover-color: #2f5cb8,
-  link-hover-color-rgb: "47, 92, 184",
+  link-hover-color-rgb: '47, 92, 184',
 
   // Code Styles
   code-color: #4c4b63,
@@ -142,10 +141,10 @@ $tg-theme-light: (
   border-radius-pill: var(--radius-pill),
   border-subtle: rgba(76, 75, 99, 0.18),
   // Box Shadow Styles
-  box-shadow: "5px 5px 13px #a6a6a6, -5px -5px 13px #e0e0e0",
-  box-shadow-sm: "3px 3px 8px #a6a6a6, -3px -3px 8px #e0e0e0",
-  box-shadow-lg: "8px 8px 18px #a6a6a6, -8px -8px 18px #e0e0e0",
-  box-shadow-inset: "inset 5px 5px 13px #a6a6a6, inset -5px -5px 13px #e0e0e0",
+  box-shadow: '5px 5px 13px #a6a6a6, -5px -5px 13px #e0e0e0',
+  box-shadow-sm: '3px 3px 8px #a6a6a6, -3px -3px 8px #e0e0e0',
+  box-shadow-lg: '8px 8px 18px #a6a6a6, -8px -8px 18px #e0e0e0',
+  box-shadow-inset: 'inset 5px 5px 13px #a6a6a6, inset -5px -5px 13px #e0e0e0',
 
   // Focus Ring Styles
   focus-ring-width: 3px,
@@ -167,15 +166,15 @@ $tg-theme-light: (
   glass-menu-bg: rgba(236, 234, 244, 0.94),
   glass-border: 1px solid rgba(255, 255, 255, 0.3),
   glass-shadow:
-    "0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(255, 255, 255, 0.1), inset 0 0 20px 10px rgba(255, 255, 255, 0.35)",
+    '0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(255, 255, 255, 0.1), inset 0 0 20px 10px rgba(255, 255, 255, 0.35)',
   glass-ripple: rgba(255, 255, 255, 0.55),
   // Hybrid Styles
   hybrid-bg: rgba(255, 255, 255, 0.15),
   hybrid-bg-pressed: rgba(255, 255, 255, 0.08),
   // Neu Styles
-  neu-shadow-drop: "5px 5px 13px #a6a6a6, -5px -5px 13px #e0e0e0",
-  neu-shadow-inset: "inset 5px 5px 13px #a6a6a6, inset -5px -5px 13px #e0e0e0",
-  neu-shadow-lift: "8px 8px 18px #a6a6a6, -8px -8px 18px #e0e0e0",
+  neu-shadow-drop: '5px 5px 13px #a6a6a6, -5px -5px 13px #e0e0e0',
+  neu-shadow-inset: 'inset 5px 5px 13px #a6a6a6, inset -5px -5px 13px #e0e0e0',
+  neu-shadow-lift: '8px 8px 18px #a6a6a6, -8px -8px 18px #e0e0e0',
 
   // Code Styles
   code-bg: rgba(76, 75, 99, 0.08),
@@ -214,14 +213,14 @@ $tg-theme-dark: (
   danger: #f07178,
   light: #f7f6fa,
   dark: #1a1922,
-  primary-rgb: "122, 164, 239",
-  secondary-rgb: "168, 166, 178",
-  success-rgb: "94, 212, 200",
-  info-rgb: "126, 200, 224",
-  warning-rgb: "255, 179, 71",
-  danger-rgb: "240, 113, 120",
-  light-rgb: "247, 246, 250",
-  dark-rgb: "26, 25, 34",
+  primary-rgb: '122, 164, 239',
+  secondary-rgb: '168, 166, 178',
+  success-rgb: '94, 212, 200',
+  info-rgb: '126, 200, 224',
+  warning-rgb: '255, 179, 71',
+  danger-rgb: '240, 113, 120',
+  light-rgb: '247, 246, 250',
+  dark-rgb: '26, 25, 34',
 
   // Emphasis ink — light pastels on tinted dark surfaces
   primary-text-emphasis: #adc6f2,
@@ -253,44 +252,44 @@ $tg-theme-dark: (
 
   // Body Styles
   body-color: #eceaf4,
-  body-color-rgb: "236, 234, 244",
+  body-color-rgb: '236, 234, 244',
   body-bg: #2c2b36,
-  body-bg-rgb: "44, 43, 54",
+  body-bg-rgb: '44, 43, 54',
 
   // Emphasis Styles
   emphasis-color: #ffffff,
-  emphasis-color-rgb: "255, 255, 255",
+  emphasis-color-rgb: '255, 255, 255',
   secondary-color: rgba(236, 234, 244, 0.75),
-  secondary-color-rgb: "236, 234, 244",
+  secondary-color-rgb: '236, 234, 244',
 
   // Secondary Styles
   secondary-bg: #3e3c4c,
-  secondary-bg-rgb: "62, 60, 76",
+  secondary-bg-rgb: '62, 60, 76',
 
   // Tertiary Styles
   tertiary-color: rgba(236, 234, 244, 0.5),
-  tertiary-color-rgb: "236, 234, 244",
+  tertiary-color-rgb: '236, 234, 244',
   tertiary-bg: #241f2c,
-  tertiary-bg-rgb: "36, 31, 44",
+  tertiary-bg-rgb: '36, 31, 44',
 
   // Heading Styles
   heading-color: #eceaf4,
 
   // Link Styles
   link-color: #7aa4ef,
-  link-color-rgb: "122, 164, 239",
+  link-color-rgb: '122, 164, 239',
   link-hover-color: #adc6f2,
-  link-hover-color-rgb: "173, 198, 242",
+  link-hover-color-rgb: '173, 198, 242',
 
   // Highlight Styles
   highlight-color: #eceaf4,
   highlight-bg: #664d03,
 
   // Box Shadow Styles
-  box-shadow: "5px 5px 13px #1a1922, -5px -5px 13px #3e3c4c",
-  box-shadow-sm: "3px 3px 8px #1a1922, -3px -3px 8px #3e3c4c",
-  box-shadow-lg: "8px 8px 18px #1a1922, -8px -8px 18px #3e3c4c",
-  box-shadow-inset: "inset 5px 5px 13px #1a1922, inset -5px -5px 13px #3e3c4c",
+  box-shadow: '5px 5px 13px #1a1922, -5px -5px 13px #3e3c4c',
+  box-shadow-sm: '3px 3px 8px #1a1922, -3px -3px 8px #3e3c4c',
+  box-shadow-lg: '8px 8px 18px #1a1922, -8px -8px 18px #3e3c4c',
+  box-shadow-inset: 'inset 5px 5px 13px #1a1922, inset -5px -5px 13px #3e3c4c',
 
   // Glass Styles
   glass-bg: rgba(255, 255, 255, 0.1),
@@ -299,15 +298,15 @@ $tg-theme-dark: (
   glass-menu-bg: rgba(36, 31, 44, 0.94),
   glass-border: 1px solid rgba(255, 255, 255, 0.2),
   glass-shadow:
-    "0 8px 32px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -1px 0 rgba(255, 255, 255, 0.08), inset 0 0 20px 10px rgba(255, 255, 255, 0.08)",
+    '0 8px 32px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35), inset 0 -1px 0 rgba(255, 255, 255, 0.08), inset 0 0 20px 10px rgba(255, 255, 255, 0.08)',
   glass-ripple: rgba(255, 255, 255, 0.35),
   // Hybrid Styles
   hybrid-bg: rgba(255, 255, 255, 0.1),
   hybrid-bg-pressed: rgba(255, 255, 255, 0.04),
   // Neu Styles
-  neu-shadow-drop: "5px 5px 13px #1a1922, -5px -5px 13px #3e3c4c",
-  neu-shadow-inset: "inset 5px 5px 13px #1a1922, inset -5px -5px 13px #3e3c4c",
-  neu-shadow-lift: "8px 8px 18px #1a1922, -8px -8px 18px #3e3c4c",
+  neu-shadow-drop: '5px 5px 13px #1a1922, -5px -5px 13px #3e3c4c',
+  neu-shadow-inset: 'inset 5px 5px 13px #1a1922, inset -5px -5px 13px #3e3c4c',
+  neu-shadow-lift: '8px 8px 18px #1a1922, -8px -8px 18px #3e3c4c',
 
   // Code Styles
   code-bg: rgba(255, 255, 255, 0.08),
@@ -385,7 +384,7 @@ $tg-theme-dark: (
 // Theme Light
 :root,
 .theme-light,
-[data-theme="light"] {
+[data-theme='light'] {
   color-scheme: light;
   @include tg-emit-vars($tg-theme-light);
   @include tg-emit-aliases;
@@ -393,7 +392,7 @@ $tg-theme-dark: (
 
 // Theme Dark
 .theme-dark,
-[data-theme="dark"] {
+[data-theme='dark'] {
   color-scheme: dark;
   @include tg-emit-vars($tg-theme-dark);
   background-color: var(--tg-body-bg);
@@ -402,7 +401,7 @@ $tg-theme-dark: (
 
 // Theme Light
 .theme-light,
-[data-theme="light"] {
+[data-theme='light'] {
   background-color: var(--tg-body-bg);
   color: var(--tg-body-color);
 }

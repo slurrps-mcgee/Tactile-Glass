@@ -1,8 +1,8 @@
-@use "../base/mixins" as *;
-@use "../styles/neu" as *;
-@use "../styles/glass" as *;
-@use "../styles/hybrid" as *;
-@use "sass:map";
+@use '../base/mixins' as *;
+@use '../styles/neu' as *;
+@use '../styles/glass' as *;
+@use '../styles/hybrid' as *;
+@use 'sass:map';
 
 .tg-btn {
   display: inline-flex;

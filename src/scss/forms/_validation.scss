@@ -1,4 +1,4 @@
-@use "../base/mixins" as *;
+@use '../base/mixins' as *;
 
 @mixin tg-validation-state($color, $rgb) {
   border-color: tg-rgba($rgb, 0.55);
@@ -57,10 +57,7 @@
 .tg-input.is-valid,
 .form-select.is-valid,
 .tg-form-select.is-valid {
-  @include tg-validation-state(
-    var(--tg-form-valid-color, var(--tg-success)),
-    --clr-success-rgb
-  );
+  @include tg-validation-state(var(--tg-form-valid-color, var(--tg-success)), --clr-success-rgb);
 }
 
 .was-validated .form-control:invalid,
@@ -71,10 +68,7 @@
 .tg-input.is-invalid,
 .form-select.is-invalid,
 .tg-form-select.is-invalid {
-  @include tg-validation-state(
-    var(--tg-form-invalid-color, var(--tg-danger)),
-    --clr-danger-rgb
-  );
+  @include tg-validation-state(var(--tg-form-invalid-color, var(--tg-danger)), --clr-danger-rgb);
 }
 
 .was-validated .form-check-input:valid,
@@ -146,9 +140,9 @@
 }
 
 .input-group.has-validation {
-  > :nth-last-child(n + 3):not(.dropdown-menu):not(.select-menu):not(
-      .valid-tooltip
-    ):not(.invalid-tooltip):not(.valid-feedback):not(.invalid-feedback) {
+  > :nth-last-child(n + 3):not(.dropdown-menu):not(.select-menu):not(.valid-tooltip):not(
+      .invalid-tooltip
+    ):not(.valid-feedback):not(.invalid-feedback) {
     border-top-right-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
 

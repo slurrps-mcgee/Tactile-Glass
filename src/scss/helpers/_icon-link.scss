@@ -4,10 +4,7 @@
   display: inline-flex;
   gap: 0.375rem;
   align-items: center;
-  text-decoration-color: rgba(
-    var(--tg-link-color-rgb),
-    var(--tg-link-opacity, 0.5)
-  );
+  text-decoration-color: rgba(var(--tg-link-color-rgb), var(--tg-link-opacity, 0.5));
   text-underline-offset: 0.25em;
   backface-visibility: hidden;
 
